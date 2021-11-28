@@ -7,3 +7,14 @@ int main(int argc, char* argv[]) {
     std::cout << "AED 2021/2022 - Aula Pratica 4" << std::endl;
     return RUN_ALL_TESTS();
 }
+
+
+//     Macaco da Sorte
+//          __
+//     w  c(..)o   (
+//      \__(-)    __)
+//          /\   (
+//         /(_)___)
+//         w /|
+//          | \
+//         m  m
