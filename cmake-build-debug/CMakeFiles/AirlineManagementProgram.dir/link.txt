@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/AirlineManagementProgram.dir/main.cpp.o -o AirlineManagementProgram  lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a -lpthread 
