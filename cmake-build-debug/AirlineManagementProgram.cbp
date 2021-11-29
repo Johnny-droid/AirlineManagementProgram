@@ -328,6 +328,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/Tests/tests.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
 		</Unit>
@@ -341,6 +344,12 @@
 			<Option target="gtest_main"/>
 		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/main.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Airport.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Airport.h">
 			<Option target="AirlineManagementProgram"/>
 		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.cpp">
@@ -359,12 +368,6 @@
 			<Option target="AirlineManagementProgram"/>
 		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Plane.h">
-			<Option target="AirlineManagementProgram"/>
-		</Unit>
-		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.cpp">
-			<Option target="AirlineManagementProgram"/>
-		</Unit>
-		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h">
 			<Option target="AirlineManagementProgram"/>
 		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/CMakeLists.txt">

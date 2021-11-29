@@ -226,6 +226,30 @@ gtest/fast:
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+Tests/tests.o: Tests/tests.cpp.o
+.PHONY : Tests/tests.o
+
+# target to build an object file
+Tests/tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.o
+.PHONY : Tests/tests.cpp.o
+
+Tests/tests.i: Tests/tests.cpp.i
+.PHONY : Tests/tests.i
+
+# target to preprocess a source file
+Tests/tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.i
+.PHONY : Tests/tests.cpp.i
+
+Tests/tests.s: Tests/tests.cpp.s
+.PHONY : Tests/tests.s
+
+# target to generate assembly for a file
+Tests/tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.s
+.PHONY : Tests/tests.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -249,6 +273,30 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+src/Airport.o: src/Airport.cpp.o
+.PHONY : src/Airport.o
+
+# target to build an object file
+src/Airport.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.o
+.PHONY : src/Airport.cpp.o
+
+src/Airport.i: src/Airport.cpp.i
+.PHONY : src/Airport.i
+
+# target to preprocess a source file
+src/Airport.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.i
+.PHONY : src/Airport.cpp.i
+
+src/Airport.s: src/Airport.cpp.s
+.PHONY : src/Airport.s
+
+# target to generate assembly for a file
+src/Airport.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.s
+.PHONY : src/Airport.cpp.s
 
 src/Flight.o: src/Flight.cpp.o
 .PHONY : src/Flight.o
@@ -322,30 +370,6 @@ src/Plane.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.s
 .PHONY : src/Plane.cpp.s
 
-src/Ticket.o: src/Ticket.cpp.o
-.PHONY : src/Ticket.o
-
-# target to build an object file
-src/Ticket.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o
-.PHONY : src/Ticket.cpp.o
-
-src/Ticket.i: src/Ticket.cpp.i
-.PHONY : src/Ticket.i
-
-# target to preprocess a source file
-src/Ticket.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.i
-.PHONY : src/Ticket.cpp.i
-
-src/Ticket.s: src/Ticket.cpp.s
-.PHONY : src/Ticket.s
-
-# target to generate assembly for a file
-src/Ticket.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.s
-.PHONY : src/Ticket.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -363,9 +387,15 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... Tests/tests.o"
+	@echo "... Tests/tests.i"
+	@echo "... Tests/tests.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/Airport.o"
+	@echo "... src/Airport.i"
+	@echo "... src/Airport.s"
 	@echo "... src/Flight.o"
 	@echo "... src/Flight.i"
 	@echo "... src/Flight.s"
@@ -375,9 +405,6 @@ help:
 	@echo "... src/Plane.o"
 	@echo "... src/Plane.i"
 	@echo "... src/Plane.s"
-	@echo "... src/Ticket.o"
-	@echo "... src/Ticket.i"
-	@echo "... src/Ticket.s"
 .PHONY : help
 
 

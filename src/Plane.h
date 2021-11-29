@@ -6,6 +6,7 @@
 #include <queue>
 #include "Flight.h"
 
+
 using namespace std;
 
 class Plane {
@@ -15,9 +16,11 @@ class Plane {
     // queue<Service> services; //Maybe we could separate in 2 queues.
     // One with services already completed and another with services that are scheduled.
 public:
-
-
-
+    Plane(string licensePlate, int capacity);
+    Plane(string licensePlate, int capacity, vector<Flight> flightPlan);
+    string getLicensePlate();
+    int getCapacity();
+    vector<Flight> getFlightPlan();
 
 };
 
