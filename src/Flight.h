@@ -18,7 +18,6 @@ public:
     int getDuration();
     Airport* getOrigin();
     Airport* getDestiny();
-
 };
 
 

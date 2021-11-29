@@ -4,11 +4,6 @@ CMake Error at CMakeLists.txt:6 (add_subdirectory):
   existing directory.
 
 
-CMake Error: File C:/clion-projetos/Airplanes/AirlineManagementProgram/docs/Doxyfile does not exist.
-CMake Error at CMakeLists.txt:23 (configure_file):
-  configure_file Problem configuring file
-
-
 Doxygen build started
 -- Configuring incomplete, errors occurred!
 See also "C:/clion-projetos/Airplanes/AirlineManagementProgram/cmake-build-debug/CMakeFiles/CMakeOutput.log".
