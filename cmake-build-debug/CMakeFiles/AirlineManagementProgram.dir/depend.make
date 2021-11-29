@@ -38,3 +38,17 @@ CMakeFiles/AirlineManagementProgram.dir/main.cpp.o: \
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h \
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h \
  ../main.cpp
+CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.o: \
+ ../src/Flight.cpp \
+ ../src/Flight.h
+CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.o: \
+ ../src/Passenger.cpp \
+ ../src/Passenger.h \
+ ../src/Ticket.h
+CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.o: \
+ ../src/Flight.h \
+ ../src/Plane.cpp \
+ ../src/Plane.h
+CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o: \
+ ../src/Ticket.cpp \
+ ../src/Ticket.h

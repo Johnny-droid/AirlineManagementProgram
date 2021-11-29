@@ -250,6 +250,102 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/Flight.o: src/Flight.cpp.o
+.PHONY : src/Flight.o
+
+# target to build an object file
+src/Flight.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.o
+.PHONY : src/Flight.cpp.o
+
+src/Flight.i: src/Flight.cpp.i
+.PHONY : src/Flight.i
+
+# target to preprocess a source file
+src/Flight.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.i
+.PHONY : src/Flight.cpp.i
+
+src/Flight.s: src/Flight.cpp.s
+.PHONY : src/Flight.s
+
+# target to generate assembly for a file
+src/Flight.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.s
+.PHONY : src/Flight.cpp.s
+
+src/Passenger.o: src/Passenger.cpp.o
+.PHONY : src/Passenger.o
+
+# target to build an object file
+src/Passenger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.o
+.PHONY : src/Passenger.cpp.o
+
+src/Passenger.i: src/Passenger.cpp.i
+.PHONY : src/Passenger.i
+
+# target to preprocess a source file
+src/Passenger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.i
+.PHONY : src/Passenger.cpp.i
+
+src/Passenger.s: src/Passenger.cpp.s
+.PHONY : src/Passenger.s
+
+# target to generate assembly for a file
+src/Passenger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.s
+.PHONY : src/Passenger.cpp.s
+
+src/Plane.o: src/Plane.cpp.o
+.PHONY : src/Plane.o
+
+# target to build an object file
+src/Plane.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.o
+.PHONY : src/Plane.cpp.o
+
+src/Plane.i: src/Plane.cpp.i
+.PHONY : src/Plane.i
+
+# target to preprocess a source file
+src/Plane.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.i
+.PHONY : src/Plane.cpp.i
+
+src/Plane.s: src/Plane.cpp.s
+.PHONY : src/Plane.s
+
+# target to generate assembly for a file
+src/Plane.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.s
+.PHONY : src/Plane.cpp.s
+
+src/Ticket.o: src/Ticket.cpp.o
+.PHONY : src/Ticket.o
+
+# target to build an object file
+src/Ticket.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o
+.PHONY : src/Ticket.cpp.o
+
+src/Ticket.i: src/Ticket.cpp.i
+.PHONY : src/Ticket.i
+
+# target to preprocess a source file
+src/Ticket.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.i
+.PHONY : src/Ticket.cpp.i
+
+src/Ticket.s: src/Ticket.cpp.s
+.PHONY : src/Ticket.s
+
+# target to generate assembly for a file
+src/Ticket.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.s
+.PHONY : src/Ticket.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -270,6 +366,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/Flight.o"
+	@echo "... src/Flight.i"
+	@echo "... src/Flight.s"
+	@echo "... src/Passenger.o"
+	@echo "... src/Passenger.i"
+	@echo "... src/Passenger.s"
+	@echo "... src/Plane.o"
+	@echo "... src/Plane.i"
+	@echo "... src/Plane.s"
+	@echo "... src/Ticket.o"
+	@echo "... src/Ticket.i"
+	@echo "... src/Ticket.s"
 .PHONY : help
 
 

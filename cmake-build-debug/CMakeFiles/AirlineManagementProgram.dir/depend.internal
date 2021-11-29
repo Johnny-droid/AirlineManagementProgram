@@ -38,3 +38,17 @@ CMakeFiles/AirlineManagementProgram.dir/main.cpp.o
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
  /home/johnny/CLionProjects/AirlineManagementProgram/main.cpp
+CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.o
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.cpp
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.h
+CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.o
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.cpp
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h
+CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.o
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Plane.cpp
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Plane.h
+CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.cpp
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h

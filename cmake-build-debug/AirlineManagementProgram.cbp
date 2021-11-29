@@ -343,6 +343,30 @@
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/main.cpp">
 			<Option target="AirlineManagementProgram"/>
 		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.h">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.h">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Plane.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Plane.h">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
