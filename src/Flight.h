@@ -9,10 +9,12 @@ using namespace std;
 class Flight {
     int number;
     int duration;
+    string dateDeparture;
     Airport* origin;
     Airport* destiny;
-    //date of flight;
+    //We can add the tickets here maybe?
 public:
+    Flight() {};
     Flight(int number, int duration, Airport* origin, Airport* destiny);
     int getNumber();
     int getDuration();

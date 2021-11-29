@@ -89,4 +89,8 @@ CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.o: \
  ../src/Airport.h \
  ../src/Flight.h \
  ../src/Plane.cpp \
- ../src/Plane.h
+ ../src/Plane.h \
+ ../src/Service.h
+CMakeFiles/AirlineManagementProgram.dir/src/Service.cpp.o: \
+ ../src/Service.cpp \
+ ../src/Service.h

@@ -5,7 +5,7 @@
 #include <vector>
 #include <queue>
 #include "Flight.h"
-
+#include "Service.h"
 
 using namespace std;
 
@@ -13,15 +13,16 @@ class Plane {
     string licensePlate;
     int capacity;
     vector<Flight> flightPlan;
-    // queue<Service> services; //Maybe we could separate in 2 queues.
-    // One with services already completed and another with services that are scheduled.
+    queue<Service> servicesToBeDone;
+    queue<Service> servicesCompleted;
 public:
     Plane(string licensePlate, int capacity);
     Plane(string licensePlate, int capacity, vector<Flight> flightPlan);
     string getLicensePlate();
     int getCapacity();
     vector<Flight> getFlightPlan();
-
+    queue<Service> getServicesToBeDone();
+    queue<Service> getServicesCompleted();
 };
 
 

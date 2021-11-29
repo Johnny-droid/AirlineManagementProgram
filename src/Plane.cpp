@@ -25,3 +25,11 @@ int Plane::getCapacity() {
 vector<Flight> Plane::getFlightPlan() {
     return flightPlan;
 }
+
+queue<Service> Plane::getServicesToBeDone() {
+    return servicesToBeDone;
+}
+
+queue<Service> Plane::getServicesCompleted() {
+    return servicesCompleted;
+}
