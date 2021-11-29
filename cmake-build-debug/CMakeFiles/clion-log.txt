@@ -1,4 +1,14 @@
-/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/johnny/CLionProjects/AirlineManagementProgram
--- Configuring done
--- Generating done
--- Build files have been written to: /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug
+C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\clion-projetos\Airplanes\AirlineManagementProgram
+CMake Error at CMakeLists.txt:6 (add_subdirectory):
+  add_subdirectory given source "lib/googletest-master" which is not an
+  existing directory.
+
+
+CMake Error: File C:/clion-projetos/Airplanes/AirlineManagementProgram/docs/Doxyfile does not exist.
+CMake Error at CMakeLists.txt:23 (configure_file):
+  configure_file Problem configuring file
+
+
+Doxygen build started
+-- Configuring incomplete, errors occurred!
+See also "C:/clion-projetos/Airplanes/AirlineManagementProgram/cmake-build-debug/CMakeFiles/CMakeOutput.log".

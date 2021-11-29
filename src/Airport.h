@@ -10,6 +10,7 @@ class Airport {
     //Binary Tree needs to be implemented
 public:
     Airport(string name) {this->name = name;}
+
     string getName();
 };
 
