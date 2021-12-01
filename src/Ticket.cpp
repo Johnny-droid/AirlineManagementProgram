@@ -1,9 +1,9 @@
 #include "Ticket.h"
 
-Ticket::Ticket(int baggage, int price, Flight flight) {
+Ticket::Ticket(int baggage, int price, Passenger* passenger) {
     this->baggage = baggage;
     this->price = price;
-    this->flight = flight;
+    this->passenger = passenger;
 }
 
 

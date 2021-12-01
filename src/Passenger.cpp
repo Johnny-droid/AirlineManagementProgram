@@ -1,14 +1,7 @@
 #include "Passenger.h"
 
-Passenger::Passenger(string name, int baggage) {
+Passenger::Passenger(int id, string name, int age) {
     this->name = name;
-    this->baggage = baggage;
-}
-
-string Passenger::getName() {
-    return name;
-}
-
-int Passenger::getBaggage() {
-    return baggage;
+    this->id = id;
+    this->age = age;
 }

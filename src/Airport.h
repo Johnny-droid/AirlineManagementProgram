@@ -8,6 +8,7 @@ using namespace std;
 class Airport {
     string name;
     //Binary Tree needs to be implemented
+    // Transportation near the airport
 public:
     Airport(string name) {this->name = name;}
 

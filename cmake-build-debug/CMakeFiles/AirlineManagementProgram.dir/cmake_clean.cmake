@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/AirlineManagementProgram.dir/main.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.o"
+  "CMakeFiles/AirlineManagementProgram.dir/src/LocalTransport.cpp.o"
+  "CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Service.cpp.o"

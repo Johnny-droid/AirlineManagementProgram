@@ -2,7 +2,9 @@
 #define AIRLINEMANAGEMENTPROGRAM_FLIGHT_H
 
 #include <string>
+#include <vector>
 #include "Airport.h"
+#include "Ticket.h"
 
 using namespace std;
 
@@ -12,10 +14,11 @@ class Flight {
     string dateDeparture;
     Airport* origin;
     Airport* destiny;
-    //We can add the tickets here maybe?
+    vector<Ticket> tickets;
+
 public:
     Flight() {};
-    Flight(int number, int duration, Airport* origin, Airport* destiny);
+    Flight(int number, int duration, Airport* origin, Airport* destiny, vector<Ticket> tickets);
     int getNumber();
     int getDuration();
     Airport* getOrigin();

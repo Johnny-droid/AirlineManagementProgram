@@ -1,11 +1,21 @@
 #include <iostream>
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
+#include <fstream>
+#include "src/Menu.h"
+
+using namespace std;
 
 int main(int argc, char* argv[]) {
+    string directory = "../DataFiles/";
+    Menu menu(directory);
+    menu.run();
+
+    /*
     testing::InitGoogleTest(&argc, argv);
-    std::cout << "AED 2021/2022 - Aula Pratica 4" << std::endl;
+    std::cout << "Airline Management Project" << std::endl;
     return RUN_ALL_TESTS();
+     */
 }
 
 

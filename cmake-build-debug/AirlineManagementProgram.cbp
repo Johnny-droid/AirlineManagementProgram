@@ -368,6 +368,18 @@
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.h">
 			<Option target="AirlineManagementProgram"/>
 		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/LocalTransport.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/LocalTransport.h">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Menu.cpp">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Menu.h">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.cpp">
 			<Option target="AirlineManagementProgram"/>
 		</Unit>

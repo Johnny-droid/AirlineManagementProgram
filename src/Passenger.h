@@ -6,12 +6,13 @@
 using namespace std;
 
 class Passenger {
+    int id;
     string name;
-    int baggage; //talvez adicionar mais atributos como informações pessoais
+    int age;
 public:
-    Passenger(string name, int baggage);
-    string getName();
-    int getBaggage();
+    Passenger(int id, string name, int age);
+    string getName() {return name;};
+    int getAge() {return age;};
 };
 
 
