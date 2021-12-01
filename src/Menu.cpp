@@ -8,7 +8,7 @@ void Menu::run() {
     int option;
     do {
         showMenu();
-        option = readInput();
+        option = readInputMenu();
 
         //makes switch clauses
         //read();
@@ -27,7 +27,7 @@ void Menu::showMenu() {
     cout << "     0) Exit        " << endl;
 }
 
-int Menu::readInput() {
+int Menu::readInputMenu() {
     // gets the option number
     int chosenOption;
     do {

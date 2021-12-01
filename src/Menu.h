@@ -18,7 +18,7 @@ public:
     Menu(string testDirectory) {initializePassengers(testDirectory); initializeAirports(testDirectory); initializePlanes(testDirectory);};
     static void run();
     static void showMenu();
-    static int readInput();
+    static int readInputMenu();
     static void read();
 
 private:
