@@ -11,7 +11,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.21.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.21.1/CMakeSystem.cmake"
-  "../docs/Doxyfile"
   "../lib/googletest-master/CMakeLists.txt"
   "../lib/googletest-master/googlemock/CMakeLists.txt"
   "../lib/googletest-master/googlemock/cmake/gmock.pc.in"
@@ -41,7 +40,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake"
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake"
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake"
-  "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindDoxygen.cmake"
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake"
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake"
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPython.cmake"
@@ -66,7 +64,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "Doxyfile"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/googletest-master/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/googletest-master/googletest/generated/gmock.pc"
@@ -82,7 +79,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/AirlineManagementProgram.dir/DependInfo.cmake"
-  "CMakeFiles/Doxygen.dir/DependInfo.cmake"
   "lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "lib/googletest-master/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"

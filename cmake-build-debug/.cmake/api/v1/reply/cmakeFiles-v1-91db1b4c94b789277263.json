@@ -137,24 +137,6 @@
 			"path" : "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindDoxygen.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake"
-		},
-		{
-			"path" : "docs/Doxyfile"
-		},
-		{
 			"path" : "lib/googletest-master/CMakeLists.txt"
 		},
 		{

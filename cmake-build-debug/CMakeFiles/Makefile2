@@ -64,7 +64,6 @@ CMAKE_BINARY_DIR = /home/johnny/CLionProjects/AirlineManagementProgram/cmake-bui
 
 # The main recursive "all" target.
 all: CMakeFiles/AirlineManagementProgram.dir/all
-all: CMakeFiles/Doxygen.dir/all
 all: lib/googletest-master/all
 .PHONY : all
 
@@ -74,7 +73,6 @@ preinstall: lib/googletest-master/preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/AirlineManagementProgram.dir/clean
-clean: CMakeFiles/Doxygen.dir/clean
 clean: lib/googletest-master/clean
 .PHONY : clean
 
@@ -157,32 +155,6 @@ CMakeFiles/AirlineManagementProgram.dir/clean:
 .PHONY : CMakeFiles/AirlineManagementProgram.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Doxygen.dir
-
-# All Build rule for target.
-CMakeFiles/Doxygen.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doxygen.dir/build.make CMakeFiles/Doxygen.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doxygen.dir/build.make CMakeFiles/Doxygen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=12 "Built target Doxygen"
-.PHONY : CMakeFiles/Doxygen.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Doxygen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Doxygen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Doxygen.dir/rule
-
-# Convenience name for target.
-Doxygen: CMakeFiles/Doxygen.dir/rule
-.PHONY : Doxygen
-
-# clean rule for target.
-CMakeFiles/Doxygen.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doxygen.dir/build.make CMakeFiles/Doxygen.dir/clean
-.PHONY : CMakeFiles/Doxygen.dir/clean
-
-#=============================================================================
 # Target rules for target lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
@@ -190,7 +162,7 @@ lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all: lib/googletest-m
 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=15,16 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=14,15 "Built target gmock_main"
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -216,7 +188,7 @@ lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/clean:
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=13,14 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=12,13 "Built target gmock"
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -242,7 +214,7 @@ lib/googletest-master/googlemock/CMakeFiles/gmock.dir/clean:
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=19,20 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=18,19 "Built target gtest_main"
 .PHONY : lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -268,7 +240,7 @@ lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/clean:
 lib/googletest-master/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=17,18 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles --progress-num=16,17 "Built target gtest"
 .PHONY : lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.

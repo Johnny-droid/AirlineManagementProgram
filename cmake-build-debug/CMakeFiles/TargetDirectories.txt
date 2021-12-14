@@ -1,11 +1,10 @@
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/install/strip.dir
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/install/local.dir
-/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/install.dir
-/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/list_install_components.dir
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir
-/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/Doxygen.dir
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/install.dir
+/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/list_install_components.dir
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/lib/googletest-master/CMakeFiles/install/strip.dir
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/lib/googletest-master/CMakeFiles/install/local.dir
 /home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/lib/googletest-master/CMakeFiles/edit_cache.dir
