@@ -12,10 +12,9 @@ class Ticket {
 
 public:
     Ticket(int baggage, int price, Passenger* passenger);
-    int getBaggage() {return baggage;};
-    int getPrice() {return price;};
-    Passenger getPassenger() {return *passenger;};
-
+    int getBaggage();
+    int getPrice();
+    Passenger getPassenger();
 };
 
 #endif //AIRLINEMANAGEMENTPROGRAM_TICKET_H

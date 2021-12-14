@@ -6,10 +6,14 @@
 using namespace std;
 
 class Service {
-public:
     string typeOfService;
     string date;
     string worker;
+public:
+    Service(string typeOfService, string date, string worker);
+    string getTypeOfService();
+    string getDate();
+    string getWorker();
 };
 
 

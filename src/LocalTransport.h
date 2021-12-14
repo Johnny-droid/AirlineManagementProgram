@@ -12,9 +12,9 @@ class LocalTransport {
 
 public:
     LocalTransport(string typeTransport, string times, int distanceToAirport);
-    string getTypeTransport() {return typeTransport;};
-    string getTimes() {return times;};
-    int getDistanceToAirport() {return distanceToAirport;};
+    string getTypeTransport();
+    string getTimes();
+    int getDistanceToAirport();
 };
 
 

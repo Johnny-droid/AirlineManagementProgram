@@ -11,8 +11,9 @@ class Passenger {
     int age;
 public:
     Passenger(int id, string name, int age);
-    string getName() {return name;};
-    int getAge() {return age;};
+    int getId();
+    string getName();
+    int getAge();
 };
 
 
