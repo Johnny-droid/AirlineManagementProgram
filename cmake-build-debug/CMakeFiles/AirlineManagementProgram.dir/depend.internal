@@ -39,6 +39,9 @@ CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.o
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
  /home/johnny/CLionProjects/AirlineManagementProgram/Tests/tests.cpp
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Airport.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h
 CMakeFiles/AirlineManagementProgram.dir/main.cpp.o
  ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h
  ../lib/googletest-master/googlemock/include/gmock/gmock-cardinalities.h

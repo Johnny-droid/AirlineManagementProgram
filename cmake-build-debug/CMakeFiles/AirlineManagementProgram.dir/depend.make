@@ -38,7 +38,10 @@ CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.o: \
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h \
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h \
  ../Tests/tests.cpp \
- ../src/Airport.h
+ ../src/Airport.h \
+ ../src/Flight.h \
+ ../src/Passenger.h \
+ ../src/Ticket.h
 CMakeFiles/AirlineManagementProgram.dir/main.cpp.o: \
  ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h \
  ../lib/googletest-master/googlemock/include/gmock/gmock-cardinalities.h \

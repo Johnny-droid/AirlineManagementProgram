@@ -79,7 +79,24 @@ vector<Airport> Menu::initializeAirports(string testDirectory) {
 }
 
 vector<Passenger> Menu::initializePassengers(string testDirectory) {
+    ifstream filePassengers;
+    string line;
     vector<Passenger> passengersVector;
+
+    filePassengers.open(testDirectory + "Passengers.txt");
+
+    if (!filePassengers.is_open()) {
+        throw runtime_error("File of Passengers was not found");
+    } else {
+        while(getline(filePassengers, line)) {
+            if (line.empty()) continue;
+            Passenger passenger(line);
+            passengersVector.push_back(passenger);
+        }
+        cout << endl;
+    }
+
+    filePassengers.close();
 
     return passengersVector;
 }
