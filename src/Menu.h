@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <fstream>
 #include "Airport.h"
 #include "Plane.h"
 #include "Passenger.h"
@@ -20,6 +22,7 @@ public:
     static void showMenu();
     static int readInputMenu();
     static void read();
+    static vector<string> split(string s); //public only for tests
 
 private:
     vector<Airport> initializeAirports(string testDirectory);

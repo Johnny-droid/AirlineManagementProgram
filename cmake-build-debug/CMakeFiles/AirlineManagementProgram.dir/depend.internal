@@ -40,7 +40,11 @@ CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.o
  /home/johnny/CLionProjects/AirlineManagementProgram/Tests/tests.cpp
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Airport.h
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/LocalTransport.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Menu.h
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Plane.h
+ /home/johnny/CLionProjects/AirlineManagementProgram/src/Service.h
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h
 CMakeFiles/AirlineManagementProgram.dir/main.cpp.o
  ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h

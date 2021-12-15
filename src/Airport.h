@@ -11,7 +11,7 @@ class Airport {
     //Binary Tree needs to be implemented
     // Transportation near the airport
 public:
-    Airport(string fileString);
+    Airport(int id, string name);
     int getID();
     string getName();
 };

@@ -10,7 +10,6 @@ class Passenger {
     string name;
     int age;
 public:
-    Passenger(string fileString);
     Passenger(int id, string name, int age);
     int getId();
     string getName();

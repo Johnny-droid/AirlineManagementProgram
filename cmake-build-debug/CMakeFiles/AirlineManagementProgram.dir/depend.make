@@ -40,7 +40,11 @@ CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.o: \
  ../Tests/tests.cpp \
  ../src/Airport.h \
  ../src/Flight.h \
+ ../src/LocalTransport.h \
+ ../src/Menu.h \
  ../src/Passenger.h \
+ ../src/Plane.h \
+ ../src/Service.h \
  ../src/Ticket.h
 CMakeFiles/AirlineManagementProgram.dir/main.cpp.o: \
  ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h \

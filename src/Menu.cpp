@@ -1,6 +1,5 @@
 #include "Menu.h"
-#include <iostream>
-#include <fstream>
+
 
 using namespace std;
 
@@ -55,6 +54,23 @@ void Menu::read() {
 
 }
 
+vector<string> Menu::split(string s) {
+    vector<string> v;
+
+    while (s.length() != 0) {
+        int pos = s.find_first_of(",");
+        if (pos == s.npos) {
+            v.push_back(s);
+            break;
+        }
+        string subStr = s.substr(0, pos);
+        v.push_back(subStr);
+        s = s.substr(pos + 1);
+    }
+
+    return v;
+}
+
 vector<Airport> Menu::initializeAirports(string testDirectory) {
     //Initialize the airports from the files
     ifstream fileAirport;
@@ -68,7 +84,8 @@ vector<Airport> Menu::initializeAirports(string testDirectory) {
     } else {
         while(getline(fileAirport, line)) {
             if (line.empty()) continue;
-            Airport airport(line);
+            vector<string> elements = split(line);
+            Airport airport(stoi(elements[0]), elements[1]);
             airportsVector.push_back(airport);
         }
         cout << endl;
@@ -90,7 +107,8 @@ vector<Passenger> Menu::initializePassengers(string testDirectory) {
     } else {
         while(getline(filePassengers, line)) {
             if (line.empty()) continue;
-            Passenger passenger(line);
+            vector<string> elements = split(line);
+            Passenger passenger(stoi(elements[0]), elements[1], stoi(elements[2]));
             passengersVector.push_back(passenger);
         }
         cout << endl;
@@ -104,8 +122,11 @@ vector<Passenger> Menu::initializePassengers(string testDirectory) {
 vector<Plane> Menu::initializePlanes(string testDirectory) {
     vector<Plane> planesVector;
 
+
+
     return planesVector;
 }
+
 
 
 
