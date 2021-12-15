@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libgmock_maind.a"
+			"path" : "lib/libgtest_maind.a"
 		}
 	],
 	"backtrace" : 3,
@@ -23,7 +23,7 @@
 		"files" : 
 		[
 			"lib/googletest-master/googletest/cmake/internal_utils.cmake",
-			"lib/googletest-master/googlemock/CMakeLists.txt"
+			"lib/googletest-master/googletest/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -33,7 +33,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 100,
+				"line" : 128,
 				"parent" : 0
 			},
 			{
@@ -51,7 +51,7 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 119,
+				"line" : 146,
 				"parent" : 0
 			},
 			{
@@ -63,13 +63,13 @@
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 101,
+				"line" : 141,
 				"parent" : 0
 			},
 			{
 				"command" : 6,
 				"file" : 1,
-				"line" : 75,
+				"line" : 116,
 				"parent" : 0
 			},
 			{
@@ -89,7 +89,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
+					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
 				},
 				{
 					"fragment" : "-std=c++17"
@@ -100,22 +100,12 @@
 				{
 					"backtrace" : 7,
 					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googlemock/include"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googletest/include"
 				},
 				{
 					"backtrace" : 7,
 					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googlemock"
-				},
-				{
-					"backtrace" : 7,
-					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googletest/include"
-				},
-				{
-					"backtrace" : 7,
-					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googletest"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googletest"
 				}
 			],
 			"language" : "CXX",
@@ -137,14 +127,10 @@
 	[
 		{
 			"backtrace" : 6,
-			"id" : "gmock::@7e3384afdb8f59c86a5a"
-		},
-		{
-			"backtrace" : 6,
 			"id" : "gtest::@ccedbc95f081fc42d06b"
 		}
 	],
-	"id" : "gmock_main::@7e3384afdb8f59c86a5a",
+	"id" : "gtest_main::@ccedbc95f081fc42d06b",
 	"install" : 
 	{
 		"destinations" : 
@@ -156,15 +142,15 @@
 		],
 		"prefix" : 
 		{
-			"path" : "/usr/local"
+			"path" : "C:/Program Files (x86)/AirlineManagementProgram"
 		}
 	},
-	"name" : "gmock_main",
-	"nameOnDisk" : "libgmock_maind.a",
+	"name" : "gtest_main",
+	"nameOnDisk" : "libgtest_maind.a",
 	"paths" : 
 	{
-		"build" : "lib/googletest-master/googlemock",
-		"source" : "lib/googletest-master/googlemock"
+		"build" : "lib/googletest-master/googletest",
+		"source" : "lib/googletest-master/googletest"
 	},
 	"sourceGroups" : 
 	[
@@ -181,7 +167,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "lib/googletest-master/googlemock/src/gmock_main.cc",
+			"path" : "lib/googletest-master/googletest/src/gtest_main.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

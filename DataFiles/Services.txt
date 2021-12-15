@@ -1,3 +1,4 @@
 A310,maintenance,02-04-1970,Jose Almeida
 B4208,cleaning,31-07-1820,Tomas Teixeira
 B737,cleaning,11-11-1811,Marcelo Rebelo de Sousa
+C654,maintenance,12-04-2002,

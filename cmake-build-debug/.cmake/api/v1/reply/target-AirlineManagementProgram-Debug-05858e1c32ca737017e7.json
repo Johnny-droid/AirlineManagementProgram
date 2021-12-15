@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "AirlineManagementProgram"
+			"path" : "AirlineManagementProgram.exe"
+		},
+		{
+			"path" : "AirlineManagementProgram.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -65,17 +68,17 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googlemock/include"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googlemock/include"
 				},
 				{
 					"backtrace" : 4,
 					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googletest/include"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googletest/include"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googletest"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googletest"
 				}
 			],
 			"language" : "CXX",
@@ -128,28 +131,28 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "lib/libgtestd.a",
+				"fragment" : "lib\\libgtestd.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "lib/libgtest_maind.a",
+				"fragment" : "lib\\libgtest_maind.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "lib/libgtestd.a",
+				"fragment" : "lib\\libgtestd.a",
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "-lpthread",
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "AirlineManagementProgram",
-	"nameOnDisk" : "AirlineManagementProgram",
+	"nameOnDisk" : "AirlineManagementProgram.exe",
 	"paths" : 
 	{
 		"build" : ".",

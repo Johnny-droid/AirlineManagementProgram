@@ -1,0 +1,1 @@
+-isystem C:/clion-projetos/Airplanes/lib/googletest-master/googlemock/include -isystem C:/clion-projetos/Airplanes/lib/googletest-master/googlemock -isystem C:/clion-projetos/Airplanes/lib/googletest-master/googletest/include -isystem C:/clion-projetos/Airplanes/lib/googletest-master/googletest

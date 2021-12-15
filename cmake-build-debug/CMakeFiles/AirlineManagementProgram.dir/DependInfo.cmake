@@ -8,16 +8,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/johnny/CLionProjects/AirlineManagementProgram/Tests/tests.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/main.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/main.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/Airport.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/Flight.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/LocalTransport.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/LocalTransport.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/Menu.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/Plane.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/Service.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Service.cpp.o"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.cpp" "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o"
+  "C:/clion-projetos/Airplanes/Tests/tests.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/Tests/tests.cpp.obj"
+  "C:/clion-projetos/Airplanes/main.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/main.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/Airport.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/Flight.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/LocalTransport.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/LocalTransport.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/Menu.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/Passenger.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Passenger.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/Plane.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/Service.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Service.cpp.obj"
+  "C:/clion-projetos/Airplanes/src/Ticket.cpp" "C:/clion-projetos/Airplanes/cmake-build-debug/CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -34,8 +34,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "C:/clion-projetos/Airplanes/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "C:/clion-projetos/Airplanes/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

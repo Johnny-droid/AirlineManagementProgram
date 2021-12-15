@@ -3,3 +3,4 @@
 3,Rui Carvalho,28
 5,Ana Campos,217
 6,Pablo Escobar,72
+7,Manuel Firmino,102

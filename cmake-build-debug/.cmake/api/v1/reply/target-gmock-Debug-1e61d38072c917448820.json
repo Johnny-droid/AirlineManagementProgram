@@ -89,7 +89,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
+					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
 				},
 				{
 					"fragment" : "-std=c++17"
@@ -99,21 +99,21 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googlemock/include"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googlemock/include"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googlemock"
-				},
-				{
-					"backtrace" : 7,
-					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googletest/include"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googlemock"
 				},
 				{
 					"backtrace" : 7,
 					"isSystem" : true,
-					"path" : "/home/johnny/CLionProjects/AirlineManagementProgram/lib/googletest-master/googletest"
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googletest/include"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "C:/clion-projetos/Airplanes/lib/googletest-master/googletest"
 				}
 			],
 			"language" : "CXX",
@@ -150,7 +150,7 @@
 		],
 		"prefix" : 
 		{
-			"path" : "/usr/local"
+			"path" : "C:/Program Files (x86)/AirlineManagementProgram"
 		}
 	},
 	"name" : "gmock",
