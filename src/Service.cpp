@@ -1,9 +1,5 @@
 #include "Service.h"
 
-Service::Service(string fileString) {
-
-}
-
 Service::Service(string typeOfService, string date, string worker){
     this->typeOfService = typeOfService;
     this->date = date;

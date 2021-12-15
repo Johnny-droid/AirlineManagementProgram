@@ -25,6 +25,10 @@ Airport *Flight::getDestiny() {
     return destiny;
 }
 
+vector<Ticket> Flight::getTickets() {
+    return tickets;
+}
+
 
 
 

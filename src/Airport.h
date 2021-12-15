@@ -12,7 +12,7 @@ class Airport {
     // Transportation near the airport
 public:
     Airport(int id, string name);
-    int getID();
+    int getId();
     string getName();
 };
 

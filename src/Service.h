@@ -10,7 +10,6 @@ class Service {
     string date;
     string worker;
 public:
-    Service(string fileString);
     Service(string typeOfService, string date, string worker);
     string getTypeOfService();
     string getDate();

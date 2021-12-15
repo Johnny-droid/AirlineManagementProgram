@@ -16,8 +16,7 @@ class Plane {
     queue<Service> servicesToBeDone;
     queue<Service> servicesCompleted;
 public:
-    Plane(string licensePlate, int capacity);
-    Plane(string licensePlate, int capacity, vector<Flight> flightPlan);
+    Plane(string licensePlate, int capacity, vector<Flight> flightPlan, queue<Service> services);
     string getLicensePlate();
     int getCapacity();
     vector<Flight> getFlightPlan();

@@ -11,7 +11,7 @@ using namespace std;
 class Flight {
     int number;
     int duration;
-    string dateDeparture;
+    //string dateDeparture;
     Airport* origin;
     Airport* destiny;
     vector<Ticket> tickets;
@@ -23,6 +23,7 @@ public:
     int getDuration();
     Airport* getOrigin();
     Airport* getDestiny();
+    vector<Ticket> getTickets();
 };
 
 

@@ -71,6 +71,39 @@ vector<string> Menu::split(string s) {
     return v;
 }
 
+
+vector<Airport> Menu::getAirports() {
+    return airports;
+}
+
+vector<Passenger> Menu::getPassengers() {
+    return passengers;
+}
+
+vector<Plane> Menu::getPlanes() {
+    return planes;
+}
+
+Passenger *Menu::getPassenger(int id) {
+    for (Passenger &passenger : passengers) {
+        if (passenger.getId() == id) {
+            Passenger* passengerPtr = &passenger;
+            return passengerPtr;
+        }
+    }
+    return nullptr;
+}
+
+Airport *Menu::getAirport(int id) {
+    for (Airport &airport : airports) {
+        if (airport.getId() == id) {
+            Airport* airportPtr = &airport;
+            return airportPtr;
+        }
+    }
+    return nullptr;
+}
+
 vector<Airport> Menu::initializeAirports(string testDirectory) {
     //Initialize the airports from the files
     ifstream fileAirport;
@@ -88,7 +121,6 @@ vector<Airport> Menu::initializeAirports(string testDirectory) {
             Airport airport(stoi(elements[0]), elements[1]);
             airportsVector.push_back(airport);
         }
-        cout << endl;
     }
 
     fileAirport.close();
@@ -111,7 +143,6 @@ vector<Passenger> Menu::initializePassengers(string testDirectory) {
             Passenger passenger(stoi(elements[0]), elements[1], stoi(elements[2]));
             passengersVector.push_back(passenger);
         }
-        cout << endl;
     }
 
     filePassengers.close();
@@ -119,15 +150,108 @@ vector<Passenger> Menu::initializePassengers(string testDirectory) {
     return passengersVector;
 }
 
-vector<Plane> Menu::initializePlanes(string testDirectory) {
-    vector<Plane> planesVector;
 
+queue<Service> Menu::initializeServices(string testDirectory, string planeID) {
+    ifstream fileServices;
+    string line;
+    queue<Service> servicesQueue;
 
+    fileServices.open(testDirectory + "Services.txt");
 
-    return planesVector;
+    if (!fileServices.is_open()) {
+        throw runtime_error("File of Services was not found");
+    } else {
+        while(getline(fileServices, line)) {
+            if (line.empty()) continue;
+            vector<string> elements = split(line);
+            if (elements[0] == planeID) {
+                Service service(elements[1], elements[2], elements[3]);
+                servicesQueue.push(service);
+            }
+        }
+    }
+
+    fileServices.close();
+
+    return servicesQueue;
 }
 
+vector<Ticket> Menu::initializeTickets(string testDirectory, int flightID) {
+    ifstream fileTickets;
+    string line;
+    vector<Ticket> ticketsVector;
 
+    fileTickets.open(testDirectory + "Tickets.txt");
 
+    if (!fileTickets.is_open()) {
+        throw runtime_error("File of Tickets was not found");
+    } else {
+        while(getline(fileTickets, line)) {
+            if (line.empty()) continue;
+            vector<string> elements = split(line);
 
+            if (stoi(elements[0]) == flightID) {
+                Ticket ticket( stoi(elements[2]) , stoi(elements[3]), this->getPassenger(stoi(elements[1])));
+                ticketsVector.push_back(ticket);
+            }
+        }
+    }
 
+    fileTickets.close();
+    return ticketsVector;
+}
+
+vector<Flight> Menu::initializeFlights(string testDirectory, string planeLicensePlate) {
+    ifstream fileFlights;
+    string line;
+    vector<Flight> flightsVector;
+
+    fileFlights.open(testDirectory + "Flights.txt");
+
+    if (!fileFlights.is_open()) {
+        throw runtime_error("File of Flights was not found");
+    } else {
+        while(getline(fileFlights, line)) {
+            if (line.empty()) continue;
+            vector<string> elements = split(line);
+
+            if (elements[1] == planeLicensePlate) {
+                Airport* origin = this->getAirport(stoi(elements[2]));
+                Airport* destiny = this->getAirport(stoi(elements[3]));
+                vector<Ticket> tickets = initializeTickets(testDirectory, stoi(elements[0]));
+                Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, tickets);
+                flightsVector.push_back(flight);
+            }
+        }
+    }
+
+    fileFlights.close();
+
+    return flightsVector;
+}
+
+vector<Plane> Menu::initializePlanes(string testDirectory) {
+    ifstream filePlanes;
+    string line;
+    vector<Plane> planesVector;
+
+    filePlanes.open(testDirectory + "Planes.txt");
+
+    if (!filePlanes.is_open()) {
+        throw runtime_error("File of Planes was not found");
+    } else {
+        while(getline(filePlanes, line)) {
+            if (line.empty()) continue;
+            vector<string> elements = split(line);
+
+            queue<Service> servicesQueue = initializeServices(testDirectory, elements[0]);
+            vector<Flight> flightsVector = initializeFlights(testDirectory, elements[0]);
+
+            Plane plane(elements[0], stoi(elements[1]), flightsVector, servicesQueue);
+            planesVector.push_back(plane);
+        }
+    }
+
+    filePlanes.close();
+    return planesVector;
+}

@@ -9,7 +9,7 @@ string Airport::getName() {
     return name;
 }
 
-int Airport::getID() {
+int Airport::getId() {
     return id;
 }
 
