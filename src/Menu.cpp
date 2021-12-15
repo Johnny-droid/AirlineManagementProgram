@@ -4,6 +4,12 @@
 
 using namespace std;
 
+Menu::Menu(string testDirectory) {
+    this->airports = initializeAirports(testDirectory);
+    this->passengers = initializePassengers(testDirectory);
+    this->planes = initializePlanes(testDirectory);
+}
+
 void Menu::run() {
     int option;
     do {
@@ -46,48 +52,44 @@ int Menu::readInputMenu() {
 }
 
 void Menu::read() {
-    string line, filename = "../DataFiles/Planes.txt"; //some function to determine which thing the user wants to see
-    ifstream file;
-    file.open(filename);
 
-    if (!file.is_open()) {
-        cout << "File didn't open" << endl;
-    } else {
-        cout << "\n\t\t Plane Model |  Capacity " << endl;
-        while(getline(file, line)) {
-            cout << "\t\t " << line << endl;
-        }
-        cout << endl;
-    }
 }
 
-void Menu::initializeAirports(string testDirectory) {
+vector<Airport> Menu::initializeAirports(string testDirectory) {
     //Initialize the airports from the files
-
-    /*  Work in progress
+    ifstream fileAirport;
     string line;
-    ifstream fileAirport, filePlanes, fileFlights;
-    fileAirport.open("../DataFiles/Airports.txt");
+    vector<Airport> airportsVector;
+
+    fileAirport.open(testDirectory + "Airports.txt");
 
     if (!fileAirport.is_open()) {
         throw runtime_error("File of Airports was not found");
     } else {
         while(getline(fileAirport, line)) {
-
+            if (line.empty()) continue;
+            Airport airport(line);
+            airportsVector.push_back(airport);
         }
         cout << endl;
     }
 
-    */
+    fileAirport.close();
+    return airportsVector;
 }
 
-void Menu::initializePassengers(string testDirectory) {
+vector<Passenger> Menu::initializePassengers(string testDirectory) {
+    vector<Passenger> passengersVector;
 
+    return passengersVector;
 }
 
-void Menu::initializePlanes(string testDirectory) {
+vector<Plane> Menu::initializePlanes(string testDirectory) {
+    vector<Plane> planesVector;
 
+    return planesVector;
 }
+
 
 
 

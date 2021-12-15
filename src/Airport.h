@@ -6,12 +6,13 @@
 using namespace std;
 
 class Airport {
+    int id;
     string name;
     //Binary Tree needs to be implemented
     // Transportation near the airport
 public:
-    Airport(string name) {this->name = name;}
-
+    Airport(string fileString);
+    int getID();
     string getName();
 };
 

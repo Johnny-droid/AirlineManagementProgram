@@ -15,16 +15,16 @@ class Menu {
     vector<Plane> planes;
 
 public:
-    Menu(string testDirectory) {initializePassengers(testDirectory); initializeAirports(testDirectory); initializePlanes(testDirectory);};
+    Menu(string testDirectory);
     static void run();
     static void showMenu();
     static int readInputMenu();
     static void read();
 
 private:
-    void initializeAirports(string testDirectory);
-    void initializePassengers(string testDirectory);
-    void initializePlanes(string testDirectory);
+    vector<Airport> initializeAirports(string testDirectory);
+    vector<Passenger> initializePassengers(string testDirectory);
+    vector<Plane> initializePlanes(string testDirectory);
 };
 
 
