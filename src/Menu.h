@@ -9,6 +9,10 @@
 #include "Airport.h"
 #include "Plane.h"
 #include "Passenger.h"
+#include "Flight.h"
+#include "Service.h"
+#include "LocalTransport.h"
+
 
 using namespace std;
 
@@ -18,19 +22,27 @@ class Menu {
     vector<Plane> planes;
 
 public:
-    Menu(string testDirectory);
-    static void run();
+    Menu(string directory);
+    static void run(string directory);
     static void showMenu();
+    static void showClasses();
     static int readInputMenu();
-    static void read();
+    static int readInputClasses();
     static vector<string> split(string s); //public only for tests
 
-
+    void create();
+    void read();
+    void update();
+    void remove();  //delete
     vector<Airport> getAirports();
     vector<Passenger> getPassengers();
     vector<Plane> getPlanes();
     Passenger* getPassenger(int id);
     Airport* getAirport(int id);
+    void printPlanes();
+    void printFlights();
+    void printServices();
+    void printAirports();
 
 private:
     vector<Airport> initializeAirports(string testDirectory);

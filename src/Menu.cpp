@@ -3,18 +3,22 @@
 
 using namespace std;
 
-Menu::Menu(string testDirectory) {
-    this->airports = initializeAirports(testDirectory);
-    this->passengers = initializePassengers(testDirectory);
-    this->planes = initializePlanes(testDirectory);
+Menu::Menu(string directory) {
+    this->airports = initializeAirports(directory);
+    this->passengers = initializePassengers(directory);
+    this->planes = initializePlanes(directory);
 }
 
-void Menu::run() {
+void Menu::run(string directory) {
     int option;
+    Menu menu(directory);
     do {
         showMenu();
         option = readInputMenu();
-
+        if (option == 1) menu.create();
+        if (option == 2) menu.read();
+        if (option == 3) menu.update();
+        if (option == 4) menu.remove();
         //makes switch clauses
         //read();
 
@@ -32,13 +36,26 @@ void Menu::showMenu() {
     cout << "     0) Exit        " << endl;
 }
 
+void Menu::showClasses() {
+    cout << "     1) Planes          " << endl;
+    cout << "     2) Flights         " << endl;
+    cout << "     3) Services        " << endl;
+    cout << "     4) Airports        " << endl;
+    cout << "     5) Tickets         " << endl;
+    cout << "     6) Passengers      " << endl;
+    cout << "     0) Back            " << endl;
+}
+
+
 int Menu::readInputMenu() {
     // gets the option number
     int chosenOption;
+    bool notValid;
     do {
         cout << "\n     Enter option: ";
         cin >> chosenOption;
-        if ((chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 0) || cin.fail()) {
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 5 && chosenOption != 6 && chosenOption != 0 ;
+        if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
             }
@@ -46,12 +63,27 @@ int Menu::readInputMenu() {
             cin.ignore(100000, '\n');
             cout << "\t\tInvalid input!\n";
         }
-    } while (chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 0);
+    } while (notValid);
     return chosenOption;
 }
 
-void Menu::read() {
-
+int Menu::readInputClasses() {
+    int chosenOption;
+    bool notValid;
+    do {
+        cout << "\n     Enter option: ";
+        cin >> chosenOption;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 0;
+        if ( notValid || cin.fail()) {
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(100000, '\n');
+            cout << "\t\tInvalid input!\n";
+        }
+    } while (notValid);
+    return chosenOption;
 }
 
 vector<string> Menu::split(string s) {
@@ -104,13 +136,13 @@ Airport *Menu::getAirport(int id) {
     return nullptr;
 }
 
-vector<Airport> Menu::initializeAirports(string testDirectory) {
+vector<Airport> Menu::initializeAirports(string directory) {
     //Initialize the airports from the files
     ifstream fileAirport;
     string line;
     vector<Airport> airportsVector;
 
-    fileAirport.open(testDirectory + "Airports.txt");
+    fileAirport.open(directory + "Airports.txt");
 
     if (!fileAirport.is_open()) {
         throw runtime_error("File of Airports was not found");
@@ -127,12 +159,12 @@ vector<Airport> Menu::initializeAirports(string testDirectory) {
     return airportsVector;
 }
 
-vector<Passenger> Menu::initializePassengers(string testDirectory) {
+vector<Passenger> Menu::initializePassengers(string directory) {
     ifstream filePassengers;
     string line;
     vector<Passenger> passengersVector;
 
-    filePassengers.open(testDirectory + "Passengers.txt");
+    filePassengers.open(directory + "Passengers.txt");
 
     if (!filePassengers.is_open()) {
         throw runtime_error("File of Passengers was not found");
@@ -151,12 +183,12 @@ vector<Passenger> Menu::initializePassengers(string testDirectory) {
 }
 
 
-queue<Service> Menu::initializeServices(string testDirectory, string planeID) {
+queue<Service> Menu::initializeServices(string directory, string planeID) {
     ifstream fileServices;
     string line;
     queue<Service> servicesQueue;
 
-    fileServices.open(testDirectory + "Services.txt");
+    fileServices.open(directory + "Services.txt");
 
     if (!fileServices.is_open()) {
         throw runtime_error("File of Services was not found");
@@ -176,12 +208,12 @@ queue<Service> Menu::initializeServices(string testDirectory, string planeID) {
     return servicesQueue;
 }
 
-vector<Ticket> Menu::initializeTickets(string testDirectory, int flightID) {
+vector<Ticket> Menu::initializeTickets(string directory, int flightID) {
     ifstream fileTickets;
     string line;
     vector<Ticket> ticketsVector;
 
-    fileTickets.open(testDirectory + "Tickets.txt");
+    fileTickets.open(directory + "Tickets.txt");
 
     if (!fileTickets.is_open()) {
         throw runtime_error("File of Tickets was not found");
@@ -201,12 +233,12 @@ vector<Ticket> Menu::initializeTickets(string testDirectory, int flightID) {
     return ticketsVector;
 }
 
-vector<Flight> Menu::initializeFlights(string testDirectory, string planeLicensePlate) {
+vector<Flight> Menu::initializeFlights(string directory, string planeLicensePlate) {
     ifstream fileFlights;
     string line;
     vector<Flight> flightsVector;
 
-    fileFlights.open(testDirectory + "Flights.txt");
+    fileFlights.open(directory + "Flights.txt");
 
     if (!fileFlights.is_open()) {
         throw runtime_error("File of Flights was not found");
@@ -218,7 +250,7 @@ vector<Flight> Menu::initializeFlights(string testDirectory, string planeLicense
             if (elements[1] == planeLicensePlate) {
                 Airport* origin = this->getAirport(stoi(elements[2]));
                 Airport* destiny = this->getAirport(stoi(elements[3]));
-                vector<Ticket> tickets = initializeTickets(testDirectory, stoi(elements[0]));
+                vector<Ticket> tickets = initializeTickets(directory, stoi(elements[0]));
                 Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, tickets);
                 flightsVector.push_back(flight);
             }
@@ -230,12 +262,12 @@ vector<Flight> Menu::initializeFlights(string testDirectory, string planeLicense
     return flightsVector;
 }
 
-vector<Plane> Menu::initializePlanes(string testDirectory) {
+vector<Plane> Menu::initializePlanes(string directory) {
     ifstream filePlanes;
     string line;
     vector<Plane> planesVector;
 
-    filePlanes.open(testDirectory + "Planes.txt");
+    filePlanes.open(directory + "Planes.txt");
 
     if (!filePlanes.is_open()) {
         throw runtime_error("File of Planes was not found");
@@ -244,8 +276,8 @@ vector<Plane> Menu::initializePlanes(string testDirectory) {
             if (line.empty()) continue;
             vector<string> elements = split(line);
 
-            queue<Service> servicesQueue = initializeServices(testDirectory, elements[0]);
-            vector<Flight> flightsVector = initializeFlights(testDirectory, elements[0]);
+            queue<Service> servicesQueue = initializeServices(directory, elements[0]);
+            vector<Flight> flightsVector = initializeFlights(directory, elements[0]);
 
             Plane plane(elements[0], stoi(elements[1]), flightsVector, servicesQueue);
             planesVector.push_back(plane);
@@ -255,3 +287,161 @@ vector<Plane> Menu::initializePlanes(string testDirectory) {
     filePlanes.close();
     return planesVector;
 }
+
+void Menu::printPlanes() {
+    for (int i = 0; i < this->getPlanes().size(); i++) {
+        cout << "Plane " << i << "   License Plate: " << this->getPlanes()[i].getLicensePlate() << "    Capacity: "
+             << this->getPlanes()[i].getCapacity() << endl;
+    }
+}
+
+void Menu::printFlights() {
+    for (Plane plane : this->getPlanes()) {
+        vector<Flight> flights = plane.getFlightPlan();
+        for (Flight flight: flights) {
+            cout << "Flight: " << flight.getNumber() << "      Duration: " << flight.getDuration() << endl;
+            cout << "Airport    Origin: " << flight.getOrigin()->getName() << "      Destiny:  " << flight.getDestiny()->getName() << endl;
+        }
+    }
+}
+
+void Menu::printServices() {
+    for (Plane plane : this->getPlanes()) {
+        queue<Service> servicesToBeDone = plane.getServicesToBeDone();
+        queue<Service> servicesCompleted = plane.getServicesCompleted();
+
+        cout << "Services not yet completed" << endl;
+        while (!servicesToBeDone.empty()) {
+            Service service = servicesToBeDone.front();
+            cout << "Service: " << service.getTypeOfService() << "  " << service.getDate() << "  " << service.getWorker() << endl;
+            servicesToBeDone.pop();
+        }
+        cout << endl;
+        cout << "Services completed" << endl;
+        while (!servicesCompleted.empty()) {
+            Service service = servicesCompleted.front();
+            cout << "Service: " << service.getTypeOfService() << "  " << service.getDate() << "  " << service.getWorker() << endl;
+            servicesCompleted.pop();
+        }
+    }
+}
+
+void Menu::printAirports() {
+    for (Airport airport : this->getAirports()) {
+        cout << "Airport " << airport.getId() << ": " << airport.getName() << endl;
+    }
+}
+
+
+
+/*
+1) Planes         2) Flights          3) Services             4) Airports
+5) Tickets        6) Passengers       7) Local Transports     0) Back
+ */
+void Menu::create() {
+    showClasses();
+    //atributes
+    int option = readInputClasses();
+    string lp, date,service, worker, name, transportType;
+    int capacity, departure, destination, duration, idFlight, idTicket, baggage, price, age, distance;
+    switch (option) {
+        case 1:
+            cout << "Please insert a licence plate: " << endl;
+            cin >> lp;
+            cout << "Please insert a capacity: " << endl;
+            cin >> capacity;
+            break;
+        case 2:
+            //criar id random
+            printPlanes();
+            cout << "Please insert the airplane's licence plate: " << endl;
+            cin >> lp;
+            printAirports();
+            cout << "Please insert the ID of the Airport of departure: " << endl;
+            cin >> departure;
+            cout << "Please insert the ID of the Airport of destination: " << endl;
+            cin >> destination;
+            cout << "Please insert the duration of the flight: " << endl;
+            cin >> duration;
+            cout << "Please insert the date (DD-MM-YYYY): " << endl;
+            cin >> date;
+            break;
+        case 3:
+            //print airplanes
+            cout << "Please insert the airplane's licence plate: " << endl;
+            cin >> lp;
+            cout << "Which is the type of the service: maintenance or cleaning?" << endl;
+            cin >> service;
+            cout << "Please insert the date that the service will begin: " << endl;
+            cin >> date;
+            cout << "What is the name of the worker doing this service?" << endl;
+            cin >> worker;
+            break;
+        case 4:
+            //criar id random
+            cout << "Please insert the name of the airport: " << endl;
+            cin >> name;
+            break;
+        case 5:
+            //print flights
+            cout << "Which flight is this for? Choose by ID: " << endl;
+            cin >> idFlight;
+            //print passengers
+            cout << "Who bought this ticket? Choose by ID: " << endl;
+            cin >> idTicket;
+            cout << "Please insert the baggage: " << endl;
+            cin >> baggage;
+            cout << "Please insert the price: " << endl;
+            cin >> price;
+            break;
+        case 6:
+            //criar id random
+            cout << "Please insert the passenger's name: " << endl;
+            cin >> name;
+            cout << "Please insert the passenger's age: " << endl;
+            cin >> age;
+            break;
+        case 7:
+            cout << "Please insert the airplane's licence plate: " << endl;
+            cin >> lp;
+            cout << "What is the type of transport: bus, train or subway? " << endl;
+            cin >> transportType;
+            cout << "Please insert the date you want this transport: " << endl;
+            cin >> date;
+            cout << "Please insert the distance to the airport: " << endl;
+            cin >> distance;
+            break;
+        case 0:
+            cout << "Back" << endl;
+            break;
+    }
+}
+
+void Menu::read() {
+    showClasses();
+    int option = readInputClasses();
+    switch (option) {
+        case 1:
+            break;
+        case 2:
+            cout << "" << endl;
+            break;
+    }
+
+}
+
+void Menu::update() {
+    showClasses();
+    int option = readInputClasses();
+    //atribute
+    string lp, date,service, worker, name;
+    int capacity, departure, destination, duration;
+}
+
+void Menu::remove() {
+    showClasses();
+    int option = readInputClasses();
+}
+
+
+

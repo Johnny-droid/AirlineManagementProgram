@@ -56,6 +56,11 @@ TEST(testMenu, Menu_Initialization) {
     EXPECT_EQ( "Pablo Escobar"  , menu.getPlanes()[0].getFlightPlan()[0].getTickets()[0].getPassenger().getName());
 }
 
+TEST(testMenu, PrintPlanes) {
+    Menu menu("../DataFiles/");
+    menu.printPlanes();
+}
+
 TEST(testMenu, Print_Menu_Initialization) {
     Menu menu("../DataFiles/");
     for (Plane plane : menu.getPlanes()) {
