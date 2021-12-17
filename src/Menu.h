@@ -39,6 +39,8 @@ public:
     vector<Plane> getPlanes();
     Passenger* getPassenger(int id);
     Airport* getAirport(int id);
+    Plane* getPlane(string lp);
+    Flight* getFlight(int number, string directory, string licensePlate);
     void printPlanes();
     void printFlights();
     void printServices();

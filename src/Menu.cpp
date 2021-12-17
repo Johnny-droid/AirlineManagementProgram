@@ -1,6 +1,7 @@
 #include "Menu.h"
 
 
+
 using namespace std;
 
 Menu::Menu(string directory) {
@@ -131,6 +132,26 @@ Airport *Menu::getAirport(int id) {
         if (airport.getId() == id) {
             Airport* airportPtr = &airport;
             return airportPtr;
+        }
+    }
+    return nullptr;
+}
+
+Plane *Menu::getPlane(string lp) {
+    for (Plane &plane : planes) {
+        if (plane.getLicensePlate() == lp) {
+            Plane* planePtr = &plane;
+            return planePtr;
+        }
+    }
+    return nullptr;
+}
+
+Flight *Menu::getFlight(int number, string directory, string licensePlate) {
+    for (Flight &flight : initializeFlights(directory, licensePlate)) {
+        if (flight.getNumber() == number) {
+            Flight* flightPtr = &flight;
+            return flightPtr;
         }
     }
     return nullptr;
@@ -327,7 +348,106 @@ void Menu::create() {
     showClasses();
     //atributes
     int option = readInputClasses();
+<<<<<<< HEAD
     if (option == 0) return;
+=======
+    if (option == 0) {
+        cout << "Back" << endl;
+    }
+    else if (option == 1) {
+        string lp; int capacity; vector<Flight> flights; queue<Service> services;
+        cout << "Please insert a licence plate: " << endl;
+        cin >> lp;
+        cout << "Please insert a capacity: " << endl;
+        cin >> capacity;
+        Plane plane(lp, capacity, flights, services);
+    }
+    else if (option == 2) {
+        string lp, date; int number, originId, destinyId, duration; vector<Ticket> tickets;
+        //criar number random? ou alguma logica?
+        printPlanes();
+        cout << "Please insert the airplane's licence plate: " << endl;
+        cin >> lp;
+        printAirports();
+        cout << "Please insert the ID of the Airport of departure: " << endl;
+        cin >> originId;
+        cout << "Please insert the ID of the Airport of destination: " << endl;
+        cin >> destinyId;
+        cout << "Please insert the duration of the flight: " << endl;
+        cin >> duration;
+        cout << "Please insert the date (DD-MM-YYYY): " << endl;
+        cin >> date;
+        Flight flight(number, duration, getAirport(originId), getAirport(destinyId), tickets);
+        getPlane(lp)->getFlightPlan().push_back(flight);
+    }
+    else if (option == 3) {
+        //print airplanes
+        string lp, typeOfService, date, worker;
+        cout << "Please insert the airplane's licence plate: " << endl;
+        cin >> lp;
+        cout << "Which is the type of the service: maintenance or cleaning?" << endl;
+        cin >> typeOfService;
+        cout << "Please insert the date that the service will begin: " << endl;
+        cin >> date;
+        cout << "What is the name of the worker doing this service?" << endl;
+        cin >> worker;
+        Service service(typeOfService, date, worker);
+        /* precisa de dar para comparar datas
+        if (date > dateHoje) {
+            getPlane(lp)->getServicesToBeDone().push(service);
+        } else getPlane(lp)->getServicesCompleted().push(service); */
+    }
+    else if (option == 4) {
+        string name; int id;
+        //criar id random ou a pessoa escreve ou como?
+        cout << "Please insert the name of the airport: " << endl;
+        cin >> name;
+        Airport airport(id, name);
+
+    }
+    else if (option == 5) {
+        int idFlight, idPassenger, baggage, price;
+        //print flights
+        cout << "Which flight is this for? Choose by ID: " << endl;
+        cin >> idFlight;
+        //print passengers
+        cout << "Who bought this ticket? Choose by ID: " << endl;
+            cin >> idPassenger;
+        //ainda temos de decidir como vamos representar bem a baggage
+        cout << "Please insert the baggage: " << endl;
+        cin >> baggage;
+        cout << "Please insert the price: " << endl;
+        cin >> price;
+        Ticket ticket(baggage, price, getPassenger(idPassenger));
+        string directory, lp; // é preciso ir busca los algures
+        getFlight(idFlight, directory, lp)->getTickets().push_back(ticket);
+    }
+    else if (option == 6) {
+        string name; int id, age;
+        //criar id random? ou alguma logica?
+        cout << "Please insert the passenger's name: " << endl;
+        cin >> name;
+        cout << "Please insert the passenger's age: " << endl;
+        cin >> age;
+        Passenger passenger(id, name, age);
+    }
+    else if (option == 7) {
+        string typeTransport, times, date; int idAirport, distanceToAirport;
+        //print airports
+        cout << "Please insert the closest airport's ID: " << endl;
+        cin >> idAirport;
+        cout << "What is the type of transport: bus, train or subway? " << endl;
+        cin >> typeTransport;
+        cout << "Please insert the date you want this transport: " << endl;
+        cin >> date;
+        cout << "Please insert the distance to the airport: " << endl;
+        cin >> distanceToAirport;
+        //arranjar o times
+        LocalTransport localTransport(typeTransport, times, distanceToAirport);
+        //adicionar à arvore binaria de getAirport(idAirport)
+    }
+    /* caso tenha feito asneira
+>>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
     string lp, date,service, worker, name, transportType;
     int capacity, departure, destination, duration, idAirport, idFlight, idTicket, baggage, price, age, distance;
     switch (option) {
@@ -402,6 +522,7 @@ void Menu::create() {
         default:
             break;
     }
+     */
 }
 
 void Menu::read() {
