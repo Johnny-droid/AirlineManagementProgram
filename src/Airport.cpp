@@ -13,3 +13,8 @@ int Airport::getId() {
     return id;
 }
 
+void Airport::print() {
+    cout << "Airport " << id << ": " << name << endl;
+    // Then print local transports
+}
+

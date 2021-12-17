@@ -147,11 +147,25 @@ Plane *Menu::getPlane(string lp) {
     return nullptr;
 }
 
-Flight *Menu::getFlight(int number, string directory, string licensePlate) {
-    for (Flight &flight : initializeFlights(directory, licensePlate)) {
-        if (flight.getNumber() == number) {
-            Flight* flightPtr = &flight;
-            return flightPtr;
+Plane *Menu::getPlaneWithFlightNumber(int number) {
+    for (Plane &plane : planes) {
+        for (Flight &flight : plane.getFlightPlan()) {
+            if (flight.getNumber() == number) {
+                Plane* planePtr = &plane;
+                return planePtr;
+            }
+        }
+    }
+    return nullptr;
+}
+
+Flight *Menu::getFlight(int number) {
+    for (Plane &plane : planes) {
+        for (Flight &flight : plane.getFlightPlan()) {
+            if (flight.getNumber() == number) {
+                Flight* flightPtr = &flight;
+                return flightPtr;
+            }
         }
     }
     return nullptr;
@@ -204,10 +218,11 @@ vector<Passenger> Menu::initializePassengers(string directory) {
 }
 
 
-queue<Service> Menu::initializeServices(string directory, string planeID) {
+vector<queue<Service>> Menu::initializeServices(string directory, string planeID) {
     ifstream fileServices;
     string line;
-    queue<Service> servicesQueue;
+    vector<queue<Service>> v;
+    queue<Service> servicesCompleted, servicesToBeDone;
 
     fileServices.open(directory + "Services.txt");
 
@@ -219,14 +234,19 @@ queue<Service> Menu::initializeServices(string directory, string planeID) {
             vector<string> elements = split(line);
             if (elements[0] == planeID) {
                 Service service(elements[1], elements[2], elements[3]);
-                servicesQueue.push(service);
+                if (elements[4] == "y") {
+                    servicesCompleted.push(service);
+                } else {
+                    servicesToBeDone.push(service);
+                }
             }
         }
     }
 
     fileServices.close();
-
-    return servicesQueue;
+    v.push_back(servicesCompleted);
+    v.push_back(servicesToBeDone);
+    return v;
 }
 
 vector<Ticket> Menu::initializeTickets(string directory, int flightID) {
@@ -297,10 +317,12 @@ vector<Plane> Menu::initializePlanes(string directory) {
             if (line.empty()) continue;
             vector<string> elements = split(line);
 
-            queue<Service> servicesQueue = initializeServices(directory, elements[0]);
+            vector<queue<Service>> vServices = initializeServices(directory, elements[0]);
+            queue<Service> servicesCompleted = vServices[0];
+            queue<Service> servicesToBeDone = vServices[1];
             vector<Flight> flightsVector = initializeFlights(directory, elements[0]);
 
-            Plane plane(elements[0], stoi(elements[1]), flightsVector, servicesQueue);
+            Plane plane(elements[0], stoi(elements[1]), flightsVector, servicesCompleted, servicesToBeDone);
             planesVector.push_back(plane);
         }
     }
@@ -310,9 +332,8 @@ vector<Plane> Menu::initializePlanes(string directory) {
 }
 
 void Menu::printPlanes() {
-    for (int i = 0; i < this->getPlanes().size(); i++) {
-        cout << "Plane " << i << "   License Plate: " << this->getPlanes()[i].getLicensePlate() << "    Capacity: "
-             << this->getPlanes()[i].getCapacity() << endl;
+    for (Plane plane : planes) {
+        plane.print();
     }
 }
 
@@ -330,14 +351,35 @@ void Menu::printServices() {
 
 void Menu::printAirports() {
     for (Airport airport : this->getAirports()) {
-        cout << "Airport " << airport.getId() << ": " << airport.getName() << endl;
+        airport.print();
     }
 }
 
 void Menu::printPassengers() {
     for (Passenger passenger : this->getPassengers()) {
-        cout << "Passenger ID: " << passenger.getId() << "   Name: " << passenger.getName() << "   Age: " << passenger.getAge() << endl;
+        passenger.print();
     }
+}
+
+void Menu::printTickets() {
+    for (Plane plane : planes) {
+        for (Flight flight : plane.getFlightPlan()) {
+            cout << "Tickets of flight number " << flight.getNumber() << endl;
+            for (Ticket ticket : flight.getTickets()) {
+                ticket.print();
+            }
+        }
+    }
+}
+
+bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
+    int capacity = getPlaneWithFlightNumber(number)->getCapacity();
+    if (getFlight(number)->getTickets().size() < capacity) {
+        Ticket ticket(baggage, price, passenger);
+        getFlight(number)->getTickets().push_back(ticket);
+        return true;
+    }
+    return false;
 }
 
 /*
@@ -350,15 +392,17 @@ void Menu::create() {
     int option = readInputClasses();
     if (option == 0) return;
     else if (option == 1) {
-        string lp; int capacity; vector<Flight> flights; queue<Service> services;
+        string lp; int capacity;
         cout << "Please insert a licence plate: " << endl;
         cin >> lp;
         cout << "Please insert a capacity: " << endl;
         cin >> capacity;
-        Plane plane(lp, capacity, flights, services);
+        Plane plane(lp, capacity);
+        planes.push_back(plane);
+        cout << "You plane was successful added" << endl;
     }
     else if (option == 2) {
-        string lp, date; int number, originId, destinyId, duration; vector<Ticket> tickets;
+        string lp, date; int number, originId, destinyId, duration;
         //criar number random? ou alguma logica?
         printPlanes();
         cout << "Please insert the airplane's licence plate: " << endl;
@@ -368,15 +412,17 @@ void Menu::create() {
         cin >> originId;
         cout << "Please insert the ID of the Airport of destination: " << endl;
         cin >> destinyId;
+        cout << "Please insert the number of the flight: " << endl;
+        cin >> number;
         cout << "Please insert the duration of the flight: " << endl;
         cin >> duration;
         cout << "Please insert the date (DD-MM-YYYY): " << endl;
         cin >> date;
-        Flight flight(number, duration, getAirport(originId), getAirport(destinyId), tickets);
-        getPlane(lp)->getFlightPlan().push_back(flight);
+        Flight flight(number, duration, getAirport(originId), getAirport(destinyId));
+        this->getPlane(lp)->getFlightPlan().push_back(flight);
     }
     else if (option == 3) {
-        //print airplanes
+        printPlanes();
         string lp, typeOfService, date, worker;
         cout << "Please insert the airplane's licence plate: " << endl;
         cin >> lp;
@@ -387,44 +433,43 @@ void Menu::create() {
         cout << "What is the name of the worker doing this service?" << endl;
         cin >> worker;
         Service service(typeOfService, date, worker);
-        /* precisa de dar para comparar datas
-        if (date > dateHoje) {
-            getPlane(lp)->getServicesToBeDone().push(service);
-        } else getPlane(lp)->getServicesCompleted().push(service); */
+        this->getPlane(lp)->getServicesToBeDone().push(service);
     }
     else if (option == 4) {
-        string name; int id;
-        //criar id random ou a pessoa escreve ou como?
-        cout << "Please insert the name of the airport: " << endl;
-        cin >> name;
-        Airport airport(id, name);
+        string name;
+        cout << "Please insert the name of the airport: ";
+        cin.ignore(1000, '\n');  // para conseguir ler um nome de aeroporto com mais do que uma palavra
+        getline(cin, name);
 
+        //falta depois ler os locais de transporte
+        Airport airport((int) airports.size(), name);
+        airports.push_back(airport);
     }
     else if (option == 5) {
-        int idFlight, idPassenger, baggage, price;
-        //print flights
-        cout << "Which flight is this for? Choose by ID: " << endl;
-        cin >> idFlight;
-        //print passengers
+        int flightNumber, idPassenger, baggage, price;
+        printFlights();
+        cout << "Which flight is this for? Choose by flight number: " << endl;
+        cin >> flightNumber;
+        printPassengers();
         cout << "Who bought this ticket? Choose by ID: " << endl;
-            cin >> idPassenger;
+        cin >> idPassenger;
         //ainda temos de decidir como vamos representar bem a baggage
         cout << "Please insert the baggage: " << endl;
         cin >> baggage;
         cout << "Please insert the price: " << endl;
         cin >> price;
-        Ticket ticket(baggage, price, getPassenger(idPassenger));
-        string directory, lp; // é preciso ir busca los algures
-        getFlight(idFlight, directory, lp)->getTickets().push_back(ticket);
+
+        if (buyTicket(flightNumber, baggage, price, getPassenger(idPassenger))) cout << "Ticket Successfully added" << endl;
+        else cout << "I'm sorry, but this flight is already full" << endl;
     }
     else if (option == 6) {
-        string name; int id, age;
-        //criar id random? ou alguma logica?
+        string name; int age;
         cout << "Please insert the passenger's name: " << endl;
         cin >> name;
         cout << "Please insert the passenger's age: " << endl;
         cin >> age;
-        Passenger passenger(id, name, age);
+        Passenger passenger(passengers.size(), name, age);
+        passengers.push_back(passenger);
     }
     else if (option == 7) {
         string typeTransport, times, date; int idAirport, distanceToAirport;
@@ -519,15 +564,23 @@ void Menu::create() {
      */
 }
 
+/*
+1) Planes         2) Flights          3) Services             4) Airports
+5) Tickets        6) Passengers       7) Local Transports     0) Back
+ */
+
 void Menu::read() {
     showClasses();
     int option = readInputClasses();
-    switch (option) {
-        case 1:
-            break;
-        case 2:
-            cout << "" << endl;
-            break;
+    if (option == 0) return;
+    else if (option == 1) printPlanes();
+    else if (option == 2) printFlights();
+    else if (option == 3) printServices();
+    else if (option == 4) printAirports();
+    else if (option == 5) printTickets();
+    else if (option == 6) printPassengers();
+    else if (option == 7) {
+        //print Local transports
     }
 
 }
@@ -544,6 +597,10 @@ void Menu::remove() {
     showClasses();
     int option = readInputClasses();
 }
+
+
+
+
 
 
 

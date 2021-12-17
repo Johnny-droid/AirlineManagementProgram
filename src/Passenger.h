@@ -2,6 +2,7 @@
 #define AIRLINEMANAGEMENTPROGRAM_PASSENGER_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ public:
     int getId();
     string getName();
     int getAge();
+    void print();
 };
 
 

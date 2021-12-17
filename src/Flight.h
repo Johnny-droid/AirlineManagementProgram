@@ -17,13 +17,13 @@ class Flight {
     vector<Ticket> tickets;
 
 public:
-    Flight() {};
+    Flight(int number, int duration, Airport* origin, Airport* destiny);
     Flight(int number, int duration, Airport* origin, Airport* destiny, vector<Ticket> tickets);
     int getNumber();
     int getDuration();
     Airport* getOrigin();
     Airport* getDestiny();
-    vector<Ticket> getTickets();
+    vector<Ticket>& getTickets();
 };
 
 

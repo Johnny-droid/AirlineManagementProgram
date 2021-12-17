@@ -2,6 +2,7 @@
 #define AIRLINEMANAGEMENTPROGRAM_AIRPORT_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ public:
     Airport(int id, string name);
     int getId();
     string getName();
+    void print();
 };
 
 

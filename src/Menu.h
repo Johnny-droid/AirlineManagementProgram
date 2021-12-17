@@ -40,18 +40,21 @@ public:
     Passenger* getPassenger(int id);
     Airport* getAirport(int id);
     Plane* getPlane(string lp);
-    Flight* getFlight(int number, string directory, string licensePlate);
+    Plane* getPlaneWithFlightNumber(int number);
+    Flight* getFlight(int number);
     void printPlanes();
     void printFlights();
     void printServices();
     void printAirports();
     void printPassengers();
+    void printTickets();
+    bool buyTicket(int capacity, int baggage, int price, Passenger* passenger);
 
 private:
     vector<Airport> initializeAirports(string testDirectory);
     vector<Passenger> initializePassengers(string testDirectory);
     vector<Plane> initializePlanes(string testDirectory);
-    queue<Service> initializeServices(string testDirectory, string planeID);
+    vector<queue<Service>> initializeServices(string testDirectory, string planeID);
     vector<Ticket> initializeTickets(string testDirectory, int flightID);
     vector<Flight> initializeFlights(string testDirectory, string planeLicensePlate);
 };

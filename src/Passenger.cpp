@@ -18,4 +18,8 @@ int Passenger::getAge() {
     return age;
 }
 
+void Passenger::print() {
+    cout << "Passenger ID: " << id << "   Name: " << name << "   Age: " << age << endl;
+}
+
 

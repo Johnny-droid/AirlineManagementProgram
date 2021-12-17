@@ -53,7 +53,7 @@ TEST(testMenu, Menu_Initialization) {
     // do tipo:
     //EXPECT_EQ( número de aviões, menu.getPlanes().size());
     EXPECT_EQ( "A310", menu.getPlanes()[0].getLicensePlate());
-    EXPECT_EQ( "Pablo Escobar"  , menu.getPlanes()[0].getFlightPlan()[0].getTickets()[0].getPassenger().getName());
+    EXPECT_EQ( "Pablo Escobar"  , menu.getPlanes()[0].getFlightPlan()[0].getTickets()[0].getPassenger()->getName());
 }
 
 TEST(testMenu, PrintPlanes) {
@@ -80,7 +80,7 @@ TEST(testMenu, Print_Menu_Initialization) {
 
             for (Ticket ticket : flight.getTickets()) {
                 cout << "Ticket  Price: " << ticket.getPrice() << "   Baggage:   " << ticket.getBaggage() << endl;
-                cout << "Passenger of the ticket: " << ticket.getPassenger().getName() << endl;
+                cout << "Passenger of the ticket: " << ticket.getPassenger()->getName() << endl;
             }
         }
     }

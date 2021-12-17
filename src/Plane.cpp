@@ -1,12 +1,19 @@
 #include "Plane.h"
 
-Plane::Plane(string licensePlate, int capacity, vector<Flight> flightPlan, queue<Service> services) {
+Plane::Plane(string licensePlate, int capacity) {
+    this->licensePlate = licensePlate;
+    this->capacity = capacity;
+    this->flightPlan = vector<Flight>();
+    this->servicesCompleted = queue<Service>();
+    this->servicesToBeDone = queue<Service>();
+}
+
+Plane::Plane(string licensePlate, int capacity, vector<Flight> flightPlan, queue<Service> servicesCompleted, queue<Service> servicesToBeDone) {
     this->licensePlate = licensePlate;
     this->capacity = capacity;
     this->flightPlan = flightPlan;
-    this->servicesToBeDone = services;
-    queue<Service> emptyQ;
-    this->servicesCompleted = emptyQ;
+    this->servicesCompleted = servicesCompleted;
+    this->servicesToBeDone = servicesToBeDone;
 }
 
 string Plane::getLicensePlate() {
@@ -17,15 +24,15 @@ int Plane::getCapacity() {
     return capacity;
 }
 
-vector<Flight> Plane::getFlightPlan() {
+vector<Flight>& Plane::getFlightPlan() {
     return flightPlan;
 }
 
-queue<Service> Plane::getServicesToBeDone() {
+queue<Service>& Plane::getServicesToBeDone() {
     return servicesToBeDone;
 }
 
-queue<Service> Plane::getServicesCompleted() {
+queue<Service>& Plane::getServicesCompleted() {
     return servicesCompleted;
 }
 
@@ -35,6 +42,10 @@ void Plane::printFlights() {
         cout << "Airport    Origin: " << flight.getOrigin()->getName() << "      Destiny:  " << flight.getDestiny()->getName() << endl;
     }
 
+}
+
+void Plane::print() {
+    cout << "Plane   License Plate: " << licensePlate << "    Capacity: " << capacity << endl;
 }
 
 void Plane::printServices() {
@@ -52,3 +63,4 @@ void Plane::printServices() {
         servicesCompleted.pop();
     }
 }
+

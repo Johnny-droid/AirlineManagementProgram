@@ -1,20 +1,20 @@
-A310,maintenance,02-04-1970,Jose Almeida
-B4208,cleaning,31-07-1820,Tomas Teixeira
-B737,cleaning,11-11-1811,Marcelo Rebelo de Sousa
-C654,maintenance,12-04-2002,
-B4208,maintenance,31-08-2021,Barack Obama
-3942A,maintenance,06-06-2006,Donald Trump
-99CD,cleaning,09-10-2010,Marcelo Rebelo de Sousa
-C3478,cleaning,11-03-2008,Antonio Costa
-99CD,maintenance,07-06-2020,Pedro Passos Coelho
-71AB,cleaning,01-01-2013,Boris Johnson
-F771,cleaning,01-01-2013,Marcelo Rebelo de Sousa
-G0294,maintenance,03-11-2018,Barack Obama
-3942A,cleaning,19-04-2014,Boris Johnson
-71AB,cleaning,16-03-2013,Antonio Costa
-G0294,cleaning,31-08-2021,Marcelo Rebelo de Sousa
-99CD,maintenance,16-03-2013,Pedro Passos Coelho
-A310,cleaning,11-07-2016,Marcelo Rebelo de Sousa
-B4208,maintenance,27-12-2017,Donald Trump
-F771,maintenance,21-09-2018,Joe Biden
-z232,cleaning,25-12-2021,João Rendeiro
+A310,maintenance,02-04-1970,Jose Almeida,y
+B4208,cleaning,31-07-1820,Tomas Teixeira,n
+B737,cleaning,11-11-1811,Marcelo Rebelo de Sousa,y
+C654,maintenance,12-04-2002,y
+B4208,maintenance,31-08-2021,Barack Obama,y
+3942A,maintenance,06-06-2006,Donald Trump,n
+99CD,cleaning,09-10-2010,Marcelo Rebelo de Sousa,y
+C3478,cleaning,11-03-2008,Antonio Costa,y
+99CD,maintenance,07-06-2020,Pedro Passos Coelho,n
+71AB,cleaning,01-01-2013,Boris Johnson,n
+F771,cleaning,01-01-2013,Marcelo Rebelo de Sousa,y
+G0294,maintenance,03-11-2018,Barack Obama,y
+3942A,cleaning,19-04-2014,Boris Johnson,n
+71AB,cleaning,16-03-2013,Antonio Costa,n
+G0294,cleaning,31-08-2021,Marcelo Rebelo de Sousa,y
+99CD,maintenance,16-03-2013,Pedro Passos Coelho,y
+A310,cleaning,11-07-2016,Marcelo Rebelo de Sousa,y
+B4208,maintenance,27-12-2017,Donald Trump,n
+F771,maintenance,21-09-2018,Joe Biden,y
+z232,cleaning,25-12-2021,João Rendeiro,y

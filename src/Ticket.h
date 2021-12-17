@@ -11,10 +11,12 @@ class Ticket {
     Passenger* passenger;
 
 public:
+    Ticket() {};
     Ticket(int baggage, int price, Passenger* passenger);
     int getBaggage();
     int getPrice();
-    Passenger getPassenger();
+    Passenger* getPassenger();
+    void print();
 };
 
 #endif //AIRLINEMANAGEMENTPROGRAM_TICKET_H

@@ -13,8 +13,12 @@ int Ticket::getPrice() {
     return price;
 }
 
-Passenger Ticket::getPassenger() {
-    return *passenger;
+Passenger* Ticket::getPassenger() {
+    return passenger;
+}
+
+void Ticket::print() {
+    cout << "Ticket    Passenger: " << passenger->getName() << "     Baggage: " << baggage << "       Price: " << price << endl;
 }
 
 
