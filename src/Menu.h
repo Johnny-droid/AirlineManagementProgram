@@ -43,6 +43,7 @@ public:
     void printFlights();
     void printServices();
     void printAirports();
+    void printPassengers();
 
 private:
     vector<Airport> initializeAirports(string testDirectory);

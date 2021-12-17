@@ -28,3 +28,27 @@ queue<Service> Plane::getServicesToBeDone() {
 queue<Service> Plane::getServicesCompleted() {
     return servicesCompleted;
 }
+
+void Plane::printFlights() {
+    for (Flight flight: flightPlan) {
+        cout << "Flight: " << flight.getNumber() << "      Duration: " << flight.getDuration() << endl;
+        cout << "Airport    Origin: " << flight.getOrigin()->getName() << "      Destiny:  " << flight.getDestiny()->getName() << endl;
+    }
+
+}
+
+void Plane::printServices() {
+    cout << "Services not yet completed" << endl;
+    while (!servicesToBeDone.empty()) {
+        Service service = servicesToBeDone.front();
+        service.print();
+        servicesToBeDone.pop();
+    }
+    cout << endl;
+    cout << "Services completed" << endl;
+    while (!servicesCompleted.empty()) {
+        Service service = servicesCompleted.front();
+        service.print();
+        servicesCompleted.pop();
+    }
+}

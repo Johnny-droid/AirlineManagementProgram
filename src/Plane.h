@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 #include <queue>
 #include "Flight.h"
 #include "Service.h"
@@ -22,6 +23,8 @@ public:
     vector<Flight> getFlightPlan();
     queue<Service> getServicesToBeDone();
     queue<Service> getServicesCompleted();
+    void printFlights();
+    void printServices();
 };
 
 

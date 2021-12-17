@@ -18,3 +18,7 @@ string Service::getWorker() {
     return worker;
 }
 
+void Service::print() {
+    cout << "Service: " << typeOfService << "  " << date << "  " << worker << endl;
+}
+

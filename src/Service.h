@@ -2,6 +2,7 @@
 #define AIRLINEMANAGEMENTPROGRAM_SERVICE_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ public:
     string getTypeOfService();
     string getDate();
     string getWorker();
+    void print();
 };
 
 

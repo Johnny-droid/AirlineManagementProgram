@@ -16,7 +16,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.21.1/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -265,7 +265,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -499,7 +499,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -638,7 +638,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -732,7 +732,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
 		},
 		{
 			"path" : "lib/googletest-master/CMakeLists.txt"
@@ -890,7 +890,7 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-debug",
+		"build" : "/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-release",
 		"source" : "/home/johnny/CLionProjects/AirlineManagementProgram"
 	},
 	"version" : 

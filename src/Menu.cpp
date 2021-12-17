@@ -297,32 +297,13 @@ void Menu::printPlanes() {
 
 void Menu::printFlights() {
     for (Plane plane : this->getPlanes()) {
-        vector<Flight> flights = plane.getFlightPlan();
-        for (Flight flight: flights) {
-            cout << "Flight: " << flight.getNumber() << "      Duration: " << flight.getDuration() << endl;
-            cout << "Airport    Origin: " << flight.getOrigin()->getName() << "      Destiny:  " << flight.getDestiny()->getName() << endl;
-        }
+        plane.printFlights();
     }
 }
 
 void Menu::printServices() {
     for (Plane plane : this->getPlanes()) {
-        queue<Service> servicesToBeDone = plane.getServicesToBeDone();
-        queue<Service> servicesCompleted = plane.getServicesCompleted();
-
-        cout << "Services not yet completed" << endl;
-        while (!servicesToBeDone.empty()) {
-            Service service = servicesToBeDone.front();
-            cout << "Service: " << service.getTypeOfService() << "  " << service.getDate() << "  " << service.getWorker() << endl;
-            servicesToBeDone.pop();
-        }
-        cout << endl;
-        cout << "Services completed" << endl;
-        while (!servicesCompleted.empty()) {
-            Service service = servicesCompleted.front();
-            cout << "Service: " << service.getTypeOfService() << "  " << service.getDate() << "  " << service.getWorker() << endl;
-            servicesCompleted.pop();
-        }
+        plane.printServices();
     }
 }
 
@@ -332,7 +313,11 @@ void Menu::printAirports() {
     }
 }
 
-
+void Menu::printPassengers() {
+    for (Passenger passenger : this->getPassengers()) {
+        cout << "Passenger ID: " << passenger.getId() << "   Name: " << passenger.getName() << "   Age: " << passenger.getAge() << endl;
+    }
+}
 
 /*
 1) Planes         2) Flights          3) Services             4) Airports
@@ -342,8 +327,9 @@ void Menu::create() {
     showClasses();
     //atributes
     int option = readInputClasses();
+    if (option == 0) return;
     string lp, date,service, worker, name, transportType;
-    int capacity, departure, destination, duration, idFlight, idTicket, baggage, price, age, distance;
+    int capacity, departure, destination, duration, idAirport, idFlight, idTicket, baggage, price, age, distance;
     switch (option) {
         case 1:
             cout << "Please insert a licence plate: " << endl;
@@ -367,7 +353,7 @@ void Menu::create() {
             cin >> date;
             break;
         case 3:
-            //print airplanes
+            printPlanes();
             cout << "Please insert the airplane's licence plate: " << endl;
             cin >> lp;
             cout << "Which is the type of the service: maintenance or cleaning?" << endl;
@@ -383,10 +369,10 @@ void Menu::create() {
             cin >> name;
             break;
         case 5:
-            //print flights
+            printFlights();
             cout << "Which flight is this for? Choose by ID: " << endl;
             cin >> idFlight;
-            //print passengers
+            printPassengers();
             cout << "Who bought this ticket? Choose by ID: " << endl;
             cin >> idTicket;
             cout << "Please insert the baggage: " << endl;
@@ -402,6 +388,8 @@ void Menu::create() {
             cin >> age;
             break;
         case 7:
+            cout << "Please insert the ID of the Airport: " << endl;
+            cin >> idAirport;
             cout << "Please insert the airplane's licence plate: " << endl;
             cin >> lp;
             cout << "What is the type of transport: bus, train or subway? " << endl;
@@ -411,8 +399,7 @@ void Menu::create() {
             cout << "Please insert the distance to the airport: " << endl;
             cin >> distance;
             break;
-        case 0:
-            cout << "Back" << endl;
+        default:
             break;
     }
 }
