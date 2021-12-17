@@ -348,12 +348,7 @@ void Menu::create() {
     showClasses();
     //atributes
     int option = readInputClasses();
-<<<<<<< HEAD
     if (option == 0) return;
-=======
-    if (option == 0) {
-        cout << "Back" << endl;
-    }
     else if (option == 1) {
         string lp; int capacity; vector<Flight> flights; queue<Service> services;
         cout << "Please insert a licence plate: " << endl;
@@ -447,7 +442,6 @@ void Menu::create() {
         //adicionar à arvore binaria de getAirport(idAirport)
     }
     /* caso tenha feito asneira
->>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
     string lp, date,service, worker, name, transportType;
     int capacity, departure, destination, duration, idAirport, idFlight, idTicket, baggage, price, age, distance;
     switch (option) {

@@ -127,6 +127,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../lib/googletest-master/googletest/cmake/gtest_main.pc.in"
   "../lib/googletest-master/googletest/cmake/internal_utils.cmake"
 <<<<<<< HEAD
+<<<<<<< HEAD
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake"
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake"
@@ -163,6 +164,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/WriteBasicConfigVersionFile.cmake"
 =======
 >>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
+=======
+>>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
   )
 
 # The corresponding makefile is:
@@ -174,13 +177,19 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
   "CMakeFiles/3.20.2/CMakeSystem.cmake"
   "CMakeFiles/3.20.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.20.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.20.2/CMakeRCCompiler.cmake"
   "CMakeFiles/3.20.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.20.2/CMakeCXXCompiler.cmake"
+<<<<<<< HEAD
+>>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
+=======
 >>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/googletest-master/CMakeFiles/CMakeDirectoryInformation.cmake"

@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /snap/clion/175/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/johnny/CLionProjects/AirlineManagementProgram
 =======
+=======
+>>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
 C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\clion-projetos\AirlineManagementProgram
 -- The C compiler identification is GNU 9.2.0
 -- The CXX compiler identification is GNU 9.2.0
@@ -15,6 +18,9 @@ C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\c
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Could NOT find Python (missing: Python_EXECUTABLE Interpreter) 
+<<<<<<< HEAD
+>>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
+=======
 >>>>>>> a0cec1cfc943a3383813c19fd68c37d8c94b496e
 -- Configuring done
 -- Generating done
