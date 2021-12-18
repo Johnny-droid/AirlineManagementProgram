@@ -55,18 +55,49 @@ void Plane::print() {
 }
 
 void Plane::printServices() {
+    queue<Service> copyServicesToBeDone = servicesToBeDone;
+    queue<Service> copyServicesCompleted = servicesCompleted;
+
     cout << "Services not yet completed" << endl;
-    while (!servicesToBeDone.empty()) {
-        Service service = servicesToBeDone.front();
+    while (!copyServicesToBeDone.empty()) {
+        Service service = copyServicesToBeDone.front();
         service.print();
-        servicesToBeDone.pop();
+        copyServicesToBeDone.pop();
     }
     cout << endl;
     cout << "Services completed" << endl;
-    while (!servicesCompleted.empty()) {
-        Service service = servicesCompleted.front();
+    while (!copyServicesCompleted.empty()) {
+        Service service = copyServicesCompleted.front();
         service.print();
-        servicesCompleted.pop();
+        copyServicesCompleted.pop();
     }
 }
+
+void Plane::printServicesCompleted() {
+    queue<Service> copyServicesCompleted = servicesCompleted;
+    cout << "Services completed" << endl;
+    while (!copyServicesCompleted.empty()) {
+        Service service = copyServicesCompleted.front();
+        service.print();
+        copyServicesCompleted.pop();
+    }
+};
+
+void Plane::printServicesToBeDone() {
+    queue<Service> copyServicesToBeDone = servicesToBeDone;
+    cout << "Services not yet completed" << endl;
+    while (!copyServicesToBeDone.empty()) {
+        Service service = copyServicesToBeDone.front();
+        service.print();
+        copyServicesToBeDone.pop();
+    }
+};
+
+void Plane::completeLastService() {
+    Service serviceDone = servicesToBeDone.front();
+    serviceDone.print();
+    cout << "This service was completed" << endl;
+    servicesToBeDone.pop();
+    servicesCompleted.push(serviceDone);
+};
 

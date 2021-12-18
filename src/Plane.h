@@ -29,6 +29,9 @@ public:
     void print();
     void printFlights();
     void printServices();
+    void printServicesCompleted();
+    void printServicesToBeDone();
+    void completeLastService();
 };
 
 
