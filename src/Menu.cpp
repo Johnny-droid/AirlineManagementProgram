@@ -1,7 +1,5 @@
 #include "Menu.h"
 
-
-
 using namespace std;
 
 Menu::Menu(string directory) {
@@ -38,13 +36,14 @@ void Menu::showMenu() {
 }
 
 void Menu::showClasses() {
-    cout << "     1) Planes          " << endl;
-    cout << "     2) Flights         " << endl;
-    cout << "     3) Services        " << endl;
-    cout << "     4) Airports        " << endl;
-    cout << "     5) Tickets         " << endl;
-    cout << "     6) Passengers      " << endl;
-    cout << "     0) Back            " << endl;
+    cout << "     1) Planes           " << endl;
+    cout << "     2) Flights          " << endl;
+    cout << "     3) Services         " << endl;
+    cout << "     4) Airports         " << endl;
+    cout << "     5) Tickets          " << endl;
+    cout << "     6) Passengers       " << endl;
+    cout << "     7) Local Transports " << endl;
+    cout << "     0) Back             " << endl;
 }
 
 
@@ -171,6 +170,31 @@ Flight *Menu::getFlight(int number) {
     return nullptr;
 }
 
+BST<LocalTransport> Menu::initializeLocalTransports(string directory, int idAirport) {
+    ifstream fileLT;
+    string line;
+    LocalTransport localTransportNotFound;
+    BST<LocalTransport> bstLT(localTransportNotFound);
+
+    fileLT.open(directory + "LocalTransports.txt");
+
+    if (!fileLT.is_open()) {
+        throw runtime_error("File of Local Transports was not found");
+    } else {
+        while(getline(fileLT, line)) {
+            if (line.empty()) continue;
+            vector<string> elements = split(line);
+            if (stoi(elements[0]) == idAirport) {
+                LocalTransport lT(elements[1], elements[2], stoi(elements[3]));
+                bstLT.insert(lT);
+            }
+        }
+    }
+
+    fileLT.close();
+    return bstLT;
+}
+
 vector<Airport> Menu::initializeAirports(string directory) {
     //Initialize the airports from the files
     ifstream fileAirport;
@@ -185,7 +209,8 @@ vector<Airport> Menu::initializeAirports(string directory) {
         while(getline(fileAirport, line)) {
             if (line.empty()) continue;
             vector<string> elements = split(line);
-            Airport airport(stoi(elements[0]), elements[1]);
+            BST<LocalTransport> bst = initializeLocalTransports(directory, stoi(elements[0]));
+            Airport airport(stoi(elements[0]), elements[1], bst);
             airportsVector.push_back(airport);
         }
     }
@@ -233,6 +258,7 @@ vector<queue<Service>> Menu::initializeServices(string directory, string planeID
             if (line.empty()) continue;
             vector<string> elements = split(line);
             if (elements[0] == planeID) {
+                // converter elements[2] numa data
                 Service service(elements[1], elements[2], elements[3]);
                 if (elements[4] == "y") {
                     servicesCompleted.push(service);
@@ -376,6 +402,18 @@ void Menu::printTickets() {
         }
     }
 }
+
+void Menu::printLocalTransports() {
+    for (Airport airport : airports) {
+        cout << "Local Transports of airport " << airport.getName() << endl;
+        BSTItrIn it(airport.getBST());
+        while (!it.isAtEnd()) {
+            it.retrieve().print();
+            it.advance();
+        }
+    }
+}
+
 
 bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
     int capacity = getPlaneWithFlightNumber(number)->getCapacity();
@@ -555,9 +593,7 @@ void Menu::read() {
     else if (option == 4) printAirports();
     else if (option == 5) printTickets();
     else if (option == 6) printPassengers();
-    else if (option == 7) {
-        //print Local transports
-    }
+    else if (option == 7) printLocalTransports();
     pressAnyKeyToContinue();
 }
 
@@ -882,7 +918,6 @@ void Menu::remove() {
     else if (option == 7) {
         // por fazer
     }
-
 }
 
 /*

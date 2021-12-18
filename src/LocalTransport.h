@@ -2,6 +2,7 @@
 #define AIRLINEMANAGEMENTPROGRAM_LOCALTRANSPORT_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -11,13 +12,17 @@ class LocalTransport {
     int distanceToAirport;
 
 public:
+    LocalTransport();
     LocalTransport(string typeTransport, string times, int distanceToAirport);
     string getTypeTransport();
-    string getTimes();
-    int getDistanceToAirport();
+    string getTimes() const;
+    int getDistanceToAirport() const;
     void setTypeTransport(string newTypeTransport);
     void setTimes(string newTimes);
     void setDistanceToAirport(int newDistanceToAirport);
+    void print() const;
+
+    bool operator<(const LocalTransport& lT) const;
 };
 
 

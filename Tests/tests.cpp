@@ -20,6 +20,11 @@ TEST(testAiport, Aiports) {
 
     Airport airport1(stoi(v1[0]), v1[1]);
     Airport airport2(stoi(v2[0]), v2[1]);
+    EXPECT_EQ(1, airport1.getId());
+    EXPECT_EQ("Francisco Sa Carneiro", airport1.getName());
+    EXPECT_EQ(3, airport2.getId());
+    EXPECT_EQ("Gatwick", airport2.getName());
+
 }
 
 TEST(testPassenger, Passengers) {

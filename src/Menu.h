@@ -48,6 +48,7 @@ public:
     void printAirports();
     void printPassengers();
     void printTickets();
+    void printLocalTransports();
     bool buyTicket(int capacity, int baggage, int price, Passenger* passenger);
     bool isPlaneLpUnique(string lp);
     bool isFlightNumberUnique(int number);
@@ -55,6 +56,7 @@ public:
     bool isAirportIdUnique(int id);
 
 private:
+    BST<LocalTransport> initializeLocalTransports(string directory, int idAirport);
     vector<Airport> initializeAirports(string testDirectory);
     vector<Passenger> initializePassengers(string testDirectory);
     vector<Plane> initializePlanes(string testDirectory);
