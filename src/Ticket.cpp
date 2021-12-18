@@ -17,6 +17,16 @@ Passenger* Ticket::getPassenger() {
     return passenger;
 }
 
+void Ticket::setBaggage(int newBaggage){
+    baggage = newBaggage;
+}
+void Ticket::setPrice(int newPrice){
+    price = newPrice;
+}
+void Ticket::setPassenger(Passenger* newPassenger){
+    passenger = newPassenger;
+}
+
 void Ticket::print() {
     cout << "Ticket    Passenger: " << passenger->getName() << "     Baggage: " << baggage << "       Price: " << price << endl;
 }

@@ -18,6 +18,16 @@ int Passenger::getAge() {
     return age;
 }
 
+void Passenger::setId(int newId){
+    id = newId;
+}
+void Passenger::setName(string newName){
+    name = newName;
+}
+void Passenger::setAge(int newAge){
+    age = newAge;
+}
+
 void Passenger::print() {
     cout << "Passenger ID: " << id << "   Name: " << name << "   Age: " << age << endl;
 }

@@ -37,6 +37,13 @@ vector<Ticket>& Flight::getTickets() {
     return tickets;
 }
 
+void Flight::setNumber(int newNumber){
+    number = newNumber;
+}
+void Flight::setDuration(int newDuration){
+    duration = newDuration;
+}
+
 
 
 

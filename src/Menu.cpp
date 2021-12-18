@@ -382,6 +382,26 @@ bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
     return false;
 }
 
+bool Menu::isPlaneLpUnique(string lp){
+    for (Plane plane : planes){
+        if (plane.getLicensePlate() == lp) return false;
+    }
+    return true;
+}
+
+bool Menu::isAirportIdUnique(int id){
+    for (Airport airport : airports){
+        if (airport.getId() == id) return false;
+    }
+    return true;
+}
+bool Menu::isPassengerIdUnique(int id){
+    for (Passenger passenger : passengers){
+        if (passenger.getId() == id) return false;
+    }
+    return true;
+}
+
 /*
 1) Planes         2) Flights          3) Services             4) Airports
 5) Tickets        6) Passengers       7) Local Transports     0) Back
@@ -392,14 +412,21 @@ void Menu::create() {
     int option = readInputClasses();
     if (option == 0) return;
     else if (option == 1) {
-        string lp; int capacity;
-        cout << "Please insert a licence plate: " << endl;
-        cin >> lp;
+        string lp; int capacity; bool uniqueLp;
+        do {
+            cout << "Please insert a licence plate: " << endl;
+            cin >> lp;
+            uniqueLp = true;
+            if (isPlaneLpUnique(lp)){
+                cout << "Another plane already has this license plate!" << endl;
+                uniqueLp = false;
+            }
+        } while (!uniqueLp);
         cout << "Please insert a capacity: " << endl;
         cin >> capacity;
         Plane plane(lp, capacity);
         planes.push_back(plane);
-        cout << "You plane was successful added" << endl;
+        cout << "You plane was successfully added." << endl;
     }
     else if (option == 2) {
         string lp, date; int number, originId, destinyId, duration;
@@ -436,13 +463,22 @@ void Menu::create() {
         this->getPlane(lp)->getServicesToBeDone().push(service);
     }
     else if (option == 4) {
-        string name;
+        string name; int id; bool uniqueId;
+        do {
+            cout << "Please insert an ID for the airport: " << endl;
+            cin >> id;
+            uniqueId = true;
+            if (isAirportIdUnique(id)){
+                cout << "Another airport already has this ID!" << endl;
+                uniqueId = false;
+            }
+        } while (!uniqueId);
         cout << "Please insert the name of the airport: ";
         cin.ignore(1000, '\n');  // para conseguir ler um nome de aeroporto com mais do que uma palavra
         getline(cin, name);
 
         //falta depois ler os locais de transporte
-        Airport airport((int) airports.size(), name);
+        Airport airport((int id) airports.size(), name);
         airports.push_back(airport);
     }
     else if (option == 5) {
@@ -463,7 +499,16 @@ void Menu::create() {
         else cout << "I'm sorry, but this flight is already full" << endl;
     }
     else if (option == 6) {
-        string name; int age;
+        string name; int id, age; bool uniqueId;
+        do {
+            cout << "Please insert an ID for the passenger: " << endl;
+            cin >> id;
+            uniqueId = true;
+            if (isAirportIdUnique(id)){
+                cout << "Another passenger already has this ID!" << endl;
+                uniqueId = false;
+            }
+        } while (!uniqueId);
         cout << "Please insert the passenger's name: " << endl;
         cin >> name;
         cout << "Please insert the passenger's age: " << endl;
@@ -473,7 +518,7 @@ void Menu::create() {
     }
     else if (option == 7) {
         string typeTransport, times, date; int idAirport, distanceToAirport;
-        //print airports
+        printAirports();
         cout << "Please insert the closest airport's ID: " << endl;
         cin >> idAirport;
         cout << "What is the type of transport: bus, train or subway? " << endl;
@@ -486,82 +531,6 @@ void Menu::create() {
         LocalTransport localTransport(typeTransport, times, distanceToAirport);
         //adicionar à arvore binaria de getAirport(idAirport)
     }
-    /* caso tenha feito asneira
-    string lp, date,service, worker, name, transportType;
-    int capacity, departure, destination, duration, idAirport, idFlight, idTicket, baggage, price, age, distance;
-    switch (option) {
-        case 1:
-            cout << "Please insert a licence plate: " << endl;
-            cin >> lp;
-            cout << "Please insert a capacity: " << endl;
-            cin >> capacity;
-            break;
-        case 2:
-            //criar id random
-            printPlanes();
-            cout << "Please insert the airplane's licence plate: " << endl;
-            cin >> lp;
-            printAirports();
-            cout << "Please insert the ID of the Airport of departure: " << endl;
-            cin >> departure;
-            cout << "Please insert the ID of the Airport of destination: " << endl;
-            cin >> destination;
-            cout << "Please insert the duration of the flight: " << endl;
-            cin >> duration;
-            cout << "Please insert the date (DD-MM-YYYY): " << endl;
-            cin >> date;
-            break;
-        case 3:
-            printPlanes();
-            cout << "Please insert the airplane's licence plate: " << endl;
-            cin >> lp;
-            cout << "Which is the type of the service: maintenance or cleaning?" << endl;
-            cin >> service;
-            cout << "Please insert the date that the service will begin: " << endl;
-            cin >> date;
-            cout << "What is the name of the worker doing this service?" << endl;
-            cin >> worker;
-            break;
-        case 4:
-            //criar id random
-            cout << "Please insert the name of the airport: " << endl;
-            cin >> name;
-            break;
-        case 5:
-            printFlights();
-            cout << "Which flight is this for? Choose by ID: " << endl;
-            cin >> idFlight;
-            printPassengers();
-            cout << "Who bought this ticket? Choose by ID: " << endl;
-            cin >> idTicket;
-            cout << "Please insert the baggage: " << endl;
-            cin >> baggage;
-            cout << "Please insert the price: " << endl;
-            cin >> price;
-            break;
-        case 6:
-            //criar id random
-            cout << "Please insert the passenger's name: " << endl;
-            cin >> name;
-            cout << "Please insert the passenger's age: " << endl;
-            cin >> age;
-            break;
-        case 7:
-            cout << "Please insert the ID of the Airport: " << endl;
-            cin >> idAirport;
-            cout << "Please insert the airplane's licence plate: " << endl;
-            cin >> lp;
-            cout << "What is the type of transport: bus, train or subway? " << endl;
-            cin >> transportType;
-            cout << "Please insert the date you want this transport: " << endl;
-            cin >> date;
-            cout << "Please insert the distance to the airport: " << endl;
-            cin >> distance;
-            break;
-        default:
-            break;
-    }
-     */
 }
 
 /*
@@ -588,9 +557,134 @@ void Menu::read() {
 void Menu::update() {
     showClasses();
     int option = readInputClasses();
-    //atribute
-    string lp, date,service, worker, name;
-    int capacity, departure, destination, duration;
+    if (option == 0) return;
+    else if (option == 1) {
+        string lpId; int atributeToUpdate; bool appropriateInput;
+        printPlanes();
+        cout << "Insert the license plate of the plane you would like to update: " << endl;
+        cin >> lpId;
+        do{
+            appropriateInput = true;
+            cout << "Which attribute would you like to update? "<< endl;
+            cout << "1) License Plate"<< endl;
+            cout << "2) Capacity"<< endl;
+            cin >> atributeToUpdate;
+            if (atributeToUpdate == 1){
+                string newLp; bool uniqueLp;
+                do {
+                    cout << "What will the new license plate be? "<< endl;
+                    cin >> newLp;
+                    uniqueLp = true;
+                    if (isPlaneLpUnique(newLp)){
+                        cout << "Another plane already has this license plate!" << endl;
+                        uniqueLp = false;
+                    }
+                } while (!uniqueLp);
+                this->getPlane(lpId)->setLicensePlate(newLp);
+            }
+            else if (atributeToUpdate == 2){
+                int newCapacity;
+                cout << "What will the new capacity be? "<< endl;
+                cin >> newCapacity;
+                this->getPlane(lpId)->setCapacity(newCapacity);
+            }
+            else {
+                cout << "Invalid number. Please try again." << endl;
+                appropriateInput = false;
+            }
+        } while (!appropriateInput);
+    }
+    else if (option == 2) {
+        //por fazer
+    }
+    else if (option == 3) {
+        //por fazer
+    }
+    else if (option == 4) {
+        int idId, atributeToUpdate; bool appropriateInput;
+        printAirports();
+        cout << "Insert the ID of the airport you would like to update: " << endl;
+        cin >> idId;
+        do{
+            cout << "Which attribute would you like to update? "<< endl;
+            cout << "1) ID"<< endl;
+            cout << "2) Name"<< endl;
+            cin >> atributeToUpdate;
+            appropriateInput = true;
+            if (atributeToUpdate == 1){
+                int newId; bool uniqueId;
+                do {
+                    cout << "What will the new ID be? "<< endl;
+                    cin >> newId;
+                    uniqueId = true;
+                    if (isAirportIdUnique(newId)){
+                        cout << "Another airport already has this ID!" << endl;
+                        uniqueId = false;
+                    }
+                } while (!uniqueId);
+                this->getAirport(idId)->setId(newId);
+            }
+            else if (atributeToUpdate == 2){
+                string newName;
+                cout << "What will the new name be? "<< endl;
+                cin >> newName;
+                this->getAirport(idId)->setName(newName);
+            }
+            else {
+                cout << "Invalid number. Please try again." << endl;
+                appropriateInput = false;
+            }
+        } while (!appropriateInput);
+    }
+    else if (option == 5) {
+        //por fazer
+    }
+    else if (option == 6) {
+        int idId, atributeToUpdate; bool appropriateInput;
+        printPassengers();
+        cout << "Insert the ID of the passenger you would like to update: " << endl;
+        cin >> idId;
+        do{
+            cout << "Which attribute would you like to update? "<< endl;
+            cout << "1) ID"<< endl;
+            cout << "2) Name"<< endl;
+            cout << "3) Age"<< endl;
+            cin >> atributeToUpdate;
+            appropriateInput = true;
+            if (atributeToUpdate == 1){
+                int newId; bool uniqueId;
+                do {
+                    cout << "What will the new ID be? "<< endl;
+                    cin >> newId;
+                    uniqueId = true;
+                    if (isPassengerIdUnique(newId)){
+                        cout << "Another passenger already has this ID!" << endl;
+                        uniqueId = false;
+                    }
+                } while (!uniqueId);
+                this->getPassenger(idId)->setId(newId);
+            }
+            else if (atributeToUpdate == 2){
+                string newName;
+                cout << "What will the new name be? "<< endl;
+                cin >> newName;
+                this->getPassenger(idId)->setName(newName);
+            }
+            else if (atributeToUpdate == 2){
+                int newAge;
+                cout << "What will the new age be? "<< endl;
+                cin >> newAge;
+                this->getPassenger(idId)->setAge(newAge);
+            }
+            else {
+                cout << "Invalid number. Please try again." << endl;
+                appropriateInput = false;
+            }
+        } while (!appropriateInput);
+    }
+    else if (option == 7) {
+        //por fazer
+    }
 }
 
 void Menu::remove() {
@@ -598,9 +692,15 @@ void Menu::remove() {
     int option = readInputClasses();
 }
 
-
-
-
-
-
+/*
+ * antonio trata
+Update
+Remove
+Date
+ outras cenas
+Local Transports
+Simulation - Carrinho
+Ordenação e pesquisa
+ Organizar o texto
+*/
 

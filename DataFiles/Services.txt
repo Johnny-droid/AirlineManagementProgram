@@ -17,4 +17,4 @@ G0294,cleaning,31-08-2021,Marcelo Rebelo de Sousa,y
 A310,cleaning,11-07-2016,Marcelo Rebelo de Sousa,y
 B4208,maintenance,27-12-2017,Donald Trump,n
 F771,maintenance,21-09-2018,Joe Biden,y
-z232,cleaning,25-12-2021,João Rendeiro,y
+z232,cleaning,25-12-2021,Joao Rendeiro,y

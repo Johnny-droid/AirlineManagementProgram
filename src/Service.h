@@ -15,6 +15,9 @@ public:
     string getTypeOfService();
     string getDate();
     string getWorker();
+    void setTypeOfService(string newTypeOfService);
+    void setDate(string newDate);
+    void setWorker(string newWorker);
     void print();
 };
 

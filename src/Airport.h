@@ -15,6 +15,8 @@ public:
     Airport(int id, string name);
     int getId();
     string getName();
+    void setId(int newId);
+    void setName(string newName);
     void print();
 };
 

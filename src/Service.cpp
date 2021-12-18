@@ -18,6 +18,16 @@ string Service::getWorker() {
     return worker;
 }
 
+void Service::setTypeOfService(string newTypeOfService){
+    typeOfService = newTypeOfService;
+}
+void Service::setDate(string newDate){
+    date = newDate;
+}
+void Service::setWorker(string newWorker){
+    worker = newWorker;
+}
+
 void Service::print() {
     cout << "Service: " << typeOfService << "  " << date << "  " << worker << endl;
 }

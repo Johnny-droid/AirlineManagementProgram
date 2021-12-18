@@ -24,6 +24,8 @@ public:
     vector<Flight> &getFlightPlan();
     queue<Service> &getServicesToBeDone();
     queue<Service> &getServicesCompleted();
+    void setLicensePlate(string newLicensePlate);
+    void setCapacity(int newCapacity);
     void print();
     void printFlights();
     void printServices();

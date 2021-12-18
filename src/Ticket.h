@@ -16,6 +16,9 @@ public:
     int getBaggage();
     int getPrice();
     Passenger* getPassenger();
+    void setBaggage(int newBaggage);
+    void setPrice(int newPrice);
+    void setPassenger(Passenger* newPassenger);
     void print();
 };
 

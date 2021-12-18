@@ -49,6 +49,9 @@ public:
     void printPassengers();
     void printTickets();
     bool buyTicket(int capacity, int baggage, int price, Passenger* passenger);
+    bool isPlaneLpUnique(string lp);
+    bool isAirportIdUnique(int id);
+    bool isPassengerIdUnique(int id);
 
 private:
     vector<Airport> initializeAirports(string testDirectory);

@@ -35,6 +35,12 @@ queue<Service>& Plane::getServicesToBeDone() {
 queue<Service>& Plane::getServicesCompleted() {
     return servicesCompleted;
 }
+void Plane::setLicensePlate(string newLicensePlate){
+    licensePlate = newLicensePlate;
+}
+void Plane::setCapacity(int newCapacity){
+    capacity = newCapacity;
+}
 
 void Plane::printFlights() {
     for (Flight flight: flightPlan) {

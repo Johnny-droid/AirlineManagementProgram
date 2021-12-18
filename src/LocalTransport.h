@@ -15,6 +15,9 @@ public:
     string getTypeTransport();
     string getTimes();
     int getDistanceToAirport();
+    void setTypeTransport(string newTypeTransport);
+    void setTimes(string newTimes);
+    void setDistanceToAirport(int newDistanceToAirport);
 };
 
 
