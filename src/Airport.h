@@ -3,14 +3,15 @@
 
 #include <string>
 #include <iostream>
+#include "bst.h"
+#include "LocalTransport.h"
 
 using namespace std;
 
 class Airport {
     int id;
     string name;
-    //Binary Tree needs to be implemented
-    // Transportation near the airport
+    BST<LocalTransport> bst;
 public:
     Airport(int id, string name);
     int getId();

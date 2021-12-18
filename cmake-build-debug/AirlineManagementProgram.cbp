@@ -394,6 +394,9 @@
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h">
 			<Option target="AirlineManagementProgram"/>
 		</Unit>
+		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/src/bst.h">
+			<Option target="AirlineManagementProgram"/>
+		</Unit>
 		<Unit filename="/home/johnny/CLionProjects/AirlineManagementProgram/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
