@@ -183,7 +183,12 @@ bool BST<Comparable>::remove(const Comparable& x, BinaryNode<Comparable>* & t) c
         t->element = findMin(t->right)->element;
         return remove(t->element, t->right);
     }
-    else {
+    else if (t->element == x) {
+        BinaryNode<Comparable>* oldNode = t;
+        t = (t->left != NULL) ? t->left : t->right;
+        delete oldNode;
+        return true;
+    } else {
         BinaryNode<Comparable>* oldNode = t;
         t = (t->left != NULL) ? t->left : t->right;
         delete oldNode;
@@ -417,6 +422,7 @@ public:
     bool operator==(const iteratorBST<Comparable>& it2) const;
     bool operator!=(const iteratorBST<Comparable>& it2) const;
 };
+
 
 template <class Comparable>
 void iteratorBST<Comparable>::slideLeft(BinaryNode<Comparable>* n) {

@@ -181,12 +181,14 @@ BST<LocalTransport> Menu::initializeLocalTransports(string directory, int idAirp
     if (!fileLT.is_open()) {
         throw runtime_error("File of Local Transports was not found");
     } else {
+        int counter = 1;
         while(getline(fileLT, line)) {
             if (line.empty()) continue;
             vector<string> elements = split(line);
             if (stoi(elements[0]) == idAirport) {
-                LocalTransport lT(elements[1], elements[2], stoi(elements[3]));
+                LocalTransport lT(counter, elements[1], elements[2], stoi(elements[3]));
                 bstLT.insert(lT);
+                counter++;
             }
         }
     }
@@ -470,7 +472,7 @@ void Menu::create() {
             cout << "Please insert a licence plate: " << endl;
             cin >> lp;
             uniqueLp = true;
-            if (isPlaneLpUnique(lp)){
+            if (!isPlaneLpUnique(lp)){
                 cout << "Another plane already has this license plate!" << endl;
                 uniqueLp = false;
             }
@@ -563,17 +565,12 @@ void Menu::create() {
     else if (option == 7) {
         string typeTransport, times, date; int idAirport, distanceToAirport;
         printAirports();
-        cout << "Please insert the closest airport's ID: " << endl;
-        cin >> idAirport;
-        cout << "What is the type of transport: bus, train or subway? " << endl;
-        cin >> typeTransport;
-        cout << "Please insert the date you want this transport: " << endl;
-        cin >> date;
-        cout << "Please insert the distance to the airport: " << endl;
-        cin >> distanceToAirport;
-        //arranjar o times
-        LocalTransport localTransport(typeTransport, times, distanceToAirport);
-        //adicionar à arvore binaria de getAirport(idAirport)
+        cout << "Please insert the closest airport's ID: "; cin >> idAirport;
+        cout << "What is the type of transport: bus, train or subway? "; cin >> typeTransport;
+        cout << "Please insert the times you want for this transport: "; cin >> times;
+        cout << "Please insert the distance to the airport: "; cin >> distanceToAirport;
+        LocalTransport localTransport(this->getAirport(idAirport)->getBSTSize()+1, typeTransport, times, distanceToAirport);
+        this->getAirport(idAirport)->getBST().insert(localTransport);
     }
     pressAnyKeyToContinue();
 }
@@ -818,7 +815,43 @@ void Menu::update() {
         } while (!appropriateInput);
     }
     else if (option == 7) {
-        //por fazer
+        int idAirport, idLT; bool notValid;
+        printAirports();
+        do {
+            cout << "Insert the ID of the airport nearest to the Local Transports: "; cin >> idAirport; cout << endl;
+            notValid = this->isAirportIdUnique(idAirport);
+            if (notValid) {
+                cout << "Invalid Input" << endl;
+            }
+        } while (!notValid);
+
+        this->getAirport(idAirport)->printLocalTransports();
+        bool valid; string typeTransport, times; int distance;
+        do {
+            cout << "Which Local Transport would you like to update? ID: "; cin >> idLT;
+            valid = this->getAirport(idAirport)->isLocalTransportId(idLT);
+            if (!valid) {
+                cout << "Invalid Input. Try Again" << endl;
+            }
+        } while (!valid);
+        cout << "New Local Transport: " << endl;
+        do {
+            cout << "1) Type of Transport (bus, train or subway) : "; cin >> typeTransport; cout << endl;
+            valid = typeTransport != "bus" || typeTransport != "train" || typeTransport != "subway";
+            if (!valid) {
+                cout << "Invalid Input" << endl;
+                valid = false;
+            }
+        } while (!valid);
+        cout << "2) Schedule: "; cin >> times; cout << endl;
+        cout << "3) Distance to airport: "; cin >> distance; cout << endl;
+        LocalTransport lTRemove(idLT, "", "", 0);
+        LocalTransport lTInsert(idLT, typeTransport, times, distance);
+        this->getAirport(idAirport)->getBST().remove(lTRemove);
+        this->getAirport(idAirport)->getBST().insert(lTInsert);
+
+    } else {
+        cout << "Invalid Input" << endl;
     }
 }
 
@@ -916,7 +949,26 @@ void Menu::remove() {
         cout << "Passenger successfully deleted." << endl;
     }
     else if (option == 7) {
-        // por fazer
+        int idAirport, idLT; bool notValid;
+        printAirports();
+        do {
+            cout << "Insert the ID of the airport nearest to the Local Transports: "; cin >> idAirport; cout << endl;
+            notValid = this->isAirportIdUnique(idAirport);
+            if (notValid) {
+                cout << "Invalid Input" << endl;
+            }
+        } while (!notValid);
+        this->getAirport(idAirport)->printLocalTransports();
+        bool valid;
+        do {
+            cout << "Which Local Transport would you like to remove? ID: "; cin >> idLT;
+            valid = this->getAirport(idAirport)->isLocalTransportId(idLT);
+            if (!valid) {
+                cout << "Invalid Input. Try Again" << endl;
+            }
+        } while (!valid);
+        LocalTransport lTRemove(idLT, "", "", 0);
+        this->getAirport(idAirport)->getBST().remove(lTRemove);
     }
 }
 

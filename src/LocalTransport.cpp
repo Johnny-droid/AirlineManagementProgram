@@ -1,18 +1,24 @@
 #include "LocalTransport.h"
 
 LocalTransport::LocalTransport() {
+    this->id = -1;
     this->typeTransport = "";
     this->times = "";
     this->distanceToAirport = -1;
 }
 
-LocalTransport::LocalTransport(string typeTransport, string times, int distanceToAirport) {
+LocalTransport::LocalTransport(int id, string typeTransport, string times, int distanceToAirport) {
+    this->id = id;
     this->typeTransport = typeTransport;
     this->times = times;
     this->distanceToAirport = distanceToAirport;
 }
 
-string LocalTransport::getTypeTransport() {
+int LocalTransport::getId() const {
+    return id;
+}
+
+string LocalTransport::getTypeTransport() const {
     return typeTransport;
 }
 
@@ -36,9 +42,15 @@ void LocalTransport::setDistanceToAirport(int newDistanceToAirport){
 }
 
 void LocalTransport::print() const {
-    cout << "Local Transport    Type: " << typeTransport << "     times: " << times << "    distance to Airport: " << distanceToAirport << "km" << endl;
+    cout << id << ") Local Transport    Type: " << typeTransport << "     times: " << times << "    distance to Airport: " << distanceToAirport << "km" << endl;
 }
 
 bool LocalTransport::operator<(const LocalTransport& lT) const {
     return this->distanceToAirport < lT.getDistanceToAirport();
 }
+
+bool LocalTransport::operator==(const LocalTransport &lT) const {
+    return this->id == lT.id;
+}
+
+

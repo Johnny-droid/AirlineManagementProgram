@@ -18,9 +18,12 @@ public:
     int getId();
     string getName();
     BST<LocalTransport>& getBST();
+    int getBSTSize();
     void setId(int newId);
     void setName(string newName);
     void print();
+    void printLocalTransports();
+    bool isLocalTransportId(int id);
 };
 
 
