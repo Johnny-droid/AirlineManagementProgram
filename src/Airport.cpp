@@ -19,7 +19,7 @@ int Airport::getId() {
     return id;
 }
 
-BST<LocalTransport> Airport::getBST() {
+BST<LocalTransport>& Airport::getBST() {
     return bst;
 }
 
