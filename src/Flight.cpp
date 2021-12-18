@@ -51,6 +51,14 @@ void Flight::printTickets() {
     }
 }
 
+void Flight::setAirportOrigin(Airport *airport) {
+    this->origin = airport;
+}
+
+void Flight::setAirportDestiny(Airport *airport) {
+    this->destiny = airport;
+}
+
 
 
 

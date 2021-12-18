@@ -26,6 +26,8 @@ public:
     vector<Ticket>& getTickets();
     void setNumber(int newNumber);
     void setDuration(int newDuration);
+    void setAirportOrigin(Airport* airport);
+    void setAirportDestiny(Airport* airport);
     void printTickets();
 };
 

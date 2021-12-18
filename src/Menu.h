@@ -52,6 +52,7 @@ public:
     bool isPlaneLpUnique(string lp);
     bool isFlightNumberUnique(int number);
     bool isPassengerIdUnique(int id);
+    bool isAirportIdUnique(int id);
 
 private:
     vector<Airport> initializeAirports(string testDirectory);
@@ -60,6 +61,7 @@ private:
     vector<queue<Service>> initializeServices(string testDirectory, string planeID);
     vector<Ticket> initializeTickets(string testDirectory, int flightID);
     vector<Flight> initializeFlights(string testDirectory, string planeLicensePlate);
+    void pressAnyKeyToContinue();
 };
 
 

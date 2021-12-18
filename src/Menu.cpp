@@ -74,7 +74,7 @@ int Menu::readInputClasses() {
     do {
         cout << "\n     Enter option: ";
         cin >> chosenOption;
-        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 0;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 5 && chosenOption != 6 && chosenOption != 7 && chosenOption != 0;
         if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
@@ -331,6 +331,11 @@ vector<Plane> Menu::initializePlanes(string directory) {
     return planesVector;
 }
 
+void Menu::pressAnyKeyToContinue() {
+    cout << "     Press any key to continue ";
+    getchar();
+}
+
 void Menu::printPlanes() {
     for (Plane plane : planes) {
         plane.print();
@@ -362,8 +367,8 @@ void Menu::printPassengers() {
 }
 
 void Menu::printTickets() {
-    for (Plane plane : planes) {
-        for (Flight flight : plane.getFlightPlan()) {
+    for (Plane &plane : planes) {
+        for (Flight &flight : plane.getFlightPlan()) {
             cout << "Tickets of flight number " << flight.getNumber() << endl;
             for (Ticket ticket : flight.getTickets()) {
                 ticket.print();
@@ -401,6 +406,13 @@ bool Menu::isFlightNumberUnique(int number){
 bool Menu::isPassengerIdUnique(int id){
     for (Passenger passenger : passengers){
         if (passenger.getId() == id) return false;
+    }
+    return true;
+}
+
+bool Menu::isAirportIdUnique(int id) {
+    for (Airport airport : airports) {
+        if (airport.getId() == id) return false;
     }
     return true;
 }
@@ -472,7 +484,7 @@ void Menu::create() {
         getline(cin, name);
 
         //falta depois ler os locais de transporte
-        Airport airport((int) airports.size(), name);
+        Airport airport((int) airports.size() + 1, name);
         airports.push_back(airport);
     }
     else if (option == 5) {
@@ -525,6 +537,7 @@ void Menu::create() {
         LocalTransport localTransport(typeTransport, times, distanceToAirport);
         //adicionar à arvore binaria de getAirport(idAirport)
     }
+    pressAnyKeyToContinue();
 }
 
 /*
@@ -545,7 +558,7 @@ void Menu::read() {
     else if (option == 7) {
         //print Local transports
     }
-
+    pressAnyKeyToContinue();
 }
 
 void Menu::update() {
@@ -569,7 +582,7 @@ void Menu::update() {
                     cout << "What will the new license plate be? "<< endl;
                     cin >> newLp;
                     uniqueLp = true;
-                    if (isPlaneLpUnique(newLp)){
+                    if (!isPlaneLpUnique(newLp)){
                         cout << "Another plane already has this license plate!" << endl;
                         uniqueLp = false;
                     }
@@ -589,8 +602,65 @@ void Menu::update() {
         } while (!appropriateInput);
     }
     else if (option == 2) {
-        //por fazer
+        int flightNumber, atributeToUpdate; bool appropriateInput;
+        printFlights();
+        do {
+            cout << "Insert the flight number: "; cin >> flightNumber;
+            if (!isFlightNumberUnique(flightNumber)) {
+                appropriateInput = false;
+            }
+        } while (!appropriateInput);
 
+        do {
+            appropriateInput = true;
+            cout << "Which attribute would you like to update? "<< endl;
+            cout << "1) Flight Number"<< endl;
+            cout << "2) Duration "<< endl;
+            cout << "3) Airport of Departure" << endl;
+            cout << "4) Airport of Arrival" << endl;
+            cin >> atributeToUpdate;
+            if (atributeToUpdate == 1){
+                int newNumber; bool uniqueNumber;
+                do {
+                    cout << "What will the new number be? "<< endl;
+                    cin >> newNumber;
+                    uniqueNumber = true;
+                    if (!isFlightNumberUnique(newNumber)){
+                        cout << "Another plane already has this license plate!" << endl;
+                        uniqueNumber = false;
+                    }
+                } while (uniqueNumber);
+                this->getFlight(flightNumber)->setNumber(newNumber);
+            }
+            else if (atributeToUpdate == 2){
+                int newDuration;
+                cout << "What will the new duration of the flight be? "<< endl;
+                cin >> newDuration;
+                this->getFlight(flightNumber)->setDuration(newDuration);
+            }
+            else if (atributeToUpdate == 3 || atributeToUpdate == 4){
+                int idAirport; bool uniqueAirport;
+                printAirports();
+                do {
+                    uniqueAirport = true;
+                    cout << "Insert the ID of the airport you would like to change to: " << endl;
+                    cin >> idAirport;
+                    if (isAirportIdUnique(idAirport)) {
+                        if (atributeToUpdate == 3) {
+                            this->getFlight(flightNumber)->setAirportOrigin(this->getAirport(idAirport));
+                        } else {
+                            this->getFlight(flightNumber)->setAirportDestiny(this->getAirport(idAirport));
+                        }
+                    } else {
+                        uniqueAirport = false;
+                    }
+                } while (uniqueAirport);
+            }
+            else {
+                cout << "Invalid number. Please try again." << endl;
+                appropriateInput = false;
+            }
+        } while (!appropriateInput);
     }
     else if (option == 3) {
         string lp;
@@ -616,7 +686,6 @@ void Menu::update() {
                 appropriateInput = false;
             }
         } while (!appropriateInput);
-        //por fazer
     }
     else if (option == 4) {
         int idId, atributeToUpdate; bool appropriateInput;
