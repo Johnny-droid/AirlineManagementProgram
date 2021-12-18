@@ -50,7 +50,7 @@ public:
     void printTickets();
     bool buyTicket(int capacity, int baggage, int price, Passenger* passenger);
     bool isPlaneLpUnique(string lp);
-    bool isAirportIdUnique(int id);
+    bool isFlightNumberUnique(int number);
     bool isPassengerIdUnique(int id);
 
 private:

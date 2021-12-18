@@ -26,6 +26,7 @@ public:
     vector<Ticket>& getTickets();
     void setNumber(int newNumber);
     void setDuration(int newDuration);
+    void printTickets();
 };
 
 

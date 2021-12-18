@@ -44,6 +44,13 @@ void Flight::setDuration(int newDuration){
     duration = newDuration;
 }
 
+void Flight::printTickets() {
+    for (int i = 0; i < tickets.size(); i++) {
+        cout << i + 1 << ") ";
+        tickets[i].print();
+    }
+}
+
 
 
 

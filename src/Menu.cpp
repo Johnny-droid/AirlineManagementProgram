@@ -17,9 +17,9 @@ void Menu::run(string directory) {
         showMenu();
         option = readInputMenu();
         if (option == 1) menu.create();
-        if (option == 2) menu.read();
-        if (option == 3) menu.update();
-        if (option == 4) menu.remove();
+        else if (option == 2) menu.read();
+        else if (option == 3) menu.update();
+        else if (option == 4) menu.remove();
         //makes switch clauses
         //read();
 
@@ -389,12 +389,15 @@ bool Menu::isPlaneLpUnique(string lp){
     return true;
 }
 
-bool Menu::isAirportIdUnique(int id){
-    for (Airport airport : airports){
-        if (airport.getId() == id) return false;
+bool Menu::isFlightNumberUnique(int number){
+    for (Plane plane : planes) {
+        for (Flight flight : plane.getFlightPlan()) {
+            if (flight.getNumber() == number) return false;
+        }
     }
     return true;
 }
+
 bool Menu::isPassengerIdUnique(int id){
     for (Passenger passenger : passengers){
         if (passenger.getId() == id) return false;
@@ -463,27 +466,27 @@ void Menu::create() {
         this->getPlane(lp)->getServicesToBeDone().push(service);
     }
     else if (option == 4) {
-        string name; int id; bool uniqueId;
-        do {
-            cout << "Please insert an ID for the airport: " << endl;
-            cin >> id;
-            uniqueId = true;
-            if (isAirportIdUnique(id)){
-                cout << "Another airport already has this ID!" << endl;
-                uniqueId = false;
-            }
-        } while (!uniqueId);
+        string name; int id;
         cout << "Please insert the name of the airport: ";
         cin.ignore(1000, '\n');  // para conseguir ler um nome de aeroporto com mais do que uma palavra
         getline(cin, name);
 
         //falta depois ler os locais de transporte
-        Airport airport((int id) airports.size(), name);
+        Airport airport((int) airports.size(), name);
         airports.push_back(airport);
     }
     else if (option == 5) {
-        int flightNumber, idPassenger, baggage, price;
+        int flightNumber, idPassenger, baggage, price; bool uniqueNumber;
         printFlights();
+        do {
+            cout << "Which flight is this for? Choose by flight number: " << endl;
+            cin >> flightNumber;
+            uniqueNumber = true;
+            if (isFlightNumberUnique(flightNumber)){
+                cout << "Another flight already has the same number!" << endl;
+                uniqueNumber = false;
+            }
+        } while (!uniqueNumber);
         cout << "Which flight is this for? Choose by flight number: " << endl;
         cin >> flightNumber;
         printPassengers();
@@ -504,7 +507,7 @@ void Menu::create() {
             cout << "Please insert an ID for the passenger: " << endl;
             cin >> id;
             uniqueId = true;
-            if (isAirportIdUnique(id)){
+            if (isPassengerIdUnique(id)){
                 cout << "Another passenger already has this ID!" << endl;
                 uniqueId = false;
             }
@@ -513,7 +516,7 @@ void Menu::create() {
         cin >> name;
         cout << "Please insert the passenger's age: " << endl;
         cin >> age;
-        Passenger passenger(passengers.size(), name, age);
+        Passenger passenger(id, name, age);
         passengers.push_back(passenger);
     }
     else if (option == 7) {
@@ -563,7 +566,7 @@ void Menu::update() {
         printPlanes();
         cout << "Insert the license plate of the plane you would like to update: " << endl;
         cin >> lpId;
-        do{
+        do {
             appropriateInput = true;
             cout << "Which attribute would you like to update? "<< endl;
             cout << "1) License Plate"<< endl;
@@ -598,6 +601,23 @@ void Menu::update() {
         //por fazer
     }
     else if (option == 3) {
+        bool appropriateInput;
+        do {
+            int atributeToUpdate;
+            appropriateInput = true;
+            cout << "What would you like to do? " << endl;
+            cout << "1) Check a service as completed" << endl;
+            cout << "2) Change a service" << endl;
+            cin >> atributeToUpdate;
+            if (atributeToUpdate == 1) {
+
+            } else if (atributeToUpdate == 2) {
+
+            } else {
+                cout << "Invalid number. Please try again." << endl;
+                appropriateInput = false;
+            }
+        } while (!appropriateInput);
         //por fazer
     }
     else if (option == 4) {
@@ -605,39 +625,51 @@ void Menu::update() {
         printAirports();
         cout << "Insert the ID of the airport you would like to update: " << endl;
         cin >> idId;
-        do{
+        string newName;
+        cout << "What will the new name be? "<< endl;
+        cin >> newName;
+        this->getAirport(idId)->setName(newName);
+    }
+    else if (option == 5) {
+        int flightNumber, atributeToUpdate, ticketNumber; bool appropriateInput;
+        printFlights();
+        cout << "Insert the flight number of the ticket: " << endl;
+        cin >> flightNumber;
+        this->getFlight(flightNumber)->printTickets();
+        cout << "What will the ticket id be? " << endl;
+        cin >> ticketNumber;
+        ticketNumber--;
+        do {
             cout << "Which attribute would you like to update? "<< endl;
-            cout << "1) ID"<< endl;
-            cout << "2) Name"<< endl;
+            cout << "1) Baggage"<< endl;
+            cout << "2) Price"<< endl;
+            cout << "3) Passenger"<< endl;
             cin >> atributeToUpdate;
             appropriateInput = true;
             if (atributeToUpdate == 1){
-                int newId; bool uniqueId;
-                do {
-                    cout << "What will the new ID be? "<< endl;
-                    cin >> newId;
-                    uniqueId = true;
-                    if (isAirportIdUnique(newId)){
-                        cout << "Another airport already has this ID!" << endl;
-                        uniqueId = false;
-                    }
-                } while (!uniqueId);
-                this->getAirport(idId)->setId(newId);
+                int newBaggage;
+                cout << "How much baggage will it be? "<< endl;
+                cin >> newBaggage;
+                this->getFlight(flightNumber)->getTickets()[ticketNumber].setBaggage(newBaggage);
             }
             else if (atributeToUpdate == 2){
-                string newName;
-                cout << "What will the new name be? "<< endl;
-                cin >> newName;
-                this->getAirport(idId)->setName(newName);
+                int newPrice;
+                cout << "How much will it cost? "<< endl;
+                cin >> newPrice;
+                this->getFlight(flightNumber)->getTickets()[ticketNumber].setPrice(newPrice);
+            }
+            else if (atributeToUpdate == 3) {
+                int idPassenger;
+                printPassengers();
+                cout << "Who will be the new Passenger? Id: "<< endl;
+                cin >> idPassenger;
+                this->getFlight(flightNumber)->getTickets()[ticketNumber].setPassenger(this->getPassenger(idPassenger));
             }
             else {
                 cout << "Invalid number. Please try again." << endl;
                 appropriateInput = false;
             }
         } while (!appropriateInput);
-    }
-    else if (option == 5) {
-        //por fazer
     }
     else if (option == 6) {
         int idId, atributeToUpdate; bool appropriateInput;
@@ -670,7 +702,7 @@ void Menu::update() {
                 cin >> newName;
                 this->getPassenger(idId)->setName(newName);
             }
-            else if (atributeToUpdate == 2){
+            else if (atributeToUpdate == 3){
                 int newAge;
                 cout << "What will the new age be? "<< endl;
                 cin >> newAge;
@@ -690,6 +722,107 @@ void Menu::update() {
 void Menu::remove() {
     showClasses();
     int option = readInputClasses();
+    if (option == 0) return;
+    else if (option == 1) {
+        string lp;
+        printPlanes();
+        cout << "What is the license plate of the plane you would like to delete?" << endl;
+        cin >> lp;
+        for (int i = 0; i < planes.size(); i++){
+            if (planes[i].getLicensePlate() == lp) {
+                planes.erase(planes.begin() + i);
+                break;
+            }
+        }
+        cout << "Plane successfully deleted." << endl;
+    }
+    else if (option == 2) {
+        int number; vector<Flight> fp;
+        printFlights();
+        cout << "What is the number of the flight you would like to delete?" << endl;
+        cin >> number;
+        fp = getPlaneWithFlightNumber(number)->getFlightPlan();
+        for (int i = 0; i < fp.size(); i++){
+            if (fp[i].getNumber() == number) {
+                this->getPlaneWithFlightNumber(number)->getFlightPlan().erase(fp.begin() + i);
+                break;
+            }
+        }
+        cout << "Flight successfully deleted." << endl;
+    }
+    else if (option == 3) {
+        string lp; int serviceToDelete; bool appropriateInput;
+        printPlanes();
+        cout << "What is the license plate of the plane with the service you want to delete?" << endl;
+        cin >> lp;
+        do{
+            appropriateInput = true;
+            cout << "Which one do you want to delete?" << endl;
+            cout << "1) The next service to be done. " << endl;
+            cout << "2) The first service ever completed for this plane." << endl;
+            cin >> serviceToDelete;
+            /*
+            if (serviceToDelete == ){
+
+            }
+            */
+        } while (!appropriateInput);
+
+
+    }
+    else if (option == 4) {
+        string lp;
+        printPlanes();
+        cout << "What is the license plate of the plane you would like to delete?" << endl;
+        cin >> lp;
+        for (int i = 0; i < planes.size(); i++){
+            if (planes[i].getLicensePlate() == lp) {
+                planes.erase(planes.begin() + i);
+                break;
+            }
+        }
+        cout << "Plane successfully deleted." << endl;
+    }
+    else if (option == 5) {
+        string lp;
+        printPlanes();
+        cout << "What is the license plate of the plane you would like to delete?" << endl;
+        cin >> lp;
+        for (int i = 0; i < planes.size(); i++){
+            if (planes[i].getLicensePlate() == lp) {
+                planes.erase(planes.begin() + i);
+                break;
+            }
+        }
+        cout << "Plane successfully deleted." << endl;
+    }
+    else if (option == 6) {
+        string lp;
+        printPlanes();
+        cout << "What is the license plate of the plane you would like to delete?" << endl;
+        cin >> lp;
+        for (int i = 0; i < planes.size(); i++){
+            if (planes[i].getLicensePlate() == lp) {
+                planes.erase(planes.begin() + i);
+                break;
+            }
+        }
+        cout << "Plane successfully deleted." << endl;
+    }
+    else if (option == 7) {
+        string lp;
+        printPlanes();
+        cout << "What is the license plate of the plane you would like to delete?" << endl;
+        cin >> lp;
+        for (int i = 0; i < planes.size(); i++){
+            if (planes[i].getLicensePlate() == lp) {
+                planes.erase(planes.begin() + i);
+                break;
+            }
+        }
+        cout << "Plane successfully deleted." << endl;
+    }
+
 }
 
 /*
@@ -699,8 +832,8 @@ Remove
 Date
  outras cenas
 Local Transports
+Testes
 Simulation - Carrinho
 Ordenação e pesquisa
  Organizar o texto
 */
-
