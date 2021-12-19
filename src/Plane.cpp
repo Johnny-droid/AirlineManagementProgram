@@ -99,6 +99,7 @@ void Plane::completeLastService() {
     servicesCompleted.push(serviceDone);
 };
 
+
 bool Plane::compareByLicensePlate(const Plane& plane1, const Plane& plane2) {
     return plane1.getLicensePlate() < plane2.getLicensePlate();
 }
@@ -106,3 +107,14 @@ bool Plane::compareByLicensePlate(const Plane& plane1, const Plane& plane2) {
 bool Plane::compareByCapacity(const Plane& plane1, const Plane& plane2) {
     return plane1.getCapacity() < plane2.getCapacity();
 }
+
+bool Plane::compareByNumberFlights(Plane& plane1, Plane& plane2) {
+    return plane1.getFlightPlan().size() < plane2.getCapacity();
+}
+
+
+
+
+
+
+

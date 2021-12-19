@@ -35,6 +35,7 @@ public:
 
     static bool compareByLicensePlate(const Plane& plane1, const Plane& plane2);
     static bool compareByCapacity(const Plane& plane1, const Plane& plane2);
+    static bool compareByNumberFlights(Plane& plane1, Plane& plane2);
 };
 
 
