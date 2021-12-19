@@ -31,4 +31,14 @@ void Ticket::print() {
     cout << "Ticket    Passenger: " << passenger->getName() << "     Baggage: " << baggage << "       Price: " << price << endl;
 }
 
+bool Ticket::compareByBaggage(const Ticket& ticket1, const Ticket& ticket2) {
+    return ticket1.baggage < ticket2.baggage;
+}
 
+bool Ticket::compareByPrice(const Ticket& ticket1, const Ticket& ticket2) {
+    return ticket1.price < ticket2.price;
+}
+
+bool Ticket::compareByPassenger(const Ticket &ticket1, const Ticket &ticket2) {
+    return ticket1.passenger->getName() < ticket2.passenger->getName();
+}

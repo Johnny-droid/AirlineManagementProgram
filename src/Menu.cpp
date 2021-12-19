@@ -148,11 +148,11 @@ string Menu::readString() {
     return str;
 }
 
-vector<string> Menu::split(string s) {
+vector<string> Menu::split(string s, string delimeter) {
     vector<string> v;
 
     while (s.length() != 0) {
-        int pos = s.find_first_of(",");
+        int pos = s.find_first_of(delimeter);
         if (pos == s.npos) {
             v.push_back(s);
             break;
@@ -255,7 +255,7 @@ BST<LocalTransport> Menu::initializeLocalTransports(int idAirport) {
         int counter = 1;
         while(getline(fileLT, line)) {
             if (line.empty()) continue;
-            vector<string> elements = split(line);
+            vector<string> elements = split(line, ",");
             if (stoi(elements[0]) == idAirport) {
                 LocalTransport lT(counter, elements[1], elements[2], stoi(elements[3]));
                 bstLT.insert(lT);
@@ -281,7 +281,7 @@ vector<Airport> Menu::initializeAirports() {
     } else {
         while(getline(fileAirport, line)) {
             if (line.empty()) continue;
-            vector<string> elements = split(line);
+            vector<string> elements = split(line, ",");
             BST<LocalTransport> bst = initializeLocalTransports(stoi(elements[0]));
             Airport airport(stoi(elements[0]), elements[1], bst);
             airportsVector.push_back(airport);
@@ -304,7 +304,7 @@ vector<Passenger> Menu::initializePassengers() {
     } else {
         while(getline(filePassengers, line)) {
             if (line.empty()) continue;
-            vector<string> elements = split(line);
+            vector<string> elements = split(line, ",");
             Passenger passenger(stoi(elements[0]), elements[1], stoi(elements[2]));
             passengersVector.push_back(passenger);
         }
@@ -328,7 +328,7 @@ vector<queue<Service>> Menu::initializeServices(string planeID) {
     } else {
         while(getline(fileServices, line)) {
             if (line.empty()) continue;
-            vector<string> elements = split(line);
+            vector<string> elements = split(line, ",");
             if (elements[0] == planeID) {
                 // converter elements[2] numa data
                 Service service(elements[1], elements[2], elements[3]);
@@ -359,7 +359,7 @@ vector<Ticket> Menu::initializeTickets(int flightID) {
     } else {
         while(getline(fileTickets, line)) {
             if (line.empty()) continue;
-            vector<string> elements = split(line);
+            vector<string> elements = split(line, ",");
 
             if (stoi(elements[0]) == flightID) {
                 Ticket ticket( stoi(elements[2]) , stoi(elements[3]), this->getPassenger(stoi(elements[1])));
@@ -384,7 +384,7 @@ vector<Flight> Menu::initializeFlights(string planeLicensePlate) {
     } else {
         while(getline(fileFlights, line)) {
             if (line.empty()) continue;
-            vector<string> elements = split(line);
+            vector<string> elements = split(line, ",");
 
             if (elements[1] == planeLicensePlate) {
                 Airport* origin = this->getAirport(stoi(elements[2]));
@@ -413,7 +413,7 @@ vector<Plane> Menu::initializePlanes() {
     } else {
         while(getline(filePlanes, line)) {
             if (line.empty()) continue;
-            vector<string> elements = split(line);
+            vector<string> elements = split(line, ",");
 
             vector<queue<Service>> vServices = initializeServices(elements[0]);
             queue<Service> servicesCompleted = vServices[0];
@@ -501,7 +501,8 @@ void Menu::readPlanes() {
 
     if (input == 1) {
         string lp;
-        cout << "Please insert a license plate: "; cin >> lp;
+        cout << "Please insert a license plate: ";
+        lp = readString();
         if (this->getPlane(lp) != nullptr) {
             cout << "Plane found! " << endl;
             this->getPlane(lp)->print();
@@ -585,7 +586,8 @@ void Menu::readFlights() {
             for (Flight flight : allFlights) flight.print();
         } else if (input == 2) {
             string lp;
-            cout << "Please insert a license plate: "; cin >> lp;
+            cout << "Please insert a license plate: ";
+            lp = readString();
             if (!isPlaneLpUnique(lp)) {
                 cout << "Plane found! " << endl;
                 if (input2 == 1) {
@@ -724,7 +726,7 @@ void Menu::readAirports() {
 }
 
 void Menu::readTickets() {
-    int input; bool valid;
+    int input, input2; bool valid;
     cout << "\n1) Search a set of tickets" << endl;
     cout << "2) See all tickets " << endl;
     do {
@@ -735,9 +737,38 @@ void Menu::readTickets() {
         }
     } while (!valid);
 
+    cout << "Ordered by: " << endl;
+    cout << "1) Baggage" << endl;
+    cout << "2) Price" << endl;
+    cout << "3) Passenger Name" << endl;
+    do {
+        input2 = readInt();
+        valid = (input2 == 1 || input2 == 2 || input2 == 3);
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
+
     if (input == 1) {
+        int flightNumber;
+        cout << "Please insert the Flight Number: "; flightNumber = readInt();
+        if (!this->isFlightNumberUnique(flightNumber)) {
+            cout << "Flight found! " << endl;
+            Flight* flight = this->getFlight(flightNumber);
+            if (input2 == 1) {
+                sort(flight->getTickets().begin(), flight->getTickets().end(), Ticket::compareByBaggage);
+            } else if (input2 == 2) {
+                sort(flight->getTickets().begin(), flight->getTickets().end(), Ticket::compareByPrice);
+            } else if (input2 == 3) {
+                sort(flight->getTickets().begin(), flight->getTickets().end(), Ticket::compareByPassenger);
+            }
+        } else {
+            cout << "\nFlight number not found" << endl;
+        }
 
     } else {
+
+
         printTickets();
     }
 
@@ -895,10 +926,10 @@ void Menu::create() {
     else if (option == 7) {
         string typeTransport, times, date; int idAirport, distanceToAirport;
         printAirports();
-        cout << "Please insert the closest airport's ID: "; cin >> idAirport;
-        cout << "What is the type of transport: bus, train or subway? "; cin >> typeTransport;
-        cout << "Please insert the times you want for this transport: "; cin >> times;
-        cout << "Please insert the distance to the airport: "; cin >> distanceToAirport;
+        cout << "Please insert the closest airport's ID: "; idAirport = readInt();
+        cout << "What is the type of transport: bus, train or subway? "; typeTransport = readString();
+        cout << "Please insert the times you want for this transport: "; times = readString();
+        cout << "Please insert the distance to the airport: "; distanceToAirport = readInt();
         LocalTransport localTransport(this->getAirport(idAirport)->getBSTSize()+1, typeTransport, times, distanceToAirport);
         this->getAirport(idAirport)->getBST().insert(localTransport);
     }
@@ -967,7 +998,7 @@ void Menu::update() {
         int flightNumber, atributeToUpdate; bool appropriateInput;
         printFlights();
         do {
-            cout << "Insert the flight number: "; cin >> flightNumber;
+            cout << "Insert the flight number: "; flightNumber = readInt();
             if (!isFlightNumberUnique(flightNumber)) {
                 appropriateInput = false;
             }
@@ -1084,14 +1115,14 @@ void Menu::update() {
             else if (atributeToUpdate == 2){
                 int newPrice;
                 cout << "How much will it cost? "<< endl;
-                cin >> newPrice;
+                newPrice = readInt();
                 this->getFlight(flightNumber)->getTickets()[ticketNumber-1].setPrice(newPrice);
             }
             else if (atributeToUpdate == 3) {
                 int idPassenger;
                 printPassengers();
                 cout << "Who will be the new Passenger? Id: "<< endl;
-                cin >> idPassenger;
+                idPassenger = readInt();
                 this->getFlight(flightNumber)->getTickets()[ticketNumber-1].setPassenger(this->getPassenger(idPassenger));
             }
             else {
@@ -1104,19 +1135,19 @@ void Menu::update() {
         int idId, atributeToUpdate; bool appropriateInput;
         printPassengers();
         cout << "Insert the ID of the passenger you would like to update: " << endl;
-        cin >> idId;
+        idId = readInt();
         do{
             cout << "Which attribute would you like to update? "<< endl;
             cout << "1) ID"<< endl;
             cout << "2) Name"<< endl;
             cout << "3) Age"<< endl;
-            cin >> atributeToUpdate;
+            atributeToUpdate = readInt();
             appropriateInput = true;
             if (atributeToUpdate == 1){
                 int newId; bool uniqueId;
                 do {
                     cout << "What will the new ID be? "<< endl;
-                    cin >> newId;
+                    newId = readInt();
                     uniqueId = true;
                     if (isPassengerIdUnique(newId)){
                         cout << "Another passenger already has this ID!" << endl;
@@ -1128,13 +1159,13 @@ void Menu::update() {
             else if (atributeToUpdate == 2){
                 string newName;
                 cout << "What will the new name be? "<< endl;
-                cin >> newName;
+                newName = readString();
                 this->getPassenger(idId)->setName(newName);
             }
             else if (atributeToUpdate == 3){
                 int newAge;
                 cout << "What will the new age be? "<< endl;
-                cin >> newAge;
+                newAge = readInt();
                 this->getPassenger(idId)->setAge(newAge);
             }
             else {
@@ -1147,7 +1178,7 @@ void Menu::update() {
         int idAirport, idLT; bool notValid;
         printAirports();
         do {
-            cout << "Insert the ID of the airport nearest to the Local Transports: "; cin >> idAirport; cout << endl;
+            cout << "Insert the ID of the airport nearest to the Local Transports: "; idAirport = readInt(); cout << endl;
             notValid = this->isAirportIdUnique(idAirport);
             if (notValid) {
                 cout << "Invalid Input" << endl;
@@ -1157,7 +1188,7 @@ void Menu::update() {
         this->getAirport(idAirport)->printLocalTransports();
         bool valid; string typeTransport, times; int distance;
         do {
-            cout << "Which Local Transport would you like to update? ID: "; cin >> idLT;
+            cout << "Which Local Transport would you like to update? ID: "; idLT = readInt();
             valid = this->getAirport(idAirport)->isLocalTransportId(idLT);
             if (!valid) {
                 cout << "Invalid Input. Try Again" << endl;
@@ -1165,15 +1196,15 @@ void Menu::update() {
         } while (!valid);
         cout << "New Local Transport: " << endl;
         do {
-            cout << "1) Type of Transport (bus, train or subway) : "; cin >> typeTransport; cout << endl;
+            cout << "1) Type of Transport (bus, train or subway) : "; typeTransport = readString(); cout << endl;
             valid = typeTransport != "bus" || typeTransport != "train" || typeTransport != "subway";
             if (!valid) {
                 cout << "Invalid Input" << endl;
                 valid = false;
             }
         } while (!valid);
-        cout << "2) Schedule: "; cin >> times; cout << endl;
-        cout << "3) Distance to airport: "; cin >> distance; cout << endl;
+        cout << "2) Schedule: "; times = readString(); cout << endl;
+        cout << "3) Distance to airport: "; distance = readInt(); cout << endl;
         LocalTransport lTRemove(idLT, "", "", 0);
         LocalTransport lTInsert(idLT, typeTransport, times, distance);
         this->getAirport(idAirport)->getBST().remove(lTRemove);
@@ -1192,7 +1223,7 @@ void Menu::remove() {
         string lp;
         printPlanes();
         cout << "What is the license plate of the plane you would like to delete?" << endl;
-        cin >> lp;
+        lp = readString();
         for (int i = 0; i < planes.size(); i++){
             if (planes[i].getLicensePlate() == lp) {
                 planes.erase(planes.begin() + i);
@@ -1205,7 +1236,7 @@ void Menu::remove() {
         int number; vector<Flight> fp;
         printFlights();
         cout << "What is the number of the flight you would like to delete?" << endl;
-        cin >> number;
+        number = readInt();
         fp = getPlaneWithFlightNumber(number)->getFlightPlan();
         for (int i = 0; i < fp.size(); i++){
             if (fp[i].getNumber() == number) {
@@ -1219,13 +1250,13 @@ void Menu::remove() {
         string lp; int serviceToDelete; bool appropriateInput;
         printPlanes();
         cout << "What is the license plate of the plane with the service you want to delete?" << endl;
-        cin >> lp;
+        lp = readString();
         do{
             appropriateInput = true;
             cout << "Which one do you want to delete?" << endl;
             cout << "1) The next service to be done. " << endl;
             cout << "2) The first service ever completed for this plane." << endl;
-            cin >> serviceToDelete;
+            serviceToDelete = readInt();
             if (serviceToDelete == 1){
                 this->getPlane(lp)->getServicesToBeDone().pop();
                 cout << "Service successfully deleted." << endl;
@@ -1244,7 +1275,7 @@ void Menu::remove() {
         int id;
         printAirports();
         cout << "What is the ID of the airport you would like to delete?" << endl;
-        cin >> id;
+        id = readInt();
         for (int i = 0; i < airports.size(); i++){
             if (airports[i].getId() == id) {
                 airports.erase(airports.begin() + i);
@@ -1257,10 +1288,10 @@ void Menu::remove() {
         int flightNumber, ticketId;
         printFlights();
         cout << "What is the flight number of the ticket you want to delete?" << endl;
-        cin >> flightNumber;
+        flightNumber = readInt();
         this->getFlight(flightNumber)->printTickets();
         cout << "What is the ID of the ticket you want to delete?" << endl;
-        cin >> ticketId; ticketId--;
+        ticketId = readInt(); ticketId--;
         this->getFlight(flightNumber)->getTickets().erase(this->getFlight(flightNumber)->getTickets().begin() + ticketId);
         cout << "Ticket successfully deleted." << endl;
     }
@@ -1268,7 +1299,7 @@ void Menu::remove() {
         int id;
         printPassengers();
         cout << "What is the ID of the passenger you want to delete?" << endl;
-        cin >> id;
+        id = readInt();
         for (int i = 0; i < passengers.size(); i++){
             if (passengers[i].getId() == id) {
                 passengers.erase(passengers.begin() + i);
@@ -1281,7 +1312,7 @@ void Menu::remove() {
         int idAirport, idLT; bool notValid;
         printAirports();
         do {
-            cout << "Insert the ID of the airport nearest to the Local Transports: "; cin >> idAirport; cout << endl;
+            cout << "Insert the ID of the airport nearest to the Local Transports: "; idAirport = readInt(); cout << endl;
             notValid = this->isAirportIdUnique(idAirport);
             if (notValid) {
                 cout << "Invalid Input" << endl;
@@ -1290,7 +1321,7 @@ void Menu::remove() {
         this->getAirport(idAirport)->printLocalTransports();
         bool valid;
         do {
-            cout << "Which Local Transport would you like to remove? ID: "; cin >> idLT;
+            cout << "Which Local Transport would you like to remove? ID: "; idLT = readInt();
             valid = this->getAirport(idAirport)->isLocalTransportId(idLT);
             if (!valid) {
                 cout << "Invalid Input. Try Again" << endl;
@@ -1330,7 +1361,7 @@ void Menu::saveFlights() {
     for (Plane &plane : planes) {
         for (Flight &flight : plane.getFlightPlan()) {
             fileFlights << flight.getNumber() << "," << plane.getLicensePlate() << "," << flight.getOrigin()->getId() << "," <<
-            flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate() << endl;
+                        flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate() << endl;
         }
     }
     fileFlights.close();

@@ -19,6 +19,10 @@ public:
     void setPrice(int newPrice);
     void setPassenger(Passenger* newPassenger);
     void print();
+
+    static bool compareByBaggage(const Ticket& ticket1, const Ticket& ticket2);
+    static bool compareByPrice(const Ticket& ticket1, const Ticket& ticket2);
+    static bool compareByPassenger(const Ticket& ticket1, const Ticket& ticket2);
 };
 
 #endif //AIRLINEMANAGEMENTPROGRAM_TICKET_H

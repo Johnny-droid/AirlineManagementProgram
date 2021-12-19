@@ -28,7 +28,6 @@ public:
     static bool compareById(const Airport& airport1, const Airport& airport2);
     static bool compareByName(const Airport& airport1, const Airport& airport2);
     static bool compareByNumberLocalTransports(const Airport& airport1, const Airport& airport2);
-
 };
 
 

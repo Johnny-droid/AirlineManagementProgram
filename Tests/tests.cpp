@@ -47,8 +47,8 @@ TEST(testOverall, remove) {
 TEST(testAiport, Aiports) {
     // depois adicionar testes com a BST
     cout << "\n\nTesting Airport Constructor" << endl;
-    vector<string> v1 =  Menu::split("1,Francisco Sa Carneiro");
-    vector<string> v2 = Menu::split("3,Gatwick");
+    vector<string> v1 =  Menu::split("1,Francisco Sa Carneiro", ",");
+    vector<string> v2 = Menu::split("3,Gatwick", ",");
 
     Airport airport1(stoi(v1[0]), v1[1]);
     Airport airport2(stoi(v2[0]), v2[1]);
@@ -61,8 +61,8 @@ TEST(testAiport, Aiports) {
 
 TEST(testPassenger, Passengers) {
     cout << "\nTesting Passenger Constructor" << endl;
-    vector<string> v1 =  Menu::split("5,Ana Campos,217");
-    vector<string> v2 = Menu::split("6,Pablo Escobar,72");
+    vector<string> v1 =  Menu::split("5,Ana Campos,217", ",");
+    vector<string> v2 = Menu::split("6,Pablo Escobar,72", ",");
 
     Passenger passenger1(stoi(v1[0]), v1[1], stoi(v1[2]));
     Passenger passenger2(stoi(v2[0]), v2[1], stoi(v2[2]));
@@ -70,8 +70,8 @@ TEST(testPassenger, Passengers) {
 
 TEST(testMenu, testSplitFunction) {
     cout << "\nTesting split function" << endl;
-    vector<string> v1 = Menu::split("");
-    vector<string> v2 = Menu::split("Hey, numeber 42, give me the answer, now!");
+    vector<string> v1 = Menu::split("", "");
+    vector<string> v2 = Menu::split("Hey, numeber 42, give me the answer, now!", ",");
 
     EXPECT_TRUE(v1.empty());
 

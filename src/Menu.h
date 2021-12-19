@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include "Date.h"
 #include "Airport.h"
 #include "Plane.h"
 #include "Passenger.h"
@@ -36,7 +37,7 @@ public:
     static int readInputClasses();
     static int readInt();
     static string readString();
-    static vector<string> split(string s); //public only for tests
+    static vector<string> split(string s, string delimeter); //public only for tests
 
     void create();
     void read();
