@@ -2,7 +2,8 @@
 #include "Flight.h"
 
 Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date) {
-    this->dateDeparture = date;
+    Date date1(date);
+    this->dateDeparture = date1;
     this->number = number;
     this->duration = duration;
     this->origin = origin;
@@ -11,7 +12,8 @@ Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, stri
 }
 
 Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date, vector<Ticket> tickets) {
-    this->dateDeparture = date;
+    Date date1(date);
+    this->dateDeparture = date1;
     this->number = number;
     this->duration = duration;
     this->origin = origin;
@@ -27,10 +29,9 @@ int Flight::getDuration() const {
     return duration;
 }
 
-string Flight::getDate() const {
+Date& Flight::getDate() {
     return dateDeparture;
 }
-
 
 Airport *Flight::getOrigin() {
     return origin;
@@ -59,9 +60,9 @@ void Flight::printTickets() {
 }
 
 void Flight::print() {
-    cout << "Flight  Number: " << number << "   Duration: " << duration << "   Date of Departure: " << dateDeparture << endl;
+    cout << "Flight  Number: " << number << "   Duration: " << duration << "   Date of Departure: " << dateDeparture.getStringDate() << endl;
     cout << "        Airport Origin: " << origin->getName() << "      Airport Destiny: " << destiny->getName() << endl;
-    cout << "Number of tickets: " << tickets.size() << endl;
+    cout << "        Number of tickets: " << tickets.size() << endl;
 }
 
 void Flight::setAirportOrigin(Airport *airport) {
@@ -80,7 +81,7 @@ bool Flight::compareByDuration(const Flight &flight1, const Flight &flight2) {
     return flight1.getDuration() < flight2.getDuration();
 }
 
-bool Flight::compareByDate(const Flight &flight1, const Flight &flight2) {
+bool Flight::compareByDate(Flight &flight1, Flight &flight2) {
     return flight1.getDate() < flight2.getDate();
 }
 

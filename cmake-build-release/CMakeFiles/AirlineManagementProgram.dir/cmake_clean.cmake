@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/AirlineManagementProgram.dir/main.cpp.o.d"
   "CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.o.d"
+  "CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o"
+  "CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o.d"
   "CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Flight.cpp.o.d"
   "CMakeFiles/AirlineManagementProgram.dir/src/LocalTransport.cpp.o"
@@ -21,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/AirlineManagementProgram.dir/src/Service.cpp.o.d"
   "CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o"
   "CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o.d"
+  "CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o"
+  "CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -43,6 +43,7 @@ public:
     void read();
     void update();
     void remove();  //delete
+    void simulation();
 
     vector<Airport>& getAirports();
     vector<Passenger>& getPassengers();

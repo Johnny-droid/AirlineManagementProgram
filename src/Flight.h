@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "Date.h"
 #include "Airport.h"
 #include "Ticket.h"
 
@@ -11,7 +12,7 @@ using namespace std;
 class Flight {
     int number;
     int duration;
-    string dateDeparture;
+    Date dateDeparture;
     Airport* origin;
     Airport* destiny;
     vector<Ticket> tickets;
@@ -21,7 +22,7 @@ public:
     Flight(int number, int duration, Airport* origin, Airport* destiny, string date, vector<Ticket> tickets);
     int getNumber() const;
     int getDuration() const;
-    string getDate() const;
+    Date& getDate();
     Airport* getOrigin();
     Airport* getDestiny();
     vector<Ticket>& getTickets();
@@ -34,7 +35,7 @@ public:
 
     static bool compareByNumber(const Flight& flight1, const Flight& flight2);
     static bool compareByDuration(const Flight& flight1, const Flight& flight2);
-    static bool compareByDate(const Flight& flight1, const Flight& flight2);
+    static bool compareByDate(Flight& flight1, Flight& flight2);
     static bool compareByNumberTickets(Flight& flight1, Flight& flight2);
 };
 

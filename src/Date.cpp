@@ -1,7 +1,26 @@
 #include "Date.h"
 
+Date::Date() {
+    this->day = 1;
+    this->month = 1;
+    this->year = 1000;
+}
+
+
 Date::Date (string date){
-    vector<string> v = Menu::split(date, "-");
+    vector<string> v;
+
+    while (date.length() != 0) {
+        int pos = date.find_first_of("-");
+        if (pos == date.npos) {
+            v.push_back(date);
+            break;
+        }
+        string subStr = date.substr(0, pos);
+        v.push_back(subStr);
+        date = date.substr(pos + 1);
+    }
+
     int tday = stoi(v[0]);
     int tmonth = stoi(v[1]);
     int tyear = stoi(v[2]);
@@ -15,8 +34,12 @@ Date::Date (string date){
     }
 }
 
+string Date::getStringDate() const {
+    return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
+}
+
 bool Date::operator==(Date date2) {
-    if (this->day == date2.day and this->month == date2.month and this->year == date2.year) return true;
+    if (this->day == date2.day && this->month == date2.month && this->year == date2.year) return true;
     return false;
 }
 
@@ -26,5 +49,8 @@ bool Date::operator<(Date date2) {
     if (this->month < date2.month) return true;
     if (this->month > date2.month) return false;
     if (this->day < date2.day) return true;
-    if (this->day >= date2.day) return false;
+    return false;
 }
+
+
+

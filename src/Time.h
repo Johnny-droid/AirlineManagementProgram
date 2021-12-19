@@ -12,8 +12,8 @@ class Time{
     int minute;
 public:
     Time(string time);
-    bool operator== (Time time2);
-    bool operator< (Time time2);
+    bool operator== (const Time& time2);
+    bool operator< (const Time& time2);
 };
 
 

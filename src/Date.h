@@ -2,8 +2,8 @@
 #define AIRLINEMANAGEMENTPROGRAM_DATE_H
 
 #include <string>
+#include <vector>
 #include <iostream>
-#include "Menu.h"
 
 using namespace std;
 
@@ -12,7 +12,9 @@ class Date {
     int month;
     int year;
 public:
+    Date();
     Date(string date);
+    string getStringDate() const;
     bool operator==(Date date2);
     bool operator<(Date date2);
 };

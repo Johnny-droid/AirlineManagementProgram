@@ -1332,6 +1332,8 @@ void Menu::remove() {
     }
 }
 
+
+
 void Menu::savePlanes() {
     ofstream filePlanes (directorySave + "Planes.txt");
     for (Plane plane : planes) {
@@ -1361,7 +1363,7 @@ void Menu::saveFlights() {
     for (Plane &plane : planes) {
         for (Flight &flight : plane.getFlightPlan()) {
             fileFlights << flight.getNumber() << "," << plane.getLicensePlate() << "," << flight.getOrigin()->getId() << "," <<
-                        flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate() << endl;
+                        flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate().getStringDate() << endl;
         }
     }
     fileFlights.close();
@@ -1375,13 +1377,13 @@ void Menu::saveServices() {
 
         while (!copyServicesToBeDone.empty()) {
             Service service = copyServicesToBeDone.front();
-            fileServices << plane.getLicensePlate() << "," << service.getTypeOfService() << "," << service.getDate() << "," << service.getWorker() << ",y" << endl;
+            fileServices << plane.getLicensePlate() << "," << service.getTypeOfService() << "," << service.getDate().getStringDate() << "," << service.getWorker() << ",y" << endl;
             copyServicesToBeDone.pop();
         }
 
         while (!copyServicesCompleted.empty()) {
             Service service = copyServicesCompleted.front();
-            fileServices << plane.getLicensePlate() << "," << service.getTypeOfService() << "," << service.getDate() << "," << service.getWorker() << ",n" << endl;
+            fileServices << plane.getLicensePlate() << "," << service.getTypeOfService() << "," << service.getDate().getStringDate() << "," << service.getWorker() << ",n" << endl;
             copyServicesCompleted.pop();
         }
     }

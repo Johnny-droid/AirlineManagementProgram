@@ -298,6 +298,30 @@ src/Airport.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Airport.cpp.s
 .PHONY : src/Airport.cpp.s
 
+src/Date.o: src/Date.cpp.o
+.PHONY : src/Date.o
+
+# target to build an object file
+src/Date.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o
+.PHONY : src/Date.cpp.o
+
+src/Date.i: src/Date.cpp.i
+.PHONY : src/Date.i
+
+# target to preprocess a source file
+src/Date.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.i
+.PHONY : src/Date.cpp.i
+
+src/Date.s: src/Date.cpp.s
+.PHONY : src/Date.s
+
+# target to generate assembly for a file
+src/Date.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.s
+.PHONY : src/Date.cpp.s
+
 src/Flight.o: src/Flight.cpp.o
 .PHONY : src/Flight.o
 
@@ -466,6 +490,30 @@ src/Ticket.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.s
 .PHONY : src/Ticket.cpp.s
 
+src/Time.o: src/Time.cpp.o
+.PHONY : src/Time.o
+
+# target to build an object file
+src/Time.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o
+.PHONY : src/Time.cpp.o
+
+src/Time.i: src/Time.cpp.i
+.PHONY : src/Time.i
+
+# target to preprocess a source file
+src/Time.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.i
+.PHONY : src/Time.cpp.i
+
+src/Time.s: src/Time.cpp.s
+.PHONY : src/Time.s
+
+# target to generate assembly for a file
+src/Time.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AirlineManagementProgram.dir/build.make CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.s
+.PHONY : src/Time.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -492,6 +540,9 @@ help:
 	@echo "... src/Airport.o"
 	@echo "... src/Airport.i"
 	@echo "... src/Airport.s"
+	@echo "... src/Date.o"
+	@echo "... src/Date.i"
+	@echo "... src/Date.s"
 	@echo "... src/Flight.o"
 	@echo "... src/Flight.i"
 	@echo "... src/Flight.s"
@@ -513,6 +564,9 @@ help:
 	@echo "... src/Ticket.o"
 	@echo "... src/Ticket.i"
 	@echo "... src/Ticket.s"
+	@echo "... src/Time.o"
+	@echo "... src/Time.i"
+	@echo "... src/Time.s"
 .PHONY : help
 
 

@@ -5,9 +5,9 @@ Time::Time(string time){
     this->hour = stoi(v[0]);
     this->minute = stoi(v[1]);
 }
-bool Time::operator== (Time time2){
-
+bool Time::operator== (const Time& time2){
+    return false;
 }
-bool Time::operator< (Time time2){
-
+bool Time::operator< (const Time& time2){
+    return false;
 }

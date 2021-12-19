@@ -106,7 +106,7 @@ TEST(testMenu, Print_Menu_Initialization) {
         queue<Service> services = plane.getServicesToBeDone();
         while (!services.empty()) {
             Service service = services.front();
-            cout << "\nService: " << service.getTypeOfService() << "  " << service.getDate() << "  " << service.getWorker() << endl;
+            cout << "\nService: " << service.getTypeOfService() << "  " << service.getDate().getStringDate() << "  " << service.getWorker() << endl;
             services.pop();
         }
 

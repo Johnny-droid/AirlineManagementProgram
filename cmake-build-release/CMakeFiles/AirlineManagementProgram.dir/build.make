@@ -209,6 +209,34 @@ CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/johnny/CLionProjects/AirlineManagementProgram/src/Menu.cpp -o CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.s
 
+CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o: CMakeFiles/AirlineManagementProgram.dir/flags.make
+CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o: ../src/Date.cpp
+CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o: CMakeFiles/AirlineManagementProgram.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o -MF CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o.d -o CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o -c /home/johnny/CLionProjects/AirlineManagementProgram/src/Date.cpp
+
+CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/johnny/CLionProjects/AirlineManagementProgram/src/Date.cpp > CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.i
+
+CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/johnny/CLionProjects/AirlineManagementProgram/src/Date.cpp -o CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.s
+
+CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o: CMakeFiles/AirlineManagementProgram.dir/flags.make
+CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o: ../src/Time.cpp
+CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o: CMakeFiles/AirlineManagementProgram.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o -MF CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o.d -o CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o -c /home/johnny/CLionProjects/AirlineManagementProgram/src/Time.cpp
+
+CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/johnny/CLionProjects/AirlineManagementProgram/src/Time.cpp > CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.i
+
+CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/johnny/CLionProjects/AirlineManagementProgram/src/Time.cpp -o CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.s
+
 # Object files for target AirlineManagementProgram
 AirlineManagementProgram_OBJECTS = \
 "CMakeFiles/AirlineManagementProgram.dir/main.cpp.o" \
@@ -220,7 +248,9 @@ AirlineManagementProgram_OBJECTS = \
 "CMakeFiles/AirlineManagementProgram.dir/src/Service.cpp.o" \
 "CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o" \
 "CMakeFiles/AirlineManagementProgram.dir/src/LocalTransport.cpp.o" \
-"CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.o"
+"CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.o" \
+"CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o" \
+"CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o"
 
 # External object files for target AirlineManagementProgram
 AirlineManagementProgram_EXTERNAL_OBJECTS =
@@ -235,12 +265,14 @@ AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/src/Service.cp
 AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/src/Ticket.cpp.o
 AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/src/LocalTransport.cpp.o
 AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/src/Menu.cpp.o
+AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/src/Date.cpp.o
+AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/src/Time.cpp.o
 AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/build.make
 AirlineManagementProgram: lib/libgtest.a
 AirlineManagementProgram: lib/libgtest_main.a
 AirlineManagementProgram: lib/libgtest.a
 AirlineManagementProgram: CMakeFiles/AirlineManagementProgram.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable AirlineManagementProgram"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/johnny/CLionProjects/AirlineManagementProgram/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable AirlineManagementProgram"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AirlineManagementProgram.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

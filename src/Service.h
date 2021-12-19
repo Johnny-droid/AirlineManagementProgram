@@ -3,17 +3,18 @@
 
 #include <string>
 #include <iostream>
+#include "Date.h"
 
 using namespace std;
 
 class Service {
     string typeOfService;
-    string date;
+    Date dateOfService;
     string worker;
 public:
     Service(string typeOfService, string date, string worker);
     string getTypeOfService();
-    string getDate();
+    Date& getDate();
     string getWorker();
     void setTypeOfService(string newTypeOfService);
     void setDate(string newDate);
