@@ -2,22 +2,39 @@
 
 using namespace std;
 
-Menu::Menu(string directory) {
-    this->airports = initializeAirports(directory);
-    this->passengers = initializePassengers(directory);
-    this->planes = initializePlanes(directory);
+Menu::Menu() {
+    this->directory = "";
+    this->directorySave = "";
+    this->airports = vector<Airport>();
+    this->passengers = vector<Passenger>();
+    this->planes = vector<Plane>();
 }
 
-void Menu::run(string directory) {
+Menu::Menu(string directory) {
+    this->directory = directory;
+    this->directorySave = directory;
+    this->airports = initializeAirports();
+    this->passengers = initializePassengers();
+    this->planes = initializePlanes();
+}
+
+Menu::Menu(string directory, string directorySave) {
+    this->directory = directory;
+    this->directorySave = directorySave;
+    this->airports = initializeAirports();
+    this->passengers = initializePassengers();
+    this->planes = initializePlanes();
+}
+
+void Menu::run() {
     int option;
-    Menu menu(directory);
     do {
         showMenu();
         option = readInputMenu();
-        if (option == 1) menu.create();
-        else if (option == 2) menu.read();
-        else if (option == 3) menu.update();
-        else if (option == 4) menu.remove();
+        if (option == 1) create();
+        else if (option == 2) read();
+        else if (option == 3) update();
+        else if (option == 4) remove();
         //makes switch clauses
         //read();
 
@@ -104,15 +121,15 @@ vector<string> Menu::split(string s) {
 }
 
 
-vector<Airport> Menu::getAirports() {
+vector<Airport>& Menu::getAirports() {
     return airports;
 }
 
-vector<Passenger> Menu::getPassengers() {
+vector<Passenger>& Menu::getPassengers() {
     return passengers;
 }
 
-vector<Plane> Menu::getPlanes() {
+vector<Plane>& Menu::getPlanes() {
     return planes;
 }
 
@@ -170,7 +187,7 @@ Flight *Menu::getFlight(int number) {
     return nullptr;
 }
 
-BST<LocalTransport> Menu::initializeLocalTransports(string directory, int idAirport) {
+BST<LocalTransport> Menu::initializeLocalTransports(int idAirport) {
     ifstream fileLT;
     string line;
     LocalTransport localTransportNotFound;
@@ -197,7 +214,7 @@ BST<LocalTransport> Menu::initializeLocalTransports(string directory, int idAirp
     return bstLT;
 }
 
-vector<Airport> Menu::initializeAirports(string directory) {
+vector<Airport> Menu::initializeAirports() {
     //Initialize the airports from the files
     ifstream fileAirport;
     string line;
@@ -211,7 +228,7 @@ vector<Airport> Menu::initializeAirports(string directory) {
         while(getline(fileAirport, line)) {
             if (line.empty()) continue;
             vector<string> elements = split(line);
-            BST<LocalTransport> bst = initializeLocalTransports(directory, stoi(elements[0]));
+            BST<LocalTransport> bst = initializeLocalTransports(stoi(elements[0]));
             Airport airport(stoi(elements[0]), elements[1], bst);
             airportsVector.push_back(airport);
         }
@@ -221,7 +238,7 @@ vector<Airport> Menu::initializeAirports(string directory) {
     return airportsVector;
 }
 
-vector<Passenger> Menu::initializePassengers(string directory) {
+vector<Passenger> Menu::initializePassengers() {
     ifstream filePassengers;
     string line;
     vector<Passenger> passengersVector;
@@ -245,7 +262,7 @@ vector<Passenger> Menu::initializePassengers(string directory) {
 }
 
 
-vector<queue<Service>> Menu::initializeServices(string directory, string planeID) {
+vector<queue<Service>> Menu::initializeServices(string planeID) {
     ifstream fileServices;
     string line;
     vector<queue<Service>> v;
@@ -277,7 +294,7 @@ vector<queue<Service>> Menu::initializeServices(string directory, string planeID
     return v;
 }
 
-vector<Ticket> Menu::initializeTickets(string directory, int flightID) {
+vector<Ticket> Menu::initializeTickets(int flightID) {
     ifstream fileTickets;
     string line;
     vector<Ticket> ticketsVector;
@@ -302,7 +319,7 @@ vector<Ticket> Menu::initializeTickets(string directory, int flightID) {
     return ticketsVector;
 }
 
-vector<Flight> Menu::initializeFlights(string directory, string planeLicensePlate) {
+vector<Flight> Menu::initializeFlights(string planeLicensePlate) {
     ifstream fileFlights;
     string line;
     vector<Flight> flightsVector;
@@ -319,7 +336,7 @@ vector<Flight> Menu::initializeFlights(string directory, string planeLicensePlat
             if (elements[1] == planeLicensePlate) {
                 Airport* origin = this->getAirport(stoi(elements[2]));
                 Airport* destiny = this->getAirport(stoi(elements[3]));
-                vector<Ticket> tickets = initializeTickets(directory, stoi(elements[0]));
+                vector<Ticket> tickets = initializeTickets(stoi(elements[0]));
                 Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, tickets);
                 flightsVector.push_back(flight);
             }
@@ -331,7 +348,7 @@ vector<Flight> Menu::initializeFlights(string directory, string planeLicensePlat
     return flightsVector;
 }
 
-vector<Plane> Menu::initializePlanes(string directory) {
+vector<Plane> Menu::initializePlanes() {
     ifstream filePlanes;
     string line;
     vector<Plane> planesVector;
@@ -345,10 +362,10 @@ vector<Plane> Menu::initializePlanes(string directory) {
             if (line.empty()) continue;
             vector<string> elements = split(line);
 
-            vector<queue<Service>> vServices = initializeServices(directory, elements[0]);
+            vector<queue<Service>> vServices = initializeServices(elements[0]);
             queue<Service> servicesCompleted = vServices[0];
             queue<Service> servicesToBeDone = vServices[1];
-            vector<Flight> flightsVector = initializeFlights(directory, elements[0]);
+            vector<Flight> flightsVector = initializeFlights(elements[0]);
 
             Plane plane(elements[0], stoi(elements[1]), flightsVector, servicesCompleted, servicesToBeDone);
             planesVector.push_back(plane);
@@ -972,15 +989,41 @@ void Menu::remove() {
     }
 }
 
+void Menu::savePlanes() {
+    ofstream filePlanes (directorySave + "Planes.txt");
+    /*
+    for (Plane plane : planes) {
+        cout <<
+    }
+
+
+    if (!filePlanes.is_open()) {
+        throw runtime_error("File of Passenge was not found");
+    } else {
+        while(getline(filePassengers, line)) {
+            if (line.empty()) continue;
+            vector<string> elements = split(line);
+            Passenger passenger(stoi(elements[0]), elements[1], stoi(elements[2]));
+            passengersVector.push_back(passenger);
+        }
+    }
+
+    filePassengers.close();
+     */
+}
+
 /*
+DOXYGEN NO FINAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NÃO ESQUECER!!!!!!!!!!!!!!!
  * antonio trata
-Update
-Remove
+Update  //Basico tratado
+Remove  //Basico tratado
 Date
  outras cenas
-Local Transports
+Local Transports  //feito
+passar de c++ para texto
 Testes
 Simulation - Carrinho
 Ordenação e pesquisa
  Organizar o texto e tratar de "limpar" o screen
+
 */

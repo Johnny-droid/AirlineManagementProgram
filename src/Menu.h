@@ -17,13 +17,18 @@
 using namespace std;
 
 class Menu {
+    string directory;
+    string directorySave;
     vector<Airport> airports;
     vector<Passenger> passengers;
     vector<Plane> planes;
 
 public:
+    Menu();
     Menu(string directory);
-    static void run(string directory);
+    Menu(string directory, string directorySave);
+    void run();
+    void save();
     static void showMenu();
     static void showClasses();
     static int readInputMenu();
@@ -34,9 +39,9 @@ public:
     void read();
     void update();
     void remove();  //delete
-    vector<Airport> getAirports();
-    vector<Passenger> getPassengers();
-    vector<Plane> getPlanes();
+    vector<Airport>& getAirports();
+    vector<Passenger>& getPassengers();
+    vector<Plane>& getPlanes();
     Passenger* getPassenger(int id);
     Airport* getAirport(int id);
     Plane* getPlane(string lp);
@@ -56,13 +61,17 @@ public:
     bool isAirportIdUnique(int id);
 
 private:
-    BST<LocalTransport> initializeLocalTransports(string directory, int idAirport);
-    vector<Airport> initializeAirports(string testDirectory);
-    vector<Passenger> initializePassengers(string testDirectory);
-    vector<Plane> initializePlanes(string testDirectory);
-    vector<queue<Service>> initializeServices(string testDirectory, string planeID);
-    vector<Ticket> initializeTickets(string testDirectory, int flightID);
-    vector<Flight> initializeFlights(string testDirectory, string planeLicensePlate);
+    BST<LocalTransport> initializeLocalTransports(int idAirport);
+    vector<Airport> initializeAirports();
+    vector<Passenger> initializePassengers();
+    vector<Plane> initializePlanes();
+    vector<queue<Service>> initializeServices(string planeID);
+    vector<Ticket> initializeTickets(int flightID);
+    vector<Flight> initializeFlights(string planeLicensePlate);
+
+    void savePlanes();
+    void saveAirports();
+
     void pressAnyKeyToContinue();
 };
 

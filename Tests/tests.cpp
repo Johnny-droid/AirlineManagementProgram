@@ -12,6 +12,27 @@
 
 using testing::Eq;
 
+TEST(testOverall, creation) {
+    Menu menu;
+    Plane plane1("A45623", 320);
+
+    menu.getPlanes().push_back(plane1);
+    EXPECT_EQ( "A45623", menu.getPlanes()[0].getLicensePlate());
+    EXPECT_EQ(320, menu.getPlanes()[0].getCapacity());
+}
+
+TEST(testOverall, update) {
+    Menu menu;
+    Plane milleniumFalcon("B6666", 423);
+    menu.getPlanes().push_back(milleniumFalcon);
+    EXPECT_EQ("B6666", menu.getPlanes()[0].getLicensePlate());
+    EXPECT_EQ(423, menu.getPlanes()[0].getCapacity());
+}
+
+TEST(testOverall, remove) {
+
+}
+
 TEST(testAiport, Aiports) {
     // depois adicionar testes com a BST
     cout << "\n\nTesting Airport Constructor" << endl;

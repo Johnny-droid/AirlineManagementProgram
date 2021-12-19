@@ -7,16 +7,17 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-
-    string directory = "../DataFiles/";
-    Menu menu(directory);
-    menu.run(directory);
-
     /*
+    string directory = "../DataFiles/";
+    string directorySave = "../DataFiles2/";
+    Menu menu(directory, directorySave);
+    menu.run();
+    */
+
     testing::InitGoogleTest(&argc, argv);
     std::cout << "Airline Management Project" << std::endl;
     return RUN_ALL_TESTS();
-    */
+
 }
 
 
