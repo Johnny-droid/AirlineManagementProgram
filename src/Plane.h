@@ -19,8 +19,8 @@ class Plane {
 public:
     Plane(string licensePlate, int capacity);
     Plane(string licensePlate, int capacity, vector<Flight> flightPlan, queue<Service> servicesCompleted, queue<Service> servicesToBeDone);
-    string getLicensePlate();
-    int getCapacity();
+    string getLicensePlate() const;
+    int getCapacity() const;
     vector<Flight> &getFlightPlan();
     queue<Service> &getServicesToBeDone();
     queue<Service> &getServicesCompleted();
@@ -32,6 +32,9 @@ public:
     void printServicesCompleted();
     void printServicesToBeDone();
     void completeLastService();
+
+    static bool compareByLicensePlate(const Plane& plane1, const Plane& plane2);
+    static bool compareByCapacity(const Plane& plane1, const Plane& plane2);
 };
 
 

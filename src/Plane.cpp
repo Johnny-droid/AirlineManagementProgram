@@ -16,11 +16,11 @@ Plane::Plane(string licensePlate, int capacity, vector<Flight> flightPlan, queue
     this->servicesToBeDone = servicesToBeDone;
 }
 
-string Plane::getLicensePlate() {
+string Plane::getLicensePlate() const {
     return licensePlate;
 }
 
-int Plane::getCapacity() {
+int Plane::getCapacity() const {
     return capacity;
 }
 
@@ -44,8 +44,7 @@ void Plane::setCapacity(int newCapacity){
 
 void Plane::printFlights() {
     for (Flight flight: flightPlan) {
-        cout << "Flight: " << flight.getNumber() << "      Duration: " << flight.getDuration() << endl;
-        cout << "Airport    Origin: " << flight.getOrigin()->getName() << "      Destiny:  " << flight.getDestiny()->getName() << endl;
+        flight.print();
     }
 
 }
@@ -100,3 +99,10 @@ void Plane::completeLastService() {
     servicesCompleted.push(serviceDone);
 };
 
+bool Plane::compareByLicensePlate(const Plane& plane1, const Plane& plane2) {
+    return plane1.getLicensePlate() < plane2.getLicensePlate();
+}
+
+bool Plane::compareByCapacity(const Plane& plane1, const Plane& plane2) {
+    return plane1.getCapacity() < plane2.getCapacity();
+}

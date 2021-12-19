@@ -12,6 +12,17 @@
 
 using testing::Eq;
 
+/*
+  Criar um aviao funciona (Option 1:1)
+  Ler os aviões funciona, incluindo o novo criado (Option2:1)
+  Dar update a um avião funciona, quer dar update á license incluindo no avião novo e quando fazes update aparece a lista dos aviões (Option 3:1)
+  Dar remove a um avião funciona (Option 4:1)
+
+
+
+ */
+
+
 TEST(testOverall, creation) {
     Menu menu;
     Plane plane1("A45623", 320);

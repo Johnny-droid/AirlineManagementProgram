@@ -6,6 +6,7 @@
 #include <queue>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include "Airport.h"
 #include "Plane.h"
 #include "Passenger.h"
@@ -33,6 +34,8 @@ public:
     static void showClasses();
     static int readInputMenu();
     static int readInputClasses();
+    static int readInt();
+    static string readString();
     static vector<string> split(string s); //public only for tests
 
     void create();
@@ -47,6 +50,13 @@ public:
     Plane* getPlane(string lp);
     Plane* getPlaneWithFlightNumber(int number);
     Flight* getFlight(int number);
+    void readPlanes();
+    void readFlights();
+    void readServices();
+    void readAirports();
+    void readPassengers();
+    void readTickets();
+    void readLocalTransports();
     void printPlanes();
     void printFlights();
     void printServices();

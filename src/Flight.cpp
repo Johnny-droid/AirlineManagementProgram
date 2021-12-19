@@ -58,6 +58,11 @@ void Flight::printTickets() {
     }
 }
 
+void Flight::print() {
+    cout << "Flight  Number: " << number << "   Duration: " << duration << "   Date of Departure: " << dateDeparture << endl;
+    cout << "        Airport Origin: " << origin->getName() << "      Airport Destiny: " << destiny->getName() << endl;
+}
+
 void Flight::setAirportOrigin(Airport *airport) {
     this->origin = airport;
 }

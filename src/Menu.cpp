@@ -54,7 +54,8 @@ void Menu::save() {
 
 void Menu::showMenu() {
     //clear maybe if possible
-    cout << "     1) Create      " << endl;
+    cout << "\nWhat would you like to do?" << endl;
+    cout << "\n     1) Create      " << endl;
     cout << "     2) Read        " << endl;
     cout << "     3) Update      " << endl;
     cout << "     4) Delete      " << endl;
@@ -62,7 +63,7 @@ void Menu::showMenu() {
 }
 
 void Menu::showClasses() {
-    cout << "     1) Planes           " << endl;
+    cout << "    1) Planes           " << endl;
     cout << "     2) Flights          " << endl;
     cout << "     3) Services         " << endl;
     cout << "     4) Airports         " << endl;
@@ -78,7 +79,7 @@ int Menu::readInputMenu() {
     int chosenOption;
     bool notValid;
     do {
-        cout << "\n     Enter option: ";
+        cout << "\n   Enter option: ";
         cin >> chosenOption;
         notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 5 && chosenOption != 6 && chosenOption != 0 ;
         if ( notValid || cin.fail()) {
@@ -110,6 +111,42 @@ int Menu::readInputClasses() {
         }
     } while (notValid);
     return chosenOption;
+}
+
+int Menu::readInt() {
+    int x; bool fail;
+    cin.ignore(10000, '\n');
+    do {
+        cin >> x;
+        fail = cin.fail();
+        if (fail)  {
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Invalid Input Try again: " << endl;
+        }
+    } while (fail);
+    return x;
+}
+
+string Menu::readString() {
+    string str; bool fail;
+    cin.ignore(1000, '\n');  // para conseguir ler um nome de aeroporto com mais do que uma palavra
+    do {
+        getline(cin, str);
+        fail = cin.fail();
+        if (fail)  {
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Invalid Input Try again: " << endl;
+        }
+    } while (fail);
+    return str;
 }
 
 vector<string> Menu::split(string s) {
@@ -386,7 +423,7 @@ vector<Plane> Menu::initializePlanes() {
 }
 
 void Menu::pressAnyKeyToContinue() {
-    cout << "     Press any key to continue ";
+    cout << "Press any key to continue " << endl;
     getchar();
 }
 
@@ -442,6 +479,83 @@ void Menu::printLocalTransports() {
     }
 }
 
+void Menu::readPlanes() {
+    int input; bool valid;
+    cout << "\n1) Search a single plane" << endl;
+    cout << "2) Search a set of planes" << endl;
+    do {
+        cin >> input;
+        valid = input == 1 || input == 2;
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
+
+    if (input == 1) {
+        string lp;
+        cout << "Please insert a license plate: "; cin >> lp;
+        if (this->getPlane(lp) != nullptr) {
+            cout << "Plane found! " << endl;
+            this->getPlane(lp)->print();
+        } else {
+            cout << "\nLicense plate not found" << endl;
+        }
+    }
+
+    if (input == 2) {
+        cout << "Ordered by: " << endl;
+        cout << "1) License Plate" << endl;
+        cout << "2) Capacity" << endl;
+        do {
+            cin >> input;
+            valid = input == 1 || input == 2;
+            if (!valid) {
+                cout << "Invalid Input. Try again." << endl;
+            }
+        } while (!valid);
+
+        if (input == 1) {
+            sort(this->getPlanes().begin() , this->getPlanes().end() , Plane::compareByLicensePlate);
+        } else {
+            sort(this->getPlanes().begin(), this->getPlanes().end(), Plane::compareByCapacity);
+        }
+        printPlanes();
+    }
+
+}
+
+void Menu::readFlights() {
+    int input; bool valid;
+    cout << "\n1) Search a single flight" << endl;
+    cout << "2) Search a set of flights" << endl;
+    do {
+        cin >> input;
+        valid = input == 1 || input == 2;
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
+
+    if (input == 1) {
+        int flightNumber;
+        cout << "Please insert the Flight Number "; cin >> flightNumber;
+        if (this->getFlight(flightNumber) != nullptr) {
+            cout << "Flight found! " << endl;
+            this->getFlight(flightNumber)->print();
+        } else {
+            cout << "\nFlight number not found" << endl;
+        }
+
+    } else {
+
+
+    }
+
+
+
+
+}
+
 
 bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
     int capacity = getPlaneWithFlightNumber(number)->getCapacity();
@@ -453,7 +567,7 @@ bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
     return false;
 }
 
-bool Menu::isPlaneLpUnique(string lp){
+bool Menu::isPlaneLpUnique(string lp) {
     for (Plane plane : planes){
         if (plane.getLicensePlate() == lp) return false;
     }
@@ -496,7 +610,7 @@ void Menu::create() {
         string lp; int capacity; bool uniqueLp;
         do {
             cout << "Please insert a licence plate: " << endl;
-            cin >> lp;
+            lp = readString();
             uniqueLp = true;
             if (!isPlaneLpUnique(lp)){
                 cout << "Another plane already has this license plate!" << endl;
@@ -610,7 +724,7 @@ void Menu::read() {
     showClasses();
     int option = readInputClasses();
     if (option == 0) return;
-    else if (option == 1) printPlanes();
+    else if (option == 1) readPlanes();
     else if (option == 2) printFlights();
     else if (option == 3) printServices();
     else if (option == 4) printAirports();
@@ -1091,11 +1205,9 @@ Update  //Basico tratado
 Remove  //Basico tratado
 Date
  outras cenas
-Local Transports  //feito
-passar de c++ para texto
 Testes
 Simulation - Carrinho
 Ordenação e pesquisa
- Organizar o texto e tratar de "limpar" o screen
+Organizar o texto e tratar de "limpar" o screen
 
 */

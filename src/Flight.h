@@ -29,6 +29,7 @@ public:
     void setDuration(int newDuration);
     void setAirportOrigin(Airport* airport);
     void setAirportDestiny(Airport* airport);
+    void print();
     void printTickets();
 };
 
