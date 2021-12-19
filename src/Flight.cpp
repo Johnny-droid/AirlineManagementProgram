@@ -1,7 +1,8 @@
 #include <vector>
 #include "Flight.h"
 
-Flight::Flight(int number, int duration, Airport *origin, Airport *destiny) {
+Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date) {
+    this->dateDeparture = date;
     this->number = number;
     this->duration = duration;
     this->origin = origin;
@@ -9,7 +10,8 @@ Flight::Flight(int number, int duration, Airport *origin, Airport *destiny) {
     this->tickets = vector<Ticket>();
 }
 
-Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, vector<Ticket> tickets) {
+Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date, vector<Ticket> tickets) {
+    this->dateDeparture = date;
     this->number = number;
     this->duration = duration;
     this->origin = origin;
@@ -24,6 +26,11 @@ int Flight::getNumber() {
 int Flight::getDuration() {
     return duration;
 }
+
+string Flight::getDate() {
+    return dateDeparture;
+}
+
 
 Airport *Flight::getOrigin() {
     return origin;
@@ -58,6 +65,7 @@ void Flight::setAirportOrigin(Airport *airport) {
 void Flight::setAirportDestiny(Airport *airport) {
     this->destiny = airport;
 }
+
 
 
 

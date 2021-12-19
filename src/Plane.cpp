@@ -58,17 +58,16 @@ void Plane::printServices() {
     queue<Service> copyServicesToBeDone = servicesToBeDone;
     queue<Service> copyServicesCompleted = servicesCompleted;
 
-    cout << "Services not yet completed" << endl;
     while (!copyServicesToBeDone.empty()) {
         Service service = copyServicesToBeDone.front();
-        service.print();
+        service.print(false);
         copyServicesToBeDone.pop();
     }
-    cout << endl;
-    cout << "Services completed" << endl;
+
+
     while (!copyServicesCompleted.empty()) {
         Service service = copyServicesCompleted.front();
-        service.print();
+        service.print(true);
         copyServicesCompleted.pop();
     }
 }
@@ -78,7 +77,7 @@ void Plane::printServicesCompleted() {
     cout << "Services completed" << endl;
     while (!copyServicesCompleted.empty()) {
         Service service = copyServicesCompleted.front();
-        service.print();
+        service.print(true);
         copyServicesCompleted.pop();
     }
 };
@@ -88,14 +87,14 @@ void Plane::printServicesToBeDone() {
     cout << "Services not yet completed" << endl;
     while (!copyServicesToBeDone.empty()) {
         Service service = copyServicesToBeDone.front();
-        service.print();
+        service.print(false);
         copyServicesToBeDone.pop();
     }
 };
 
 void Plane::completeLastService() {
     Service serviceDone = servicesToBeDone.front();
-    serviceDone.print();
+    serviceDone.print(true);
     cout << "This service was completed" << endl;
     servicesToBeDone.pop();
     servicesCompleted.push(serviceDone);

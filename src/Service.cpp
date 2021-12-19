@@ -28,7 +28,8 @@ void Service::setWorker(string newWorker){
     worker = newWorker;
 }
 
-void Service::print() {
-    cout << "Service: " << typeOfService << "  " << date << "  " << worker << endl;
+void Service::print(bool completed) {
+    if (completed) cout << "Service: " << typeOfService << "  " << date << "  " << worker << "  completed " <<endl;
+    else cout << "Service: " << typeOfService << "  " << date << "  " << worker << "  not completed " <<endl;
 }
 

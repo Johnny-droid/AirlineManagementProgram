@@ -1,7 +1,6 @@
 A310,maintenance,02-04-1970,Jose Almeida,y
 B4208,cleaning,31-07-1820,Tomas Teixeira,n
 B737,cleaning,11-11-1811,Marcelo Rebelo de Sousa,y
-C654,maintenance,12-04-2002,y
 B4208,maintenance,31-08-2021,Barack Obama,y
 3942A,maintenance,06-06-2006,Donald Trump,n
 99CD,cleaning,09-10-2010,Marcelo Rebelo de Sousa,y
@@ -12,9 +11,8 @@ F771,cleaning,01-01-2013,Marcelo Rebelo de Sousa,y
 G0294,maintenance,03-11-2018,Barack Obama,y
 3942A,cleaning,19-04-2014,Boris Johnson,n
 71AB,cleaning,16-03-2013,Antonio Costa,n
-G0294,cleaning,31-08-2021,Marcelo Rebelo de Sousa,y
+G0294,cleaning,31-08-2021,Joao Rendeiro,y
 99CD,maintenance,16-03-2013,Pedro Passos Coelho,y
 A310,cleaning,11-07-2016,Marcelo Rebelo de Sousa,y
 B4208,maintenance,27-12-2017,Donald Trump,n
 F771,maintenance,21-09-2018,Joe Biden,y
-z232,cleaning,25-12-2021,Joao Rendeiro,y

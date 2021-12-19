@@ -346,7 +346,7 @@ vector<Flight> Menu::initializeFlights(string planeLicensePlate) {
                 Airport* origin = this->getAirport(stoi(elements[2]));
                 Airport* destiny = this->getAirport(stoi(elements[3]));
                 vector<Ticket> tickets = initializeTickets(stoi(elements[0]));
-                Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, tickets);
+                Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, elements[5] , tickets);
                 flightsVector.push_back(flight);
             }
         }
@@ -526,7 +526,7 @@ void Menu::create() {
         cin >> duration;
         cout << "Please insert the date (DD-MM-YYYY): " << endl;
         cin >> date;
-        Flight flight(number, duration, getAirport(originId), getAirport(destinyId));
+        Flight flight(number, duration, getAirport(originId), getAirport(destinyId), date);
         this->getPlane(lp)->getFlightPlan().push_back(flight);
     }
     else if (option == 3) {
@@ -731,7 +731,7 @@ void Menu::update() {
             int atributeToUpdate;
             appropriateInput = true;
             cout << "Next ";
-            this->getPlane(lp)->getServicesToBeDone().front().print();
+            this->getPlane(lp)->getServicesToBeDone().front().print(false);
             cout << "Would you like to check next service as completed? " << endl;
             cout << "1) Yes" << endl;
             cout << "2) No" << endl;
@@ -1023,19 +1023,61 @@ void Menu::savePassengers() {
 }
 
 void Menu::saveFlights() {
-
+    ofstream fileFlights (directorySave + "Flights.txt");
+    for (Plane &plane : planes) {
+        for (Flight &flight : plane.getFlightPlan()) {
+            fileFlights << flight.getNumber() << "," << plane.getLicensePlate() << "," << flight.getOrigin()->getId() << "," <<
+            flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate() << endl;
+        }
+    }
+    fileFlights.close();
 }
 
 void Menu::saveServices() {
+    ofstream fileServices (directorySave + "Services.txt");
+    for (Plane &plane : planes) {
+        queue<Service> copyServicesToBeDone = plane.getServicesToBeDone();
+        queue<Service> copyServicesCompleted = plane.getServicesCompleted();
 
+        while (!copyServicesToBeDone.empty()) {
+            Service service = copyServicesToBeDone.front();
+            fileServices << plane.getLicensePlate() << "," << service.getTypeOfService() << "," << service.getDate() << "," << service.getWorker() << ",y" << endl;
+            copyServicesToBeDone.pop();
+        }
+
+        while (!copyServicesCompleted.empty()) {
+            Service service = copyServicesCompleted.front();
+            fileServices << plane.getLicensePlate() << "," << service.getTypeOfService() << "," << service.getDate() << "," << service.getWorker() << ",n" << endl;
+            copyServicesCompleted.pop();
+        }
+    }
+    fileServices.close();
 }
 
 void Menu::saveTickets() {
-
+    ofstream fileTickets (directorySave + "Tickets.txt");
+    for (Plane &plane : planes) {
+        for (Flight &flight : plane.getFlightPlan()) {
+            for (Ticket ticket : flight.getTickets()) {
+                fileTickets << flight.getNumber() << "," << ticket.getPassenger()->getId() << "," << ticket.getBaggage() << "," << ticket.getPrice() << endl;
+            }
+        }
+    }
+    fileTickets.close();
 }
 
 void Menu::saveLocalTransports() {
+    ofstream fileLocalTransports (directorySave + "LocalTransports.txt");
+    for (Airport &airport : airports) {
+        BSTItrIn<LocalTransport> it(airport.getBST());
+        while (!it.isAtEnd()) {
+            LocalTransport lT = it.retrieve();
+            fileLocalTransports << airport.getId() << "," << lT.getTypeTransport() << "," << lT.getTimes() << "," << lT.getDistanceToAirport() << endl;
+            it.advance();
+        }
 
+    }
+    fileLocalTransports.close();
 }
 
 

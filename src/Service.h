@@ -18,7 +18,7 @@ public:
     void setTypeOfService(string newTypeOfService);
     void setDate(string newDate);
     void setWorker(string newWorker);
-    void print();
+    void print(bool completed);
 };
 
 

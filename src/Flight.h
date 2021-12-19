@@ -11,16 +11,17 @@ using namespace std;
 class Flight {
     int number;
     int duration;
-    //string dateDeparture;
+    string dateDeparture;
     Airport* origin;
     Airport* destiny;
     vector<Ticket> tickets;
 
 public:
-    Flight(int number, int duration, Airport* origin, Airport* destiny);
-    Flight(int number, int duration, Airport* origin, Airport* destiny, vector<Ticket> tickets);
+    Flight(int number, int duration, Airport* origin, Airport* destiny, string date);
+    Flight(int number, int duration, Airport* origin, Airport* destiny, string date, vector<Ticket> tickets);
     int getNumber();
     int getDuration();
+    string getDate();
     Airport* getOrigin();
     Airport* getDestiny();
     vector<Ticket>& getTickets();
