@@ -39,9 +39,18 @@ void Menu::run() {
         //read();
 
     } while (option != 0);
-
+    save();
 }
 
+void Menu::save() {
+    saveAirports();
+    savePlanes();
+    saveFlights();
+    savePassengers();
+    saveTickets();
+    saveServices();
+    saveLocalTransports();
+}
 
 void Menu::showMenu() {
     //clear maybe if possible
@@ -991,26 +1000,47 @@ void Menu::remove() {
 
 void Menu::savePlanes() {
     ofstream filePlanes (directorySave + "Planes.txt");
-    /*
     for (Plane plane : planes) {
-        cout <<
+        filePlanes << plane.getLicensePlate() << "," << plane.getCapacity() << endl;
     }
-
-
-    if (!filePlanes.is_open()) {
-        throw runtime_error("File of Passenge was not found");
-    } else {
-        while(getline(filePassengers, line)) {
-            if (line.empty()) continue;
-            vector<string> elements = split(line);
-            Passenger passenger(stoi(elements[0]), elements[1], stoi(elements[2]));
-            passengersVector.push_back(passenger);
-        }
-    }
-
-    filePassengers.close();
-     */
+    filePlanes.close();
 }
+
+void Menu::saveAirports() {
+    ofstream fileAirports (directorySave + "Airports.txt");
+    for (Airport airport : airports) {
+        fileAirports << airport.getId() << "," << airport.getName() << endl;
+    }
+    fileAirports.close();
+}
+
+void Menu::savePassengers() {
+    ofstream filePassengers (directorySave + "Passengers.txt");
+    for (Passenger passenger : passengers) {
+        filePassengers << passenger.getId() << "," << passenger.getName() << "," << passenger.getAge() << endl;
+    }
+    filePassengers.close();
+}
+
+void Menu::saveFlights() {
+
+}
+
+void Menu::saveServices() {
+
+}
+
+void Menu::saveTickets() {
+
+}
+
+void Menu::saveLocalTransports() {
+
+}
+
+
+
+
 
 /*
 DOXYGEN NO FINAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NÃO ESQUECER!!!!!!!!!!!!!!!

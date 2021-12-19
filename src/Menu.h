@@ -68,10 +68,13 @@ private:
     vector<queue<Service>> initializeServices(string planeID);
     vector<Ticket> initializeTickets(int flightID);
     vector<Flight> initializeFlights(string planeLicensePlate);
-
     void savePlanes();
     void saveAirports();
-
+    void savePassengers();
+    void saveFlights();
+    void saveServices();
+    void saveTickets();
+    void saveLocalTransports();
     void pressAnyKeyToContinue();
 };
 
