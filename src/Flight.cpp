@@ -19,15 +19,15 @@ Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, stri
     this->tickets = tickets;
 }
 
-int Flight::getNumber() {
+int Flight::getNumber() const {
     return number;
 }
 
-int Flight::getDuration() {
+int Flight::getDuration() const {
     return duration;
 }
 
-string Flight::getDate() {
+string Flight::getDate() const {
     return dateDeparture;
 }
 
@@ -61,6 +61,7 @@ void Flight::printTickets() {
 void Flight::print() {
     cout << "Flight  Number: " << number << "   Duration: " << duration << "   Date of Departure: " << dateDeparture << endl;
     cout << "        Airport Origin: " << origin->getName() << "      Airport Destiny: " << destiny->getName() << endl;
+    cout << "Number of tickets: " << tickets.size() << endl;
 }
 
 void Flight::setAirportOrigin(Airport *airport) {
@@ -70,6 +71,23 @@ void Flight::setAirportOrigin(Airport *airport) {
 void Flight::setAirportDestiny(Airport *airport) {
     this->destiny = airport;
 }
+
+bool Flight::compareByNumber(const Flight &flight1, const Flight &flight2) {
+    return flight1.getNumber() < flight2.getNumber();
+}
+
+bool Flight::compareByDuration(const Flight &flight1, const Flight &flight2) {
+    return flight1.getDuration() < flight2.getDuration();
+}
+
+bool Flight::compareByDate(const Flight &flight1, const Flight &flight2) {
+    return flight1.getDate() < flight2.getDate();
+}
+
+bool Flight::compareByNumberTickets(Flight &flight1, Flight &flight2) {
+    return flight1.getTickets().size() < flight2.getTickets().size();
+}
+
 
 
 

@@ -35,9 +35,8 @@ void Menu::run() {
         else if (option == 2) read();
         else if (option == 3) update();
         else if (option == 4) remove();
-        //makes switch clauses
-        //read();
 
+        if (option != 0) pressAnyKeyToContinue();
     } while (option != 0);
     save();
 }
@@ -63,7 +62,7 @@ void Menu::showMenu() {
 }
 
 void Menu::showClasses() {
-    cout << "    1) Planes           " << endl;
+    cout << "     1) Planes           " << endl;
     cout << "     2) Flights          " << endl;
     cout << "     3) Services         " << endl;
     cout << "     4) Airports         " << endl;
@@ -166,7 +165,6 @@ vector<string> Menu::split(string s) {
     return v;
 }
 
-
 vector<Airport>& Menu::getAirports() {
     return airports;
 }
@@ -177,6 +175,16 @@ vector<Passenger>& Menu::getPassengers() {
 
 vector<Plane>& Menu::getPlanes() {
     return planes;
+}
+
+vector<Flight> Menu::getAllFlights() {
+    vector<Flight> flights;
+    for (Plane &plane : planes) {
+        for (Flight flight : plane.getFlightPlan()) {
+            flights.push_back(flight);
+        }
+    }
+    return flights;
 }
 
 Passenger *Menu::getPassenger(int id) {
@@ -306,7 +314,6 @@ vector<Passenger> Menu::initializePassengers() {
 
     return passengersVector;
 }
-
 
 vector<queue<Service>> Menu::initializeServices(string planeID) {
     ifstream fileServices;
@@ -502,7 +509,6 @@ void Menu::readPlanes() {
             cout << "\nLicense plate not found" << endl;
         }
 
-
     } else {
         cout << "Ordered by: " << endl;
         cout << "1) License Plate" << endl;
@@ -517,11 +523,11 @@ void Menu::readPlanes() {
         } while (!valid);
 
         if (input == 1) {
-            sort(this->getPlanes().begin() , this->getPlanes().end() , Plane::compareByLicensePlate);
+            sort(planes.begin() , planes.end() , Plane::compareByLicensePlate);
         } else  if (input == 2) {
-            sort(this->getPlanes().begin(), this->getPlanes().end(), Plane::compareByCapacity);
+            sort(planes.begin(), planes.end(), Plane::compareByCapacity);
         } else if (input == 3) {
-
+            sort(planes.begin(), planes.end(), Plane::compareByNumberFlights);
         }
         printPlanes();
     }
@@ -532,6 +538,78 @@ void Menu::readFlights() {
     int input; bool valid;
     cout << "\n1) Search a single flight" << endl;
     cout << "2) Search a set of flights" << endl;
+    cout << "3) See all flights" << endl;
+    do {
+        input = readInt();
+        valid = (input == 1 || input == 2 || input == 3);
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
+
+    if (input == 1) {
+        int flightNumber;
+        cout << "Please insert the Flight Number "; flightNumber = readInt();
+        if (!isFlightNumberUnique(flightNumber)) {
+            cout << "Flight found! " << endl;
+            this->getFlight(flightNumber)->print();
+        } else {
+            cout << "\nFlight number not found" << endl;
+        }
+
+    } else if (input == 2 || input == 3) {
+        int input2;
+        cout << "Ordered by: " << endl;
+        cout << "1) Number" << endl;
+        cout << "2) Duration" << endl;
+        cout << "3) Date" << endl;
+        cout << "4) Number of Tickets" << endl;
+        do {
+            input2 = readInt();
+            valid = input2 == 1 || input2 == 2 || input2 == 3 || input2 == 4;
+            if (!valid) {
+                cout << "Invalid Input. Try again." << endl;
+            }
+        } while (!valid);
+        if (input == 3) {
+            vector<Flight> allFlights = getAllFlights();
+            if (input2 == 1) {
+                sort(allFlights.begin() , allFlights.end() , Flight::compareByNumber);
+            } else if (input2 == 2) {
+                sort(allFlights.begin(), allFlights.end(), Flight::compareByDuration);
+            } else if (input2 == 3) {
+                sort(allFlights.begin(), allFlights.end(), Flight::compareByDate);
+            } else {
+                sort(allFlights.begin(), allFlights.end(), Flight::compareByNumberTickets);
+            }
+            for (Flight flight : allFlights) flight.print();
+        } else if (input == 2) {
+            string lp;
+            cout << "Please insert a license plate: "; cin >> lp;
+            if (!isPlaneLpUnique(lp)) {
+                cout << "Plane found! " << endl;
+                if (input2 == 1) {
+                    sort(this->getPlane(lp)->getFlightPlan().begin() , this->getPlane(lp)->getFlightPlan().end() , Flight::compareByNumber);
+                } else if (input2 == 2) {
+                    sort(this->getPlane(lp)->getFlightPlan().begin(), this->getPlane(lp)->getFlightPlan().end(), Flight::compareByDuration);
+                } else if (input2 == 3) {
+                    sort(this->getPlane(lp)->getFlightPlan().begin(), this->getPlane(lp)->getFlightPlan().end(), Flight::compareByDate);
+                } else {
+                    sort(this->getPlane(lp)->getFlightPlan().begin(), this->getPlane(lp)->getFlightPlan().end(), Flight::compareByNumberTickets);
+                }
+                this->getPlane(lp)->printFlights();
+            } else {
+                cout << "\nLicense plate not found" << endl;
+            }
+        }
+
+    }
+}
+
+void Menu::readServices() {
+    int input; bool valid;
+    cout << "\n1) See next service required" << endl;
+    cout << "2) See all services" << endl;
     do {
         input = readInt();
         valid = input == 1 || input == 2;
@@ -541,43 +619,133 @@ void Menu::readFlights() {
     } while (!valid);
 
     if (input == 1) {
-        int flightNumber;
-        cout << "Please insert the Flight Number "; flightNumber = readInt();
-        if (this->getFlight(flightNumber) != nullptr) {
-            cout << "Flight found! " << endl;
-            this->getFlight(flightNumber)->print();
+        string lp;
+        cout << "Please insert the License Plate of the plane: "; lp = readString();
+        if (this->getPlane(lp) != nullptr) {
+            cout << "Service found! " << endl;
+            this->getPlane(lp)->getServicesToBeDone().front().print(false);
         } else {
             cout << "\nFlight number not found" << endl;
+        }
+    } else {
+        printServices();
+    }
+}
+
+void Menu::readPassengers() {
+    int input; bool valid;
+    cout << "\n1) Search a single passenger" << endl;
+    cout << "2) Search a set of passengers" << endl;
+    do {
+        input = readInt();
+        valid = (input == 1 || input == 2);
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
+
+    if (input == 1) {
+        int idPassenger;
+        cout << "Please insert the Passenger ID:  "; idPassenger = readInt();
+        if (!this->isPassengerIdUnique(idPassenger)) {
+            cout << "Passenger found! " << endl;
+            this->getPassenger(idPassenger)->print();
+        } else {
+            cout << "\nPassenger ID not found" << endl;
         }
 
     } else {
         cout << "Ordered by: " << endl;
-        cout << "1) Number" << endl;
-        cout << "2) Duration" << endl;
-        cout << "3) Date" << endl;
-        cout << "4) " << endl;
+        cout << "1) Id" << endl;
+        cout << "2) Name" << endl;
+        cout << "3) Age" << endl;
         do {
             input = readInt();
-            valid = input == 1 || input == 2;
+            valid = (input == 1 || input == 2 || input == 3);
+            if (!valid) {
+                cout << "Invalid Input. Try again." << endl;
+            }
+        } while (!valid);
+        if (input == 1) {
+            sort(passengers.begin() , passengers.end() , Passenger::compareById);
+        } else  if (input == 2) {
+            sort(passengers.begin(), passengers.end(), Passenger::compareByName);
+        } else if (input == 3) {
+            sort(passengers.begin(), passengers.end(), Passenger::compareByAge);
+        }
+        printPassengers();
+    }
+}
+
+void Menu::readAirports() {
+    int input; bool valid;
+    cout << "\n1) Search a single airport" << endl;
+    cout << "2) Search a set of airports" << endl;
+    do {
+        input = readInt();
+        valid = (input == 1 || input == 2);
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
+
+    if (input == 1) {
+        int idAirport;
+        cout << "Please insert the Airport ID:  "; idAirport = readInt();
+        if (!this->isAirportIdUnique(idAirport)) {
+            cout << "Airport found! " << endl;
+            this->getAirport(idAirport)->print();
+        } else {
+            cout << "\nAirport ID not found" << endl;
+        }
+
+    } else {
+        cout << "Ordered by: " << endl;
+        cout << "1) Id" << endl;
+        cout << "2) Name" << endl;
+        cout << "3) Number of Local Transports" << endl;
+        do {
+            input = readInt();
+            valid = (input == 1 || input == 2 || input == 3);
             if (!valid) {
                 cout << "Invalid Input. Try again." << endl;
             }
         } while (!valid);
 
         if (input == 1) {
-            sort(this->getPlanes().begin() , this->getPlanes().end() , Plane::compareByLicensePlate);
+            sort(airports.begin(), airports.end(), Airport::compareById);
+        } else if (input == 2) {
+            sort(airports.begin(), airports.end(), Airport::compareByName);
         } else {
-            sort(this->getPlanes().begin(), this->getPlanes().end(), Plane::compareByCapacity);
+            sort(airports.begin(), airports.end(), Airport::compareByNumberLocalTransports);
         }
-        printPlanes();
-
+        printPassengers();
     }
+}
 
+void Menu::readTickets() {
+    int input; bool valid;
+    cout << "\n1) Search a set of tickets" << endl;
+    cout << "2) See all tickets " << endl;
+    do {
+        input = readInt();
+        valid = (input == 1 || input == 2 || input == 3);
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
 
+    if (input == 1) {
 
+    } else {
+        printTickets();
+    }
 
 }
 
+void Menu::readLocalTransports() {
+
+}
 
 bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
     int capacity = getPlaneWithFlightNumber(number)->getCapacity();
@@ -747,13 +915,12 @@ void Menu::read() {
     int option = readInputClasses();
     if (option == 0) return;
     else if (option == 1) readPlanes();
-    else if (option == 2) printFlights();
-    else if (option == 3) printServices();
-    else if (option == 4) printAirports();
-    else if (option == 5) printTickets();
-    else if (option == 6) printPassengers();
-    else if (option == 7) printLocalTransports();
-    pressAnyKeyToContinue();
+    else if (option == 2) readFlights();
+    else if (option == 3) readServices();
+    else if (option == 4) readAirports();
+    else if (option == 5) readTickets();
+    else if (option == 6) readPassengers();
+    else if (option == 7) readLocalTransports();
 }
 
 void Menu::update() {
@@ -1215,7 +1382,6 @@ void Menu::saveLocalTransports() {
     }
     fileLocalTransports.close();
 }
-
 
 
 

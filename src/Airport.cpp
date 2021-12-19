@@ -11,11 +11,11 @@ Airport::Airport(int id, string name, BST<LocalTransport> bst) {
     this->bst = bst;
 }
 
-string Airport::getName() {
+string Airport::getName() const {
     return name;
 }
 
-int Airport::getId() {
+int Airport::getId() const {
     return id;
 }
 
@@ -31,10 +31,7 @@ void Airport::setName(string newName){
     name = newName;
 }
 void Airport::print() {
-    cout << "Airport " << id << ": " << name << endl;
-    // Then print local transports
-    BSTItrIn it(bst);
-
+    cout << "Airport " << id << ": " << name << "    Number of Local Transports: " << this->getBSTSize() << endl;
 }
 
 void Airport::printLocalTransports() {
@@ -54,7 +51,7 @@ bool Airport::isLocalTransportId(int id) {
     return false;
 }
 
-int Airport::getBSTSize() {
+int Airport::getBSTSize() const {
     int counter = 0;
     BSTItrIn it(bst);
     while (!it.isAtEnd()) {
@@ -62,5 +59,17 @@ int Airport::getBSTSize() {
         it.advance();
     }
     return counter;
+}
+
+bool Airport::compareById(const Airport &airport1, const Airport &airport2) {
+    return airport1.id < airport2.id;
+}
+
+bool Airport::compareByName(const Airport &airport1, const Airport &airport2) {
+    return airport1.name < airport2.name;
+}
+
+bool Airport::compareByNumberLocalTransports(const Airport &airport1, const Airport &airport2) {
+    return airport1.getBSTSize() < airport2.getBSTSize();
 }
 

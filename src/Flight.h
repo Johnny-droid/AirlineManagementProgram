@@ -19,9 +19,9 @@ class Flight {
 public:
     Flight(int number, int duration, Airport* origin, Airport* destiny, string date);
     Flight(int number, int duration, Airport* origin, Airport* destiny, string date, vector<Ticket> tickets);
-    int getNumber();
-    int getDuration();
-    string getDate();
+    int getNumber() const;
+    int getDuration() const;
+    string getDate() const;
     Airport* getOrigin();
     Airport* getDestiny();
     vector<Ticket>& getTickets();
@@ -31,6 +31,11 @@ public:
     void setAirportDestiny(Airport* airport);
     void print();
     void printTickets();
+
+    static bool compareByNumber(const Flight& flight1, const Flight& flight2);
+    static bool compareByDuration(const Flight& flight1, const Flight& flight2);
+    static bool compareByDate(const Flight& flight1, const Flight& flight2);
+    static bool compareByNumberTickets(Flight& flight1, Flight& flight2);
 };
 
 

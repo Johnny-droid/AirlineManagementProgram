@@ -42,9 +42,11 @@ public:
     void read();
     void update();
     void remove();  //delete
+
     vector<Airport>& getAirports();
     vector<Passenger>& getPassengers();
     vector<Plane>& getPlanes();
+    vector<Flight> getAllFlights();
     Passenger* getPassenger(int id);
     Airport* getAirport(int id);
     Plane* getPlane(string lp);

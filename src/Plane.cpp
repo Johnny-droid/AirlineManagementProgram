@@ -109,7 +109,7 @@ bool Plane::compareByCapacity(const Plane& plane1, const Plane& plane2) {
 }
 
 bool Plane::compareByNumberFlights(Plane& plane1, Plane& plane2) {
-    return plane1.getFlightPlan().size() < plane2.getCapacity();
+    return plane1.getFlightPlan().size() < plane2.getFlightPlan().size();
 }
 
 

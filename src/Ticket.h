@@ -11,7 +11,6 @@ class Ticket {
     Passenger* passenger;
 
 public:
-    Ticket() {};
     Ticket(int baggage, int price, Passenger* passenger);
     int getBaggage();
     int getPrice();
