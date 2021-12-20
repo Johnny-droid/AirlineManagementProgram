@@ -116,16 +116,16 @@ int Menu::readInputClasses() {
 
 int Menu::readInt() {
     int x; bool fail;
-    cin.ignore(10000, '\n');
     do {
         cin >> x;
         fail = cin.fail();
         if (fail)  {
+            cout << "it failed" << endl;
             if (cin.eof()) {
                 exit(0);
             }
             cin.clear();
-            cin.ignore(10000, '\n');
+            cin.ignore(100000, '\n');
             cout << "Invalid Input Try again: " << endl;
         }
     } while (fail);
@@ -143,7 +143,6 @@ string Menu::readString() {
                 exit(0);
             }
             cin.clear();
-            cin.ignore(10000, '\n');
             cout << "Invalid Input Try again: " << endl;
         }
     } while (fail);
@@ -1408,7 +1407,7 @@ void Menu::simulation(){
             cout  << "\nThen please write your name down here: " << endl;
             nome = readString();
             cout << nome << ", what a nice name!" << endl;
-            do{
+            do {
                 properInput = false;
                 cout << "Hmm.. by the look on your face..." << endl;
                 cout << "I bet your age is the same as the number of times I've slipped on a banana peel!" << endl;
@@ -1458,12 +1457,10 @@ void Menu::simulation(){
                     cout << "Please write your ID down here:" << endl;
                     id = readInt();
                     properInput = true;
-                    for (Passenger passenger : passengers){
-                        if (passenger.getId() == id) {
-                            properInput = false;
-                            cout << "I'm sorry, you must be mistaken. Someone else has that ID." << endl;
-                            cout << "Let's try again." << endl;
-                        }
+                    if (!isPassengerIdUnique(id)) {
+                        properInput = false;
+                        cout << "I'm sorry, you must be mistaken. Someone else has that ID." << endl;
+                        cout << "Let's try again." << endl;
                     }
                 } while (!properInput);
                 Passenger user (id, nome, idade);
@@ -1544,7 +1541,7 @@ void Menu::simulation(){
             cout << "Tell me the number of the flight you're interested in." << endl;
             flightNumber = readInt();
             //checka se ha vagas
-            if (getPlaneWithFlightNumber(flightNumber)->getCapacity() > getFlight(flightNumber)->getTickets().size()+1) properInput = true;
+            if (getPlaneWithFlightNumber(flightNumber)->getCapacity() > getFlight(flightNumber)->getTickets().size()) properInput = true;
             else cout << "We're sorry, that flight does not have any tickets available." << endl;
             if (!properInput) cout << "Try again." << endl;
         } while(!properInput);
@@ -1597,6 +1594,11 @@ void Menu::simulation(){
         if (answerE == 2) {
             cout << "Oh... Goodbye!" << endl;
             cout << "\nThe End.\n" << endl;
+        }
+        else if (getPlaneWithFlightNumber(flightNumber)->getCapacity() <= getFlight(flightNumber)->getTickets().size()+1){
+            cout << "Got it! Then it will just be " << price << "$." << endl;
+            cout << "(And so, you flew to " << getAirport(idDestination)->getName() << " and had an amazing trip!)" << endl;
+            cout << "The End!\n" << endl;
         }
         else if (answerE == 1) {
             priceSecond = price / 2;
@@ -1733,12 +1735,13 @@ void Menu::saveLocalTransports() {
 
 /*
 DOXYGEN NO FINAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NÃO ESQUECER!!!!!!!!!!!!!!!
+ Organizar o texto e tratar de "limpar" o screen
  * antonio trata
  outras cenas
  colocar times em Local Transports como listas
-Testes
+
 Simulation - Carrinho
-Ordenação e pesquisa
-Organizar o texto e tratar de "limpar" o screen
+Pesquisa
+
 
 */
