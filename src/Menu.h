@@ -49,11 +49,13 @@ public:
     vector<Passenger>& getPassengers();
     vector<Plane>& getPlanes();
     vector<Flight> getAllFlights();
+    vector<Ticket> getAllTickets();
     Passenger* getPassenger(int id);
     Airport* getAirport(int id);
     Plane* getPlane(string lp);
     Plane* getPlaneWithFlightNumber(int number);
     Flight* getFlight(int number);
+    void clear();
     void readPlanes();
     void readFlights();
     void readServices();

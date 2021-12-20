@@ -35,6 +35,7 @@ void Menu::run() {
         else if (option == 2) read();
         else if (option == 3) update();
         else if (option == 4) remove();
+        else if (option == 42) simulation();
 
         if (option != 0) pressAnyKeyToContinue();
     } while (option != 0);
@@ -58,7 +59,8 @@ void Menu::showMenu() {
     cout << "     2) Read        " << endl;
     cout << "     3) Update      " << endl;
     cout << "     4) Delete      " << endl;
-    cout << "     0) Exit        " << endl;
+    cout << "     0) Exit        \n" << endl;
+    cout << "     42) Simulation  " << endl;
 }
 
 void Menu::showClasses() {
@@ -80,7 +82,7 @@ int Menu::readInputMenu() {
     do {
         cout << "\n   Enter option: ";
         cin >> chosenOption;
-        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 5 && chosenOption != 6 && chosenOption != 0 ;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 42 && chosenOption != 0 ;
         if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
@@ -185,6 +187,18 @@ vector<Flight> Menu::getAllFlights() {
         }
     }
     return flights;
+}
+
+vector<Ticket> Menu::getAllTickets() {
+    vector<Ticket> tickets;
+    for (Plane &plane : planes) {
+        for (Flight &flight : plane.getFlightPlan()) {
+            for (Ticket ticket : flight.getTickets()) {
+                tickets.push_back(ticket);
+            }
+        }
+    }
+    return tickets;
 }
 
 Passenger *Menu::getPassenger(int id) {
@@ -430,7 +444,7 @@ vector<Plane> Menu::initializePlanes() {
 }
 
 void Menu::pressAnyKeyToContinue() {
-    cout << "Press any key to continue " << endl;
+    cout << "Press enter to continue " << endl;
     cin.ignore(10000, '\n');
     getchar();
 }
@@ -731,7 +745,7 @@ void Menu::readTickets() {
     cout << "2) See all tickets " << endl;
     do {
         input = readInt();
-        valid = (input == 1 || input == 2 || input == 3);
+        valid = (input == 1 || input == 2);
         if (!valid) {
             cout << "Invalid Input. Try again." << endl;
         }
@@ -762,20 +776,50 @@ void Menu::readTickets() {
             } else if (input2 == 3) {
                 sort(flight->getTickets().begin(), flight->getTickets().end(), Ticket::compareByPassenger);
             }
+            flight->printTickets();
         } else {
             cout << "\nFlight number not found" << endl;
         }
 
     } else {
-
-
-        printTickets();
+        vector<Ticket> allTickets = getAllTickets();
+        if (input2 == 1) {
+            sort(allTickets.begin(), allTickets.end(), Ticket::compareByBaggage);
+        } else if (input2 == 2) {
+            sort(allTickets.begin(), allTickets.end(), Ticket::compareByPrice);
+        } else if (input2 == 3) {
+            sort(allTickets.begin(), allTickets.end(), Ticket::compareByPassenger);
+        }
+        for (Ticket ticket : allTickets) ticket.print();
     }
 
 }
 
 void Menu::readLocalTransports() {
+    int input; bool valid;
+    cout << "\n1) Search a set of Local Transports" << endl;
+    cout << "2) See all Local Transports " << endl;
+    do {
+        input = readInt();
+        valid = (input == 1 || input == 2);
+        if (!valid) {
+            cout << "Invalid Input. Try again." << endl;
+        }
+    } while (!valid);
 
+    if (input == 1) {
+        int idAirport;
+        printAirports();
+        cout << "Please insert the Airport ID: "; idAirport = readInt();
+        if (!this->isAirportIdUnique(idAirport)) {
+            cout << "Aiport Found! " << endl;
+            getAirport(idAirport)->printLocalTransports();
+        } else {
+            cout << "\nAirport ID not found" << endl;
+        }
+    } else {
+        printLocalTransports();
+    }
 }
 
 bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
@@ -1332,6 +1376,147 @@ void Menu::remove() {
     }
 }
 
+void Menu::simulation(){
+    int answerA, answerB, answerC, answerD, answerE; bool properInput;
+    int id, idade; string nome;
+    do{
+        properInput = false;
+        cout << "\nWelcome to the Airline Management Program!" << endl;
+        cout << "Firstly, is this your first time being our customer?" << endl;
+        cout << "1) It's my first time!" << endl;
+        cout << "2) This ain't my first rodeo." << endl;
+        cout << "3) I though this was a cheese store." << endl;
+        answerA = readInt();
+        if (answerA == 1 or answerA == 2 or answerA == 3) properInput = true;
+    } while (!properInput);
+    if (answerA == 1) {
+        cout << "\nThen let me be the very first to welcome you to our Airline Management Program!" << endl;
+        do{
+            properInput = false;
+            cout << "Can you give me your name?" << endl;
+            cout << "1) You already welcomed me a second ago..." << endl;
+            cout << "2) Sure thing!" << endl;
+            answerB = readInt();
+            if (answerB == 1 or answerB == 2) properInput == true;
+        } while (!properInput);
+        if (answerB == 1){
+            cout  << "\nThen please write your name down here: " << endl;
+            nome = readString();
+        }
+        else if (answerB == 2){
+            //quit
+        }
+        do{
+            properInput = false;
+            cout << "What a nice name!" << endl;
+            cout << "Hmm.. by the look on your face..." << endl;
+            cout << "I bet your age is the same as the number of times I've slipped on a banana peel!" << endl;
+            cout << "It's..." << endl;
+            idade = readInt();
+            if (idade >= 4 and idade <= 118) properInput = true;
+            else if (idade > 118) {
+                cout << "Fun fact: the oldest person alive on Earth is currently 118 years old." << endl;
+                cout << "Thought you could fool me? Try again." << endl;
+            } else if (idade < 4 ) {
+                cout << "I don't think someone below that age can even read. Try again." << endl;
+            }
+        } while(!properInput);
+        do{
+            properInput = false;
+            cout << "Yes... " << idade << "... That is indeed the number of times I've slipped on a banana peel." << endl;
+            cout << "I knew moving to a neighborhood of monkeys was a bad idea." << endl;
+            cout << "Anyway to finish your register, can you tell me your ID?" << endl;
+            cout << "1) I have no IDea! (Badumtss)" << endl;
+            cout << "2) Of course I can!" << endl;
+            cout << "3) Woah! That is too personal! Why don't you tell me some of YOUR personal information first? Then we're even." << endl;
+            answerC = readInt();
+            if (answerC == 1 or answerC == 2) properInput = true;
+            if (answerC == 3) {
+                cout << "If you say so..." << endl;
+                cout << "My name is Joana Pinto. I'm 42 years old." << endl;
+                cout << "My house is in the northeast section of Banana Town, where all the monkeys are, and I am not married." << endl;
+                cout << "I work as an employee for the Airline, and I get home every day by 8 PM at the latest." << endl;
+                cout << "I don't smoke, but I occasionally drink. " << endl;
+                cout << "I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what." << endl;
+                cout << "After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning." << endl;
+                cout << "Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up." << endl;
+                cout << "I'm trying to explain that I'm a person who wishes to live a very quiet life." << endl;
+                cout << "I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night." << endl;
+                cout << "That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone." << endl;
+                cout << "(...)" << endl;
+                cout << "I feel like we should rewind this conversation. Let's do that." << endl;
+            }
+        }while (!properInput);
+        if (answerC == 1) {
+            //sair
+        }
+        else if (answerC == 2){
+            cout << "Very well!" << endl;
+            do {
+                cout << "Please write your ID down here:" << endl;
+                id = readInt();
+                properInput = true;
+                for (Passenger passenger : passengers){
+                    if (passenger.getId() == id) {
+                        properInput = false;
+                        cout << "I'm sorry, you must be mistaken. Someone else has that ID." << endl;
+                        cout << "Let's try again." << endl;
+                    }
+                }
+            } while (!properInput);
+        }
+        Passenger user (id, nome, idade);
+    }
+    else if (answerA == 2) {
+        cout << "Then welcome back, dear customer!" << endl;
+        do{
+            properInput = false;
+            cout << "Can you just give us your ID?" << endl;
+            cout << "1) Only if you show me a funny monkey first!" << endl;
+            cout << "2) For sure." << endl;
+            answerB = readInt();
+            if (answerB == 2) properInput = true;
+            if (answerB == 1) {
+                cout << "Fine, fine. You win. Here you go." << endl;
+                cout << "          __" << endl;
+                cout << "     w  c(..)o   (" << endl;
+                cout << "      \\__(-)    __)" << endl;
+                cout << "          /\\   (" << endl;
+                cout << "         /(_)___)" << endl;
+                cout << "         w /|" << endl;
+                cout << "          | \\" << endl;
+                cout << "         m  m" << endl;
+                cout << "Now back to the task at hand." << endl;
+            }
+        } while (!properInput);
+        if (answerB == 2){
+            do{
+                properInput = false;
+                cout << "Write you ID down here:" << endl;
+                id = readInt();
+                for (Passenger passenger : passengers){
+                    if (passenger.getId() == id) properInput = true;
+                    }
+                if (!properInput) {
+                    cout << "I'm so sorry honey, but I'm not finding anyone on the database with that ID." << endl;
+                    cout << "Don't worry, let's try again!" << endl;
+                }
+            } while (!properInput);
+        }
+    }
+    else if (answerA == 3) {
+        cout << "This is no place for cheese lovers! Get out!" << endl;
+        //pressAnyKeyToContinue();
+        //return;
+    }
+    //buy ticket
+    //pergunta aeroporto de partida e chegada
+    //pergunta voos
+    //checka se o voo tem vagas
+    //pergunta se tens bagagem e se sim quanta?
+    //diz te o preço e pergunta se queres comprar
+}
+
 
 
 void Menu::savePlanes() {
@@ -1408,7 +1593,7 @@ void Menu::saveLocalTransports() {
         BSTItrIn<LocalTransport> it(airport.getBST());
         while (!it.isAtEnd()) {
             LocalTransport lT = it.retrieve();
-            fileLocalTransports << airport.getId() << "," << lT.getTypeTransport() << "," << lT.getTimes() << "," << lT.getDistanceToAirport() << endl;
+            fileLocalTransports << airport.getId() << "," << lT.getTypeTransport() << "," << lT.getStringTimes() << "," << lT.getDistanceToAirport() << endl;
             it.advance();
         }
 
@@ -1422,10 +1607,8 @@ void Menu::saveLocalTransports() {
 /*
 DOXYGEN NO FINAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NÃO ESQUECER!!!!!!!!!!!!!!!
  * antonio trata
-Update  //Basico tratado
-Remove  //Basico tratado
-Date
  outras cenas
+ colocar times em Local Transports como listas
 Testes
 Simulation - Carrinho
 Ordenação e pesquisa

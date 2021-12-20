@@ -3,22 +3,25 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 #include "Date.h"
+#include "Time.h"
 
 using namespace std;
 
 class LocalTransport {
     int id;
     string typeTransport;
-    string times; //Ainda n sei bem o que fazer em relação a isto, mas talvez colocar uma lista de horário em que passa por dia
+    vector<Time> times;
     int distanceToAirport;
 
 public:
     LocalTransport();
-    LocalTransport(int id, string typeTransport, string times, int distanceToAirport);
+    LocalTransport(int id, string typeTransport, string strTimes, int distanceToAirport);
     int getId() const;
     string getTypeTransport() const;
-    string getTimes() const;
+    string getStringTimes() const;
+    vector<Time>& getTimes();
     int getDistanceToAirport() const;
     void setTypeTransport(string newTypeTransport);
     void setTimes(string newTimes);
