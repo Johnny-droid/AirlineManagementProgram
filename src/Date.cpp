@@ -1,12 +1,16 @@
 #include "Date.h"
-
+/**
+ * Creates a date object with the default values for day, month and year of '01-01-1000'
+ */
 Date::Date() {
     this->day = 1;
     this->month = 1;
     this->year = 1000;
 }
-
-
+/**
+ * Creates a date object
+ * @param date The string that represents a date in the model 'DD-MM-YYYY'
+ */
 Date::Date (string date){
     vector<string> v;
 
@@ -33,16 +37,27 @@ Date::Date (string date){
         this->year = tyear;
     }
 }
-
+/**
+ *
+ * @return A representation of the date in the string format 'DD-MM-YYYY'
+ */
 string Date::getStringDate() const {
     return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
 }
-
+/**
+ * Checks if two dates are considered equal
+ * @param date2 The date object on the right side of the == operator
+ * @return True if both dates have the same values for the attributes day, month and year
+ */
 bool Date::operator==(Date date2) {
     if (this->day == date2.day && this->month == date2.month && this->year == date2.year) return true;
     return false;
 }
-
+/**
+ * Checks if a date is before another one
+ * @param date2 The date object on the right side of the < operator
+ * @return True if the date on the left is before the one on the right. False, if otherwise.
+ */
 bool Date::operator<(Date date2) {
     if (this->year < date2.year) return true;
     if (this->year > date2.year) return false;

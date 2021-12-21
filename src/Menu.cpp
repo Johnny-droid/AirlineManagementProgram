@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/**
+ * Create a the menu object with no files and empty vectors (used for test purposes)
+ */
 Menu::Menu() {
     this->directory = "";
     this->directorySave = "";
@@ -10,6 +13,10 @@ Menu::Menu() {
     this->planes = vector<Plane>();
 }
 
+/**
+ * Create a the menu object that reads and saves to the same file
+ * @param directory name of the directory
+ */
 Menu::Menu(string directory) {
     this->directory = directory;
     this->directorySave = directory;
@@ -18,6 +25,12 @@ Menu::Menu(string directory) {
     this->planes = initializePlanes();
 }
 
+/**
+ * Create a the menu object that reads and saves to a diferent file
+ * (the file has the same name, but it's in a diferent directory)
+ * @param directory name of the directory from where it reads
+ * @param directorySave name of the directory from where it saves the files
+ */
 Menu::Menu(string directory, string directorySave) {
     this->directory = directory;
     this->directorySave = directorySave;
@@ -26,6 +39,9 @@ Menu::Menu(string directory, string directorySave) {
     this->planes = initializePlanes();
 }
 
+/**
+ * Runs the program
+ */
 void Menu::run() {
     int option;
     do {
@@ -39,12 +55,14 @@ void Menu::run() {
         else if (option == 42) simulation();
 
         if (option != 0) {
-            pressAnyKeyToContinue();
+            pressEnterToContinue();
         }
     } while (option != 0);
     save();
 }
-
+/**
+ * Saves the information to text files
+ */
 void Menu::save() {
     saveAirports();
     savePlanes();
@@ -55,6 +73,9 @@ void Menu::save() {
     saveLocalTransports();
 }
 
+/**
+ * Prints the main menu
+ */
 void Menu::showMenu() {
     //clear maybe if possible
     cout << "\nWhat would you like to do?" << endl;
@@ -66,6 +87,9 @@ void Menu::showMenu() {
     cout << "     42) Simulation  " << endl;
 }
 
+/**
+ * Prints the class menu
+ */
 void Menu::showClasses() {
     cout << "     1) Planes           " << endl;
     cout << "     2) Flights          " << endl;
@@ -77,18 +101,24 @@ void Menu::showClasses() {
     cout << "     0) Back             " << endl;
 }
 
+/**
+ * It clears the console by calling system()
+ * (It might have problems in Clion, but it works well in the terminal)
+ */
 void Menu::clear() {
     #if defined _WIN32
         system("cls");
-        //clrscr(); // including header file : conio.h
     #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
         system("clear");
-        //std::cout<< u8"\033[2J\033[1;1H"; //Using ANSI Escape Sequences
     #elif defined (__APPLE__)
         system("clear");
     #endif
 }
 
+/**
+ * Reads input from the user in the main menu
+ * @return choice of the user
+ */
 int Menu::readInputMenu() {
     // gets the option number
     int chosenOption;
@@ -109,6 +139,10 @@ int Menu::readInputMenu() {
     return chosenOption;
 }
 
+/**
+ * Reads input from the user in the class menu
+ * @return choice of the user
+ */
 int Menu::readInputClasses() {
     int chosenOption;
     bool notValid;
@@ -128,6 +162,10 @@ int Menu::readInputClasses() {
     return chosenOption;
 }
 
+/**
+ * Reads integer from the user (General use)
+ * @return value given by the user
+ */
 int Menu::readInt() {
     int x; bool fail;
     do {
@@ -146,6 +184,10 @@ int Menu::readInt() {
     return x;
 }
 
+/**
+ * Reads string from the user (General use)
+ * @return string given by the user
+ */
 string Menu::readString() {
     string str; bool fail;
     cin.ignore(1000, '\n');  // para conseguir ler um nome de aeroporto com mais do que uma palavra
@@ -163,6 +205,13 @@ string Menu::readString() {
     return str;
 }
 
+/**
+ * Separates a string into a vector of strings 
+ * that are separated by a certain character
+ * @param s long string to be separated
+ * @param delimeter character that separates the string
+ * @return vector with the sub strings
+ */
 vector<string> Menu::split(string s, string delimeter) {
     vector<string> v;
 
@@ -179,19 +228,34 @@ vector<string> Menu::split(string s, string delimeter) {
 
     return v;
 }
-
+ /**
+  *
+  * @return vector of airports by reference
+  */
 vector<Airport>& Menu::getAirports() {
     return airports;
 }
 
+/**
+ *
+ * @return vector of passengers by reference
+ */
 vector<Passenger>& Menu::getPassengers() {
     return passengers;
 }
 
+
+/**
+ *
+ * @return vector of planes by reference
+ */
 vector<Plane>& Menu::getPlanes() {
     return planes;
 }
-
+ /**
+  *
+  * @return vector of all flights
+  */
 vector<Flight> Menu::getAllFlights() {
     vector<Flight> flights;
     for (Plane &plane : planes) {
@@ -202,6 +266,10 @@ vector<Flight> Menu::getAllFlights() {
     return flights;
 }
 
+/**
+ *
+ * @return vector of all tickets
+ */
 vector<Ticket> Menu::getAllTickets() {
     vector<Ticket> tickets;
     for (Plane &plane : planes) {
@@ -214,6 +282,12 @@ vector<Ticket> Menu::getAllTickets() {
     return tickets;
 }
 
+/**
+ * It returns a pointer to a passenger that has a certain ID
+ * If there aren't any passengers with that ID, it returns a nullptr
+ * @param id belong to the passenger
+ * @return Pointer of passenger
+ */
 Passenger *Menu::getPassenger(int id) {
     for (Passenger &passenger : passengers) {
         if (passenger.getId() == id) {
@@ -224,6 +298,12 @@ Passenger *Menu::getPassenger(int id) {
     return nullptr;
 }
 
+/**
+ * It returns a pointer to a airport that has a certain ID
+ * If there aren't any airports with that ID, it returns a nullptr
+ * @param id belong to the airport
+ * @return Pointer of airport
+ */
 Airport *Menu::getAirport(int id) {
     for (Airport &airport : airports) {
         if (airport.getId() == id) {
@@ -234,6 +314,12 @@ Airport *Menu::getAirport(int id) {
     return nullptr;
 }
 
+/**
+ * It returns a pointer to a plane that has a certain License Plate
+ * If there aren't any planes with that License Plate, it returns a nullptr
+ * @param lp license plate of the plane
+ * @return Pointer of plane
+ */
 Plane *Menu::getPlane(string lp) {
     for (Plane &plane : planes) {
         if (plane.getLicensePlate() == lp) {
@@ -244,6 +330,12 @@ Plane *Menu::getPlane(string lp) {
     return nullptr;
 }
 
+/**
+ * It returns a pointer to a plane that has a certain flight with a specif flight number
+ * If there aren't any planes with that meet the condition, it returns a nullptr
+ * @param number Flight Number
+ * @return Pointer of plane
+ */
 Plane *Menu::getPlaneWithFlightNumber(int number) {
     for (Plane &plane : planes) {
         for (Flight &flight : plane.getFlightPlan()) {
@@ -256,6 +348,12 @@ Plane *Menu::getPlaneWithFlightNumber(int number) {
     return nullptr;
 }
 
+/**
+ * It returns a pointer to a flight that has a certain flight number
+ * If there aren't any flights with that number, it returns a nullptr
+ * @param number Flight Number
+ * @return Pointer of flight
+ */
 Flight *Menu::getFlight(int number) {
     for (Plane &plane : planes) {
         for (Flight &flight : plane.getFlightPlan()) {
@@ -268,6 +366,13 @@ Flight *Menu::getFlight(int number) {
     return nullptr;
 }
 
+/**
+ * Reads the information regarding the Local transports of
+ * an airport in the "LocalTransports.txt" file in the directory attribute
+ * and returns the Binary Search Tree formed by that information
+ * @param idAirport ID of the airport that has those local transports
+ * @return Binary Search Tree of the Local Transports
+ */
 BST<LocalTransport> Menu::initializeLocalTransports(int idAirport) {
     ifstream fileLT;
     string line;
@@ -277,7 +382,7 @@ BST<LocalTransport> Menu::initializeLocalTransports(int idAirport) {
     fileLT.open(directory + "LocalTransports.txt");
 
     if (!fileLT.is_open()) {
-        throw runtime_error("File of Local Transports was not found");
+        throw runtime_error("File of Local Transports was not found\nYou need that text file to run this program");
     } else {
         int counter = 1;
         while(getline(fileLT, line)) {
@@ -295,6 +400,11 @@ BST<LocalTransport> Menu::initializeLocalTransports(int idAirport) {
     return bstLT;
 }
 
+/**
+ * Reads the information regarding airports in the "Airports.txt"
+ * file in the directory attribute and returns the vector with all airports
+ * @return Vector of all airports
+ */
 vector<Airport> Menu::initializeAirports() {
     //Initialize the airports from the files
     ifstream fileAirport;
@@ -304,7 +414,7 @@ vector<Airport> Menu::initializeAirports() {
     fileAirport.open(directory + "Airports.txt");
 
     if (!fileAirport.is_open()) {
-        throw runtime_error("File of Airports was not found");
+        throw runtime_error("File of Airports was not found\nYou need that text file to run this program");
     } else {
         while(getline(fileAirport, line)) {
             if (line.empty()) continue;
@@ -319,6 +429,11 @@ vector<Airport> Menu::initializeAirports() {
     return airportsVector;
 }
 
+/**
+ * Reads the information regarding passengers in the "Passengers.txt"
+ * file in the directory attribute and returns the vector with all passengers
+ * @return Vector of all passengers
+ */
 vector<Passenger> Menu::initializePassengers() {
     ifstream filePassengers;
     string line;
@@ -327,7 +442,7 @@ vector<Passenger> Menu::initializePassengers() {
     filePassengers.open(directory + "Passengers.txt");
 
     if (!filePassengers.is_open()) {
-        throw runtime_error("File of Passengers was not found");
+        throw runtime_error("File of Passengers was not found\nYou need that text file to run this program");
     } else {
         while(getline(filePassengers, line)) {
             if (line.empty()) continue;
@@ -342,7 +457,15 @@ vector<Passenger> Menu::initializePassengers() {
     return passengersVector;
 }
 
-vector<queue<Service>> Menu::initializeServices(string planeID) {
+/**
+ * Reads the information regarding the Services of a plane
+ * in the "Services.txt" file in the directory attribute
+ * and returns the vector with 2 queues of services formed by that information
+ * (first queue is services completed and the second is services uncompleted)
+ * @param lp License Plate of the plane that has those services
+ * @return vector with the queue of completed services and the queue of uncompleted services from a specific plane
+ */
+vector<queue<Service>> Menu::initializeServices(string lp) {
     ifstream fileServices;
     string line;
     vector<queue<Service>> v;
@@ -351,12 +474,12 @@ vector<queue<Service>> Menu::initializeServices(string planeID) {
     fileServices.open(directory + "Services.txt");
 
     if (!fileServices.is_open()) {
-        throw runtime_error("File of Services was not found");
+        throw runtime_error("File of Services was not found\nYou need that text file to run this program");
     } else {
         while(getline(fileServices, line)) {
             if (line.empty()) continue;
             vector<string> elements = split(line, ",");
-            if (elements[0] == planeID) {
+            if (elements[0] == lp) {
                 // converter elements[2] numa data
                 Service service(elements[1], elements[2], elements[3]);
                 if (elements[4] == "y") {
@@ -374,7 +497,14 @@ vector<queue<Service>> Menu::initializeServices(string planeID) {
     return v;
 }
 
-vector<Ticket> Menu::initializeTickets(int flightID) {
+/**
+ * Reads the information regarding the Tickets of a flight
+ * in the "Tickets.txt" file in the directory attribute
+ * and returns the vector with tickets formed by that information
+ * @param flightNumber Flight Number of the flight that has those tickets
+ * @return vector with tickets from a specific flight
+ */
+vector<Ticket> Menu::initializeTickets(int flightNumber) {
     ifstream fileTickets;
     string line;
     vector<Ticket> ticketsVector;
@@ -382,13 +512,13 @@ vector<Ticket> Menu::initializeTickets(int flightID) {
     fileTickets.open(directory + "Tickets.txt");
 
     if (!fileTickets.is_open()) {
-        throw runtime_error("File of Tickets was not found");
+        throw runtime_error("File of Tickets was not found\nYou need that text file to run this program");
     } else {
         while(getline(fileTickets, line)) {
             if (line.empty()) continue;
             vector<string> elements = split(line, ",");
 
-            if (stoi(elements[0]) == flightID) {
+            if (stoi(elements[0]) == flightNumber) {
                 Ticket ticket( stoi(elements[2]) , stoi(elements[3]), this->getPassenger(stoi(elements[1])));
                 ticketsVector.push_back(ticket);
             }
@@ -399,6 +529,14 @@ vector<Ticket> Menu::initializeTickets(int flightID) {
     return ticketsVector;
 }
 
+
+/**
+ * Reads the information regarding the flights of a plane
+ * in the "Flights.txt" file in the directory attribute
+ * and returns the vector with flights formed by that information
+ * @param planeLicensePlate License Plate of the plane that has those flights
+ * @return vector with flights from a specific plane
+ */
 vector<Flight> Menu::initializeFlights(string planeLicensePlate) {
     ifstream fileFlights;
     string line;
@@ -407,7 +545,7 @@ vector<Flight> Menu::initializeFlights(string planeLicensePlate) {
     fileFlights.open(directory + "Flights.txt");
 
     if (!fileFlights.is_open()) {
-        throw runtime_error("File of Flights was not found");
+        throw runtime_error("File of Flights was not found\nYou need that text file to run this program");
     } else {
         while(getline(fileFlights, line)) {
             if (line.empty()) continue;
@@ -417,17 +555,27 @@ vector<Flight> Menu::initializeFlights(string planeLicensePlate) {
                 Airport* origin = this->getAirport(stoi(elements[2]));
                 Airport* destiny = this->getAirport(stoi(elements[3]));
                 vector<Ticket> tickets = initializeTickets(stoi(elements[0]));
-                Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, elements[5] , tickets);
-                flightsVector.push_back(flight);
+                if (elements.size() < 9) {
+                    Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, elements[5] , tickets);
+                    flightsVector.push_back(flight);
+                } else {
+                    Flight flight(stoi(elements[0]), stoi(elements[4]), origin, destiny, elements[5] , tickets, stoi(elements[6]), stoi(elements[7]), stoi(elements[8]));
+                    flightsVector.push_back(flight);
+                }
             }
+
         }
     }
 
     fileFlights.close();
-
     return flightsVector;
 }
 
+/**
+ * Reads the information regarding planes in the "Planes.txt" file
+ * in the directory attribute and returns the vector with all planes
+ * @return Vector of all planes
+ */
 vector<Plane> Menu::initializePlanes() {
     ifstream filePlanes;
     string line;
@@ -436,7 +584,7 @@ vector<Plane> Menu::initializePlanes() {
     filePlanes.open(directory + "Planes.txt");
 
     if (!filePlanes.is_open()) {
-        throw runtime_error("File of Planes was not found");
+        throw runtime_error("File of Planes was not found\nYou need that text file to run this program");
     } else {
         while(getline(filePlanes, line)) {
             if (line.empty()) continue;
@@ -456,42 +604,63 @@ vector<Plane> Menu::initializePlanes() {
     return planesVector;
 }
 
-void Menu::pressAnyKeyToContinue() {
+/**
+ * Waits for user to press enter to continue
+ */
+void Menu::pressEnterToContinue() {
     cout << "Press enter to continue \t" << endl;
     cin.ignore(10000, '\n');
     getchar();
 }
 
+/**
+ * Prints all planes
+ */
 void Menu::printPlanes() {
     for (Plane plane : planes) {
         plane.print();
     }
 }
 
+/**
+ * Prints all flights
+ */
 void Menu::printFlights() {
     for (Plane plane : this->getPlanes()) {
         plane.printFlights();
     }
 }
 
+/**
+ * Prints all services
+ */
 void Menu::printServices() {
     for (Plane plane : this->getPlanes()) {
         plane.printServices();
     }
 }
 
+/**
+ * Prints all airports
+ */
 void Menu::printAirports() {
     for (Airport airport : this->getAirports()) {
         airport.print();
     }
 }
 
+/**
+ * Prints all passengers
+ */
 void Menu::printPassengers() {
     for (Passenger passenger : this->getPassengers()) {
         passenger.print();
     }
 }
 
+/**
+ * Prints all tickets
+ */
 void Menu::printTickets() {
     for (Plane &plane : planes) {
         for (Flight &flight : plane.getFlightPlan()) {
@@ -503,6 +672,9 @@ void Menu::printTickets() {
     }
 }
 
+/**
+ * Prints all Local Transports
+ */
 void Menu::printLocalTransports() {
     for (Airport airport : airports) {
         cout << "Local Transports of airport \t" << airport.getName() << endl;
@@ -514,6 +686,13 @@ void Menu::printLocalTransports() {
     }
 }
 
+/**
+ * Prints all flights that have the corresponding 
+ * airport of departure and airport of arrival
+ * @param idDeparture ID of the airport of departure
+ * @param idDestination ID of the airport of arrival
+ * @return true if 
+ */
 bool Menu::printFlightsOfAirports(int idDeparture, int idDestination) {
     bool existsFlights = false;
     vector<Flight> flights = getAllFlights();
@@ -857,12 +1036,24 @@ bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
     return false;
 }
 
+/**
+ * 
+ * @param lp License Plate of a Plane
+ * @return 
+ */
+
 bool Menu::isPlaneLpUnique(string lp) {
     for (Plane plane : planes){
         if (plane.getLicensePlate() == lp) return false;
     }
     return true;
 }
+
+/**
+ * It checks if a specific flight doesn't have the same number with any other flight
+ * @param number Number of a flight
+ * @return returns true if the specific flight doesn't have the same number with any other flight, if it is the same, returns false
+ */
 
 bool Menu::isFlightNumberUnique(int number){
     for (Plane plane : planes) {
@@ -873,12 +1064,24 @@ bool Menu::isFlightNumberUnique(int number){
     return true;
 }
 
+/**
+ * It checks if a specific passenger doesn't have the same ID with any other passenger
+ * @param id ID of a passenger
+ * @return returns true if the specific passenger doesn't have the same ID with any other passenger, if it is the same, returns false
+ */
+
 bool Menu::isPassengerIdUnique(int id){
     for (Passenger passenger : passengers){
         if (passenger.getId() == id) return false;
     }
     return true;
 }
+
+/**
+ * It checks if an specific airport doesn't have the same ID with any other airport
+ * @param id ID of an airport
+ * @return returns true if the specific airport doesn't have the same ID with any other airport, if it is the same, returns false
+ */
 
 bool Menu::isAirportIdUnique(int id) {
     for (Airport airport : airports) {
@@ -887,10 +1090,10 @@ bool Menu::isAirportIdUnique(int id) {
     return true;
 }
 
-/*
-1) Planes         2) Flights          3) Services             4) Airports
-5) Tickets        6) Passengers       7) Local Transports     0) Back
+/**
+ * Manages all the user actions of creating new data
  */
+
 void Menu::create() {
     showClasses();
     //attributes
@@ -1002,12 +1205,12 @@ void Menu::create() {
         LocalTransport localTransport(this->getAirport(idAirport)->getBSTSize()+1, typeTransport, times, distanceToAirport);
         this->getAirport(idAirport)->getBST().insert(localTransport);
     }
-    pressAnyKeyToContinue();
+    pressEnterToContinue();
 }
 
-/*
-1) Planes         2) Flights          3) Services             4) Airports
-5) Tickets        6) Passengers       7) Local Transports     0) Back
+
+/**
+ * Manages all the user actions of reading a file
  */
 
 void Menu::read() {
@@ -1022,6 +1225,10 @@ void Menu::read() {
     else if (option == 6) readPassengers();
     else if (option == 7) readLocalTransports();
 }
+
+/**
+ * Manages all the user actions of update data
+ */
 
 void Menu::update() {
     showClasses();
@@ -1284,6 +1491,10 @@ void Menu::update() {
     }
 }
 
+/**
+ * Manages all the user actions of removing data
+ */
+
 void Menu::remove() {
     showClasses();
     int option = readInputClasses();
@@ -1400,6 +1611,10 @@ void Menu::remove() {
         this->getAirport(idAirport)->getBST().remove(lTRemove);
     }
 }
+
+/**
+ * It puts a user on the shoes of a client looking to buy a ticket
+ */
 
 void Menu::simulation() {
     int answerA, answerB, answerC, answerD, answerE, answerF, answerG; bool properInput;
@@ -1540,37 +1755,50 @@ void Menu::simulation() {
     }
     //part 2: buying a ticket
     if ((answerA == 1 and answerB == 2 and answerC == 2) or (answerA == 2 and answerB == 2)) {
-        int idDeparture, idDestination, flightNumber, baggage, price, priceSecond, priceTotal; bool properDeparture, properDestination;
+        int idDeparture, idDestination, flightNumber, baggage, price, priceSecond, priceTotal; bool properDeparture, properDestination, existFlights = true;
         cout << "Alright, with the log in out of the way, let's talk about your flights!\n" << endl;
         do {
-            properDeparture = false, properDestination = false;
-            printAirports();
-            cout << "\nHere are all the airports working with our airline!" << endl;
-            cout << "Which one suits your departure better? Choose by ID." << endl;
-            idDeparture = readInt();
-            cout << "Ok, and what about the ID of your destination?" << endl;
-            idDestination = readInt();
-            for (Airport airport : airports) if (airport.getId() == idDeparture) properDeparture = true;
-            for (Airport airport : airports) if (airport.getId() == idDestination) properDestination = true;
-            if (idDestination == idDeparture) cout << "Oh no! It looks like you accidentally chose the same airport twice." << endl;
-            if (!properDeparture) cout << "I'm sorry, the ID of the airport of departure you chose does not exist." << endl;
-            if (!properDestination) cout << "I'm sorry, the ID of the airport of destination you chose does not exist." << endl;
-            if ((idDeparture != idDeparture) and properDeparture and properDestination) properInput = true;
-            if (!properInput) cout << "Please try again." << endl;
-        } while (!properInput);
-        cout << "Excellent choices! Believe me I could really use a vacation to somewhere near " << getAirport(idDestination)->getName() << "..." << endl;
-        cout << "Now let me just show you the list of available flights." << endl;
-        do {
-            properInput = false;
-            //print flights com os airports certos
-            bool existFlights = printFlightsOfAirports(idDeparture, idDestination);
-            cout << "Tell me the number of the flight you're interested in." << endl;
-            flightNumber = readInt();
-            //checka se ha vagas
-            if (getPlaneWithFlightNumber(flightNumber)->getCapacity() > getFlight(flightNumber)->getTickets().size()) properInput = true;
-            else cout << "We're sorry, that flight does not have any tickets available." << endl;
-            if (!properInput) cout << "Try again." << endl;
-        } while(!properInput);
+            do {
+                properDeparture = false, properDestination = false;
+                printAirports();
+                cout << "\nHere are all the airports working with our airline!" << endl;
+                cout << "Which one suits your departure better? Choose by ID." << endl;
+                idDeparture = readInt();
+                cout << "Ok, and what about the ID of your destination?" << endl;
+                idDestination = readInt();
+                for (Airport airport: airports) if (airport.getId() == idDeparture) properDeparture = true;
+                for (Airport airport: airports) if (airport.getId() == idDestination) properDestination = true;
+                if (idDestination == idDeparture)
+                    cout << "Oh no! It looks like you accidentally chose the same airport twice." << endl;
+                if (!properDeparture)
+                    cout << "I'm sorry, the ID of the airport of departure you chose does not exist." << endl;
+                if (!properDestination)
+                    cout << "I'm sorry, the ID of the airport of destination you chose does not exist." << endl;
+                if ((idDeparture != idDeparture) and properDeparture and properDestination) properInput = true;
+                if (!properInput) cout << "Please try again." << endl;
+            } while (!properInput);
+            cout << "Excellent choices! Believe me I could really use a vacation to somewhere near "
+                 << getAirport(idDestination)->getName() << "..." << endl;
+            cout << "Now let me just show you the list of available flights." << endl;
+            do {
+                properInput = false;
+                //print flights com os airports certos
+                existFlights = printFlightsOfAirports(idDeparture, idDestination);
+                if (!existFlights) {
+                    cout << "Sorry, but there are no flights available between those 2 locations" << endl;
+                    existFlights = false;
+                    break;
+                }
+                cout << "Tell me the number of the flight you're interested in." << endl;
+                flightNumber = readInt();
+                //checka se ha vagas
+                if (getPlaneWithFlightNumber(flightNumber)->getCapacity() >
+                    getFlight(flightNumber)->getTickets().size())
+                    properInput = true;
+                else cout << "We're sorry, that flight does not have any tickets available." << endl;
+                if (!properInput) cout << "Try again." << endl;
+            } while (!properInput);
+        } while (!existFlights);
         cout << "Yes, this one still has tickets available." << endl;
         do {
             properInput = false;
@@ -1600,11 +1828,12 @@ void Menu::simulation() {
                 properInput = false;
                 cout << "And how much baggage are we talking about?" << endl;
                 baggage = readInt();
-                if (baggage >= 2){
+                if (baggage > getFlight(flightNumber)->getStackMax()) {
+                    cout << "Sorry, but you can't have that much baggage in this flight" << endl;
+                } else if (baggage >= 2){
                     properInput = true;
                     price = getFlight(flightNumber)->getDuration()+(42*baggage);
-                }
-                if (!properInput) cout << "I dont think I would consider that 'multiple' baggage." << endl;
+                } else if (baggage < 2) cout << "I dont think I would consider that 'multiple' baggage." << endl;
             } while (!properInput);
         }
         cout << "Then your ticket will be " << price << "$." << endl;
@@ -1616,13 +1845,15 @@ void Menu::simulation() {
             answerE = readInt();
             if (answerE == 1 or answerE == 2) properInput = true;
             if (!properInput) cout << "Try again." << endl;
-        }while(!properInput);
+        } while(!properInput);
         if (answerE == 2) {
             cout << "Oh... Goodbye!" << endl;
             cout << "\nThe End.\n" << endl;
         }
-        else if (getPlaneWithFlightNumber(flightNumber)->getCapacity() <= getFlight(flightNumber)->getTickets().size()+1){
+        else if (getPlaneWithFlightNumber(flightNumber)->getCapacity() <= getFlight(flightNumber)->getTickets().size()+1) {
+            buyTicket(flightNumber, baggage, price, getPassenger(id));
             cout << "Got it! Then it will just be " << price << "$." << endl;
+            getFlight(flightNumber)->printCarts(getFlight(flightNumber)->buildCarts());
             cout << "(And so, you flew to " << getAirport(idDestination)->getName() << " and had an amazing trip!)" << endl;
             cout << "The End!\n" << endl;
         }
@@ -1639,18 +1870,17 @@ void Menu::simulation() {
                 if (answerF == 1 or answerF == 2) properInput = true;
                 if (!properInput) cout << "Try again." << endl;
             }while (!properInput);
-            Ticket ticket1 (baggage, price, getPassenger(id));
-            getFlight(flightNumber)->getTickets().push_back(ticket1);
+            buyTicket(flightNumber, baggage, price, getPassenger(id));
             if (answerF == 2) {
                 cout << "Got it! Then it will just be " << price << "$." << endl;
                 cout << "Thank you so much for choosing Eagle Airline! We hope to see you again!\n" << endl;
+                getFlight(flightNumber)->printCarts(getFlight(flightNumber)->buildCarts());
                 cout << "(And so, you flew to " << getAirport(idDestination)->getName() << " and had an amazing trip!)" << endl;
                 cout << "The End!\n" << endl;
             }
             else if (answerF == 1) {
                 do{
-                    Ticket ticket2 (baggage, priceSecond, getPassenger(id));
-                    getFlight(flightNumber)->getTickets().push_back(ticket2);
+                    buyTicket(flightNumber, baggage, priceSecond, getPassenger(id));
                     priceTotal = price + priceSecond;
                     cout << "Got it! Then it will be " << priceTotal << "$ in total." << endl;
                     cout << "Two tickets, huh? Who will you take on your trip? Someone special? " << endl;
@@ -1661,11 +1891,13 @@ void Menu::simulation() {
                     if (!properInput) cout << "Try again." << endl;
                 } while (!properInput);
                 if (answerE == 1) {
+                    getFlight(flightNumber)->printCarts(getFlight(flightNumber)->buildCarts());
                     cout << "(And so, you flew to " << getAirport(idDestination)->getName() << " with your friend and you indeed had a blast!)" << endl;
                     cout << "The End!\n" << endl;
                 }
-                else if (answerE == 2){
+                else if (answerE == 2) {
                     cout << "Oh. Really?! That is so sweet! I would love to go!" << endl;
+                    getFlight(flightNumber)->printCarts(getFlight(flightNumber)->buildCarts());
                     cout << "(And so, you and Joana Pinto flew to " << getAirport(idDestination)->getName() << ", had a great vacation and became friends!)" << endl;
                     cout << "The End! <3\n" << endl;
                 }
@@ -1673,6 +1905,10 @@ void Menu::simulation() {
         }
     }
 }
+
+/**
+ * It saves on the directorySave with the name Planes.txt
+ */
 
 void Menu::savePlanes() {
     ofstream filePlanes (directorySave + "Planes.txt");
@@ -1682,6 +1918,10 @@ void Menu::savePlanes() {
     filePlanes.close();
 }
 
+/**
+ * It saves on the directorySave with the name Airports.txt
+ */
+
 void Menu::saveAirports() {
     ofstream fileAirports (directorySave + "Airports.txt");
     for (Airport airport : airports) {
@@ -1689,6 +1929,10 @@ void Menu::saveAirports() {
     }
     fileAirports.close();
 }
+
+/**
+ * It saves on the directorySave with the name Passengers.txt
+ */
 
 void Menu::savePassengers() {
     ofstream filePassengers (directorySave + "Passengers.txt");
@@ -1698,16 +1942,30 @@ void Menu::savePassengers() {
     filePassengers.close();
 }
 
+/**
+ * It saves on the directorySave with the name Flights.txt
+ */
+
 void Menu::saveFlights() {
     ofstream fileFlights (directorySave + "Flights.txt");
     for (Plane &plane : planes) {
         for (Flight &flight : plane.getFlightPlan()) {
-            fileFlights << flight.getNumber() << "," << plane.getLicensePlate() << "," << flight.getOrigin()->getId() << "," <<
-                        flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate().getStringDate() << endl;
+            if (flight.getStackMax() == 10 && flight.getCarriageMax() == 4 && flight.getCartMax() == 3) {
+                fileFlights << flight.getNumber() << "," << plane.getLicensePlate() << "," << flight.getOrigin()->getId() << "," <<
+                                        flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate().getStringDate() << endl;
+            } else {
+                fileFlights << flight.getNumber() << "," << plane.getLicensePlate() << "," << flight.getOrigin()->getId() << "," <<
+                flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate().getStringDate() << flight.getStackMax() << ","
+                << flight.getCarriageMax() << "," << flight.getCartMax() << endl;
+            }
         }
     }
     fileFlights.close();
 }
+
+/**
+ * It saves on the directorySave with the name Services.txt
+ */
 
 void Menu::saveServices() {
     ofstream fileServices (directorySave + "Services.txt");
@@ -1730,6 +1988,10 @@ void Menu::saveServices() {
     fileServices.close();
 }
 
+/**
+ * It saves on the directorySave with the name Tickets.txt
+ */
+
 void Menu::saveTickets() {
     ofstream fileTickets (directorySave + "Tickets.txt");
     for (Plane &plane : planes) {
@@ -1741,6 +2003,10 @@ void Menu::saveTickets() {
     }
     fileTickets.close();
 }
+
+/**
+ * It saves on the directorySave with the name LocalTransports.txt
+ */
 
 void Menu::saveLocalTransports() {
     ofstream fileLocalTransports (directorySave + "LocalTransports.txt");

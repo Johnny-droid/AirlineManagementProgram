@@ -82,7 +82,7 @@ private:
     vector<Airport> initializeAirports();
     vector<Passenger> initializePassengers();
     vector<Plane> initializePlanes();
-    vector<queue<Service>> initializeServices(string planeID);
+    vector<queue<Service>> initializeServices(string lp);
     vector<Ticket> initializeTickets(int flightID);
     vector<Flight> initializeFlights(string planeLicensePlate);
     void savePlanes();
@@ -92,7 +92,7 @@ private:
     void saveServices();
     void saveTickets();
     void saveLocalTransports();
-    void pressAnyKeyToContinue();
+    void pressEnterToContinue();
 };
 
 

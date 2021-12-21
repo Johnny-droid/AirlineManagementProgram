@@ -23,10 +23,13 @@ class Flight {
 public:
     Flight(int number, int duration, Airport* origin, Airport* destiny, string date);
     Flight(int number, int duration, Airport* origin, Airport* destiny, string date, vector<Ticket> tickets);
-    vector<vector<vector<stack<int>>>> buildCarts(int stackMax, int carriageMaxSize, int cartMaxSize);
-    vector<vector<vector<stack<int>>>> baggageCarts;
+    Flight(int number, int duration, Airport *origin, Airport *destiny, string date, vector<Ticket> tickets, int stackMax, int carriageMaxSize, int cartMaxSize);
+    vector<vector<vector<stack<int>>>> buildCarts();
     int getNumber() const;
     int getDuration() const;
+    int getStackMax();
+    int getCarriageMax();
+    int getCartMax();
     Date& getDate();
     Airport* getOrigin();
     Airport* getDestiny();
@@ -37,6 +40,7 @@ public:
     void setAirportDestiny(Airport* airport);
     void print();
     void printTickets();
+    void printCarts(vector<vector<vector<stack<int>>>> carts);
 
     static bool compareByNumber(const Flight& flight1, const Flight& flight2);
     static bool compareByDuration(const Flight& flight1, const Flight& flight2);

@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['getcapacity_0',['getCapacity',['../class_plane.html#a728dcd76ef4c8f4a2baebdbb6b521549',1,'Plane']]],
-  ['getflightplan_1',['getFlightPlan',['../class_plane.html#a8f7a90b971b88e99586d0b3079714bc5',1,'Plane']]],
-  ['getlicenseplate_2',['getLicensePlate',['../class_plane.html#a5316809c9c45f5a50a41bd7f449fb5e9',1,'Plane']]],
-  ['getservicestobedone_3',['getServicesToBeDone',['../class_plane.html#ad1a804300f4ee35b0392f35c17b0d16e',1,'Plane']]]
+  ['flight_0',['Flight',['../class_flight.html',1,'Flight'],['../class_flight.html#a2e567c0a92d6e2b612f3535bf1124640',1,'Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date)'],['../class_flight.html#a849dd56483a618acd440dd61054174b3',1,'Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date, vector&lt; Ticket &gt; tickets)'],['../class_flight.html#a097e8352b9f85f70a89ba19652217c92',1,'Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date, vector&lt; Ticket &gt; tickets, int stackMax, int carriageMaxSize, int cartMaxSize)']]]
 ];

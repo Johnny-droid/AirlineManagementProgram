@@ -21,28 +21,28 @@
 \DoxyCodeLine{17     queue<Service> servicesToBeDone;}
 \DoxyCodeLine{18     queue<Service> servicesCompleted;}
 \DoxyCodeLine{19 \textcolor{keyword}{public}:}
-\DoxyCodeLine{20     \mbox{\hyperlink{class_plane}{Plane}}(\textcolor{keywordtype}{string} licensePlate, \textcolor{keywordtype}{int} capacity);}
-\DoxyCodeLine{21     \mbox{\hyperlink{class_plane}{Plane}}(\textcolor{keywordtype}{string} licensePlate, \textcolor{keywordtype}{int} capacity, vector<Flight> flightPlan, queue<Service> servicesCompleted, queue<Service> servicesToBeDone);}
-\DoxyCodeLine{26     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_plane_a5316809c9c45f5a50a41bd7f449fb5e9}{getLicensePlate}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{27     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_plane_a728dcd76ef4c8f4a2baebdbb6b521549}{getCapacity}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{28     vector<Flight> \&\mbox{\hyperlink{class_plane_a8f7a90b971b88e99586d0b3079714bc5}{getFlightPlan}}();}
-\DoxyCodeLine{29     queue<Service> \&\mbox{\hyperlink{class_plane_ad1a804300f4ee35b0392f35c17b0d16e}{getServicesToBeDone}}();}
-\DoxyCodeLine{30     queue<Service> \&getServicesCompleted();}
-\DoxyCodeLine{31     \textcolor{keywordtype}{void} setLicensePlate(\textcolor{keywordtype}{string} newLicensePlate);}
-\DoxyCodeLine{32     \textcolor{keywordtype}{void} setCapacity(\textcolor{keywordtype}{int} newCapacity);}
-\DoxyCodeLine{33     \textcolor{keywordtype}{void} print();}
-\DoxyCodeLine{34     \textcolor{keywordtype}{void} printFlights();}
-\DoxyCodeLine{35     \textcolor{keywordtype}{void} printServices();}
-\DoxyCodeLine{36     \textcolor{keywordtype}{void} printServicesCompleted();}
-\DoxyCodeLine{37     \textcolor{keywordtype}{void} printServicesToBeDone();}
-\DoxyCodeLine{38     \textcolor{keywordtype}{void} completeLastService();}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByLicensePlate(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane1, \textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
-\DoxyCodeLine{41     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByCapacity(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane1, \textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
-\DoxyCodeLine{42     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByNumberFlights(\mbox{\hyperlink{class_plane}{Plane}}\& plane1, \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
-\DoxyCodeLine{43 \};}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_PLANE\_H}}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_plane_a6e607cae82d11c8137d9350045c812df}{Plane}}(\textcolor{keywordtype}{string} licensePlate, \textcolor{keywordtype}{int} capacity);}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_plane_a6e607cae82d11c8137d9350045c812df}{Plane}}(\textcolor{keywordtype}{string} licensePlate, \textcolor{keywordtype}{int} capacity, vector<Flight> flightPlan, queue<Service> servicesCompleted, queue<Service> servicesToBeDone);}
+\DoxyCodeLine{22     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_plane_a5316809c9c45f5a50a41bd7f449fb5e9}{getLicensePlate}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_plane_a728dcd76ef4c8f4a2baebdbb6b521549}{getCapacity}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{24     vector<Flight> \&\mbox{\hyperlink{class_plane_a8f7a90b971b88e99586d0b3079714bc5}{getFlightPlan}}();}
+\DoxyCodeLine{25     queue<Service> \&\mbox{\hyperlink{class_plane_ad1a804300f4ee35b0392f35c17b0d16e}{getServicesToBeDone}}();}
+\DoxyCodeLine{26     queue<Service> \&\mbox{\hyperlink{class_plane_adac09934ebecd23cce7f5709f03ebba1}{getServicesCompleted}}();}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_aa99c355d2efa1531d35696c42611db51}{setLicensePlate}}(\textcolor{keywordtype}{string} newLicensePlate);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a60f7fbaf62a61d6af2966cab5197ad4f}{setCapacity}}(\textcolor{keywordtype}{int} newCapacity);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_aa5b806f2694d582006475cf746172641}{print}}();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a39eeac4ec463af8bc5127dcd17a581ba}{printFlights}}();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a6869330992d6354e09ecc23031de0d0b}{printServices}}();}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a5a9b6d490a9f8f9d409d95dc7900e475}{printServicesCompleted}}();}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a4734c66a013ad9d9eb28dc072955c8db}{printServicesToBeDone}}();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a63a12f62be5f9808d13dba1e6891526d}{completeLastService}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_plane_a5b13a42e2725dcc7eeb19ee2d65a283d}{compareByLicensePlate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane1, \textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
+\DoxyCodeLine{37     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_plane_a7411076a725e5fdf4e8fbbf7b6a10489}{compareByCapacity}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane1, \textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_plane_a14d81a194cd745d07a20ffcb654b0504}{compareByNumberFlights}}(\mbox{\hyperlink{class_plane}{Plane}}\& plane1, \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_PLANE\_H}}
 
 \end{DoxyCode}

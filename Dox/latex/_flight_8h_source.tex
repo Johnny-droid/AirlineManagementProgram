@@ -25,30 +25,32 @@
 \DoxyCodeLine{21     \textcolor{keywordtype}{int} cartMaxSize;}
 \DoxyCodeLine{22 }
 \DoxyCodeLine{23 \textcolor{keyword}{public}:}
-\DoxyCodeLine{24     \mbox{\hyperlink{class_flight}{Flight}}(\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} duration, \mbox{\hyperlink{class_airport}{Airport}}* origin, \mbox{\hyperlink{class_airport}{Airport}}* destiny, \textcolor{keywordtype}{string} date);}
-\DoxyCodeLine{25     \mbox{\hyperlink{class_flight}{Flight}}(\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} duration, \mbox{\hyperlink{class_airport}{Airport}}* origin, \mbox{\hyperlink{class_airport}{Airport}}* destiny, \textcolor{keywordtype}{string} date, vector<Ticket> tickets);}
-\DoxyCodeLine{26     vector<vector<vector<stack<int>>>> buildCarts(\textcolor{keywordtype}{int} stackMax, \textcolor{keywordtype}{int} carriageMaxSize, \textcolor{keywordtype}{int} cartMaxSize);}
-\DoxyCodeLine{27     vector<vector<vector<stack<int>>>> baggageCarts;}
-\DoxyCodeLine{28     \textcolor{keywordtype}{int} getNumber() \textcolor{keyword}{const};}
-\DoxyCodeLine{29     \textcolor{keywordtype}{int} getDuration() \textcolor{keyword}{const};}
-\DoxyCodeLine{30     \mbox{\hyperlink{class_date}{Date}}\& getDate();}
-\DoxyCodeLine{31     \mbox{\hyperlink{class_airport}{Airport}}* getOrigin();}
-\DoxyCodeLine{32     \mbox{\hyperlink{class_airport}{Airport}}* getDestiny();}
-\DoxyCodeLine{33     vector<Ticket>\& getTickets();}
-\DoxyCodeLine{34     \textcolor{keywordtype}{void} setNumber(\textcolor{keywordtype}{int} newNumber);}
-\DoxyCodeLine{35     \textcolor{keywordtype}{void} setDuration(\textcolor{keywordtype}{int} newDuration);}
-\DoxyCodeLine{36     \textcolor{keywordtype}{void} setAirportOrigin(\mbox{\hyperlink{class_airport}{Airport}}* airport);}
-\DoxyCodeLine{37     \textcolor{keywordtype}{void} setAirportDestiny(\mbox{\hyperlink{class_airport}{Airport}}* airport);}
-\DoxyCodeLine{38     \textcolor{keywordtype}{void} print();}
-\DoxyCodeLine{39     \textcolor{keywordtype}{void} printTickets();}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByNumber(\textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight1, \textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
-\DoxyCodeLine{42     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByDuration(\textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight1, \textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
-\DoxyCodeLine{43     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByDate(\mbox{\hyperlink{class_flight}{Flight}}\& flight1, \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
-\DoxyCodeLine{44     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByNumberTickets(\mbox{\hyperlink{class_flight}{Flight}}\& flight1, \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
-\DoxyCodeLine{45 \};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_FLIGHT\_H}}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_flight_a2e567c0a92d6e2b612f3535bf1124640}{Flight}}(\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} duration, \mbox{\hyperlink{class_airport}{Airport}}* origin, \mbox{\hyperlink{class_airport}{Airport}}* destiny, \textcolor{keywordtype}{string} date);}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_flight_a2e567c0a92d6e2b612f3535bf1124640}{Flight}}(\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} duration, \mbox{\hyperlink{class_airport}{Airport}}* origin, \mbox{\hyperlink{class_airport}{Airport}}* destiny, \textcolor{keywordtype}{string} date, vector<Ticket> tickets);}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_flight_a2e567c0a92d6e2b612f3535bf1124640}{Flight}}(\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} duration, \mbox{\hyperlink{class_airport}{Airport}} *origin, \mbox{\hyperlink{class_airport}{Airport}} *destiny, \textcolor{keywordtype}{string} date, vector<Ticket> tickets, \textcolor{keywordtype}{int} stackMax, \textcolor{keywordtype}{int} carriageMaxSize, \textcolor{keywordtype}{int} cartMaxSize);}
+\DoxyCodeLine{27     vector<vector<vector<stack<int>>>> \mbox{\hyperlink{class_flight_a2830254306383ffa4dd59898b3bd6780}{buildCarts}}(\textcolor{keywordtype}{int} stackMax, \textcolor{keywordtype}{int} carriageMaxSize, \textcolor{keywordtype}{int} cartMaxSize);}
+\DoxyCodeLine{28     vector<vector<vector<stack<int>>>> baggageCarts;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}{getNumber}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}{getDuration}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_date}{Date}}\& \mbox{\hyperlink{class_flight_aa97d79d616f8f0ec174115fcae4816e4}{getDate}}();}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_airport}{Airport}}* \mbox{\hyperlink{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}{getOrigin}}();}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_airport}{Airport}}* \mbox{\hyperlink{class_flight_a89453e67161f535eb8f48a78f511096b}{getDestiny}}();}
+\DoxyCodeLine{34     vector<Ticket>\& getTickets();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} setNumber(\textcolor{keywordtype}{int} newNumber);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} setDuration(\textcolor{keywordtype}{int} newDuration);}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} setAirportOrigin(\mbox{\hyperlink{class_airport}{Airport}}* airport);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} setAirportDestiny(\mbox{\hyperlink{class_airport}{Airport}}* airport);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} print();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} printTickets();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_flight_ac1535571c94f7600a5605681eb716355}{printCarts}}(vector<vector<vector<stack<int>>>> carts);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByNumber(\textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight1, \textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
+\DoxyCodeLine{44     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByDuration(\textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight1, \textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
+\DoxyCodeLine{45     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByDate(\mbox{\hyperlink{class_flight}{Flight}}\& flight1, \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
+\DoxyCodeLine{46     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByNumberTickets(\mbox{\hyperlink{class_flight}{Flight}}\& flight1, \mbox{\hyperlink{class_flight}{Flight}}\& flight2);}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_FLIGHT\_H}}
 
 \end{DoxyCode}

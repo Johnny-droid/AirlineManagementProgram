@@ -3,29 +3,23 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_flight_a2e567c0a92d6e2b612f3535bf1124640}\label{class_flight_a2e567c0a92d6e2b612f3535bf1124640}} 
-{\bfseries Flight} (int number, int duration, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny, string date)
+\mbox{\hyperlink{class_flight_a2e567c0a92d6e2b612f3535bf1124640}{Flight}} (int number, int duration, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny, string date)
 \item 
-\mbox{\Hypertarget{class_flight_a849dd56483a618acd440dd61054174b3}\label{class_flight_a849dd56483a618acd440dd61054174b3}} 
-{\bfseries Flight} (int number, int duration, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny, string date, vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ tickets)
+\mbox{\hyperlink{class_flight_a849dd56483a618acd440dd61054174b3}{Flight}} (int number, int duration, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny, string date, vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ tickets)
 \item 
-\mbox{\Hypertarget{class_flight_a2830254306383ffa4dd59898b3bd6780}\label{class_flight_a2830254306383ffa4dd59898b3bd6780}} 
-vector$<$ vector$<$ vector$<$ stack$<$ int $>$ $>$ $>$ $>$ {\bfseries build\+Carts} (int stack\+Max, int carriage\+Max\+Size, int cart\+Max\+Size)
+\mbox{\hyperlink{class_flight_a097e8352b9f85f70a89ba19652217c92}{Flight}} (int number, int duration, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny, string date, vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ tickets, int stack\+Max, int carriage\+Max\+Size, int cart\+Max\+Size)
 \item 
-\mbox{\Hypertarget{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}\label{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}} 
-int {\bfseries get\+Number} () const
+vector$<$ vector$<$ vector$<$ stack$<$ int $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_flight_a2830254306383ffa4dd59898b3bd6780}{build\+Carts}} (int stack\+Max, int carriage\+Max\+Size, int cart\+Max\+Size)
 \item 
-\mbox{\Hypertarget{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}\label{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}} 
-int {\bfseries get\+Duration} () const
+int \mbox{\hyperlink{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}{get\+Number}} () const
 \item 
-\mbox{\Hypertarget{class_flight_aa97d79d616f8f0ec174115fcae4816e4}\label{class_flight_aa97d79d616f8f0ec174115fcae4816e4}} 
-\mbox{\hyperlink{class_date}{Date}} \& {\bfseries get\+Date} ()
+int \mbox{\hyperlink{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}{get\+Duration}} () const
 \item 
-\mbox{\Hypertarget{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}\label{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}} 
-\mbox{\hyperlink{class_airport}{Airport}} $\ast$ {\bfseries get\+Origin} ()
+\mbox{\hyperlink{class_date}{Date}} \& \mbox{\hyperlink{class_flight_aa97d79d616f8f0ec174115fcae4816e4}{get\+Date}} ()
 \item 
-\mbox{\Hypertarget{class_flight_a89453e67161f535eb8f48a78f511096b}\label{class_flight_a89453e67161f535eb8f48a78f511096b}} 
-\mbox{\hyperlink{class_airport}{Airport}} $\ast$ {\bfseries get\+Destiny} ()
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ \mbox{\hyperlink{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}{get\+Origin}} ()
+\item 
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ \mbox{\hyperlink{class_flight_a89453e67161f535eb8f48a78f511096b}{get\+Destiny}} ()
 \item 
 \mbox{\Hypertarget{class_flight_ae16d97677101991cd2b8d3cc459dbfb3}\label{class_flight_ae16d97677101991cd2b8d3cc459dbfb3}} 
 vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ \& {\bfseries get\+Tickets} ()
@@ -47,6 +41,8 @@ void {\bfseries print} ()
 \item 
 \mbox{\Hypertarget{class_flight_a2d28a1dbd63eb7bd0866df5b3b223e3c}\label{class_flight_a2d28a1dbd63eb7bd0866df5b3b223e3c}} 
 void {\bfseries print\+Tickets} ()
+\item 
+void \mbox{\hyperlink{class_flight_ac1535571c94f7600a5605681eb716355}{print\+Carts}} (vector$<$ vector$<$ vector$<$ stack$<$ int $>$ $>$ $>$ $>$ carts)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -100,6 +96,148 @@ int {\bfseries carriage\+Max\+Size}
 int {\bfseries cart\+Max\+Size}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_flight_a2e567c0a92d6e2b612f3535bf1124640}\label{class_flight_a2e567c0a92d6e2b612f3535bf1124640}} 
+\index{Flight@{Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{Flight()}{Flight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{int}]{number,  }\item[{int}]{duration,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{origin,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{destiny,  }\item[{string}]{date }\end{DoxyParamCaption})}
+
+Create a flight object with an empty ticket list and the default values for stack\+Max, carriage\+Max\+Size and cart\+Max\+Size 
+\begin{DoxyParams}{Parameters}
+{\em number} & A flight Id number \\
+\hline
+{\em duration} & The duration of the flight \\
+\hline
+{\em origin} & The place where the journey starts \\
+\hline
+{\em destiny} & The place where the journey ends \\
+\hline
+{\em date} & The Id of a date in the format dd/mm/yyyy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_flight_a849dd56483a618acd440dd61054174b3}\label{class_flight_a849dd56483a618acd440dd61054174b3}} 
+\index{Flight@{Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{Flight()}{Flight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{int}]{number,  }\item[{int}]{duration,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{origin,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{destiny,  }\item[{string}]{date,  }\item[{vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$}]{tickets }\end{DoxyParamCaption})}
+
+Create a flight object with an default ticket list and default values for stack\+Max, carriage\+Max\+Size and cart\+Max\+Size 
+\begin{DoxyParams}{Parameters}
+{\em number} & A flight Id number \\
+\hline
+{\em duration} & The duration of the flight \\
+\hline
+{\em origin} & The place where the journey starts \\
+\hline
+{\em destiny} & The place where the journey ends \\
+\hline
+{\em date} & The Id of a date in the format dd/mm/yyyy \\
+\hline
+{\em tickets} & Where the tickets are stored \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_flight_a097e8352b9f85f70a89ba19652217c92}\label{class_flight_a097e8352b9f85f70a89ba19652217c92}} 
+\index{Flight@{Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{Flight()}{Flight()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{int}]{number,  }\item[{int}]{duration,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{origin,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{destiny,  }\item[{string}]{date,  }\item[{vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$}]{tickets,  }\item[{int}]{stack\+Max,  }\item[{int}]{carriage\+Max\+Size,  }\item[{int}]{cart\+Max\+Size }\end{DoxyParamCaption})}
+
+Create a flight object with an default ticket list and the default values for stack\+Max, carriage\+Max\+Size and cart\+Max\+Size 
+\begin{DoxyParams}{Parameters}
+{\em number} & A flight Id number \\
+\hline
+{\em duration} & The duration of the flight \\
+\hline
+{\em origin} & The place where the journey starts \\
+\hline
+{\em destiny} & The place where the journey ends \\
+\hline
+{\em date} & The ID of a date in the format dd/mm/yyyy \\
+\hline
+{\em tickets} & Where the tickets are stored \\
+\hline
+{\em stack\+Max} & The ID of the max size of the stack \\
+\hline
+{\em carriage\+Max\+Size} & The ID of the max size of the carriage \\
+\hline
+{\em cart\+Max\+Size} & The ID of the max size of the cart \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_flight_a2830254306383ffa4dd59898b3bd6780}\label{class_flight_a2830254306383ffa4dd59898b3bd6780}} 
+\index{Flight@{Flight}!buildCarts@{buildCarts}}
+\index{buildCarts@{buildCarts}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{buildCarts()}{buildCarts()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ vector$<$ stack$<$ int $>$ $>$ $>$ $>$ Flight\+::build\+Carts (\begin{DoxyParamCaption}\item[{int}]{stack\+Max,  }\item[{int}]{carriage\+Max\+Size,  }\item[{int}]{cart\+Max\+Size }\end{DoxyParamCaption})}
+
+Organizes the baggages into a system. Every baggage is put on a stack, every stack is put on a carriage, every carriage belongs to a cart, and every cart is part of the vector of all carts for that flight 
+\begin{DoxyParams}{Parameters}
+{\em stack\+Max} & The maximum amount of baggage that can go into a stack \\
+\hline
+{\em carriage\+Max\+Size} & The maximum number of stacks a carriage can have \\
+\hline
+{\em cart\+Max\+Size} & The maximum number of carriages a cart can have \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Vector with every cart 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_flight_aa97d79d616f8f0ec174115fcae4816e4}\label{class_flight_aa97d79d616f8f0ec174115fcae4816e4}} 
+\index{Flight@{Flight}!getDate@{getDate}}
+\index{getDate@{getDate}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} \& Flight\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+It gets the date of the flight \begin{DoxyReturn}{Returns}
+returns the date of the flight 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_flight_a89453e67161f535eb8f48a78f511096b}\label{class_flight_a89453e67161f535eb8f48a78f511096b}} 
+\index{Flight@{Flight}!getDestiny@{getDestiny}}
+\index{getDestiny@{getDestiny}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDestiny()}{getDestiny()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} $\ast$ Flight\+::get\+Destiny (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+It gets \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}\label{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}} 
+\index{Flight@{Flight}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily int Flight\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+It gets the duration of the flight \begin{DoxyReturn}{Returns}
+returns the duration of the flight 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}\label{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}} 
+\index{Flight@{Flight}!getNumber@{getNumber}}
+\index{getNumber@{getNumber}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getNumber()}{getNumber()}}
+{\footnotesize\ttfamily int Flight\+::get\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+It gets the flight number \begin{DoxyReturn}{Returns}
+returns the flight number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}\label{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}} 
+\index{Flight@{Flight}!getOrigin@{getOrigin}}
+\index{getOrigin@{getOrigin}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getOrigin()}{getOrigin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} $\ast$ Flight\+::get\+Origin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+It gets where the flight starts \begin{DoxyReturn}{Returns}
+it returns where flight starts 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_flight_ac1535571c94f7600a5605681eb716355}\label{class_flight_ac1535571c94f7600a5605681eb716355}} 
+\index{Flight@{Flight}!printCarts@{printCarts}}
+\index{printCarts@{printCarts}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{printCarts()}{printCarts()}}
+{\footnotesize\ttfamily void Flight\+::print\+Carts (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ vector$<$ stack$<$ int $>$ $>$ $>$ $>$}]{carts }\end{DoxyParamCaption})}
+
+Something eventually -\/\texorpdfstring{$>$}{>} might print the carts dk 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
