@@ -564,6 +564,10 @@ fstream
 src/Menu.h
 C:/clion-projetos/AirlineManagementProgram/src/Menu.h
 
+C:/clion-projetos/AirlineManagementProgram/src/Airport.cpp
+Airport.h
+C:/clion-projetos/AirlineManagementProgram/src/Airport.h
+
 C:/clion-projetos/AirlineManagementProgram/src/Airport.h
 string
 -
@@ -603,6 +607,10 @@ Airport.h
 C:/clion-projetos/AirlineManagementProgram/src/Airport.h
 Ticket.h
 C:/clion-projetos/AirlineManagementProgram/src/Ticket.h
+
+C:/clion-projetos/AirlineManagementProgram/src/LocalTransport.cpp
+LocalTransport.h
+C:/clion-projetos/AirlineManagementProgram/src/LocalTransport.h
 
 C:/clion-projetos/AirlineManagementProgram/src/LocalTransport.h
 string
@@ -648,10 +656,6 @@ C:/clion-projetos/AirlineManagementProgram/src/Service.h
 LocalTransport.h
 C:/clion-projetos/AirlineManagementProgram/src/LocalTransport.h
 
-C:/clion-projetos/AirlineManagementProgram/src/Passenger.cpp
-Passenger.h
-C:/clion-projetos/AirlineManagementProgram/src/Passenger.h
-
 C:/clion-projetos/AirlineManagementProgram/src/Passenger.h
 string
 -
@@ -676,10 +680,6 @@ C:/clion-projetos/AirlineManagementProgram/src/Flight.h
 Service.h
 C:/clion-projetos/AirlineManagementProgram/src/Service.h
 
-C:/clion-projetos/AirlineManagementProgram/src/Service.cpp
-Service.h
-C:/clion-projetos/AirlineManagementProgram/src/Service.h
-
 C:/clion-projetos/AirlineManagementProgram/src/Service.h
 string
 -
@@ -688,13 +688,13 @@ iostream
 Date.h
 C:/clion-projetos/AirlineManagementProgram/src/Date.h
 
-C:/clion-projetos/AirlineManagementProgram/src/Ticket.cpp
-Ticket.h
-C:/clion-projetos/AirlineManagementProgram/src/Ticket.h
-
 C:/clion-projetos/AirlineManagementProgram/src/Ticket.h
 Passenger.h
 C:/clion-projetos/AirlineManagementProgram/src/Passenger.h
+
+C:/clion-projetos/AirlineManagementProgram/src/Time.cpp
+Time.h
+C:/clion-projetos/AirlineManagementProgram/src/Time.h
 
 C:/clion-projetos/AirlineManagementProgram/src/Time.h
 string
