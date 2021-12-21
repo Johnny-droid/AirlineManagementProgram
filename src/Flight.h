@@ -16,10 +16,15 @@ class Flight {
     Airport* origin;
     Airport* destiny;
     vector<Ticket> tickets;
+    int stackMax;
+    int carriageMaxSize;
+    int cartMaxSize;
 
 public:
     Flight(int number, int duration, Airport* origin, Airport* destiny, string date);
     Flight(int number, int duration, Airport* origin, Airport* destiny, string date, vector<Ticket> tickets);
+    vector<vector<vector<stack<int>>>> buildCarts(int stackMax, int carriageMaxSize, int cartMaxSize);
+    vector<vector<vector<stack<int>>>> baggageCarts;
     int getNumber() const;
     int getDuration() const;
     Date& getDate();

@@ -9,6 +9,9 @@ Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, stri
     this->origin = origin;
     this->destiny = destiny;
     this->tickets = vector<Ticket>();
+    this->stackMax = 10;
+    this->carriageMaxSize = 4;
+    this->cartMaxSize = 3;
 }
 
 Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, string date, vector<Ticket> tickets) {
@@ -19,6 +22,46 @@ Flight::Flight(int number, int duration, Airport *origin, Airport *destiny, stri
     this->origin = origin;
     this->destiny = destiny;
     this->tickets = tickets;
+    this->stackMax = 10;
+    this->carriageMaxSize = 4;
+    this->cartMaxSize = 3;
+}
+//vector<vector<vector<stack<int>>>> Flight::baggageCarts = buildCarts(stackMax, carriageMaxSize, cartMaxSize);
+
+vector<vector<vector<stack<int>>>> Flight::buildCarts(int stackMax, int carriageMaxSize, int cartMaxSize){
+    stack<int> stac; int amountOnStack = 0; int amountBaggage;
+    vector<stack<int>> carriage {}; vector<vector<stack<int>>> cart {}; vector<vector<vector<stack<int>>>> allCarts {};
+    for (Ticket ticket : tickets) {
+        amountBaggage = ticket.getBaggage();
+        if ((amountBaggage + amountOnStack) <= stackMax){
+            amountOnStack += amountBaggage;
+            stac.push(ticket.getBaggage());
+        }
+        else {
+            stack<int> stacCopy;
+            carriage.push_back(stacCopy);
+            stac = {};
+            amountOnStack = amountBaggage;
+            stac.push(ticket.getBaggage());
+            if (carriage.size() == carriageMaxSize) {
+                vector<stack<int>> carriageCopy = carriage;
+                carriage = {};
+                if (cart.size() < cartMaxSize){
+                    cart.push_back(carriageCopy);
+                }
+                else {
+                    vector<vector<stack<int>>> cartCopy = cart;
+                    allCarts.push_back(cartCopy);
+                    cart = {};
+                    cart.push_back(carriageCopy);
+                }
+            }
+        }
+    }
+    carriage.push_back(stac);
+    cart.push_back(carriage);
+    allCarts.push_back(cart);
+    return allCarts;
 }
 
 int Flight::getNumber() const {
@@ -60,9 +103,9 @@ void Flight::printTickets() {
 }
 
 void Flight::print() {
-    cout << "Flight  Number: " << number << "   Duration: " << duration << "   Date of Departure: " << dateDeparture.getStringDate() << endl;
-    cout << "        Airport Origin: " << origin->getName() << "      Airport Destiny: " << destiny->getName() << endl;
-    cout << "        Number of tickets: " << tickets.size() << endl;
+    cout << "Flight  Number: \t" << number << "   Duration: \t" << duration << "   Date of Departure: \t" << dateDeparture.getStringDate() << endl;
+    cout << "        Airport Origin: \t" << origin->getName() << "      Airport Destiny: \t" << destiny->getName() << endl;
+    cout << "        Number of tickets: \t" << tickets.size() << endl;
 }
 
 void Flight::setAirportOrigin(Airport *airport) {
