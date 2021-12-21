@@ -18,5 +18,5 @@
 18,Samus Aran,35
 19,Gordon Freeman,27
 20,Yu Narukami,18
-21,Anakin Skywallker,22
+21,Anakin Skywalker,22
 22,Robert Lewandowski,34

@@ -1407,7 +1407,7 @@ void Menu::simulation() {
     // part 1: creating/identifying a passenger
     do {
         properInput = false;
-        cout << "\nHello, I'm Joana Pinto and welcome to the Airline Management Program!" << endl;
+        cout << "\nHello, I'm Joana Pinto and welcome to Eagle Airline's Simulation Program!" << endl;
         cout << "Firstly, is this your first time being our customer?" << endl;
         cout << "1) It's my first time!" << endl;
         cout << "2) This ain't my first rodeo." << endl;
@@ -1416,7 +1416,7 @@ void Menu::simulation() {
         if (answerA == 1 or answerA == 2 or answerA == 3) properInput = true;
     } while (!properInput);
     if (answerA == 1) {
-        cout << "\nThen let me be the very first to welcome you to our Airline Management Program!" << endl;
+        cout << "\nThen let me be the very first to welcome you to Eagle Airline's Simulation Program!" << endl;
         do{
             properInput = false;
             cout << "Can you give me your name?\t" << endl;
@@ -1461,7 +1461,7 @@ void Menu::simulation() {
                     cout << "If you say so..." << endl;
                     cout << "My name is Joana Pinto. I'm 42 years old." << endl;
                     cout << "My house is in the northeast section of Banana Town, where all the monkeys are, and I am not married." << endl;
-                    cout << "I work as an employee for the Airline, and I get home every day by 8 PM at the latest." << endl;
+                    cout << "I work as an employee for Eagle Airline, and I get home every day by 8 PM at the latest." << endl;
                     cout << "I don't smoke, but I occasionally drink. " << endl;
                     cout << "I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what." << endl;
                     cout << "After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning." << endl;
@@ -1643,7 +1643,7 @@ void Menu::simulation() {
             getFlight(flightNumber)->getTickets().push_back(ticket1);
             if (answerF == 2) {
                 cout << "Got it! Then it will just be " << price << "$." << endl;
-                cout << "Thank you so much for choosing our airline! We hope to see you again!\n" << endl;
+                cout << "Thank you so much for choosing Eagle Airline! We hope to see you again!\n" << endl;
                 cout << "(And so, you flew to " << getAirport(idDestination)->getName() << " and had an amazing trip!)" << endl;
                 cout << "The End!\n" << endl;
             }

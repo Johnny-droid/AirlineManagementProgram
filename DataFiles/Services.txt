@@ -1,5 +1,5 @@
-A310,maintenance,02-04-1970,Jose Almeida,y
-B4208,cleaning,31-07-1820,Tomas Teixeira,n
+A310,maintenance,02-04-1970,Joe Biden,y
+B4208,cleaning,31-07-1820,Marcelo Rebelo de Sousa,n
 B737,cleaning,11-11-1811,Marcelo Rebelo de Sousa,y
 B4208,maintenance,31-08-2021,Barack Obama,y
 3942A,maintenance,06-06-2006,Donald Trump,n
