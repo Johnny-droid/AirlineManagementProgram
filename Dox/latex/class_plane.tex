@@ -1,0 +1,121 @@
+\hypertarget{class_plane}{}\doxysection{Plane Class Reference}
+\label{class_plane}\index{Plane@{Plane}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plane_a6e607cae82d11c8137d9350045c812df}\label{class_plane_a6e607cae82d11c8137d9350045c812df}} 
+{\bfseries Plane} (string license\+Plate, int capacity)
+\item 
+\mbox{\Hypertarget{class_plane_aa1008a7c64538ed6f15589b28d09ee7e}\label{class_plane_aa1008a7c64538ed6f15589b28d09ee7e}} 
+{\bfseries Plane} (string license\+Plate, int capacity, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flight\+Plan, queue$<$ \mbox{\hyperlink{class_service}{Service}} $>$ services\+Completed, queue$<$ \mbox{\hyperlink{class_service}{Service}} $>$ services\+To\+Be\+Done)
+\item 
+string \mbox{\hyperlink{class_plane_a5316809c9c45f5a50a41bd7f449fb5e9}{get\+License\+Plate}} () const
+\item 
+int \mbox{\hyperlink{class_plane_a728dcd76ef4c8f4a2baebdbb6b521549}{get\+Capacity}} () const
+\item 
+vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ \& \mbox{\hyperlink{class_plane_a8f7a90b971b88e99586d0b3079714bc5}{get\+Flight\+Plan}} ()
+\item 
+queue$<$ \mbox{\hyperlink{class_service}{Service}} $>$ \& \mbox{\hyperlink{class_plane_ad1a804300f4ee35b0392f35c17b0d16e}{get\+Services\+To\+Be\+Done}} ()
+\item 
+\mbox{\Hypertarget{class_plane_adac09934ebecd23cce7f5709f03ebba1}\label{class_plane_adac09934ebecd23cce7f5709f03ebba1}} 
+queue$<$ \mbox{\hyperlink{class_service}{Service}} $>$ \& {\bfseries get\+Services\+Completed} ()
+\item 
+\mbox{\Hypertarget{class_plane_aa99c355d2efa1531d35696c42611db51}\label{class_plane_aa99c355d2efa1531d35696c42611db51}} 
+void {\bfseries set\+License\+Plate} (string new\+License\+Plate)
+\item 
+\mbox{\Hypertarget{class_plane_a60f7fbaf62a61d6af2966cab5197ad4f}\label{class_plane_a60f7fbaf62a61d6af2966cab5197ad4f}} 
+void {\bfseries set\+Capacity} (int new\+Capacity)
+\item 
+\mbox{\Hypertarget{class_plane_aa5b806f2694d582006475cf746172641}\label{class_plane_aa5b806f2694d582006475cf746172641}} 
+void {\bfseries print} ()
+\item 
+\mbox{\Hypertarget{class_plane_a39eeac4ec463af8bc5127dcd17a581ba}\label{class_plane_a39eeac4ec463af8bc5127dcd17a581ba}} 
+void {\bfseries print\+Flights} ()
+\item 
+\mbox{\Hypertarget{class_plane_a6869330992d6354e09ecc23031de0d0b}\label{class_plane_a6869330992d6354e09ecc23031de0d0b}} 
+void {\bfseries print\+Services} ()
+\item 
+\mbox{\Hypertarget{class_plane_a5a9b6d490a9f8f9d409d95dc7900e475}\label{class_plane_a5a9b6d490a9f8f9d409d95dc7900e475}} 
+void {\bfseries print\+Services\+Completed} ()
+\item 
+\mbox{\Hypertarget{class_plane_a4734c66a013ad9d9eb28dc072955c8db}\label{class_plane_a4734c66a013ad9d9eb28dc072955c8db}} 
+void {\bfseries print\+Services\+To\+Be\+Done} ()
+\item 
+\mbox{\Hypertarget{class_plane_a63a12f62be5f9808d13dba1e6891526d}\label{class_plane_a63a12f62be5f9808d13dba1e6891526d}} 
+void {\bfseries complete\+Last\+Service} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plane_a5b13a42e2725dcc7eeb19ee2d65a283d}\label{class_plane_a5b13a42e2725dcc7eeb19ee2d65a283d}} 
+static bool {\bfseries compare\+By\+License\+Plate} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane1, const \mbox{\hyperlink{class_plane}{Plane}} \&plane2)
+\item 
+\mbox{\Hypertarget{class_plane_a7411076a725e5fdf4e8fbbf7b6a10489}\label{class_plane_a7411076a725e5fdf4e8fbbf7b6a10489}} 
+static bool {\bfseries compare\+By\+Capacity} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane1, const \mbox{\hyperlink{class_plane}{Plane}} \&plane2)
+\item 
+\mbox{\Hypertarget{class_plane_a14d81a194cd745d07a20ffcb654b0504}\label{class_plane_a14d81a194cd745d07a20ffcb654b0504}} 
+static bool {\bfseries compare\+By\+Number\+Flights} (\mbox{\hyperlink{class_plane}{Plane}} \&plane1, \mbox{\hyperlink{class_plane}{Plane}} \&plane2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plane_af3be5af872384444107df07a2377c238}\label{class_plane_af3be5af872384444107df07a2377c238}} 
+string {\bfseries license\+Plate}
+\item 
+\mbox{\Hypertarget{class_plane_a44ee7edc9d16472d217d16c0832fe7c3}\label{class_plane_a44ee7edc9d16472d217d16c0832fe7c3}} 
+int {\bfseries capacity}
+\item 
+\mbox{\Hypertarget{class_plane_aecb26f2eb1afeb59371735501d9d0cd0}\label{class_plane_aecb26f2eb1afeb59371735501d9d0cd0}} 
+vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ {\bfseries flight\+Plan}
+\item 
+\mbox{\Hypertarget{class_plane_aeb1ab045a89e82426c403e101c686895}\label{class_plane_aeb1ab045a89e82426c403e101c686895}} 
+queue$<$ \mbox{\hyperlink{class_service}{Service}} $>$ {\bfseries services\+To\+Be\+Done}
+\item 
+\mbox{\Hypertarget{class_plane_ab99baa9c8e600040dbc845835f87cd1e}\label{class_plane_ab99baa9c8e600040dbc845835f87cd1e}} 
+queue$<$ \mbox{\hyperlink{class_service}{Service}} $>$ {\bfseries services\+Completed}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plane_a728dcd76ef4c8f4a2baebdbb6b521549}\label{class_plane_a728dcd76ef4c8f4a2baebdbb6b521549}} 
+\index{Plane@{Plane}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily int Plane\+::get\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+ele vai buscar o int \begin{DoxyReturn}{Returns}
+retorna capacidade 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_plane_a8f7a90b971b88e99586d0b3079714bc5}\label{class_plane_a8f7a90b971b88e99586d0b3079714bc5}} 
+\index{Plane@{Plane}!getFlightPlan@{getFlightPlan}}
+\index{getFlightPlan@{getFlightPlan}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{getFlightPlan()}{getFlightPlan()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ \& Plane\+::get\+Flight\+Plan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ele vai buscar o flight plan \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_plane_a5316809c9c45f5a50a41bd7f449fb5e9}\label{class_plane_a5316809c9c45f5a50a41bd7f449fb5e9}} 
+\index{Plane@{Plane}!getLicensePlate@{getLicensePlate}}
+\index{getLicensePlate@{getLicensePlate}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{getLicensePlate()}{getLicensePlate()}}
+{\footnotesize\ttfamily string Plane\+::get\+License\+Plate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+ele vai la buscar o license\+Plate yah thats it \begin{DoxyReturn}{Returns}
+Retorna a matricula do aviao 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_plane_ad1a804300f4ee35b0392f35c17b0d16e}\label{class_plane_ad1a804300f4ee35b0392f35c17b0d16e}} 
+\index{Plane@{Plane}!getServicesToBeDone@{getServicesToBeDone}}
+\index{getServicesToBeDone@{getServicesToBeDone}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{getServicesToBeDone()}{getServicesToBeDone()}}
+{\footnotesize\ttfamily queue$<$ \mbox{\hyperlink{class_service}{Service}} $>$ \& Plane\+::get\+Services\+To\+Be\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+retorna o serices to be done 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/clion-\/projetos/\+Airline\+Management\+Program/src/Plane.\+h\item 
+C\+:/clion-\/projetos/\+Airline\+Management\+Program/src/Plane.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,34 @@
+\hypertarget{_ticket_8h_source}{}\doxysection{Ticket.\+h}
+\label{_ticket_8h_source}\index{C:/clion-\/projetos/AirlineManagementProgram/src/Ticket.h@{C:/clion-\/projetos/AirlineManagementProgram/src/Ticket.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AIRLINEMANAGEMENTPROGRAM\_TICKET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AIRLINEMANAGEMENTPROGRAM\_TICKET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Passenger.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_ticket}{Ticket}} \{}
+\DoxyCodeLine{9     \textcolor{keywordtype}{int} baggage;}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} price;}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_passenger}{Passenger}}* passenger;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_ticket}{Ticket}}(\textcolor{keywordtype}{int} baggage, \textcolor{keywordtype}{int} price, \mbox{\hyperlink{class_passenger}{Passenger}}* passenger);}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} getBaggage();}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} getPrice();}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_passenger}{Passenger}}* getPassenger();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} setBaggage(\textcolor{keywordtype}{int} newBaggage);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} setPrice(\textcolor{keywordtype}{int} newPrice);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} setPassenger(\mbox{\hyperlink{class_passenger}{Passenger}}* newPassenger);}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} print();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByBaggage(\textcolor{keyword}{const} \mbox{\hyperlink{class_ticket}{Ticket}}\& ticket1, \textcolor{keyword}{const} \mbox{\hyperlink{class_ticket}{Ticket}}\& ticket2);}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByPrice(\textcolor{keyword}{const} \mbox{\hyperlink{class_ticket}{Ticket}}\& ticket1, \textcolor{keyword}{const} \mbox{\hyperlink{class_ticket}{Ticket}}\& ticket2);}
+\DoxyCodeLine{25     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByPassenger(\textcolor{keyword}{const} \mbox{\hyperlink{class_ticket}{Ticket}}\& ticket1, \textcolor{keyword}{const} \mbox{\hyperlink{class_ticket}{Ticket}}\& ticket2);}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_TICKET\_H}}
+
+\end{DoxyCode}

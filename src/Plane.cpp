@@ -19,15 +19,24 @@ Plane::Plane(string licensePlate, int capacity, vector<Flight> flightPlan, queue
 string Plane::getLicensePlate() const {
     return licensePlate;
 }
-
+/**
+ * ele vai buscar o int
+ * @return retorna capacidade
+ */
 int Plane::getCapacity() const {
     return capacity;
 }
-
+/**
+ * ele vai buscar o flight plan
+ * @return
+ */
 vector<Flight>& Plane::getFlightPlan() {
     return flightPlan;
 }
-
+/**
+ *
+ * @return retorna o serices to be done
+ */
 queue<Service>& Plane::getServicesToBeDone() {
     return servicesToBeDone;
 }

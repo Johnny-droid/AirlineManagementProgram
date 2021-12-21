@@ -1,5 +1,6 @@
 C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\clion-projetos\AirlineManagementProgram
 -- Could NOT find Python (missing: Python_EXECUTABLE Interpreter) 
+Doxygen build started
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/clion-projetos/AirlineManagementProgram/cmake-build-debug

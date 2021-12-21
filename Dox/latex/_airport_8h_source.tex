@@ -1,0 +1,40 @@
+\hypertarget{_airport_8h_source}{}\doxysection{Airport.\+h}
+\label{_airport_8h_source}\index{C:/clion-\/projetos/AirlineManagementProgram/src/Airport.h@{C:/clion-\/projetos/AirlineManagementProgram/src/Airport.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AIRLINEMANAGEMENTPROGRAM\_AIRPORT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AIRLINEMANAGEMENTPROGRAM\_AIRPORT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}bst.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}LocalTransport.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_airport}{Airport}} \{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{string} name;}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_b_s_t}{BST<LocalTransport>}} bst = \mbox{\hyperlink{class_b_s_t}{BST<LocalTransport>}}(\mbox{\hyperlink{class_local_transport}{LocalTransport}}());}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_airport}{Airport}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_airport}{Airport}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{string} name, \mbox{\hyperlink{class_b_s_t}{BST<LocalTransport>}} bst);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} getId() \textcolor{keyword}{const};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{string} getName() \textcolor{keyword}{const};}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_b_s_t}{BST<LocalTransport>}}\& getBST();}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} getBSTSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} setId(\textcolor{keywordtype}{int} newId);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} setName(\textcolor{keywordtype}{string} newName);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} print();}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} printLocalTransports();}
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} isLocalTransportId(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareById(\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& airport1, \textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& airport2);}
+\DoxyCodeLine{29     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByName(\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& airport1, \textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& airport2);}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByNumberLocalTransports(\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& airport1, \textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& airport2);}
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_AIRPORT\_H}}
+
+\end{DoxyCode}

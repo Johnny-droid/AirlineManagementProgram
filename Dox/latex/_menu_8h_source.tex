@@ -1,0 +1,105 @@
+\hypertarget{_menu_8h_source}{}\doxysection{Menu.\+h}
+\label{_menu_8h_source}\index{C:/clion-\/projetos/AirlineManagementProgram/src/Menu.h@{C:/clion-\/projetos/AirlineManagementProgram/src/Menu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AIRLINEMANAGEMENTPROGRAM\_MENU\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AIRLINEMANAGEMENTPROGRAM\_MENU\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Date.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Airport.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}Plane.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}Passenger.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}Flight.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}Service.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}LocalTransport.h"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}} \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{string} directory;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{string} directorySave;}
+\DoxyCodeLine{24     vector<Airport> airports;}
+\DoxyCodeLine{25     vector<Passenger> passengers;}
+\DoxyCodeLine{26     vector<Plane> planes;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_menu}{Menu}}();}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_menu}{Menu}}(\textcolor{keywordtype}{string} directory);}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_menu}{Menu}}(\textcolor{keywordtype}{string} directory, \textcolor{keywordtype}{string} directorySave);}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} run();}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} save();}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keywordtype}{void} showMenu();}
+\DoxyCodeLine{35     \textcolor{keyword}{static} \textcolor{keywordtype}{void} showClasses();}
+\DoxyCodeLine{36     \textcolor{keyword}{static} \textcolor{keywordtype}{int} readInputMenu();}
+\DoxyCodeLine{37     \textcolor{keyword}{static} \textcolor{keywordtype}{int} readInputClasses();}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keywordtype}{int} readInt();}
+\DoxyCodeLine{39     \textcolor{keyword}{static} \textcolor{keywordtype}{string} readString();}
+\DoxyCodeLine{40     \textcolor{keyword}{static} vector<string> split(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{string} delimeter); \textcolor{comment}{//public only for tests}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} create();}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} read();}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} update();}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} remove();  \textcolor{comment}{//delete}}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} simulation();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     vector<Airport>\& getAirports();}
+\DoxyCodeLine{49     vector<Passenger>\& getPassengers();}
+\DoxyCodeLine{50     vector<Plane>\& getPlanes();}
+\DoxyCodeLine{51     vector<Flight> getAllFlights();}
+\DoxyCodeLine{52     vector<Ticket> getAllTickets();}
+\DoxyCodeLine{53     \mbox{\hyperlink{class_passenger}{Passenger}}* getPassenger(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_airport}{Airport}}* getAirport(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_plane}{Plane}}* getPlane(\textcolor{keywordtype}{string} lp);}
+\DoxyCodeLine{56     \mbox{\hyperlink{class_plane}{Plane}}* getPlaneWithFlightNumber(\textcolor{keywordtype}{int} number);}
+\DoxyCodeLine{57     \mbox{\hyperlink{class_flight}{Flight}}* getFlight(\textcolor{keywordtype}{int} number);}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} clear();}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} readPlanes();}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} readFlights();}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} readServices();}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} readAirports();}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} readPassengers();}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} readTickets();}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} readLocalTransports();}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} printPlanes();}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} printFlights();}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} printServices();}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} printAirports();}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} printPassengers();}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} printTickets();}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} printLocalTransports();}
+\DoxyCodeLine{73     \textcolor{keywordtype}{bool} printFlightsOfAirports(\textcolor{keywordtype}{int} idDeparture, \textcolor{keywordtype}{int} idDestination);}
+\DoxyCodeLine{74     \textcolor{keywordtype}{bool} buyTicket(\textcolor{keywordtype}{int} number, \textcolor{keywordtype}{int} baggage, \textcolor{keywordtype}{int} price, \mbox{\hyperlink{class_passenger}{Passenger}}* passenger);}
+\DoxyCodeLine{75     \textcolor{keywordtype}{bool} isPlaneLpUnique(\textcolor{keywordtype}{string} lp);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{bool} isFlightNumberUnique(\textcolor{keywordtype}{int} number);}
+\DoxyCodeLine{77     \textcolor{keywordtype}{bool} isPassengerIdUnique(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{78     \textcolor{keywordtype}{bool} isAirportIdUnique(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{private}:}
+\DoxyCodeLine{81     \mbox{\hyperlink{class_b_s_t}{BST<LocalTransport>}} initializeLocalTransports(\textcolor{keywordtype}{int} idAirport);}
+\DoxyCodeLine{82     vector<Airport> initializeAirports();}
+\DoxyCodeLine{83     vector<Passenger> initializePassengers();}
+\DoxyCodeLine{84     vector<Plane> initializePlanes();}
+\DoxyCodeLine{85     vector<queue<Service>> initializeServices(\textcolor{keywordtype}{string} planeID);}
+\DoxyCodeLine{86     vector<Ticket> initializeTickets(\textcolor{keywordtype}{int} flightID);}
+\DoxyCodeLine{87     vector<Flight> initializeFlights(\textcolor{keywordtype}{string} planeLicensePlate);}
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} savePlanes();}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} saveAirports();}
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} savePassengers();}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} saveFlights();}
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} saveServices();}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} saveTickets();}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} saveLocalTransports();}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} pressAnyKeyToContinue();}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_MENU\_H}}
+
+\end{DoxyCode}

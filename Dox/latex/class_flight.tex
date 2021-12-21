@@ -1,0 +1,107 @@
+\hypertarget{class_flight}{}\doxysection{Flight Class Reference}
+\label{class_flight}\index{Flight@{Flight}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_flight_a2e567c0a92d6e2b612f3535bf1124640}\label{class_flight_a2e567c0a92d6e2b612f3535bf1124640}} 
+{\bfseries Flight} (int number, int duration, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny, string date)
+\item 
+\mbox{\Hypertarget{class_flight_a849dd56483a618acd440dd61054174b3}\label{class_flight_a849dd56483a618acd440dd61054174b3}} 
+{\bfseries Flight} (int number, int duration, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny, string date, vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ tickets)
+\item 
+\mbox{\Hypertarget{class_flight_a2830254306383ffa4dd59898b3bd6780}\label{class_flight_a2830254306383ffa4dd59898b3bd6780}} 
+vector$<$ vector$<$ vector$<$ stack$<$ int $>$ $>$ $>$ $>$ {\bfseries build\+Carts} (int stack\+Max, int carriage\+Max\+Size, int cart\+Max\+Size)
+\item 
+\mbox{\Hypertarget{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}\label{class_flight_a05fa9794ec0145d2b4f30d2a383ce300}} 
+int {\bfseries get\+Number} () const
+\item 
+\mbox{\Hypertarget{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}\label{class_flight_a58330ae7f875e3d6a202d0b36ad0ab11}} 
+int {\bfseries get\+Duration} () const
+\item 
+\mbox{\Hypertarget{class_flight_aa97d79d616f8f0ec174115fcae4816e4}\label{class_flight_aa97d79d616f8f0ec174115fcae4816e4}} 
+\mbox{\hyperlink{class_date}{Date}} \& {\bfseries get\+Date} ()
+\item 
+\mbox{\Hypertarget{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}\label{class_flight_a0182e8ad7148cc4c7ef2ac016d64ea93}} 
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ {\bfseries get\+Origin} ()
+\item 
+\mbox{\Hypertarget{class_flight_a89453e67161f535eb8f48a78f511096b}\label{class_flight_a89453e67161f535eb8f48a78f511096b}} 
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ {\bfseries get\+Destiny} ()
+\item 
+\mbox{\Hypertarget{class_flight_ae16d97677101991cd2b8d3cc459dbfb3}\label{class_flight_ae16d97677101991cd2b8d3cc459dbfb3}} 
+vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ \& {\bfseries get\+Tickets} ()
+\item 
+\mbox{\Hypertarget{class_flight_acb12110d70b9a47680a4dae9dd905851}\label{class_flight_acb12110d70b9a47680a4dae9dd905851}} 
+void {\bfseries set\+Number} (int new\+Number)
+\item 
+\mbox{\Hypertarget{class_flight_a5dfbe5269c00c3216684708b63e0c4da}\label{class_flight_a5dfbe5269c00c3216684708b63e0c4da}} 
+void {\bfseries set\+Duration} (int new\+Duration)
+\item 
+\mbox{\Hypertarget{class_flight_a5c54041eaf95a689f40f20b29d927e92}\label{class_flight_a5c54041eaf95a689f40f20b29d927e92}} 
+void {\bfseries set\+Airport\+Origin} (\mbox{\hyperlink{class_airport}{Airport}} $\ast$airport)
+\item 
+\mbox{\Hypertarget{class_flight_aac3a00ef41de01746792989dbfd2c72b}\label{class_flight_aac3a00ef41de01746792989dbfd2c72b}} 
+void {\bfseries set\+Airport\+Destiny} (\mbox{\hyperlink{class_airport}{Airport}} $\ast$airport)
+\item 
+\mbox{\Hypertarget{class_flight_a4c1c54cbcf8647aa81d0824b26ef58d1}\label{class_flight_a4c1c54cbcf8647aa81d0824b26ef58d1}} 
+void {\bfseries print} ()
+\item 
+\mbox{\Hypertarget{class_flight_a2d28a1dbd63eb7bd0866df5b3b223e3c}\label{class_flight_a2d28a1dbd63eb7bd0866df5b3b223e3c}} 
+void {\bfseries print\+Tickets} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_flight_a23c37e38f91122e5f2db1489337669ef}\label{class_flight_a23c37e38f91122e5f2db1489337669ef}} 
+static bool {\bfseries compare\+By\+Number} (const \mbox{\hyperlink{class_flight}{Flight}} \&flight1, const \mbox{\hyperlink{class_flight}{Flight}} \&flight2)
+\item 
+\mbox{\Hypertarget{class_flight_a703cc8b9700ffaba38b8740bf5aa272c}\label{class_flight_a703cc8b9700ffaba38b8740bf5aa272c}} 
+static bool {\bfseries compare\+By\+Duration} (const \mbox{\hyperlink{class_flight}{Flight}} \&flight1, const \mbox{\hyperlink{class_flight}{Flight}} \&flight2)
+\item 
+\mbox{\Hypertarget{class_flight_a070d649c77f22772693807e980123b4d}\label{class_flight_a070d649c77f22772693807e980123b4d}} 
+static bool {\bfseries compare\+By\+Date} (\mbox{\hyperlink{class_flight}{Flight}} \&flight1, \mbox{\hyperlink{class_flight}{Flight}} \&flight2)
+\item 
+\mbox{\Hypertarget{class_flight_ad6fc11cb1f6ce3c187034d383d59bd27}\label{class_flight_ad6fc11cb1f6ce3c187034d383d59bd27}} 
+static bool {\bfseries compare\+By\+Number\+Tickets} (\mbox{\hyperlink{class_flight}{Flight}} \&flight1, \mbox{\hyperlink{class_flight}{Flight}} \&flight2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_flight_a90a382b099ba1fe36732895ec3144990}\label{class_flight_a90a382b099ba1fe36732895ec3144990}} 
+vector$<$ vector$<$ vector$<$ stack$<$ int $>$ $>$ $>$ $>$ {\bfseries baggage\+Carts}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_flight_a7c0270b67970ce5dcabd172223aa4c74}\label{class_flight_a7c0270b67970ce5dcabd172223aa4c74}} 
+int {\bfseries number}
+\item 
+\mbox{\Hypertarget{class_flight_af8762a28d16dead55c5b3d80d50b44e9}\label{class_flight_af8762a28d16dead55c5b3d80d50b44e9}} 
+int {\bfseries duration}
+\item 
+\mbox{\Hypertarget{class_flight_abba8ed4d88fdf271302a9b8524857ab0}\label{class_flight_abba8ed4d88fdf271302a9b8524857ab0}} 
+\mbox{\hyperlink{class_date}{Date}} {\bfseries date\+Departure}
+\item 
+\mbox{\Hypertarget{class_flight_a6fa93f6f845d42e00df4fed66bf6c803}\label{class_flight_a6fa93f6f845d42e00df4fed66bf6c803}} 
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ {\bfseries origin}
+\item 
+\mbox{\Hypertarget{class_flight_a315c09f4380680ee8be31a7430d62c2b}\label{class_flight_a315c09f4380680ee8be31a7430d62c2b}} 
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ {\bfseries destiny}
+\item 
+\mbox{\Hypertarget{class_flight_a7f704a4a4e0bb325d3f5c7582e66a6e5}\label{class_flight_a7f704a4a4e0bb325d3f5c7582e66a6e5}} 
+vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ {\bfseries tickets}
+\item 
+\mbox{\Hypertarget{class_flight_a665dfdee6f9185fe17074362664124fe}\label{class_flight_a665dfdee6f9185fe17074362664124fe}} 
+int {\bfseries stack\+Max}
+\item 
+\mbox{\Hypertarget{class_flight_afe03252fcb8068a157205e95c3c62f57}\label{class_flight_afe03252fcb8068a157205e95c3c62f57}} 
+int {\bfseries carriage\+Max\+Size}
+\item 
+\mbox{\Hypertarget{class_flight_a49c51107566b788e55c61f712ff8df41}\label{class_flight_a49c51107566b788e55c61f712ff8df41}} 
+int {\bfseries cart\+Max\+Size}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/clion-\/projetos/\+Airline\+Management\+Program/src/Flight.\+h\item 
+C\+:/clion-\/projetos/\+Airline\+Management\+Program/src/Flight.\+cpp\end{DoxyCompactItemize}

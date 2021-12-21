@@ -1,0 +1,68 @@
+\hypertarget{class_airport}{}\doxysection{Airport Class Reference}
+\label{class_airport}\index{Airport@{Airport}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_airport_a0276d51aa23d519e8cae9c79200a7a57}\label{class_airport_a0276d51aa23d519e8cae9c79200a7a57}} 
+{\bfseries Airport} (int id, string name)
+\item 
+\mbox{\Hypertarget{class_airport_a897ebe2486a0d8f9370dae26cd8b51d3}\label{class_airport_a897ebe2486a0d8f9370dae26cd8b51d3}} 
+{\bfseries Airport} (int id, string name, \mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_local_transport}{Local\+Transport}} $>$ bst)
+\item 
+\mbox{\Hypertarget{class_airport_ab7f1095f9c7bf4940bd5b375fa8a5fc4}\label{class_airport_ab7f1095f9c7bf4940bd5b375fa8a5fc4}} 
+int {\bfseries get\+Id} () const
+\item 
+\mbox{\Hypertarget{class_airport_a93efcd09328d24469d97a81e8048b776}\label{class_airport_a93efcd09328d24469d97a81e8048b776}} 
+string {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{class_airport_af5013966c376e29c616d4f0f52ceb286}\label{class_airport_af5013966c376e29c616d4f0f52ceb286}} 
+\mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_local_transport}{Local\+Transport}} $>$ \& {\bfseries get\+BST} ()
+\item 
+\mbox{\Hypertarget{class_airport_ab6ed4375605d56b2f034e3351b7753c6}\label{class_airport_ab6ed4375605d56b2f034e3351b7753c6}} 
+int {\bfseries get\+BSTSize} () const
+\item 
+\mbox{\Hypertarget{class_airport_ae685e68bd5464e5b0228726d9bced7ba}\label{class_airport_ae685e68bd5464e5b0228726d9bced7ba}} 
+void {\bfseries set\+Id} (int new\+Id)
+\item 
+\mbox{\Hypertarget{class_airport_ade380983176eb391258afbebbbe75e88}\label{class_airport_ade380983176eb391258afbebbbe75e88}} 
+void {\bfseries set\+Name} (string new\+Name)
+\item 
+\mbox{\Hypertarget{class_airport_a30c3276ec5bc3703af22197c60100e6f}\label{class_airport_a30c3276ec5bc3703af22197c60100e6f}} 
+void {\bfseries print} ()
+\item 
+\mbox{\Hypertarget{class_airport_a3976511772c5f90de9f00775bffe257a}\label{class_airport_a3976511772c5f90de9f00775bffe257a}} 
+void {\bfseries print\+Local\+Transports} ()
+\item 
+\mbox{\Hypertarget{class_airport_a7e1f3b8f3b0675a56a09db1de6befa20}\label{class_airport_a7e1f3b8f3b0675a56a09db1de6befa20}} 
+bool {\bfseries is\+Local\+Transport\+Id} (int id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_airport_a17919f07ba921270c7bff013a872de38}\label{class_airport_a17919f07ba921270c7bff013a872de38}} 
+static bool {\bfseries compare\+By\+Id} (const \mbox{\hyperlink{class_airport}{Airport}} \&airport1, const \mbox{\hyperlink{class_airport}{Airport}} \&airport2)
+\item 
+\mbox{\Hypertarget{class_airport_a5c9ae99e6b6ff77cee294fc7c6f50f32}\label{class_airport_a5c9ae99e6b6ff77cee294fc7c6f50f32}} 
+static bool {\bfseries compare\+By\+Name} (const \mbox{\hyperlink{class_airport}{Airport}} \&airport1, const \mbox{\hyperlink{class_airport}{Airport}} \&airport2)
+\item 
+\mbox{\Hypertarget{class_airport_a3832677195e56d2d8417d36d8af197ae}\label{class_airport_a3832677195e56d2d8417d36d8af197ae}} 
+static bool {\bfseries compare\+By\+Number\+Local\+Transports} (const \mbox{\hyperlink{class_airport}{Airport}} \&airport1, const \mbox{\hyperlink{class_airport}{Airport}} \&airport2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_airport_a193179b867d065041a381bf3ba31692e}\label{class_airport_a193179b867d065041a381bf3ba31692e}} 
+int {\bfseries id}
+\item 
+\mbox{\Hypertarget{class_airport_a07dd02d08890fae5fef97f3ec69b155d}\label{class_airport_a07dd02d08890fae5fef97f3ec69b155d}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_airport_a6d9f418f07e04a7c9832b84954549055}\label{class_airport_a6d9f418f07e04a7c9832b84954549055}} 
+\mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_local_transport}{Local\+Transport}} $>$ {\bfseries bst} = \mbox{\hyperlink{class_b_s_t}{BST}}$<$\mbox{\hyperlink{class_local_transport}{Local\+Transport}}$>$(\mbox{\hyperlink{class_local_transport}{Local\+Transport}}())
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/clion-\/projetos/\+Airline\+Management\+Program/src/Airport.\+h\item 
+C\+:/clion-\/projetos/\+Airline\+Management\+Program/src/Airport.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,48 @@
+\hypertarget{_plane_8h_source}{}\doxysection{Plane.\+h}
+\label{_plane_8h_source}\index{C:/clion-\/projetos/AirlineManagementProgram/src/Plane.h@{C:/clion-\/projetos/AirlineManagementProgram/src/Plane.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AIRLINEMANAGEMENTPROGRAM\_PLANE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AIRLINEMANAGEMENTPROGRAM\_PLANE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Flight.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Service.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_plane}{Plane}} \{}
+\DoxyCodeLine{14     \textcolor{keywordtype}{string} licensePlate;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} capacity;}
+\DoxyCodeLine{16     vector<Flight> flightPlan;}
+\DoxyCodeLine{17     queue<Service> servicesToBeDone;}
+\DoxyCodeLine{18     queue<Service> servicesCompleted;}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_plane}{Plane}}(\textcolor{keywordtype}{string} licensePlate, \textcolor{keywordtype}{int} capacity);}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_plane}{Plane}}(\textcolor{keywordtype}{string} licensePlate, \textcolor{keywordtype}{int} capacity, vector<Flight> flightPlan, queue<Service> servicesCompleted, queue<Service> servicesToBeDone);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_plane_a5316809c9c45f5a50a41bd7f449fb5e9}{getLicensePlate}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_plane_a728dcd76ef4c8f4a2baebdbb6b521549}{getCapacity}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{28     vector<Flight> \&\mbox{\hyperlink{class_plane_a8f7a90b971b88e99586d0b3079714bc5}{getFlightPlan}}();}
+\DoxyCodeLine{29     queue<Service> \&\mbox{\hyperlink{class_plane_ad1a804300f4ee35b0392f35c17b0d16e}{getServicesToBeDone}}();}
+\DoxyCodeLine{30     queue<Service> \&getServicesCompleted();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} setLicensePlate(\textcolor{keywordtype}{string} newLicensePlate);}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} setCapacity(\textcolor{keywordtype}{int} newCapacity);}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} print();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} printFlights();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} printServices();}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} printServicesCompleted();}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} printServicesToBeDone();}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} completeLastService();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByLicensePlate(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane1, \textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
+\DoxyCodeLine{41     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByCapacity(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane1, \textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
+\DoxyCodeLine{42     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareByNumberFlights(\mbox{\hyperlink{class_plane}{Plane}}\& plane1, \mbox{\hyperlink{class_plane}{Plane}}\& plane2);}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_PLANE\_H}}
+
+\end{DoxyCode}

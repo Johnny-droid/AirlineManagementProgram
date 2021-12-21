@@ -19,6 +19,10 @@ class Plane {
 public:
     Plane(string licensePlate, int capacity);
     Plane(string licensePlate, int capacity, vector<Flight> flightPlan, queue<Service> servicesCompleted, queue<Service> servicesToBeDone);
+    /**
+     * ele vai la buscar o licensePlate yah thats it
+     * @return Retorna a matricula do aviao
+     */
     string getLicensePlate() const;
     int getCapacity() const;
     vector<Flight> &getFlightPlan();

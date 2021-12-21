@@ -1411,7 +1411,7 @@ void Menu::simulation() {
         cout << "Firstly, is this your first time being our customer?" << endl;
         cout << "1) It's my first time!" << endl;
         cout << "2) This ain't my first rodeo." << endl;
-        cout << "3) I though this was a cheese store." << endl;
+        cout << "3) I thought this was a cheese store." << endl;
         answerA = readInt();
         if (answerA == 1 or answerA == 2 or answerA == 3) properInput = true;
     } while (!properInput);

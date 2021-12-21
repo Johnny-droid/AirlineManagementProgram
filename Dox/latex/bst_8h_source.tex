@@ -1,0 +1,473 @@
+\hypertarget{bst_8h_source}{}\doxysection{bst.\+h}
+\label{bst_8h_source}\index{C:/clion-\/projetos/AirlineManagementProgram/src/bst.h@{C:/clion-\/projetos/AirlineManagementProgram/src/bst.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AIRLINEMANAGEMENTPROGRAM\_BST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AIRLINEMANAGEMENTPROGRAM\_BST\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable> \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn}};}
+\DoxyCodeLine{10 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable> \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItrPre}};}
+\DoxyCodeLine{11 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable> \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost}};}
+\DoxyCodeLine{12 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable> \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_level}{BSTItrLevel}};}
+\DoxyCodeLine{13 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable> \textcolor{keyword}{class }\mbox{\hyperlink{classiterator_b_s_t}{iteratorBST}};}
+\DoxyCodeLine{14 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable> \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t}{BST}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_binary_node}{BinaryNode}} \{}
+\DoxyCodeLine{18     Comparable element;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_binary_node}{BinaryNode}} *left;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_binary_node}{BinaryNode}} *right;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_binary_node}{BinaryNode}}(\textcolor{keyword}{const} Comparable\& theElement, \mbox{\hyperlink{class_binary_node}{BinaryNode}}* lt, \mbox{\hyperlink{class_binary_node}{BinaryNode}}* rt): element(theElement), left(lt), right(rt) \{ \}}
+\DoxyCodeLine{22     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t}{BST}}<Comparable>;}
+\DoxyCodeLine{23     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn}}<Comparable>;}
+\DoxyCodeLine{24     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItrPre}}<Comparable>;}
+\DoxyCodeLine{25     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost}}<Comparable>;}
+\DoxyCodeLine{26     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_level}{BSTItrLevel}}<Comparable>;}
+\DoxyCodeLine{27     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classiterator_b_s_t}{iteratorBST}}<Comparable>;}
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t}{BST}} \{}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}} *root;}
+\DoxyCodeLine{33     \textcolor{keyword}{const} Comparable ITEM\_NOT\_FOUND;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{const} Comparable\& elementAt(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t) \textcolor{keyword}{const};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} insert(\textcolor{keyword}{const} Comparable\& x, \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \& t) \textcolor{keyword}{const};}
+\DoxyCodeLine{37     \textcolor{keywordtype}{bool} remove(\textcolor{keyword}{const} Comparable\& x, \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \& t) \textcolor{keyword}{const};}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* findMin( \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t) \textcolor{keyword}{const};}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* findMax( \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t) \textcolor{keyword}{const};}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* find(\textcolor{keyword}{const} Comparable\& x, \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t) \textcolor{keyword}{const};}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} makeEmpty(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \& t) \textcolor{keyword}{const};}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} printTree(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t) \textcolor{keyword}{const};}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* clone(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t) \textcolor{keyword}{const};}
+\DoxyCodeLine{44     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn}}<Comparable>;}
+\DoxyCodeLine{45     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItrPre}}<Comparable>;}
+\DoxyCodeLine{46     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost}}<Comparable>;}
+\DoxyCodeLine{47     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_level}{BSTItrLevel}}<Comparable>;}
+\DoxyCodeLine{48     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classiterator_b_s_t}{iteratorBST}}<Comparable>;}
+\DoxyCodeLine{49 \textcolor{keyword}{public}:}
+\DoxyCodeLine{50     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_b_s_t}{BST}}(\textcolor{keyword}{const} Comparable\& notFound);}
+\DoxyCodeLine{51     \mbox{\hyperlink{class_b_s_t}{BST}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST}}\& rhs);}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_b_s_t}{\string~BST}}( );}
+\DoxyCodeLine{53     \textcolor{keyword}{const} Comparable\& findMin( ) \textcolor{keyword}{const};}
+\DoxyCodeLine{54     \textcolor{keyword}{const} Comparable\& findMax( ) \textcolor{keyword}{const};}
+\DoxyCodeLine{55     \textcolor{keyword}{const} Comparable\& find(\textcolor{keyword}{const} Comparable\& x) \textcolor{keyword}{const};}
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} isEmpty( ) \textcolor{keyword}{const};}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} printTree( ) \textcolor{keyword}{const};}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} makeEmpty( );}
+\DoxyCodeLine{59     \textcolor{keywordtype}{bool} insert(\textcolor{keyword}{const} Comparable\& x);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{bool} remove(\textcolor{keyword}{const} Comparable\& x);}
+\DoxyCodeLine{61     \textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST}}\& operator= (\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST}}\& rhs);}
+\DoxyCodeLine{62     \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}} begin() \textcolor{keyword}{const};}
+\DoxyCodeLine{63     \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}} end() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{comment}{// Note that all "{}matching"{} is based on the < method.}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{69 \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::BST}}(\textcolor{keyword}{const} Comparable\& notFound): root(NULL), ITEM\_NOT\_FOUND(notFound)}
+\DoxyCodeLine{70 \{ \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{73 \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::BST}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& rhs): root(NULL), ITEM\_NOT\_FOUND(rhs.ITEM\_NOT\_FOUND) \{}
+\DoxyCodeLine{74     *\textcolor{keyword}{this} = rhs;}
+\DoxyCodeLine{75 \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{78 \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::\string~BST}}( ) \{}
+\DoxyCodeLine{79     makeEmpty( );}
+\DoxyCodeLine{80 \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{83 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::insert}}(\textcolor{keyword}{const} Comparable\& x) \{}
+\DoxyCodeLine{84     \textcolor{keywordflow}{return} insert(x, root);}
+\DoxyCodeLine{85 \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{88 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::remove}}(\textcolor{keyword}{const} Comparable\& x) \{}
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} remove(x, root);}
+\DoxyCodeLine{90 \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{93 \textcolor{keyword}{const} Comparable\& \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::findMin}}( )\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} elementAt(findMin(root));}
+\DoxyCodeLine{95 \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{98 \textcolor{keyword}{const} Comparable\& \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::findMax}}( )\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} elementAt(findMax(root));}
+\DoxyCodeLine{100 \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{103 \textcolor{keyword}{const} Comparable\& \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::find}}(\textcolor{keyword}{const} Comparable\& x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{104     \textcolor{keywordflow}{return} elementAt(find(x, root));}
+\DoxyCodeLine{105 \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{108 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::makeEmpty}}( ) \{}
+\DoxyCodeLine{109     makeEmpty(root);}
+\DoxyCodeLine{110 \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{113 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::isEmpty}}( )\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{114     \textcolor{keywordflow}{return} root == NULL;}
+\DoxyCodeLine{115 \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{119 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::printTree}}( )\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{120     \textcolor{keywordflow}{if}(isEmpty())}
+\DoxyCodeLine{121         cout << \textcolor{stringliteral}{"{}Empty tree"{}} << endl;}
+\DoxyCodeLine{122     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{123         printTree(root);}
+\DoxyCodeLine{124 \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{127 \textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::operator= }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& rhs) \{}
+\DoxyCodeLine{128     \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != \&rhs) \{}
+\DoxyCodeLine{129         makeEmpty( );}
+\DoxyCodeLine{130         root = clone(rhs.root);}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{133 \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{136 \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::begin}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{137     \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}} it;}
+\DoxyCodeLine{138     it.setBST(root);}
+\DoxyCodeLine{139     \textcolor{keywordflow}{return} it;}
+\DoxyCodeLine{140 \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{143 \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::end}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{144     \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}} it;}
+\DoxyCodeLine{145     it.setBST(NULL);}
+\DoxyCodeLine{146     \textcolor{keywordflow}{return} it;}
+\DoxyCodeLine{147 \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{comment}{// private methods}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{153 \textcolor{keyword}{const} Comparable\& \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::elementAt}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{154     \textcolor{keywordflow}{if}(t == NULL)}
+\DoxyCodeLine{155         \textcolor{keywordflow}{return} ITEM\_NOT\_FOUND;}
+\DoxyCodeLine{156     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{157         \textcolor{keywordflow}{return} t-\/>element;}
+\DoxyCodeLine{158 \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{161 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::insert}}(\textcolor{keyword}{const} Comparable\& x, \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \& t)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{162     \textcolor{keywordflow}{if} (t == NULL) \{}
+\DoxyCodeLine{163         t = \textcolor{keyword}{new} \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}(x, NULL, NULL);}
+\DoxyCodeLine{164         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( x < t-\/>element )}
+\DoxyCodeLine{167         \textcolor{keywordflow}{return} insert( x, t-\/>left );}
+\DoxyCodeLine{168     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( t-\/>element < x )}
+\DoxyCodeLine{169         \textcolor{keywordflow}{return} insert( x, t-\/>right );}
+\DoxyCodeLine{170     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{171         \textcolor{keywordflow}{return} \textcolor{keyword}{false};  \textcolor{comment}{// Duplicate; do nothing}}
+\DoxyCodeLine{172 \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{175 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::remove}}(\textcolor{keyword}{const} Comparable\& x, \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \& t)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{176     \textcolor{keywordflow}{if}(t == NULL)}
+\DoxyCodeLine{177         \textcolor{keywordflow}{return} \textcolor{keyword}{false};   \textcolor{comment}{// Item not found; do nothing}}
+\DoxyCodeLine{178     \textcolor{keywordflow}{if}(x < t-\/>element)}
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} remove(x, t-\/>left);}
+\DoxyCodeLine{180     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(t-\/>element < x)}
+\DoxyCodeLine{181         \textcolor{keywordflow}{return} remove(x, t-\/>right);}
+\DoxyCodeLine{182     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(t-\/>left != NULL \&\& t-\/>right != NULL) \{     \textcolor{comment}{// Two children}}
+\DoxyCodeLine{183         t-\/>element = findMin(t-\/>right)-\/>element;}
+\DoxyCodeLine{184         \textcolor{keywordflow}{return} remove(t-\/>element, t-\/>right);}
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (t-\/>element == x) \{}
+\DoxyCodeLine{187         \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* oldNode = t;}
+\DoxyCodeLine{188         t = (t-\/>left != NULL) ? t-\/>left : t-\/>right;}
+\DoxyCodeLine{189         \textcolor{keyword}{delete} oldNode;}
+\DoxyCodeLine{190         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{191     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{192         \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* oldNode = t;}
+\DoxyCodeLine{193         t = (t-\/>left != NULL) ? t-\/>left : t-\/>right;}
+\DoxyCodeLine{194         \textcolor{keyword}{delete} oldNode;}
+\DoxyCodeLine{195         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{196     \}}
+\DoxyCodeLine{197 \}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{200 \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::findMin}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{201     \textcolor{keywordflow}{if}(t == NULL)}
+\DoxyCodeLine{202         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{203     \textcolor{keywordflow}{if}(t-\/>left == NULL)}
+\DoxyCodeLine{204         \textcolor{keywordflow}{return} t;}
+\DoxyCodeLine{205     \textcolor{keywordflow}{return} findMin(t-\/>left);}
+\DoxyCodeLine{206 \}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{209 \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::findMax}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{210     \textcolor{keywordflow}{if}(t != NULL)}
+\DoxyCodeLine{211         \textcolor{keywordflow}{while}(t-\/>right != NULL)}
+\DoxyCodeLine{212             t = t-\/>right;}
+\DoxyCodeLine{213     \textcolor{keywordflow}{return} t;}
+\DoxyCodeLine{214 \}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{217 \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::find}}(\textcolor{keyword}{const} Comparable\& x, \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t)\textcolor{keyword}{ const}}
+\DoxyCodeLine{218 \textcolor{keyword}{}\{}
+\DoxyCodeLine{219     \textcolor{keywordflow}{if}(t == NULL)}
+\DoxyCodeLine{220         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{221     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(x < t-\/>element)}
+\DoxyCodeLine{222         \textcolor{keywordflow}{return} find(x, t-\/>left);}
+\DoxyCodeLine{223     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(t-\/>element < x)}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} find(x, t-\/>right);}
+\DoxyCodeLine{225     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{226         \textcolor{keywordflow}{return} t;    \textcolor{comment}{// Match}}
+\DoxyCodeLine{227 \}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{230 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::makeEmpty}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \& t)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{231     \textcolor{keywordflow}{if}(t != NULL) \{}
+\DoxyCodeLine{232         makeEmpty(t-\/>left);}
+\DoxyCodeLine{233         makeEmpty(t-\/>right);}
+\DoxyCodeLine{234         \textcolor{keyword}{delete} t;}
+\DoxyCodeLine{235     \}}
+\DoxyCodeLine{236     t = NULL;}
+\DoxyCodeLine{237 \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{240 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::printTree}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{241     \textcolor{keywordflow}{if}(t != NULL) \{}
+\DoxyCodeLine{242         printTree(t-\/>left);}
+\DoxyCodeLine{243         cout << t-\/>element << endl;}
+\DoxyCodeLine{244         printTree(t-\/>right);}
+\DoxyCodeLine{245     \}}
+\DoxyCodeLine{246 \}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{249 \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* \mbox{\hyperlink{class_b_s_t}{BST<Comparable>::clone}}( \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* t )\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{250     \textcolor{keywordflow}{if}(t == NULL)}
+\DoxyCodeLine{251         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{252     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}(t-\/>element, clone(t-\/>left), clone(t-\/>right));}
+\DoxyCodeLine{254 \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ iterators -\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{comment}{// Postorder iterator}}
+\DoxyCodeLine{260 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{261 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost}} \{}
+\DoxyCodeLine{262     stack<BinaryNode<Comparable> *> itrStack;}
+\DoxyCodeLine{263     stack<bool> visitStack;}
+\DoxyCodeLine{264     \textcolor{keywordtype}{void} slideDown(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* n);}
+\DoxyCodeLine{265 \textcolor{keyword}{public}:}
+\DoxyCodeLine{266     \mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}} \&bt);}
+\DoxyCodeLine{267     \textcolor{keywordtype}{void} advance();}
+\DoxyCodeLine{268     \textcolor{keyword}{const} Comparable\& retrieve()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrStack.top()-\/>element; \}}
+\DoxyCodeLine{269     \textcolor{keywordtype}{bool} isAtEnd()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrStack.empty(); \}}
+\DoxyCodeLine{270 \};}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{273 \mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost<Comparable>::BSTItrPost}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& bt) \{}
+\DoxyCodeLine{274     \textcolor{keywordflow}{if} (!bt.isEmpty())}
+\DoxyCodeLine{275         slideDown(bt.root);}
+\DoxyCodeLine{276 \}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{279 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost<Comparable>::advance}} () \{}
+\DoxyCodeLine{280     itrStack.pop();}
+\DoxyCodeLine{281     visitStack.pop();}
+\DoxyCodeLine{282     \textcolor{keywordflow}{if} ((!itrStack.empty()) \&\& (visitStack.top() == \textcolor{keyword}{false})) \{}
+\DoxyCodeLine{283         visitStack.pop();}
+\DoxyCodeLine{284         visitStack.push(\textcolor{keyword}{true});}
+\DoxyCodeLine{285         slideDown(itrStack.top()-\/>right);}
+\DoxyCodeLine{286     \}}
+\DoxyCodeLine{287 \}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{290 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t_itr_post}{BSTItrPost<Comparable>::slideDown}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* n) \{}
+\DoxyCodeLine{291     \textcolor{keywordflow}{while} (n) \{}
+\DoxyCodeLine{292         itrStack.push(n);}
+\DoxyCodeLine{293         \textcolor{keywordflow}{if} (n-\/>left) \{}
+\DoxyCodeLine{294             visitStack.push(\textcolor{keyword}{false});}
+\DoxyCodeLine{295             n = n-\/>left;}
+\DoxyCodeLine{296         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (n-\/>right) \{}
+\DoxyCodeLine{297             visitStack.push(\textcolor{keyword}{true});}
+\DoxyCodeLine{298             n = n-\/>right;}
+\DoxyCodeLine{299         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{300             visitStack.push(\textcolor{keyword}{true});}
+\DoxyCodeLine{301             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{302         \}}
+\DoxyCodeLine{303     \}}
+\DoxyCodeLine{304 \}}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307 \textcolor{comment}{// Preorder iterator}}
+\DoxyCodeLine{308 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{309 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItrPre}} \{}
+\DoxyCodeLine{310     stack<BinaryNode<Comparable> *> itrStack;}
+\DoxyCodeLine{311 \textcolor{keyword}{public}:}
+\DoxyCodeLine{312     \mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItrPre}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& bt);}
+\DoxyCodeLine{313     \textcolor{keywordtype}{void} advance();}
+\DoxyCodeLine{314     \textcolor{keyword}{const} Comparable\& retrieve()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrStack.top()-\/>element; \}}
+\DoxyCodeLine{315     \textcolor{keywordtype}{bool} isAtEnd()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrStack.empty(); \}}
+\DoxyCodeLine{316 \};}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{319 \mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItrPre<Comparable>::BSTItrPre}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& bt)}
+\DoxyCodeLine{320 \{}
+\DoxyCodeLine{321     \textcolor{keywordflow}{if} (!bt.isEmpty())}
+\DoxyCodeLine{322         itrStack.push(bt.root);}
+\DoxyCodeLine{323 \}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{326 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItrPre<Comparable>::advance}}()}
+\DoxyCodeLine{327 \{}
+\DoxyCodeLine{328     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* actual = itrStack.top();}
+\DoxyCodeLine{329     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* next = actual-\/>left;}
+\DoxyCodeLine{330     \textcolor{keywordflow}{if} (next)}
+\DoxyCodeLine{331         itrStack.push(next);}
+\DoxyCodeLine{332     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{333         \textcolor{keywordflow}{while} (!itrStack.empty()) \{}
+\DoxyCodeLine{334             actual = itrStack.top();}
+\DoxyCodeLine{335             itrStack.pop();}
+\DoxyCodeLine{336             next = actual -\/> right;}
+\DoxyCodeLine{337             \textcolor{keywordflow}{if} (next) \{}
+\DoxyCodeLine{338                 itrStack.push(next);}
+\DoxyCodeLine{339                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{340             \}}
+\DoxyCodeLine{341         \}}
+\DoxyCodeLine{342     \}}
+\DoxyCodeLine{343 \}}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346 \textcolor{comment}{//Inorder iterator}}
+\DoxyCodeLine{347 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{348 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn}} \{}
+\DoxyCodeLine{349     stack<BinaryNode<Comparable> *> itrStack;}
+\DoxyCodeLine{350     \textcolor{keywordtype}{void} slideLeft(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}} *n);}
+\DoxyCodeLine{351 \textcolor{keyword}{public}:}
+\DoxyCodeLine{352     \mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& bt);}
+\DoxyCodeLine{353     \textcolor{keywordtype}{void} advance();}
+\DoxyCodeLine{354     \textcolor{keyword}{const} Comparable\& retrieve()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrStack.top()-\/>element; \}}
+\DoxyCodeLine{355     \textcolor{keywordtype}{bool} isAtEnd()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrStack.empty(); \}}
+\DoxyCodeLine{356 \};}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{358 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{359 \mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn<Comparable>::BSTItrIn}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& bt) \{}
+\DoxyCodeLine{360     \textcolor{keywordflow}{if} (!bt.isEmpty())}
+\DoxyCodeLine{361         slideLeft(bt.root);}
+\DoxyCodeLine{362 \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{365 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn<Comparable>::slideLeft}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* n) \{}
+\DoxyCodeLine{366     \textcolor{keywordflow}{while} (n) \{}
+\DoxyCodeLine{367         itrStack.push(n);}
+\DoxyCodeLine{368         n = n-\/>left;}
+\DoxyCodeLine{369     \}}
+\DoxyCodeLine{370 \}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{373 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t_itr_in}{BSTItrIn<Comparable>::advance}}() \{}
+\DoxyCodeLine{374     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}} * actual = itrStack.top();}
+\DoxyCodeLine{375     itrStack.pop();}
+\DoxyCodeLine{376     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}} * next = actual-\/>right;}
+\DoxyCodeLine{377     \textcolor{keywordflow}{if} (next)}
+\DoxyCodeLine{378         slideLeft(next);}
+\DoxyCodeLine{379 \}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382 \textcolor{comment}{//Bylevel iterator}}
+\DoxyCodeLine{383 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{384 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t_itr_level}{BSTItrLevel}} \{}
+\DoxyCodeLine{385     queue<BinaryNode<Comparable> *> itrQueue;}
+\DoxyCodeLine{386 \textcolor{keyword}{public}:}
+\DoxyCodeLine{387     \mbox{\hyperlink{class_b_s_t_itr_level}{BSTItrLevel}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}} \&bt);}
+\DoxyCodeLine{388     \textcolor{keywordtype}{void} advance();}
+\DoxyCodeLine{389     \textcolor{keyword}{const} Comparable\& retrieve()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrQueue.front()-\/>element; \}}
+\DoxyCodeLine{390     \textcolor{keywordtype}{bool} isAtEnd()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} itrQueue.empty(); \}}
+\DoxyCodeLine{391 \};}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{394 \mbox{\hyperlink{class_b_s_t_itr_level}{BSTItrLevel<Comparable>::BSTItrLevel}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Comparable>}}\& bt) \{}
+\DoxyCodeLine{395     \textcolor{keywordflow}{if} (!bt.isEmpty())}
+\DoxyCodeLine{396         itrQueue.push(bt.root);}
+\DoxyCodeLine{397 \}}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{400 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_s_t_itr_level}{BSTItrLevel<Comparable>::advance}}() \{}
+\DoxyCodeLine{401     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* actual = itrQueue.front();}
+\DoxyCodeLine{402     itrQueue.pop();}
+\DoxyCodeLine{403     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* next = actual-\/>left;}
+\DoxyCodeLine{404     \textcolor{keywordflow}{if} (next)}
+\DoxyCodeLine{405         itrQueue.push(next);}
+\DoxyCodeLine{406     next = actual-\/>right;}
+\DoxyCodeLine{407     \textcolor{keywordflow}{if} (next)}
+\DoxyCodeLine{408         itrQueue.push(next);}
+\DoxyCodeLine{409 \}}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412 \textcolor{comment}{// another inorder iterator}}
+\DoxyCodeLine{413 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{414 \textcolor{keyword}{class }\mbox{\hyperlink{classiterator_b_s_t}{iteratorBST}} \{}
+\DoxyCodeLine{415     stack<BinaryNode<Comparable> *> itrStack;}
+\DoxyCodeLine{416     \textcolor{keywordtype}{void} slideLeft(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* n);}
+\DoxyCodeLine{417     \textcolor{keywordtype}{void} setBST(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* root);}
+\DoxyCodeLine{418     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_b_s_t}{BST}}<Comparable>;}
+\DoxyCodeLine{419 \textcolor{keyword}{public}:}
+\DoxyCodeLine{420     \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}}\& operator ++(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{421     Comparable operator*() \textcolor{keyword}{const};}
+\DoxyCodeLine{422     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}}\& it2) \textcolor{keyword}{const};}
+\DoxyCodeLine{423     \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}}\& it2) \textcolor{keyword}{const};}
+\DoxyCodeLine{424 \};}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{428 \textcolor{keywordtype}{void} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>::slideLeft}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* n) \{}
+\DoxyCodeLine{429     \textcolor{keywordflow}{while} (n) \{}
+\DoxyCodeLine{430         itrStack.push(n);}
+\DoxyCodeLine{431         n = n-\/>left;}
+\DoxyCodeLine{432     \}}
+\DoxyCodeLine{433 \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{436 \textcolor{keywordtype}{void} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>::setBST}}(\mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* root) \{}
+\DoxyCodeLine{437     \textcolor{keywordflow}{if} (root!=NULL)}
+\DoxyCodeLine{438         slideLeft(root);}
+\DoxyCodeLine{439 \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{442 \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}}\& \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>::operator++ }}(\textcolor{keywordtype}{int}) \{}
+\DoxyCodeLine{443     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* actual = itrStack.top();}
+\DoxyCodeLine{444     itrStack.pop();}
+\DoxyCodeLine{445     \mbox{\hyperlink{class_binary_node}{BinaryNode<Comparable>}}* next = actual-\/>right;}
+\DoxyCodeLine{446     \textcolor{keywordflow}{if} (next)}
+\DoxyCodeLine{447         slideLeft(next);}
+\DoxyCodeLine{448     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{449 \}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{452 Comparable \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>::operator*}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{453     \textcolor{keywordflow}{return} itrStack.top()-\/>element;}
+\DoxyCodeLine{454 \}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{457 \textcolor{keywordtype}{bool} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>::operator== }}(\textcolor{keyword}{const} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}}\& it2)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{458     \textcolor{keywordflow}{return} itrStack == it2.itrStack;}
+\DoxyCodeLine{459 \}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 \textcolor{keyword}{template} <\textcolor{keyword}{class} Comparable>}
+\DoxyCodeLine{462 \textcolor{keywordtype}{bool} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>::operator!= }}(\textcolor{keyword}{const} \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<Comparable>}}\& it2)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{463     \textcolor{keywordflow}{return} itrStack != it2.itrStack;}
+\DoxyCodeLine{464 \}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AIRLINEMANAGEMENTPROGRAM\_BST\_H}}
+
+\end{DoxyCode}
