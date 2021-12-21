@@ -158,6 +158,9 @@ CMakeFiles/AirlineManagementProgram.dir/src/Plane.cpp.o: \
  /home/johnny/CLionProjects/AirlineManagementProgram/src/bst.h \
  /usr/include/c++/9/stack /usr/include/c++/9/bits/stl_stack.h \
  /home/johnny/CLionProjects/AirlineManagementProgram/src/LocalTransport.h \
+ /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
+ /usr/include/c++/9/bits/allocated_ptr.h \
+ /usr/include/c++/9/ext/aligned_buffer.h /usr/include/c++/9/bits/list.tcc \
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Time.h \
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Ticket.h \
  /home/johnny/CLionProjects/AirlineManagementProgram/src/Passenger.h \

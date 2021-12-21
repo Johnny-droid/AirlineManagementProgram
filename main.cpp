@@ -7,9 +7,8 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-
     string directory = "../DataFiles/";
-    string directorySave = "../DataFiles2/";
+    string directorySave = "../DataFilesSaved/";
     Menu menu(directory, directorySave);
     menu.run();
     /*

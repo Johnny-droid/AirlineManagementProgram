@@ -29,6 +29,7 @@ Menu::Menu(string directory, string directorySave) {
 void Menu::run() {
     int option;
     do {
+        clear();
         showMenu();
         option = readInputMenu();
         if (option == 1) create();
@@ -37,7 +38,9 @@ void Menu::run() {
         else if (option == 4) remove();
         else if (option == 42) simulation();
 
-        if (option != 0) pressAnyKeyToContinue();
+        if (option != 0) {
+            pressAnyKeyToContinue();
+        }
     } while (option != 0);
     save();
 }
@@ -74,6 +77,17 @@ void Menu::showClasses() {
     cout << "     0) Back             " << endl;
 }
 
+void Menu::clear() {
+    #if defined _WIN32
+        system("cls");
+        //clrscr(); // including header file : conio.h
+    #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+        system("clear");
+        //std::cout<< u8"\033[2J\033[1;1H"; //Using ANSI Escape Sequences
+    #elif defined (__APPLE__)
+        system("clear");
+    #endif
+}
 
 int Menu::readInputMenu() {
     // gets the option number
@@ -499,6 +513,18 @@ void Menu::printLocalTransports() {
         }
     }
 }
+
+bool Menu::printFlightsOfAirports(int idDeparture, int idDestination) {
+    bool existsFlights = false;
+    vector<Flight> flights = getAllFlights();
+    for (Flight flight : flights) {
+        if (flight.getOrigin()->getId() == idDeparture  &&  flight.getDestiny()->getId() == idDestination) {
+            existsFlights = true;
+            flight.print();
+        }
+    }
+    return existsFlights;
+};
 
 void Menu::readPlanes() {
     int input; bool valid;
@@ -971,7 +997,7 @@ void Menu::create() {
         printAirports();
         cout << "Please insert the closest airport's ID: "; idAirport = readInt();
         cout << "What is the type of transport: bus, train or subway? "; typeTransport = readString();
-        cout << "Please insert the times you want for this transport: "; times = readString();
+        cout << "Please insert the times you want for this transport (format: 10:40 12:30 15:20): "; times = readString();
         cout << "Please insert the distance to the airport: "; distanceToAirport = readInt();
         LocalTransport localTransport(this->getAirport(idAirport)->getBSTSize()+1, typeTransport, times, distanceToAirport);
         this->getAirport(idAirport)->getBST().insert(localTransport);
@@ -1246,7 +1272,7 @@ void Menu::update() {
                 valid = false;
             }
         } while (!valid);
-        cout << "2) Schedule: "; times = readString(); cout << endl;
+        cout << "2) Schedule (format: 10:40 12:30 15:20): "; times = readString(); cout << endl;
         cout << "3) Distance to airport: "; distance = readInt(); cout << endl;
         LocalTransport lTRemove(idLT, "", "", 0);
         LocalTransport lTInsert(idLT, typeTransport, times, distance);
@@ -1375,11 +1401,11 @@ void Menu::remove() {
     }
 }
 
-void Menu::simulation(){
+void Menu::simulation() {
     int answerA, answerB, answerC, answerD, answerE, answerF, answerG; bool properInput;
     int id, idade; string nome;
     // part 1: creating/identifying a passenger
-    do{
+    do {
         properInput = false;
         cout << "\nHello, I'm Joana Pinto and welcome to the Airline Management Program!" << endl;
         cout << "Firstly, is this your first time being our customer?" << endl;
@@ -1537,7 +1563,7 @@ void Menu::simulation(){
         do {
             properInput = false;
             //print flights com os airports certos
-            printFlights();
+            bool existFlights = printFlightsOfAirports(idDeparture, idDestination);
             cout << "Tell me the number of the flight you're interested in." << endl;
             flightNumber = readInt();
             //checka se ha vagas
@@ -1735,13 +1761,9 @@ void Menu::saveLocalTransports() {
 
 /*
 DOXYGEN NO FINAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NÃO ESQUECER!!!!!!!!!!!!!!!
- Organizar o texto e tratar de "limpar" o screen
+ Organizar o texto e tratar de "limpar" o screen //já está a coisa de limpar o ecrã
  * antonio trata
  outras cenas
- colocar times em Local Transports como listas
-
 Simulation - Carrinho
-Pesquisa
-
 
 */

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include <vector>
+#include <list>
 #include "Date.h"
 #include "Time.h"
 
@@ -12,7 +12,7 @@ using namespace std;
 class LocalTransport {
     int id;
     string typeTransport;
-    vector<Time> times;
+    list<Time> times;
     int distanceToAirport;
 
 public:
@@ -21,7 +21,7 @@ public:
     int getId() const;
     string getTypeTransport() const;
     string getStringTimes() const;
-    vector<Time>& getTimes();
+    list<Time>& getTimes();
     int getDistanceToAirport() const;
     void setTypeTransport(string newTypeTransport);
     void setTimes(string newTimes);

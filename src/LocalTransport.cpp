@@ -3,30 +3,30 @@
 LocalTransport::LocalTransport() {
     this->id = -1;
     this->typeTransport = "";
-    this->times = vector<Time>();
+    this->times = list<Time>();
     this->distanceToAirport = -1;
 }
 
 LocalTransport::LocalTransport(int id, string typeTransport, string strTimes, int distanceToAirport) {
-    vector<Time> vTimes;
+    list<Time> lTimes;
     size_t pos = 0;
     while (pos != string::npos) {
         pos = strTimes.find_first_of(" ");
         if (pos == string::npos) {
             Time t1(strTimes);
-            vTimes.push_back(t1);
+            lTimes.push_back(t1);
             break;
         } else {
             string subStr = strTimes.substr(0, pos);
             Time t2(subStr);
-            vTimes.push_back(t2);
+            lTimes.push_back(t2);
             strTimes = strTimes.substr(pos + 1);
         }
     }
 
     this->id = id;
     this->typeTransport = typeTransport;
-    this->times = vTimes;
+    this->times = lTimes;
     this->distanceToAirport = distanceToAirport;
 }
 
@@ -46,7 +46,7 @@ string LocalTransport::getStringTimes() const {
     return s;
 }
 
-vector<Time>& LocalTransport::getTimes() {
+list<Time>& LocalTransport::getTimes() {
     return times;
 }
 
@@ -59,21 +59,21 @@ void LocalTransport::setTypeTransport(string newTypeTransport){
 }
 
 void LocalTransport::setTimes(string newTimes){
-    vector<Time> vTimes;
+    list<Time> lTimes;
 
     while (newTimes.length() != 0) {
         int pos = newTimes.find_first_of("-");
         if (pos == newTimes.npos) {
             Time t1(newTimes);
-            vTimes.push_back(t1);
+            lTimes.push_back(t1);
             break;
         }
         string subStr = newTimes.substr(0, pos);
         Time t2(subStr);
-        vTimes.push_back(t2);
+        lTimes.push_back(t2);
         newTimes = newTimes.substr(pos + 1);
     }
-    times = vTimes;
+    times = lTimes;
 }
 
 void LocalTransport::setDistanceToAirport(int newDistanceToAirport){
