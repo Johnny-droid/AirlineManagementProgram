@@ -3,29 +3,21 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_service_a32e7014ffbd6e9e2bb1c58f811a8f210}\label{class_service_a32e7014ffbd6e9e2bb1c58f811a8f210}} 
-{\bfseries Service} (string type\+Of\+Service, string date, string worker)
+\mbox{\hyperlink{class_service_a32e7014ffbd6e9e2bb1c58f811a8f210}{Service}} (string type\+Of\+Service, string date, string worker)
 \item 
-\mbox{\Hypertarget{class_service_a20ae2dcc2995e5a4a018d2ead1228e4c}\label{class_service_a20ae2dcc2995e5a4a018d2ead1228e4c}} 
-string {\bfseries get\+Type\+Of\+Service} ()
+string \mbox{\hyperlink{class_service_a20ae2dcc2995e5a4a018d2ead1228e4c}{get\+Type\+Of\+Service}} ()
 \item 
-\mbox{\Hypertarget{class_service_a33f38b70ca4c6f6f22155a8e81924a1d}\label{class_service_a33f38b70ca4c6f6f22155a8e81924a1d}} 
-\mbox{\hyperlink{class_date}{Date}} \& {\bfseries get\+Date} ()
+\mbox{\hyperlink{class_date}{Date}} \& \mbox{\hyperlink{class_service_a33f38b70ca4c6f6f22155a8e81924a1d}{get\+Date}} ()
 \item 
-\mbox{\Hypertarget{class_service_a28ab64724279ff3dba1bd76cf69cab82}\label{class_service_a28ab64724279ff3dba1bd76cf69cab82}} 
-string {\bfseries get\+Worker} ()
+string \mbox{\hyperlink{class_service_a28ab64724279ff3dba1bd76cf69cab82}{get\+Worker}} ()
 \item 
-\mbox{\Hypertarget{class_service_a2daff783d2075d3e881b088eae8e17b7}\label{class_service_a2daff783d2075d3e881b088eae8e17b7}} 
-void {\bfseries set\+Type\+Of\+Service} (string new\+Type\+Of\+Service)
+void \mbox{\hyperlink{class_service_a2daff783d2075d3e881b088eae8e17b7}{set\+Type\+Of\+Service}} (string new\+Type\+Of\+Service)
 \item 
-\mbox{\Hypertarget{class_service_a191d2fbaef5398b886408ca08fb11fa7}\label{class_service_a191d2fbaef5398b886408ca08fb11fa7}} 
-void {\bfseries set\+Date} (string new\+Date)
+void \mbox{\hyperlink{class_service_a191d2fbaef5398b886408ca08fb11fa7}{set\+Date}} (string new\+Date)
 \item 
-\mbox{\Hypertarget{class_service_a5312d29c119bc17024d8f8301c92cab2}\label{class_service_a5312d29c119bc17024d8f8301c92cab2}} 
-void {\bfseries set\+Worker} (string new\+Worker)
+void \mbox{\hyperlink{class_service_a5312d29c119bc17024d8f8301c92cab2}{set\+Worker}} (string new\+Worker)
 \item 
-\mbox{\Hypertarget{class_service_aeb39c309c6852756d538a24095a55c3a}\label{class_service_aeb39c309c6852756d538a24095a55c3a}} 
-void {\bfseries print} (bool completed)
+void \mbox{\hyperlink{class_service_aeb39c309c6852756d538a24095a55c3a}{print}} (bool completed)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -39,6 +31,98 @@ string {\bfseries type\+Of\+Service}
 \mbox{\Hypertarget{class_service_a476ee903f29732fd247402eaa90ed3c2}\label{class_service_a476ee903f29732fd247402eaa90ed3c2}} 
 string {\bfseries worker}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_service_a32e7014ffbd6e9e2bb1c58f811a8f210}\label{class_service_a32e7014ffbd6e9e2bb1c58f811a8f210}} 
+\index{Service@{Service}!Service@{Service}}
+\index{Service@{Service}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{Service()}{Service()}}
+{\footnotesize\ttfamily Service\+::\+Service (\begin{DoxyParamCaption}\item[{string}]{type\+Of\+Service,  }\item[{string}]{date,  }\item[{string}]{worker }\end{DoxyParamCaption})}
+
+Creates a service object 
+\begin{DoxyParams}{Parameters}
+{\em type\+Of\+Service} & The service\textquotesingle{}s type, could be \textquotesingle{}management\textquotesingle{} or \textquotesingle{}cleaning\textquotesingle{} \\
+\hline
+{\em date} & The string that represents a date in the model \textquotesingle{}DD-\/\+MM-\/\+YYYY\textquotesingle{} that will be turned into a date object \\
+\hline
+{\em worker} & The name of the worker responsible for that service \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_service_a33f38b70ca4c6f6f22155a8e81924a1d}\label{class_service_a33f38b70ca4c6f6f22155a8e81924a1d}} 
+\index{Service@{Service}!getDate@{getDate}}
+\index{getDate@{getDate}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} \& Service\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The service\textquotesingle{}s date object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_service_a20ae2dcc2995e5a4a018d2ead1228e4c}\label{class_service_a20ae2dcc2995e5a4a018d2ead1228e4c}} 
+\index{Service@{Service}!getTypeOfService@{getTypeOfService}}
+\index{getTypeOfService@{getTypeOfService}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{getTypeOfService()}{getTypeOfService()}}
+{\footnotesize\ttfamily string Service\+::get\+Type\+Of\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The service\textquotesingle{}s type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_service_a28ab64724279ff3dba1bd76cf69cab82}\label{class_service_a28ab64724279ff3dba1bd76cf69cab82}} 
+\index{Service@{Service}!getWorker@{getWorker}}
+\index{getWorker@{getWorker}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{getWorker()}{getWorker()}}
+{\footnotesize\ttfamily string Service\+::get\+Worker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The name of the worker responsible for the service 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_service_aeb39c309c6852756d538a24095a55c3a}\label{class_service_aeb39c309c6852756d538a24095a55c3a}} 
+\index{Service@{Service}!print@{print}}
+\index{print@{print}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Service\+::print (\begin{DoxyParamCaption}\item[{bool}]{completed }\end{DoxyParamCaption})}
+
+Prints an indication of whether or not the service has been completed 
+\begin{DoxyParams}{Parameters}
+{\em completed} & True, if the service has already been completed. False if otherwise. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_service_a191d2fbaef5398b886408ca08fb11fa7}\label{class_service_a191d2fbaef5398b886408ca08fb11fa7}} 
+\index{Service@{Service}!setDate@{setDate}}
+\index{setDate@{setDate}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void Service\+::set\+Date (\begin{DoxyParamCaption}\item[{string}]{new\+Date }\end{DoxyParamCaption})}
+
+Changes the date of the service to a new one 
+\begin{DoxyParams}{Parameters}
+{\em new\+Date} & The string that represents the new date in the model \textquotesingle{}DD-\/\+MM-\/\+YYYY\textquotesingle{} that will be turned into a date object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_service_a2daff783d2075d3e881b088eae8e17b7}\label{class_service_a2daff783d2075d3e881b088eae8e17b7}} 
+\index{Service@{Service}!setTypeOfService@{setTypeOfService}}
+\index{setTypeOfService@{setTypeOfService}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{setTypeOfService()}{setTypeOfService()}}
+{\footnotesize\ttfamily void Service\+::set\+Type\+Of\+Service (\begin{DoxyParamCaption}\item[{string}]{new\+Type\+Of\+Service }\end{DoxyParamCaption})}
+
+Changes the type of service to a new one. 
+\begin{DoxyParams}{Parameters}
+{\em new\+Type\+Of\+Service} & The new type of service \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_service_a5312d29c119bc17024d8f8301c92cab2}\label{class_service_a5312d29c119bc17024d8f8301c92cab2}} 
+\index{Service@{Service}!setWorker@{setWorker}}
+\index{setWorker@{setWorker}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{setWorker()}{setWorker()}}
+{\footnotesize\ttfamily void Service\+::set\+Worker (\begin{DoxyParamCaption}\item[{string}]{new\+Worker }\end{DoxyParamCaption})}
+
+Changes the name of the worker responsible for the service 
+\begin{DoxyParams}{Parameters}
+{\em new\+Worker} & The name of the new worker \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

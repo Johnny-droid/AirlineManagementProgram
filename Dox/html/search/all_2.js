@@ -1,10 +1,20 @@
 var searchData=
 [
-  ['comparebyage_0',['compareByAge',['../class_passenger.html#a71c4409faa471fcac6af583124ff6332',1,'Passenger']]],
-  ['comparebycapacity_1',['compareByCapacity',['../class_plane.html#a7411076a725e5fdf4e8fbbf7b6a10489',1,'Plane']]],
-  ['comparebyid_2',['compareById',['../class_passenger.html#a2eebf04a6c75e1d94e883ca787b1c782',1,'Passenger']]],
-  ['comparebylicenseplate_3',['compareByLicensePlate',['../class_plane.html#a5b13a42e2725dcc7eeb19ee2d65a283d',1,'Plane']]],
-  ['comparebyname_4',['compareByName',['../class_passenger.html#a849b0034cd43bf4e2dcc2c4f55426c91',1,'Passenger']]],
-  ['comparebynumberflights_5',['compareByNumberFlights',['../class_plane.html#a14d81a194cd745d07a20ffcb654b0504',1,'Plane']]],
-  ['completelastservice_6',['completeLastService',['../class_plane.html#a63a12f62be5f9808d13dba1e6891526d',1,'Plane']]]
+  ['clear_0',['clear',['../class_menu.html#a3630ce145aab68961ec535762d928558',1,'Menu']]],
+  ['comparebyage_1',['compareByAge',['../class_passenger.html#a71c4409faa471fcac6af583124ff6332',1,'Passenger']]],
+  ['comparebybaggage_2',['compareByBaggage',['../class_ticket.html#ac0ccc2ce3fc4f9c837f66bd3e2f3ec7a',1,'Ticket']]],
+  ['comparebycapacity_3',['compareByCapacity',['../class_plane.html#a7411076a725e5fdf4e8fbbf7b6a10489',1,'Plane']]],
+  ['comparebydate_4',['compareByDate',['../class_flight.html#a070d649c77f22772693807e980123b4d',1,'Flight']]],
+  ['comparebyduration_5',['compareByDuration',['../class_flight.html#a703cc8b9700ffaba38b8740bf5aa272c',1,'Flight']]],
+  ['comparebyid_6',['compareById',['../class_airport.html#a17919f07ba921270c7bff013a872de38',1,'Airport::compareById()'],['../class_passenger.html#a2eebf04a6c75e1d94e883ca787b1c782',1,'Passenger::compareById()']]],
+  ['comparebylicenseplate_7',['compareByLicensePlate',['../class_plane.html#a5b13a42e2725dcc7eeb19ee2d65a283d',1,'Plane']]],
+  ['comparebyname_8',['compareByName',['../class_airport.html#a5c9ae99e6b6ff77cee294fc7c6f50f32',1,'Airport::compareByName()'],['../class_passenger.html#a849b0034cd43bf4e2dcc2c4f55426c91',1,'Passenger::compareByName()']]],
+  ['comparebynumber_9',['compareByNumber',['../class_flight.html#a23c37e38f91122e5f2db1489337669ef',1,'Flight']]],
+  ['comparebynumberflights_10',['compareByNumberFlights',['../class_plane.html#a14d81a194cd745d07a20ffcb654b0504',1,'Plane']]],
+  ['comparebynumberlocaltransports_11',['compareByNumberLocalTransports',['../class_airport.html#a3832677195e56d2d8417d36d8af197ae',1,'Airport']]],
+  ['comparebynumbertickets_12',['compareByNumberTickets',['../class_flight.html#ad6fc11cb1f6ce3c187034d383d59bd27',1,'Flight']]],
+  ['comparebypassenger_13',['compareByPassenger',['../class_ticket.html#a0e25b1f13359d4117df704b0ad4a24fe',1,'Ticket']]],
+  ['comparebyprice_14',['compareByPrice',['../class_ticket.html#a7d85dbe6588a363e036bef6dd7e7dfc5',1,'Ticket']]],
+  ['completelastservice_15',['completeLastService',['../class_plane.html#a63a12f62be5f9808d13dba1e6891526d',1,'Plane']]],
+  ['create_16',['create',['../class_menu.html#a46b34191242445072405be49ec0ad01c',1,'Menu']]]
 ];

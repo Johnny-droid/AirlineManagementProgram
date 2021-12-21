@@ -691,7 +691,7 @@ void Menu::printLocalTransports() {
  * airport of departure and airport of arrival
  * @param idDeparture ID of the airport of departure
  * @param idDestination ID of the airport of arrival
- * @return true if 
+ * @return false if there aren't any flights that meet the requirements, true otherwise
  */
 bool Menu::printFlightsOfAirports(int idDeparture, int idDestination) {
     bool existsFlights = false;
@@ -705,6 +705,9 @@ bool Menu::printFlightsOfAirports(int idDeparture, int idDestination) {
     return existsFlights;
 };
 
+/**
+ * Manages all reading actions about planes from the user
+ */
 void Menu::readPlanes() {
     int input; bool valid;
     cout << "\n1) Search a single plane" << endl;
@@ -753,6 +756,9 @@ void Menu::readPlanes() {
 
 }
 
+/**
+ * Manages all reading actions about flights from the user
+ */
 void Menu::readFlights() {
     int input; bool valid;
     cout << "\n1) Search a single flight" << endl;
@@ -826,6 +832,9 @@ void Menu::readFlights() {
     }
 }
 
+/**
+ * Manages all reading actions about services from the user
+ */
 void Menu::readServices() {
     int input; bool valid;
     cout << "\n1) See next service required" << endl;
@@ -852,6 +861,9 @@ void Menu::readServices() {
     }
 }
 
+/**
+ * Manages all reading actions about passengers from the user
+ */
 void Menu::readPassengers() {
     int input; bool valid;
     cout << "\n1) Search a single passenger" << endl;
@@ -897,6 +909,9 @@ void Menu::readPassengers() {
     }
 }
 
+/**
+ * Manages all reading actions about airports from the user
+ */
 void Menu::readAirports() {
     int input; bool valid;
     cout << "\n1) Search a single airport" << endl;
@@ -943,6 +958,9 @@ void Menu::readAirports() {
     }
 }
 
+/**
+ * Manages all reading actions about tickets from the user
+ */
 void Menu::readTickets() {
     int input, input2; bool valid;
     cout << "\n1) Search a set of tickets" << endl;
@@ -999,6 +1017,9 @@ void Menu::readTickets() {
 
 }
 
+/**
+ * Manages all reading actions about Local Transports from the user
+ */
 void Menu::readLocalTransports() {
     int input; bool valid;
     cout << "\n1) Search a set of Local Transports" << endl;
@@ -1026,6 +1047,15 @@ void Menu::readLocalTransports() {
     }
 }
 
+/**
+ * It checks if you can buy a ticket
+ * @param number number of tickets
+ * @param baggage number os baggages
+ * @param price price of the ticket
+ * @param passenger Passagenger
+ * @return true if it is able to buy a ticket, otherwise, return false
+ */
+
 bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
     int capacity = getPlaneWithFlightNumber(number)->getCapacity();
     if (getFlight(number)->getTickets().size() < capacity) {
@@ -1037,9 +1067,9 @@ bool Menu::buyTicket(int number, int baggage, int price, Passenger *passenger) {
 }
 
 /**
- * 
+ * It checks if a specific license plate doesn't have the same license plate of any other plane
  * @param lp License Plate of a Plane
- * @return 
+ * @return true if the specific license plate doesn't have the same license plate of any other plane, if it is the same, returns false
  */
 
 bool Menu::isPlaneLpUnique(string lp) {
@@ -2022,14 +2052,3 @@ void Menu::saveLocalTransports() {
     fileLocalTransports.close();
 }
 
-
-
-
-/*
-DOXYGEN NO FINAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NÃO ESQUECER!!!!!!!!!!!!!!!
- Organizar o texto e tratar de "limpar" o screen //já está a coisa de limpar o ecrã
- * antonio trata
- outras cenas
-Simulation - Carrinho
-
-*/

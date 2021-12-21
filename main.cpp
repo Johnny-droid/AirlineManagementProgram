@@ -15,18 +15,5 @@ int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     std::cout << "Airline Management Project" << std::endl;
     return RUN_ALL_TESTS();
-*/
+    */
 }
-
-
-//     Macaco da Sorte
-//          __
-//     w  c(..)o   (
-//      \__(-)    __)
-//          /\   (
-//         /(_)___)
-//         w /|
-//          | \
-//         m  m
-// Grande Macaco
-// :)

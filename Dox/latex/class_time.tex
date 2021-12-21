@@ -3,23 +3,17 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_time_ae3b6e4a0497a2e0d3e6006db35b7f8ec}\label{class_time_ae3b6e4a0497a2e0d3e6006db35b7f8ec}} 
-{\bfseries Time} (string time)
+\mbox{\hyperlink{class_time_ae3b6e4a0497a2e0d3e6006db35b7f8ec}{Time}} (string time)
 \item 
-\mbox{\Hypertarget{class_time_aacb846812dccbf244d52e0f237ad0026}\label{class_time_aacb846812dccbf244d52e0f237ad0026}} 
-int {\bfseries get\+Hour} () const
+int \mbox{\hyperlink{class_time_aacb846812dccbf244d52e0f237ad0026}{get\+Hour}} () const
 \item 
-\mbox{\Hypertarget{class_time_a809250b6139afebe7c41a1fe6c857172}\label{class_time_a809250b6139afebe7c41a1fe6c857172}} 
-int {\bfseries get\+Minute} () const
+int \mbox{\hyperlink{class_time_a809250b6139afebe7c41a1fe6c857172}{get\+Minute}} () const
 \item 
-\mbox{\Hypertarget{class_time_ac48113ad86fe3132dcc94d615e302826}\label{class_time_ac48113ad86fe3132dcc94d615e302826}} 
-string {\bfseries get\+String\+Time} () const
+string \mbox{\hyperlink{class_time_ac48113ad86fe3132dcc94d615e302826}{get\+String\+Time}} () const
 \item 
-\mbox{\Hypertarget{class_time_ac2cac2fd7b15177de1afa2b91a0b6f5f}\label{class_time_ac2cac2fd7b15177de1afa2b91a0b6f5f}} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{class_time}{Time}} \&time2)
+bool \mbox{\hyperlink{class_time_ac2cac2fd7b15177de1afa2b91a0b6f5f}{operator==}} (const \mbox{\hyperlink{class_time}{Time}} \&time2)
 \item 
-\mbox{\Hypertarget{class_time_a6a7364c46ea182294269ede6476b61dd}\label{class_time_a6a7364c46ea182294269ede6476b61dd}} 
-bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_time}{Time}} \&time2)
+bool \mbox{\hyperlink{class_time_a6a7364c46ea182294269ede6476b61dd}{operator$<$}} (const \mbox{\hyperlink{class_time}{Time}} \&time2)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -30,6 +24,78 @@ int {\bfseries hour}
 \mbox{\Hypertarget{class_time_a6c2e13147da34803a9784aa2b8bf8da8}\label{class_time_a6c2e13147da34803a9784aa2b8bf8da8}} 
 int {\bfseries minute}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_time_ae3b6e4a0497a2e0d3e6006db35b7f8ec}\label{class_time_ae3b6e4a0497a2e0d3e6006db35b7f8ec}} 
+\index{Time@{Time}!Time@{Time}}
+\index{Time@{Time}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{Time()}{Time()}}
+{\footnotesize\ttfamily Time\+::\+Time (\begin{DoxyParamCaption}\item[{string}]{time }\end{DoxyParamCaption})}
+
+Create a time object 
+\begin{DoxyParams}{Parameters}
+{\em time} & The string that represents a time\textquotesingle{}s hours and minutes in the model \textquotesingle{}HH\+:MM\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_time_aacb846812dccbf244d52e0f237ad0026}\label{class_time_aacb846812dccbf244d52e0f237ad0026}} 
+\index{Time@{Time}!getHour@{getHour}}
+\index{getHour@{getHour}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getHour()}{getHour()}}
+{\footnotesize\ttfamily int Time\+::get\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Hour represented by an integer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a809250b6139afebe7c41a1fe6c857172}\label{class_time_a809250b6139afebe7c41a1fe6c857172}} 
+\index{Time@{Time}!getMinute@{getMinute}}
+\index{getMinute@{getMinute}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getMinute()}{getMinute()}}
+{\footnotesize\ttfamily int Time\+::get\+Minute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Minute represented by an integer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_ac48113ad86fe3132dcc94d615e302826}\label{class_time_ac48113ad86fe3132dcc94d615e302826}} 
+\index{Time@{Time}!getStringTime@{getStringTime}}
+\index{getStringTime@{getStringTime}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getStringTime()}{getStringTime()}}
+{\footnotesize\ttfamily string Time\+::get\+String\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+A string that represents the time\textquotesingle{}s hours and minutes in the model \textquotesingle{}HH\+:MM\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a6a7364c46ea182294269ede6476b61dd}\label{class_time_a6a7364c46ea182294269ede6476b61dd}} 
+\index{Time@{Time}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Time\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_time}{Time}} \&}]{time2 }\end{DoxyParamCaption})}
+
+Check if a time object is before another one 
+\begin{DoxyParams}{Parameters}
+{\em time2} & The time object on the right side of the \texorpdfstring{$<$}{<} operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, if the first time object happens before the second one. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_ac2cac2fd7b15177de1afa2b91a0b6f5f}\label{class_time_ac2cac2fd7b15177de1afa2b91a0b6f5f}} 
+\index{Time@{Time}!operator==@{operator==}}
+\index{operator==@{operator==}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Time\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_time}{Time}} \&}]{time2 }\end{DoxyParamCaption})}
+
+Check if two time objects are considered equal 
+\begin{DoxyParams}{Parameters}
+{\em time2} & The time object on the right side of the == operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, if both time objects have the same hours and minutes 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

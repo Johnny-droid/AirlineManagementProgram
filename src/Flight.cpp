@@ -212,14 +212,14 @@ void Flight::setNumber(int newNumber){
 
 /**
  * It changes the flight's duration to a new one
- * @param newDuration The date to replace the old one
+ * @param newDuration The new duration
  */
 void Flight::setDuration(int newDuration){
     duration = newDuration;
 }
 
 /**
- * It prints all the tickets
+ * It prints a representation all ticket objects by showing their owner's name, baggage amount and price
  */
 void Flight::printTickets() {
     for (int i = 0; i < tickets.size(); i++) {
@@ -229,7 +229,7 @@ void Flight::printTickets() {
 }
 
 /**
- * It prints all characteristics of the flight ( the flight number, the duration of the flight, the date, number of tickets and the airport's origin and destiny )
+ * Print that represents the flight object by showing its number, duration, date of departure, the names of the airports where the journey starts and ends and the number of ticket objects
  */
 void Flight::print() {
     cout << "Flight  Number: \t" << number << "   Duration: \t" << duration << "   Date of Departure: \t" << dateDeparture.getStringDate() << endl;
@@ -238,7 +238,7 @@ void Flight::print() {
 }
 
 /**
- * Creates an Id for the airport in the origin of the journey
+ * Changes the ID of the airport where the journy begins to a new one
  * @param airport An airport
  */
 void Flight::setAirportOrigin(Airport *airport) {
@@ -246,7 +246,7 @@ void Flight::setAirportOrigin(Airport *airport) {
 }
 
 /**
- * Creates an Id for the airport in the destiny of the journey
+ * Changes the ID of the airport where the journy ends to a new one
  * @param airport An airport
  */
 void Flight::setAirportDestiny(Airport *airport) {
@@ -254,40 +254,40 @@ void Flight::setAirportDestiny(Airport *airport) {
 }
 
 /**
- * It compares two numbers from 2 flights
- * @param flight1 flight one
- * @param flight2 flight two
- * @return returns true if the number of the flight 1 is lower than the number of the flight 2, otherwise, returns false
+ * Compares two flights by their number
+ * @param flight1 The first flight
+ * @param flight2 The second flight
+ * @return True, if the first flight's number is smaller than the second flight's. False, if otherwise.
  */
 bool Flight::compareByNumber(const Flight &flight1, const Flight &flight2) {
     return flight1.getNumber() < flight2.getNumber();
 }
 
 /**
- * It compares two durations from 2 flights
- * @param flight1 flight one
- * @param flight2 flight two
- * @return returns true if the duration of the flight 1 is lower than the duration of the flight 2, otherwise, returns false
+ * Compares two flights by their duration
+ * @param flight1 The first flight
+ * @param flight2 The second flight
+ * @return True, if the first flight's duration is shorter than the second flight's. False, if otherwise.
  */
 bool Flight::compareByDuration(const Flight &flight1, const Flight &flight2) {
     return flight1.getDuration() < flight2.getDuration();
 }
 
 /**
- * It compares two dates from 2 flights
- * @param flight1 flight one
- * @param flight2 flight two
- * @return returns true if the date of the flight 1 is lower than the date of the flight 2, otherwise, returns false
+ * Compares two flights by their date
+ * @param flight1 The first flight
+ * @param flight2 The second flight
+ * @return True, if the first flight occurs before the second flight. False, if otherwise.
  */
 bool Flight::compareByDate(Flight &flight1, Flight &flight2) {
     return flight1.getDate() < flight2.getDate();
 }
 
 /**
- * It compares two number of tickets from 2 flights
- * @param flight1 flight one
- * @param flight2 flight two
- * @return returns true if the number of tickets of the flight 1 is lower than the number of tickets of the flight 2, otherwise, returns false
+ * Compares two flights by their amount of ticket objects
+ * @param flight1 The first flight
+ * @param flight2 The second flight
+ * @return True, if the first flight has less ticket objects than the second flight. False, if otherwise.
  */
 bool Flight::compareByNumberTickets(Flight &flight1, Flight &flight2) {
     return flight1.getTickets().size() < flight2.getTickets().size();

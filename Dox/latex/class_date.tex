@@ -3,17 +3,15 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_date_a5532efafed41fd5f8e013a61313200dc}\label{class_date_a5532efafed41fd5f8e013a61313200dc}} 
-{\bfseries Date} (string date)
+\mbox{\hyperlink{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}{Date}} ()
 \item 
-\mbox{\Hypertarget{class_date_a74bc4d786606196a483e33060ce9ba84}\label{class_date_a74bc4d786606196a483e33060ce9ba84}} 
-string {\bfseries get\+String\+Date} () const
+\mbox{\hyperlink{class_date_a5532efafed41fd5f8e013a61313200dc}{Date}} (string date)
 \item 
-\mbox{\Hypertarget{class_date_a1b25c7445adb24fc10c1b799cf39f7b1}\label{class_date_a1b25c7445adb24fc10c1b799cf39f7b1}} 
-bool {\bfseries operator==} (\mbox{\hyperlink{class_date}{Date}} date2)
+string \mbox{\hyperlink{class_date_a74bc4d786606196a483e33060ce9ba84}{get\+String\+Date}} () const
 \item 
-\mbox{\Hypertarget{class_date_ae7adf2bd8f834245479c73a82d40c935}\label{class_date_ae7adf2bd8f834245479c73a82d40c935}} 
-bool {\bfseries operator$<$} (\mbox{\hyperlink{class_date}{Date}} date2)
+bool \mbox{\hyperlink{class_date_a1b25c7445adb24fc10c1b799cf39f7b1}{operator==}} (\mbox{\hyperlink{class_date}{Date}} date2)
+\item 
+bool \mbox{\hyperlink{class_date_ae7adf2bd8f834245479c73a82d40c935}{operator$<$}} (\mbox{\hyperlink{class_date}{Date}} date2)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -27,6 +25,66 @@ int {\bfseries month}
 \mbox{\Hypertarget{class_date_a3eeced2ed56bc95d56782b9e738db8ea}\label{class_date_a3eeced2ed56bc95d56782b9e738db8ea}} 
 int {\bfseries year}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}\label{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a date object with the default values for day, month and year of \textquotesingle{}01-\/01-\/1000\textquotesingle{} \mbox{\Hypertarget{class_date_a5532efafed41fd5f8e013a61313200dc}\label{class_date_a5532efafed41fd5f8e013a61313200dc}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{string}]{date }\end{DoxyParamCaption})}
+
+Creates a date object 
+\begin{DoxyParams}{Parameters}
+{\em date} & The string that represents a date in the model \textquotesingle{}DD-\/\+MM-\/\+YYYY\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_date_a74bc4d786606196a483e33060ce9ba84}\label{class_date_a74bc4d786606196a483e33060ce9ba84}} 
+\index{Date@{Date}!getStringDate@{getStringDate}}
+\index{getStringDate@{getStringDate}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{getStringDate()}{getStringDate()}}
+{\footnotesize\ttfamily string Date\+::get\+String\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+A representation of the date in the string format \textquotesingle{}DD-\/\+MM-\/\+YYYY\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_ae7adf2bd8f834245479c73a82d40c935}\label{class_date_ae7adf2bd8f834245479c73a82d40c935}} 
+\index{Date@{Date}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Date\+::operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{date2 }\end{DoxyParamCaption})}
+
+Checks if a date is before another one 
+\begin{DoxyParams}{Parameters}
+{\em date2} & The date object on the right side of the \texorpdfstring{$<$}{<} operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the date on the left is before the one on the right. False, if otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_a1b25c7445adb24fc10c1b799cf39f7b1}\label{class_date_a1b25c7445adb24fc10c1b799cf39f7b1}} 
+\index{Date@{Date}!operator==@{operator==}}
+\index{operator==@{operator==}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Date\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{date2 }\end{DoxyParamCaption})}
+
+Checks if two dates are considered equal 
+\begin{DoxyParams}{Parameters}
+{\em date2} & The date object on the right side of the == operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if both dates have the same values for the attributes day, month and year 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

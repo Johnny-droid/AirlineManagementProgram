@@ -1,7 +1,7 @@
 #include "Plane.h"
 
 /**
- * Create a plane object with an empty vector for flight plans and empty queues for services completed and services to be done
+ * Creates a plane object with an empty vector for flight plans and empty queues for services completed and services to be done
  * @param licensePlate The plane's license plate
  * @param capacity The maximum amount of passengers that a plane can carry in a flight
  */
@@ -13,7 +13,7 @@ Plane::Plane(string licensePlate, int capacity) {
     this->servicesToBeDone = queue<Service>();
 }
 /**
- * Create a plane object
+ * Creates a plane object
  * @param licensePlate The plane's license plate
  * @param capacity The maximum amount of passengers that a plane can carry in a flight
  * @param flightPlan Vector with the all Flight objects that belong to the plane
