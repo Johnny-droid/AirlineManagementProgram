@@ -78,7 +78,7 @@ void Menu::save() {
  */
 void Menu::showMenu() {
     //clear maybe if possible
-    cout << "\nWhat would you like to do?" << endl;
+    cout << "\n What would you like to do?" << endl;
     cout << "\n     1) Create      " << endl;
     cout << "     2) Read        " << endl;
     cout << "     3) Update      " << endl;
@@ -91,7 +91,7 @@ void Menu::showMenu() {
  * Prints the class menu
  */
 void Menu::showClasses() {
-    cout << "     1) Planes           " << endl;
+    cout << "\n     1) Planes           " << endl;
     cout << "     2) Flights          " << endl;
     cout << "     3) Services         " << endl;
     cout << "     4) Airports         " << endl;
@@ -954,7 +954,7 @@ void Menu::readAirports() {
         } else {
             sort(airports.begin(), airports.end(), Airport::compareByNumberLocalTransports);
         }
-        printPassengers();
+        printAirports();
     }
 }
 
@@ -1213,7 +1213,7 @@ void Menu::create() {
             cout << "Please insert an ID for the passenger: \t" << endl;
             id = readInt();
             uniqueId = true;
-            if (isPassengerIdUnique(id)){
+            if (!isPassengerIdUnique(id)){
                 cout << "Another passenger already has this ID! \t" << endl;
                 uniqueId = false;
             }
@@ -1228,14 +1228,14 @@ void Menu::create() {
     else if (option == 7) {
         string typeTransport, times, date; int idAirport, distanceToAirport;
         printAirports();
-        cout << "Please insert the closest airport's ID: \t"; idAirport = readInt();
-        cout << "What is the type of transport: bus, train or subway? \t"; typeTransport = readString();
-        cout << "Please insert the times you want for this transport (format: 10:40 12:30 15:20): \t"; times = readString();
-        cout << "Please insert the distance to the airport: \t"; distanceToAirport = readInt();
+        cout << "Please insert the closest airport's ID: "; idAirport = readInt();
+        cout << "What is the type of transport: bus, train or subway? "; typeTransport = readString();
+        cout << "Please insert the distance to the airport: "; distanceToAirport = readInt();
+        cout << "Please insert the times you want for this transport (format: 10:40 12:30 15:20): "; times = readString();
         LocalTransport localTransport(this->getAirport(idAirport)->getBSTSize()+1, typeTransport, times, distanceToAirport);
+
         this->getAirport(idAirport)->getBST().insert(localTransport);
     }
-    pressEnterToContinue();
 }
 
 
@@ -1985,7 +1985,7 @@ void Menu::saveFlights() {
                                         flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate().getStringDate() << endl;
             } else {
                 fileFlights << flight.getNumber() << "," << plane.getLicensePlate() << "," << flight.getOrigin()->getId() << "," <<
-                flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate().getStringDate() << flight.getStackMax() << ","
+                flight.getDestiny()->getId() << "," << flight.getDuration() << "," << flight.getDate().getStringDate() << "," << flight.getStackMax() << ","
                 << flight.getCarriageMax() << "," << flight.getCartMax() << endl;
             }
         }
